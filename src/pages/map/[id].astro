@@ -1,0 +1,40 @@
+---
+import { signal, computed } from "@preact/signals";
+import Layout from "@/layouts/Layout.astro";
+import EsoMap from "@/components/EsoMap";
+import AreaList from "@/components/AreaList";
+import type { Area, MapData, PoiType } from "@/types";
+import dataInit from "@/initialize.json";
+
+export async function getStaticPaths({}) {
+  return dataInit.maps.map(({ id }: { id: number }) => ({ params: { id } }));
+}
+
+const { id } = Astro.params;
+
+const response = await fetch(
+  `${import.meta.env.PUBLIC_CDN_URL}/maps/${id}.json`
+);
+const data = (await response.json()) as MapData;
+const mapData = signal(data);
+
+const poiTypes = signal<PoiType[]>(dataInit.poi_types);
+
+const araeIds = [
+  1, 7, 9, 10, 12, 13, 16, 20, 22, 26, 27, 30, 61, 74, 75, 125, 143, 201, 227,
+  255, 256, 258, 300, 439, 660, 667, 994, 1006, 1060, 1126, 1313, 1349, 1429,
+  1484, 1552, 1555, 1654, 1719, 1747, 1814, 1850, 1863, 1887, 2021, 2035, 2114,
+  2119, 2212,
+];
+
+const collator = new Intl.Collator("zh");
+const areaList = dataInit.maps
+  .filter(({ id }) => araeIds.includes(id))
+  .map(({ id, name }) => ({ id, name }))
+  .sort((a, b) => collator.compare(a.name, b.name));
+---
+
+<Layout title={data.name}>
+  <AreaList client:load data={areaList} />
+  <EsoMap client:load mapData={mapData} poiTypes={poiTypes} />
+</Layout>
