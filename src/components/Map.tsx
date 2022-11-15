@@ -67,6 +67,7 @@ export default function Map({ mapData, selected }: MapProps) {
             circle_r={500}
             circle_x={MAP_SIZE / 2}
             circle_y={MAP_SIZE / 2}
+            name="泰姆瑞尔"
           />
         )}
         {mapData.value.paths.map((path) =>
@@ -139,6 +140,15 @@ function Circle(props: CircleProps) {
         cy={props.circle_y!}
         fill="transparent"
       />
+      <text
+        class="fill-slate-600"
+        font-size={MARKER_SIZE / 2}
+        x={props.circle_x!}
+        y={props.circle_y!}
+        text-anchor="middle"
+      >
+        {props.name}
+      </text>
     </Link>
   );
 }
