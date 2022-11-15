@@ -39,7 +39,7 @@ export default function Map({ mapData, selected }: MapProps) {
     });
 
     const parent = map.parentElement!;
-    parent.addEventListener("wheel", panzoom.zoomWithWheel);
+    parent.addEventListener("wheel", panzoom.zoomWithWheel, { passive: true });
     parent.addEventListener("dblclick", panzoom.zoomIn);
     parent.addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -57,7 +57,10 @@ export default function Map({ mapData, selected }: MapProps) {
     <div class="relative w-[100vh] h-full mx-auto border-slate-600">
       <h1 class="absolute z-10 p-2 font-medium">{mapData.value.name}</h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
-        <image href={`${import.meta.env.PUBLIC_CDN_URL}${mapData.value.file}`} width={MAP_SIZE} />
+        <image
+          href={`${import.meta.env.PUBLIC_CDN_URL}${mapData.value.file}`}
+          width={MAP_SIZE}
+        />
         {mapData.value.id === 439 && (
           <Circle
             map_id={27}
