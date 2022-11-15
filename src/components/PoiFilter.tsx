@@ -30,9 +30,14 @@ export default function PoiFilter({ poiTypes, selected }: PoiFilterProps) {
           } group flex w-full items-center py-1 text-xs text-white`}
           onClick={() => toggle(type.id)}
         >
-         <img class={`${
-            selected.value.includes(type.id) ? "opacity-100" : "opacity-50"
-         } mr-1 h-5 w-5`} src={`${import.meta.env.PUBLIC_CDN_URL}${type.icon}`} /> {type.name}
+          <img
+            class={`${
+              selected.value.includes(type.id) ? "opacity-100" : "opacity-50"
+            } mr-1 h-5 w-5`}
+            src={`${import.meta.env.PUBLIC_CDN_URL}${type.icon}`}
+            alt=""
+          />{" "}
+          {type.name}
         </button>
       ))}
     </div>
