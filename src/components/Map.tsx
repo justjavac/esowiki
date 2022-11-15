@@ -58,7 +58,7 @@ export default function Map({ mapData, selected }: MapProps) {
       <h1 class="absolute z-10 p-2 font-medium">{mapData.value.name}</h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
         <image
-          href={`${import.meta.env.PUBLIC_CDN_URL}${mapData.value.file}`}
+          href={`${import.meta.env.PUBLIC_CDN_URL}${mapData.value.file}?imageMogr2/format/webp`}
           width={MAP_SIZE}
         />
         {mapData.value.id === 439 && (
@@ -97,7 +97,7 @@ function Poi(props: PoiData) {
     >
       <image
         class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
-        href={`${import.meta.env.PUBLIC_CDN_URL}${props.icon}`}
+        href={`${import.meta.env.PUBLIC_CDN_URL}${props.icon}?imageMogr2/format/webp`}
         width={MARKER_SIZE}
         height={MARKER_SIZE}
         x={props.x * MAP_SIZE - MARKER_SIZE / 2}
