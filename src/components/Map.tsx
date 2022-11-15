@@ -1,3 +1,4 @@
+import type { ComponentChild } from "preact";
 import { Link, RoutableProps, route } from "preact-router";
 import { useEffect, useRef } from "preact/hooks";
 import { useComputed } from "@preact/signals";
@@ -146,15 +147,9 @@ function Path(props: PathProps) {
         fill="transparent"
       />
       {props.showName && (
-        <text
-          class="fill-slate-900 font-bold"
-          font-size={MARKER_SIZE / 2}
-          x={x}
-          y={y}
-          text-anchor="middle"
-        >
+        <Text x={x} y={y}>
           {props.name}
-        </text>
+        </Text>
       )}
     </Link>
   );
@@ -178,17 +173,31 @@ function Circle(props: CircleProps) {
         fill="transparent"
       />
       {props.showName && (
-        <text
-          class="fill-slate-900 font-bold"
-          font-size={MARKER_SIZE / 2}
-          x={props.circle_x!}
-          y={props.circle_y!}
-          text-anchor="middle"
-        >
+        <Text x={props.circle_x!} y={props.circle_y!}>
           {props.name}
-        </text>
+        </Text>
       )}
     </Link>
+  );
+}
+
+interface TextProps {
+  x: number;
+  y: number;
+  children: ComponentChild;
+}
+
+function Text(props: TextProps) {
+  return (
+    <text
+      class="fill-slate-900 font-bold"
+      font-size={MARKER_SIZE / 2}
+      x={props.x}
+      y={props.y}
+      text-anchor="middle"
+    >
+      {props.children}
+    </text>
   );
 }
 
