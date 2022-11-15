@@ -11,7 +11,7 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.PUBLIC_CDN_URL}/ico/deno.svg`} />
     <meta
       name="description"
       content="可交互的 ESO Map (上古卷轴OL)，可以查找天空碎片，任务，藏宝图，套装，地牢，等等"
