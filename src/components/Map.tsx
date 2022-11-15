@@ -39,7 +39,7 @@ export default function Map({ mapData, selected }: MapProps) {
     });
 
     const parent = map.parentElement!;
-    parent.addEventListener("wheel", panzoom.zoomWithWheel, { passive: true });
+    parent.addEventListener("wheel", panzoom.zoomWithWheel, { passive: false });
     parent.addEventListener("dblclick", panzoom.zoomIn);
     parent.addEventListener("contextmenu", (e) => {
       e.preventDefault();
@@ -54,7 +54,7 @@ export default function Map({ mapData, selected }: MapProps) {
   }, []);
 
   return (
-    <div class="relative w-[100vh] h-full mx-auto border-slate-600">
+    <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">
       <h1 class="absolute z-10 p-2 font-medium">{mapData.value.name}</h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
         <image
@@ -92,6 +92,7 @@ function Poi(props: PoiData) {
           ? `/map/${props.sub_zone_map_ids[0]}`
           : undefined
       }
+      aria-label={props.name}
     >
       <image
         class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
@@ -109,11 +110,11 @@ function Poi(props: PoiData) {
   );
 }
 
-type PathProps = Pick<PathData, "svg_path" | "map_id">;
+type PathProps = Pick<PathData, "svg_path" | "map_id" | "name">;
 
 function Path(props: PathProps) {
   return (
-    <Link href={`/map/${props.map_id}`}>
+    <Link href={`/map/${props.map_id}`} aria-label={props.name}>
       <polygon
         class="hover:fill-[#e0af705d]"
         points={props.svg_path}
@@ -125,12 +126,12 @@ function Path(props: PathProps) {
 
 type CircleProps = Pick<
   PathData,
-  "map_id" | "circle_r" | "circle_x" | "circle_y"
+  "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
 >;
 
 function Circle(props: CircleProps) {
   return (
-    <Link href={`/map/${props.map_id}`}>
+    <Link href={`/map/${props.map_id}`} aria-label={props.name}>
       <circle
         class="hover:fill-[#e0af705d]"
         r={props.circle_r!}

@@ -19,6 +19,7 @@ export interface PathData {
   id: string;
   parent_id: number;
   map_id: number;
+  name: string;
   circle_x: number | null;
   circle_y: number | null;
   circle_r: number | null;
