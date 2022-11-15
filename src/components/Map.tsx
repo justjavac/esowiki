@@ -58,7 +58,9 @@ export default function Map({ mapData, selected }: MapProps) {
       <h1 class="absolute z-10 p-2 font-medium">{mapData.value.name}</h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
         <image
-          href={`${import.meta.env.PUBLIC_CDN_URL}${mapData.value.file}?imageMogr2/format/webp`}
+          href={`${import.meta.env.PUBLIC_CDN_URL}${
+            mapData.value.file
+          }?imageMogr2/format/webp`}
           width={MAP_SIZE}
         />
         {mapData.value.id === 439 && (
@@ -68,13 +70,18 @@ export default function Map({ mapData, selected }: MapProps) {
             circle_x={MAP_SIZE / 2}
             circle_y={MAP_SIZE / 2}
             name="泰姆瑞尔"
+            showName
           />
         )}
         {mapData.value.paths.map((path) =>
           path.svg_path ? (
-            <Path key={path.id} {...path} />
+            <Path key={path.id} {...path} showName={mapData.value.id === 27} />
           ) : (
-            <Circle key={path.id} {...path} />
+            <Circle
+              key={path.id}
+              {...path}
+              showName={mapData.value.id === 439}
+            />
           )
         )}
         {pois.value.map((poi) => (
@@ -97,7 +104,9 @@ function Poi(props: PoiData) {
     >
       <image
         class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
-        href={`${import.meta.env.PUBLIC_CDN_URL}${props.icon}?imageMogr2/format/webp`}
+        href={`${import.meta.env.PUBLIC_CDN_URL}${
+          props.icon
+        }?imageMogr2/format/webp`}
         width={MARKER_SIZE}
         height={MARKER_SIZE}
         x={props.x * MAP_SIZE - MARKER_SIZE / 2}
@@ -111,9 +120,24 @@ function Poi(props: PoiData) {
   );
 }
 
-type PathProps = Pick<PathData, "svg_path" | "map_id" | "name">;
+type PathProps = Pick<PathData, "svg_path" | "map_id" | "name"> & {
+  showName: boolean;
+};
 
 function Path(props: PathProps) {
+  const points = props.svg_path.split(" ").map((point) => {
+    const [x, y] = point.split(",").map(Number);
+    return { x, y };
+  });
+
+  const minX = Math.min(...points.map((point) => point.x));
+  const maxX = Math.max(...points.map((point) => point.x));
+  const minY = Math.min(...points.map((point) => point.y));
+  const maxY = Math.max(...points.map((point) => point.y));
+
+  const x = (minX + maxX) / 2;
+  const y = (minY + maxY) / 2;
+
   return (
     <Link href={`/map/${props.map_id}`} aria-label={props.name}>
       <polygon
@@ -121,6 +145,17 @@ function Path(props: PathProps) {
         points={props.svg_path}
         fill="transparent"
       />
+      {props.showName && (
+        <text
+          class="fill-slate-900 font-bold"
+          font-size={MARKER_SIZE / 2}
+          x={x}
+          y={y}
+          text-anchor="middle"
+        >
+          {props.name}
+        </text>
+      )}
     </Link>
   );
 }
@@ -128,7 +163,9 @@ function Path(props: PathProps) {
 type CircleProps = Pick<
   PathData,
   "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
->;
+> & {
+  showName: boolean;
+};
 
 function Circle(props: CircleProps) {
   return (
@@ -140,15 +177,17 @@ function Circle(props: CircleProps) {
         cy={props.circle_y!}
         fill="transparent"
       />
-      <text
-        class="fill-slate-600"
-        font-size={MARKER_SIZE / 2}
-        x={props.circle_x!}
-        y={props.circle_y!}
-        text-anchor="middle"
-      >
-        {props.name}
-      </text>
+      {props.showName && (
+        <text
+          class="fill-slate-900 font-bold"
+          font-size={MARKER_SIZE / 2}
+          x={props.circle_x!}
+          y={props.circle_y!}
+          text-anchor="middle"
+        >
+          {props.name}
+        </text>
+      )}
     </Link>
   );
 }
