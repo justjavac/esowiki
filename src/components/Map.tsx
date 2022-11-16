@@ -1,21 +1,18 @@
 import type { ComponentChild } from "preact";
-import { Link, RoutableProps, route } from "preact-router";
-import { useEffect, useRef } from "preact/hooks";
+import { Link, RoutableProps } from "preact-router";
 import { useComputed } from "@preact/signals";
 import type { Signal } from "@preact/signals";
-import Panzoom, { CurrentValues } from "@panzoom/panzoom";
 import type { MapData, PathData, PoiData } from "@/types";
-
-const MAP_SIZE = 1600;
-const MARKER_SIZE = 64;
+import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
+import { usePanZoom } from "@/hooks";
 
 interface MapProps extends RoutableProps {
   mapData: Signal<MapData>;
   selected: Signal<number[]>;
 }
 
-export default function Map({ mapData, selected }: MapProps) {
-  const mapRef = useRef<SVGSVGElement>(null);
+export function Map({ mapData, selected }: MapProps) {
+  const mapRef = usePanZoom(mapData);
 
   const pois = useComputed(() => {
     return mapData.value.pois.filter((poi) =>
@@ -23,45 +20,12 @@ export default function Map({ mapData, selected }: MapProps) {
     );
   });
 
-  useEffect(() => {
-    const map = mapRef.current!;
-
-    const panzoom = Panzoom(map, {
-      contain: "outside",
-      setTransform(elem: SVGSVGElement, { scale, x, y }: CurrentValues) {
-        panzoom.setStyle(
-          "transform",
-          `scale(${scale}) translate(${x}px, ${y}px)`
-        );
-        map.querySelectorAll<SVGImageElement>(".poi").forEach((poi) => {
-          adjustPoi(scale, poi);
-        });
-      },
-    });
-
-    const parent = map.parentElement!;
-    parent.addEventListener("wheel", panzoom.zoomWithWheel, { passive: false });
-    parent.addEventListener("dblclick", panzoom.zoomIn);
-    parent.addEventListener("contextmenu", (e) => {
-      e.preventDefault();
-      if (mapData.value.parent_map_id == null) return;
-
-      route(`/map/${mapData.value.parent_map_id}`);
-    });
-
-    return () => {
-      panzoom.destroy();
-    };
-  }, []);
-
   return (
     <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">
       <h1 class="absolute z-10 p-2 font-medium">{mapData.value.name}</h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
         <image
-          href={`${import.meta.env.PUBLIC_CDN_URL}${
-            mapData.value.file
-          }?imageMogr2/format/webp`}
+          href={`${CDN_URL}${mapData.value.file}?imageMogr2/format/webp`}
           width={MAP_SIZE}
         />
         {mapData.value.id === 439 && (
@@ -105,9 +69,7 @@ function Poi(props: PoiData) {
     >
       <image
         class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
-        href={`${import.meta.env.PUBLIC_CDN_URL}${
-          props.icon
-        }?imageMogr2/format/webp`}
+        href={`${CDN_URL}${props.icon}?imageMogr2/format/webp`}
         width={MARKER_SIZE}
         height={MARKER_SIZE}
         x={props.x * MAP_SIZE - MARKER_SIZE / 2}
@@ -199,14 +161,4 @@ function Text(props: TextProps) {
       {props.children}
     </text>
   );
-}
-
-function adjustPoi(scale: number, poi: SVGImageElement) {
-  const size = MARKER_SIZE / scale;
-  const x = parseFloat(poi.dataset.x!) * MAP_SIZE - size / 2;
-  const y = parseFloat(poi.dataset.y!) * MAP_SIZE - size / 2;
-  poi.setAttribute("width", `${size}px`);
-  poi.setAttribute("height", `${size}px`);
-  poi.setAttribute("x", `${x}px`);
-  poi.setAttribute("y", `${y}px`);
 }

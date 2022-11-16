@@ -1,4 +1,6 @@
 ---
+import { CDN_URL } from "@/consts";
+
 export interface Props {
   title?: string;
 }
@@ -11,16 +13,17 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.PUBLIC_CDN_URL}/ico/deno.svg`} />
+    <link rel="icon" type="image/svg+xml" href={`${CDN_URL}/ico/deno.svg`} />
     <meta
       name="description"
       content="可交互的 ESO Map (上古卷轴OL)，可以查找天空碎片，任务，藏宝图，套装，地牢，等等"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>{title && `${title} - `}上古卷轴OL在线地图 - Elder Scrolls Online Map</title>
+    <title>
+      {title && `${title} - `}上古卷轴OL在线地图 - Elder Scrolls Online Map
+    </title>
   </head>
   <body>
     <slot />
   </body>
 </html>
-

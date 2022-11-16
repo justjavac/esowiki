@@ -1,17 +1,17 @@
 import Router from "preact-router";
 import { useSignal, useComputed } from "@preact/signals";
 import type { Signal } from "@preact/signals";
-import type { MapData, PoiType } from "@/types";
-import PoiFilter from "@/components/PoiFilter";
-import Map from "@/components/Map";
 import { useEffect } from "preact/hooks";
+import { CDN_URL } from "@/consts";
+import type { MapData, PoiType } from "@/types";
+import { PoiFilter, Map } from ".";
 
 interface EsoMapProps {
   mapData: Signal<MapData>;
   poiTypes: Signal<PoiType[]>;
 }
 
-export default function EsoMap({ mapData, poiTypes }: EsoMapProps) {
+export function EsoMap({ mapData, poiTypes }: EsoMapProps) {
   const selectedPoiIds = useSignal<number[]>([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 21,
   ]);
@@ -31,7 +31,7 @@ export default function EsoMap({ mapData, poiTypes }: EsoMapProps) {
         onChange={async (r) => {
           if (r.previous == null) return;
           if (r.matches?.id == null) return;
-          const response = await fetch(`${import.meta.env.PUBLIC_CDN_URL}/maps/${r.matches.id}.json`);
+          const response = await fetch(`${CDN_URL}/maps/${r.matches.id}.json`);
           mapData.value = await response.json();
         }}
       >

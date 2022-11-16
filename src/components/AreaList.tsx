@@ -5,7 +5,7 @@ interface AreaListProps {
   data: Pick<Area, "id" | "name">[];
 }
 
-export default function AreaList({ data }: AreaListProps) {
+export function AreaList({ data }: AreaListProps) {
   const [params] = useRouter();
   const current = Number(params.matches?.id);
 
