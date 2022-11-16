@@ -1,5 +1,5 @@
 import { CDN_URL } from "@/consts";
-import { housingOnMap } from "@/store";
+import { housingOnMap, panzoom } from "@/store";
 
 export function Housing() {
   if (!housingOnMap.value.length) {
@@ -9,7 +9,10 @@ export function Housing() {
   return (
     <>
       {housingOnMap.value.map((house) => (
-        <button class="group flex w-full items-center py-1">
+        <button
+          class="group flex w-full items-center py-1"
+          onClick={() => panzoom.value?.pan(house.x, house.y)}
+        >
           <img
             class="mr-1 h-5 w-5"
             src={`${CDN_URL}${house.icon}?imageMogr2/format/webp`}

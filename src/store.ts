@@ -1,5 +1,8 @@
 import { batch, computed, effect, signal } from "@preact/signals";
+import type { PanzoomObject } from "@panzoom/panzoom";
 import type { MapData, PoiType } from "@/types";
+
+export const panzoom = signal<PanzoomObject | null>(null);
 
 export const mapData = signal<MapData>(null!);
 export const poiTypes = signal<PoiType[]>([]);

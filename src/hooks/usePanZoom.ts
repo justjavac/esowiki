@@ -2,21 +2,20 @@ import { route, useRouter } from "preact-router";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 import Panzoom, { CurrentValues, PanzoomObject } from "@panzoom/panzoom";
 import { MAP_SIZE, MARKER_SIZE } from "@/consts";
-import { mapData } from "@/store";
+import { mapData, panzoom } from "@/store";
 
 export function usePanZoom() {
   const mapRef = useRef<SVGSVGElement>(null);
-  const panzoomRef = useRef<PanzoomObject | null>();
   const [{ url }] = useRouter();
 
   useEffect(() => {
     if (!mapRef.current) return;
 
     const map = mapRef.current;
-    const panzoom = Panzoom(map, {
+    panzoom.value = Panzoom(map, {
       contain: "outside",
       setTransform(elem: SVGSVGElement, { scale, x, y }: CurrentValues) {
-        panzoom.setStyle(
+        panzoom.value?.setStyle(
           "transform",
           `scale(${scale}) translate(${x}px, ${y}px)`,
         );
@@ -25,11 +24,10 @@ export function usePanZoom() {
         });
       },
     });
-    panzoomRef.current = panzoom;
 
     const parent = map.parentElement!;
-    parent.addEventListener("wheel", panzoom.zoomWithWheel, { passive: false });
-    parent.addEventListener("dblclick", panzoom.zoomIn);
+    parent.addEventListener("wheel", panzoom.value.zoomWithWheel, { passive: false });
+    parent.addEventListener("dblclick", panzoom.value.zoomIn);
     parent.addEventListener("contextmenu", (e) => {
       e.preventDefault();
       if (mapData.value.parent_map_id == null) return;
@@ -38,10 +36,11 @@ export function usePanZoom() {
     });
 
     return () => {
-      parent.removeEventListener("wheel", panzoom.zoomWithWheel);
-      parent.removeEventListener("dblclick", panzoom.zoomIn);
-      panzoomRef.current = null;
-      panzoom.destroy();
+      if (!panzoom.value) return;
+      parent.removeEventListener("wheel", panzoom.value.zoomWithWheel);
+      parent.removeEventListener("dblclick", panzoom.value.zoomIn);
+      panzoom.value.destroy();
+      panzoom.value = null;
     };
   }, []);
 
@@ -53,7 +52,7 @@ export function usePanZoom() {
 
   useEffect(() => {
     if (!mapRef.current) return;
-    if (!panzoomRef.current) return;
+    if (!panzoom.value) return;
 
     const parent = mapRef.current.parentElement!;
     parent.addEventListener("contextmenu", backToParent);
@@ -64,7 +63,7 @@ export function usePanZoom() {
   }, [mapData.value.parent_map_id]);
 
   useEffect(() => {
-    panzoomRef.current?.reset({animate: false});
+    panzoom.value?.reset({animate: false});
   }, [url]);
 
   return mapRef;
