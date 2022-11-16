@@ -1,18 +1,20 @@
 import { CDN_URL } from "@/consts";
 import { selectedPoiIds, togglePoiType, poiTypesOnMap } from "@/store";
 
-export function PoiFilter() {
-  if (!poiTypesOnMap.value.length) return null;
+export function Filters() {
+  if (!poiTypesOnMap.value.length) {
+    return <div class="w-full pt-1 text-center">当前地图没有兴趣点。</div>;
+  }
 
   return (
-    <div class="absolute top-5 right-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80 overflow-y-auto scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
+    <>
       {poiTypesOnMap.value.map((type) => (
         <button
           class={`${
             selectedPoiIds.value.includes(type.id)
               ? "opacity-100"
               : "opacity-50"
-          } group flex w-full items-center py-1 text-xs text-white`}
+          } group flex w-full items-center py-1`}
           onClick={() => togglePoiType(type.id)}
         >
           <img
@@ -27,6 +29,6 @@ export function PoiFilter() {
           {type.name}
         </button>
       ))}
-    </div>
+    </>
   );
 }

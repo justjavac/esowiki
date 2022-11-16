@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { EsoMap, AreaList, PoiFilter } from "@/components";
+import { EsoMap, AreaList, Sidebar } from "@/components";
 import type { MapData, PoiType } from "@/types";
 import dataInit from "@/initialize.json";
 import { CDN_URL } from "@/consts";
@@ -37,5 +37,5 @@ const areaList = dataInit.maps
 <Layout title={mapData.name}>
   <AreaList client:load data={areaList} />
   <EsoMap client:load mapData={mapData} poiTypes={poiTypes} />
-  <PoiFilter client:only />
+  <Sidebar client:only />
 </Layout>

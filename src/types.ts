@@ -52,3 +52,11 @@ export interface PoiType {
 }
 
 export type Area = Pick<MapData, "id" | "name" | "file" | "parent_map_id">;
+
+export type IconType =
+  | "quests"
+  | "filters"
+  | "housing"
+  | "key"
+  | "locations"
+  | "achievements";
