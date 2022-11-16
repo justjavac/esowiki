@@ -2926,10 +2926,10 @@ pkg-up@^3.1.0:
   dependencies:
     find-up "^3.0.0"
 
-please-use-yarn@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmmirror.com/please-use-yarn/-/please-use-yarn-1.2.1.tgz#96d1126151b3b44beadc4c8868457d3e0f4ca534"
-  integrity sha512-1ACbqGhY1fdeM6aFvOcqHwy5i3IQPNt6Xt+D9Oe41rAlxdIHZX0Cqp02dk1IUhaU40rMH+rlSlZdFOkQlskE2Q==
+please-use-yarn@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmmirror.com/please-use-yarn/-/please-use-yarn-1.2.2.tgz#961e621f54120c245fe754464e64652f4319530e"
+  integrity sha512-RC9ViblT7AATwyiz9UP3mhfevTTxbmOQmwwlm8SWqHtxYHJapRHthgUn+XT6OxEwuVS8rvqn+25/KmjZ/pd+aA==
 
 postcss-import@^14.1.0:
   version "14.1.0"
