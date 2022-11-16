@@ -14,9 +14,13 @@ export const poiTypesOnMap = computed(() => {
 });
 
 export const poisOnMap = computed(() => {
-  return mapData.value.pois.filter((poi) =>
-    selectedPoiIds.value.includes(poi.type)
-  );
+  const achievements = mapData.value.achievements
+    .filter((x) => selectedAchievementIds.value.includes(x.id))
+    .flatMap((x) => x.pois);
+
+  return mapData.value.pois
+    .filter((poi) => selectedPoiIds.value.includes(poi.type))
+    .concat(achievements);
 });
 
 export function togglePoiType(id: number) {
@@ -29,8 +33,8 @@ export function togglePoiType(id: number) {
 
 export function toggleAchievementType(id: number) {
   if (selectedAchievementIds.value.includes(id)) {
-    selectedAchievementIds.value = selectedAchievementIds.value.filter((x) =>
-      x !== id
+    selectedAchievementIds.value = selectedAchievementIds.value.filter(
+      (x) => x !== id,
     );
   } else {
     selectedAchievementIds.value = [...selectedAchievementIds.value, id];
