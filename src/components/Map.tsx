@@ -1,24 +1,17 @@
 import type { ComponentChild } from "preact";
 import { Link, RoutableProps } from "preact-router";
-import { useComputed } from "@preact/signals";
-import type { Signal } from "@preact/signals";
-import type { MapData, PathData, PoiData } from "@/types";
+import type { PathData, PoiData } from "@/types";
 import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { usePanZoom } from "@/hooks";
-import { selectedPoiIds } from "@/store";
+import { mapData, poisOnMap } from "@/store";
+import { useEffect } from "preact/hooks";
 
-interface MapProps extends RoutableProps {
-  mapData: Signal<MapData>;
-}
-
-export function Map({ mapData }: MapProps) {
+export function Map(props: RoutableProps) {
   const mapRef = usePanZoom(mapData);
 
-  const pois = useComputed(() => {
-    return mapData.value.pois.filter((poi) =>
-      selectedPoiIds.value.includes(poi.type)
-    );
-  });
+  useEffect(() => {
+    document.title = `${mapData.peek().name} - 上古卷轴OL在线地图 - Elder Scrolls Online Map`;
+  }, [mapData.peek().name]);
 
   return (
     <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">
@@ -49,7 +42,7 @@ export function Map({ mapData }: MapProps) {
             />
           )
         )}
-        {pois.value.map((poi) => (
+        {poisOnMap.value.map((poi) => (
           <Poi key={poi.id} {...poi} />
         ))}
       </svg>

@@ -1,8 +1,7 @@
 ---
-import { signal, computed } from "@preact/signals";
 import Layout from "@/layouts/Layout.astro";
-import { EsoMap, AreaList } from "@/components";
-import type { Area, MapData, PoiType } from "@/types";
+import { EsoMap, AreaList, PoiFilter } from "@/components";
+import type { MapData, PoiType } from "@/types";
 import dataInit from "@/initialize.json";
 import { CDN_URL } from "@/consts";
 
@@ -13,10 +12,13 @@ export async function getStaticPaths({}) {
 const { id } = Astro.params;
 
 const response = await fetch(`${CDN_URL}/maps/${id}.json`);
-const data = (await response.json()) as MapData;
-const mapData = signal(data);
 
-const poiTypes = signal<PoiType[]>(dataInit.poi_types);
+if (response.status === 404) {
+  return Astro.redirect("/404");
+}
+
+const mapData = (await response.json()) as MapData;
+const poiTypes = dataInit.poi_types as PoiType[];
 
 const areaIds = [
   1, 7, 9, 10, 12, 13, 16, 20, 22, 26, 27, 30, 61, 74, 75, 125, 143, 201, 227,
@@ -32,7 +34,8 @@ const areaList = dataInit.maps
   .sort((a, b) => collator.compare(a.name, b.name));
 ---
 
-<Layout title={data.name}>
+<Layout title={mapData.name}>
   <AreaList client:load data={areaList} />
   <EsoMap client:load mapData={mapData} poiTypes={poiTypes} />
+  <PoiFilter client:only />
 </Layout>

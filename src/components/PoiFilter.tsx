@@ -1,19 +1,12 @@
-import { useCallback } from "preact/hooks";
-import type { Signal } from "@preact/signals";
-import type { PoiType } from "@/types";
 import { CDN_URL } from "@/consts";
-import { selectedPoiIds, togglePoiType } from "@/store";
+import { selectedPoiIds, togglePoiType, poiTypesOnMap } from "@/store";
 
-interface PoiFilterProps {
-  poiTypes: Signal<PoiType[]>;
-}
-
-export function PoiFilter({ poiTypes }: PoiFilterProps) {
-  if (!poiTypes.value.length) return null;
+export function PoiFilter() {
+  if (!poiTypesOnMap.value.length) return null;
 
   return (
     <div class="absolute top-5 right-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80 overflow-y-auto">
-      {poiTypes.value.map((type) => (
+      {poiTypesOnMap.value.map((type) => (
         <button
           class={`${
             selectedPoiIds.value.includes(type.id)
