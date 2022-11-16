@@ -5,6 +5,7 @@ export const mapData = signal<MapData>(null!);
 export const poiTypes = signal<PoiType[]>([]);
 
 export const selectedPoiIds = signal<number[]>([]);
+export const selectedAchievementIds = signal<number[]>([]);
 
 export const poiTypesOnMap = computed(() => {
   return poiTypes.value.filter((poi) =>
@@ -26,6 +27,16 @@ export function togglePoiType(id: number) {
   }
 }
 
+export function toggleAchievementType(id: number) {
+  if (selectedAchievementIds.value.includes(id)) {
+    selectedAchievementIds.value = selectedAchievementIds.value.filter((x) =>
+      x !== id
+    );
+  } else {
+    selectedAchievementIds.value = [...selectedAchievementIds.value, id];
+  }
+}
+
 export function initAppState(data: MapData, types: PoiType[]) {
   batch(() => {
     mapData.value = data;
@@ -40,11 +51,20 @@ function setupBrowser() {
   const defaultIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21];
   selectedPoiIds.value =
     JSON.parse(localStorage.getItem("selectedPoiIds") as string) ?? defaultIds;
+  selectedAchievementIds.value =
+    JSON.parse(localStorage.getItem("selectedAchievementIds") as string) ?? [];
 
   effect(() => {
     localStorage.setItem(
       "selectedPoiIds",
       JSON.stringify(selectedPoiIds.value),
+    );
+  });
+
+  effect(() => {
+    localStorage.setItem(
+      "selectedAchievementIds",
+      JSON.stringify(selectedAchievementIds.value),
     );
   });
 

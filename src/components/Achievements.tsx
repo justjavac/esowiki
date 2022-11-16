@@ -1,30 +1,36 @@
 import { CDN_URL } from "@/consts";
-import { selectedPoiIds, togglePoiType, poiTypesOnMap } from "@/store";
+import {
+  selectedAchievementIds,
+  toggleAchievementType,
+  mapData,
+} from "@/store";
 
 export function Achievements() {
-  if (!poiTypesOnMap.value.length) return null;
+  if (!mapData.value.achievements.length) {
+    return <div class="w-full pt-1 text-center">当前地图没有成就点。</div>;
+  }
 
   return (
     <>
-      {poiTypesOnMap.value.map((type) => (
+      {mapData.value.achievements.map((x) => (
         <button
           class={`${
-            selectedPoiIds.value.includes(type.id)
+            selectedAchievementIds.value.includes(x.id)
               ? "opacity-100"
               : "opacity-50"
           } group flex w-full items-center py-1`}
-          onClick={() => togglePoiType(type.id)}
+          onClick={() => toggleAchievementType(x.id)}
         >
           <img
             class={`${
-              selectedPoiIds.value.includes(type.id)
+              selectedAchievementIds.value.includes(x.id)
                 ? "opacity-100"
                 : "opacity-50"
             } mr-1 h-5 w-5`}
-            src={`${CDN_URL}${type.icon}?imageMogr2/format/webp`}
+            src={`${CDN_URL}${x.icon}?imageMogr2/format/webp`}
             alt=""
           />{" "}
-          {type.name}
+          {x.name}
         </button>
       ))}
     </>

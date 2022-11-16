@@ -1,5 +1,5 @@
 import { signal, useComputed } from "@preact/signals";
-import { Filters } from "@/components";
+import { Achievements, Filters } from "@/components";
 import { CDN_URL } from "@/consts";
 import type { IconType } from "@/types";
 
@@ -15,7 +15,7 @@ export function Sidebar() {
       case "filters":
         return <Filters />;
       case "achievements":
-        return <div>成就</div>;
+        return <Achievements />;
       case "housing":
         return <div>Housing</div>;
       default:
@@ -29,8 +29,8 @@ export function Sidebar() {
         <Icon type="quests" title="任务" />
         <Icon type="key" title="" />
         <Icon type="filters" title="筛选" />
-        <Icon type="housing" title="房屋" />
         <Icon type="achievements" title="成就" />
+        <Icon type="housing" title="房屋" />
       </div>
       <div class="w-full h-full p-2 text-xs text-white overflow-y-auto scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
         {activeComponent.value}
@@ -54,7 +54,12 @@ function Icon({ type, title }: IconProps) {
 
   return (
     <div class="w-full pb-1 text-sm font-medium text-blue-700">
-      <img src={src} alt="" onClick={() => (active.value = type)} title={title} />
+      <img
+        src={src}
+        alt=""
+        onClick={() => (active.value = type)}
+        title={title}
+      />
     </div>
   );
 }
