@@ -6,19 +6,6 @@ export const poiTypes = signal<PoiType[]>([]);
 
 export const selectedPoiIds = signal<number[]>([]);
 
-if (!import.meta.env.SSR) {
-  const defaultIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21];
-  selectedPoiIds.value =
-    JSON.parse(localStorage.getItem("selectedPoiIds") as string) ?? defaultIds;
-
-  effect(() => {
-    localStorage.setItem(
-      "selectedPoiIds",
-      JSON.stringify(selectedPoiIds.value),
-    );
-  });
-}
-
 export const poiTypesOnMap = computed(() => {
   return poiTypes.value.filter((poi) =>
     mapData.value?.pois.find((p) => p.type === poi.id)
@@ -43,5 +30,28 @@ export function initAppState(data: MapData, types: PoiType[]) {
   batch(() => {
     mapData.value = data;
     poiTypes.value = types;
+  });
+  setupBrowser();
+}
+
+function setupBrowser() {
+  if (import.meta.env.SSR) return;
+
+  const defaultIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21];
+  selectedPoiIds.value =
+    JSON.parse(localStorage.getItem("selectedPoiIds") as string) ?? defaultIds;
+
+  effect(() => {
+    localStorage.setItem(
+      "selectedPoiIds",
+      JSON.stringify(selectedPoiIds.value),
+    );
+  });
+
+  effect(() => {
+    document.title = document.title.replace(
+      /^(.*?)( - .*)$/,
+      `${mapData.value.name}$2`,
+    );
   });
 }
