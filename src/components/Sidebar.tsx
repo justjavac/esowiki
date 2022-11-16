@@ -1,5 +1,5 @@
 import { signal, useComputed } from "@preact/signals";
-import { Achievements, Filters } from "@/components";
+import { Achievements, Filters, Housing } from "@/components";
 import { CDN_URL } from "@/consts";
 import type { IconType } from "@/types";
 
@@ -17,7 +17,7 @@ export function Sidebar() {
       case "achievements":
         return <Achievements />;
       case "housing":
-        return <div>Housing</div>;
+        return <Housing />;
       default:
         return null;
     }

@@ -23,6 +23,10 @@ export const poisOnMap = computed(() => {
     .concat(achievements);
 });
 
+export const housingOnMap = computed(() => {
+  return poisOnMap.value.filter((poi) => poi.type === 14);
+});
+
 export function togglePoiType(id: number) {
   if (selectedPoiIds.value.includes(id)) {
     selectedPoiIds.value = selectedPoiIds.value.filter((x) => x !== id);

@@ -6,7 +6,7 @@ import { usePanZoom } from "@/hooks";
 import { mapData, poisOnMap } from "@/store";
 
 export function Map(props: RoutableProps) {
-  const mapRef = usePanZoom(mapData);
+  const mapRef = usePanZoom();
 
   return (
     <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">

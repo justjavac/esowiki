@@ -1,11 +1,10 @@
 import { route, useRouter } from "preact-router";
 import { useCallback, useEffect, useRef } from "preact/hooks";
-import type { Signal } from "@preact/signals";
 import Panzoom, { CurrentValues, PanzoomObject } from "@panzoom/panzoom";
-import type { MapData } from "@/types";
 import { MAP_SIZE, MARKER_SIZE } from "@/consts";
+import { mapData } from "@/store";
 
-export function usePanZoom(mapData: Signal<MapData>) {
+export function usePanZoom() {
   const mapRef = useRef<SVGSVGElement>(null);
   const panzoomRef = useRef<PanzoomObject | null>();
   const [{ url }] = useRouter();
