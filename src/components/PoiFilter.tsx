@@ -2,24 +2,13 @@ import { useCallback } from "preact/hooks";
 import type { Signal } from "@preact/signals";
 import type { PoiType } from "@/types";
 import { CDN_URL } from "@/consts";
+import { selectedPoiIds, togglePoiType } from "@/store";
 
 interface PoiFilterProps {
   poiTypes: Signal<PoiType[]>;
-  selected: Signal<number[]>;
 }
 
-export function PoiFilter({ poiTypes, selected }: PoiFilterProps) {
-  const toggle = useCallback(
-    (id: number) => {
-      if (selected.value.includes(id)) {
-        selected.value = selected.value.filter((x) => x !== id);
-      } else {
-        selected.value = [...selected.value, id];
-      }
-    },
-    [selected]
-  );
-
+export function PoiFilter({ poiTypes }: PoiFilterProps) {
   if (!poiTypes.value.length) return null;
 
   return (
@@ -27,13 +16,17 @@ export function PoiFilter({ poiTypes, selected }: PoiFilterProps) {
       {poiTypes.value.map((type) => (
         <button
           class={`${
-            selected.value.includes(type.id) ? "opacity-100" : "opacity-50"
+            selectedPoiIds.value.includes(type.id)
+              ? "opacity-100"
+              : "opacity-50"
           } group flex w-full items-center py-1 text-xs text-white`}
-          onClick={() => toggle(type.id)}
+          onClick={() => togglePoiType(type.id)}
         >
           <img
             class={`${
-              selected.value.includes(type.id) ? "opacity-100" : "opacity-50"
+              selectedPoiIds.value.includes(type.id)
+                ? "opacity-100"
+                : "opacity-50"
             } mr-1 h-5 w-5`}
             src={`${CDN_URL}${type.icon}?imageMogr2/format/webp`}
             alt=""

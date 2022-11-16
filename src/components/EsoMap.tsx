@@ -4,7 +4,7 @@ import type { Signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { CDN_URL } from "@/consts";
 import type { MapData, PoiType } from "@/types";
-import { PoiFilter, Map } from ".";
+import { PoiFilter, Map } from "@/components";
 
 interface EsoMapProps {
   mapData: Signal<MapData>;
@@ -12,9 +12,6 @@ interface EsoMapProps {
 }
 
 export function EsoMap({ mapData, poiTypes }: EsoMapProps) {
-  const selectedPoiIds = useSignal<number[]>([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21,
-  ]);
   const pois = useComputed(() => {
     return poiTypes.value.filter((poi) =>
       mapData.value.pois.find((p) => p.type === poi.id)
@@ -35,9 +32,9 @@ export function EsoMap({ mapData, poiTypes }: EsoMapProps) {
           mapData.value = await response.json();
         }}
       >
-        <Map mapData={mapData} selected={selectedPoiIds} path="/map/:id" />
+        <Map mapData={mapData} path="/map/:id" />
       </Router>
-      <PoiFilter poiTypes={pois} selected={selectedPoiIds} />
+      <PoiFilter poiTypes={pois}  />
     </>
   );
 }

@@ -5,18 +5,18 @@ import type { Signal } from "@preact/signals";
 import type { MapData, PathData, PoiData } from "@/types";
 import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { usePanZoom } from "@/hooks";
+import { selectedPoiIds } from "@/store";
 
 interface MapProps extends RoutableProps {
   mapData: Signal<MapData>;
-  selected: Signal<number[]>;
 }
 
-export function Map({ mapData, selected }: MapProps) {
+export function Map({ mapData }: MapProps) {
   const mapRef = usePanZoom(mapData);
 
   const pois = useComputed(() => {
     return mapData.value.pois.filter((poi) =>
-      selected.value.includes(poi.type)
+      selectedPoiIds.value.includes(poi.type)
     );
   });
 
