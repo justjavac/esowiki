@@ -5,7 +5,7 @@ export function PoiFilter() {
   if (!poiTypesOnMap.value.length) return null;
 
   return (
-    <div class="absolute top-5 right-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80 overflow-y-auto">
+    <div class="absolute top-5 right-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80 overflow-y-auto scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
       {poiTypesOnMap.value.map((type) => (
         <button
           class={`${
