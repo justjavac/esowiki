@@ -1,9 +1,13 @@
-import { signal, useComputed } from "@preact/signals";
+import { signal, effect, useComputed } from "@preact/signals";
 import { Achievements, Filters, Housing } from "@/components";
 import { CDN_URL } from "@/consts";
 import type { IconType } from "@/types";
 
-const active = signal<IconType>("filters");
+const active = signal<IconType>(localStorage.getItem("activeTab") as IconType ?? "filters");
+
+effect(() => {
+    localStorage.setItem("activeTab", active.value)
+})
 
 export function Sidebar() {
   const activeComponent = useComputed(() => {
@@ -24,15 +28,15 @@ export function Sidebar() {
   });
 
   return (
-    <div class="absolute top-5 right-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80">
-      <div class="flex">
+    <div class="absolute flex flex-col top-5 right-5 pt-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80">
+      <div class="flex px-2">
         <Icon type="quests" title="任务" />
         <Icon type="key" title="" />
         <Icon type="filters" title="筛选" />
         <Icon type="achievements" title="成就" />
         <Icon type="housing" title="房屋" />
       </div>
-      <div class="w-full h-full p-2 text-xs text-white overflow-y-auto scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
+      <div class="w-full p-2 text-xs text-white overflow-y-auto scrollbar:w-1.5 scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
         {activeComponent.value}
       </div>
     </div>
