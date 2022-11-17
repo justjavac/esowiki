@@ -71,7 +71,7 @@ export function initAppState(data: MapData, types: PoiType[]) {
 function setupBrowser() {
   if (import.meta.env.SSR) return;
 
-  const defaultIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21];
+  const defaultIds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 21, 23];
   selectedPoiIds.value = JSON.parse(localStorage.getItem("selectedPoiIds") as string) ?? defaultIds;
   selectedAchievementIds.value = JSON.parse(localStorage.getItem("selectedAchievementIds") as string) ?? [];
 
