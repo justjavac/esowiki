@@ -1,4 +1,4 @@
-import { CDN_URL } from "@/consts";
+import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { housingOnMap, panzoom } from "@/store";
 
 export function Housing() {
@@ -11,7 +11,18 @@ export function Housing() {
       {housingOnMap.value.map((house) => (
         <button
           class="group flex w-full items-center py-1"
-          onClick={() => panzoom.value?.pan(house.x, house.y)}
+          onClick={() => {
+            if (panzoom.value == null) return;
+
+            // const x = house.x * MAP_SIZE - MARKER_SIZE / 2;
+            // const y = house.y * MAP_SIZE - MARKER_SIZE / 2;
+            // panzoom.value.zoom(2);
+            // setTimeout(() => {
+            //   const x = house.x * MAP_SIZE - MARKER_SIZE / 2;
+            //   const y = house.y * MAP_SIZE - MARKER_SIZE / 2;
+            //   panzoom.value!.pan(x, y, { animate: true });
+            // });
+          }}
         >
           <img
             class="mr-1 h-5 w-5"

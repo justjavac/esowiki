@@ -4,7 +4,7 @@ import type { MapData, PoiType } from "@/types";
 
 export const panzoom = signal<PanzoomObject | null>(null);
 
-export const mapData = signal<MapData>(null!);
+export const mapData = signal<MapData | null>(null);
 export const poiTypes = signal<PoiType[]>([]);
 
 export const selectedPoiIds = signal<number[]>([]);
@@ -17,6 +17,8 @@ export const poiTypesOnMap = computed(() => {
 });
 
 export const poisOnMap = computed(() => {
+  if (mapData.value == null) return [];
+
   const achievements = mapData.value.achievements
     .filter((x) => selectedAchievementIds.value.includes(x.id))
     .flatMap((x) => x.pois);
@@ -26,7 +28,13 @@ export const poisOnMap = computed(() => {
     .concat(achievements);
 });
 
+export const achievementsOnMap = computed(() => {
+  if (mapData.value == null) return [];
+  return mapData.value.achievements;
+});
+
 export const housingOnMap = computed(() => {
+  if (mapData.value == null) return [];
   return poisOnMap.value.filter((poi) => poi.type === 14);
 });
 
@@ -80,6 +88,7 @@ function setupBrowser() {
   });
 
   effect(() => {
+    if (mapData.value == null) return;
     document.title = document.title.replace(
       /^(.*?)( - .*)$/,
       `${mapData.value.name}$2`,

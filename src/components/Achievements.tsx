@@ -2,17 +2,17 @@ import { CDN_URL } from "@/consts";
 import {
   selectedAchievementIds,
   toggleAchievementType,
-  mapData,
+  achievementsOnMap,
 } from "@/store";
 
 export function Achievements() {
-  if (!mapData.value.achievements.length) {
+  if (!achievementsOnMap.value.length) {
     return <div class="w-full pt-1 text-center">当前地图没有成就点。</div>;
   }
 
   return (
     <>
-      {mapData.value.achievements.map((x) => (
+      {achievementsOnMap.value.map((x) => (
         <button
           class={`${
             selectedAchievementIds.value.includes(x.id)

@@ -7,6 +7,7 @@ import { mapData, poisOnMap } from "@/store";
 
 export function Map(props: RoutableProps) {
   const mapRef = usePanZoom();
+  if (mapData.value == null) return null;
 
   return (
     <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">
@@ -28,12 +29,12 @@ export function Map(props: RoutableProps) {
         )}
         {mapData.value.paths.map((path) =>
           path.svg_path ? (
-            <Path key={path.id} {...path} showName={mapData.value.id === 27} />
+            <Path key={path.id} {...path} showName={mapData.value?.id === 27} />
           ) : (
             <Circle
               key={path.id}
               {...path}
-              showName={mapData.value.id === 439}
+              showName={mapData.value?.id === 439}
             />
           )
         )}

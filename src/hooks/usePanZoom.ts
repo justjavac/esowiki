@@ -1,6 +1,6 @@
 import { route, useRouter } from "preact-router";
 import { useCallback, useEffect, useRef } from "preact/hooks";
-import Panzoom, { CurrentValues, PanzoomObject } from "@panzoom/panzoom";
+import Panzoom, { CurrentValues, PanOptions, PanzoomObject } from "@panzoom/panzoom";
 import { MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { mapData, panzoom } from "@/store";
 
@@ -9,7 +9,8 @@ export function usePanZoom() {
   const [{ url }] = useRouter();
 
   useEffect(() => {
-    if (!mapRef.current) return;
+    if (mapRef.current == null) return;
+    if (mapData.value == null) return;
 
     const map = mapRef.current;
     panzoom.value = Panzoom(map, {
@@ -28,12 +29,6 @@ export function usePanZoom() {
     const parent = map.parentElement!;
     parent.addEventListener("wheel", panzoom.value.zoomWithWheel, { passive: false });
     parent.addEventListener("dblclick", panzoom.value.zoomIn);
-    parent.addEventListener("contextmenu", (e) => {
-      e.preventDefault();
-      if (mapData.value.parent_map_id == null) return;
-
-      route(`/map/${mapData.value.parent_map_id}`);
-    });
 
     return () => {
       if (!panzoom.value) return;
@@ -46,13 +41,14 @@ export function usePanZoom() {
 
   const backToParent = useCallback((e: MouseEvent) => {
     e.preventDefault();
-    if (mapData.value.parent_map_id == null) return;
+    if (mapData.value?.parent_map_id == null) return;
     route(`/map/${mapData.value.parent_map_id}`);
   }, []);
 
   useEffect(() => {
     if (!mapRef.current) return;
     if (!panzoom.value) return;
+    if (mapData.value == null) return;
 
     const parent = mapRef.current.parentElement!;
     parent.addEventListener("contextmenu", backToParent);
@@ -60,7 +56,7 @@ export function usePanZoom() {
     return () => {
       parent.removeEventListener("contextmenu", backToParent);
     };
-  }, [mapData.value.parent_map_id]);
+  }, [mapData.value?.parent_map_id]);
 
   useEffect(() => {
     panzoom.value?.reset({animate: false});
