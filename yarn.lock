@@ -11,9 +11,9 @@
     "@jridgewell/trace-mapping" "^0.3.9"
 
 "@astrojs/compiler@^0.29.15", "@astrojs/compiler@^0.29.3":
-  version "0.29.16"
-  resolved "https://registry.npmmirror.com/@astrojs/compiler/-/compiler-0.29.16.tgz#453d7f4da6c2d0935743f4b7075141f619ac0a05"
-  integrity sha512-1CCf+dktc8IQCdmsNNSIor3rcJE5OIirFnFtQWp1VUxqCacefqRRlsl9lH7JcKKpRvz1taL43yHYJP8dxNfVww==
+  version "0.29.17"
+  resolved "https://registry.npmmirror.com/@astrojs/compiler/-/compiler-0.29.17.tgz#5c65e18fd5dde9620dcc1794a858609b66408215"
+  integrity sha512-6ZbRGVunUMHxROD9Cleqkrfrj/kM9o43nLVwycdxCexCB5G372evy2ZM46LhaG/k5B5yC0PByNHTaGny0ll3iQ==
 
 "@astrojs/deno@^2.0.0":
   version "2.0.0"
@@ -724,9 +724,9 @@ ast-types@0.14.2:
     tslib "^2.0.1"
 
 astro@^1.6.4:
-  version "1.6.8"
-  resolved "https://registry.npmmirror.com/astro/-/astro-1.6.8.tgz#46ab77d8e968088faf8bcc2e77d2856cb1fe0bdd"
-  integrity sha512-+kOj8s2fguCFCim9he6fl9iugIHrmAl7BmfNXdTdC9zU30VYV162HF5eRJyMlY5hGuDn3GvAoaNSzCMnybVsFQ==
+  version "1.6.9"
+  resolved "https://registry.npmmirror.com/astro/-/astro-1.6.9.tgz#08d7aed72168f8f45fc46e3ac47dd1a8ac0e2bbc"
+  integrity sha512-KXFKXobe8MIYl4gduUPLcAazMz+thox6N1pOv3F3QMbJS5rMRXkWloVK/6XebBO7p3DYkOfOGB4qA9ijTc4ftA==
   dependencies:
     "@astrojs/compiler" "^0.29.15"
     "@astrojs/language-server" "^0.28.3"
@@ -785,8 +785,8 @@ astro@^1.6.4:
     typescript "*"
     unist-util-visit "^4.1.0"
     vfile "^5.3.2"
-    vite "~3.2.1"
-    vitefu "^0.2.0"
+    vite "~3.2.4"
+    vitefu "^0.2.1"
     yargs-parser "^21.0.1"
     zod "^3.17.3"
 
@@ -3766,7 +3766,7 @@ vfile@^5.0.0, vfile@^5.3.2:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite@~3.2.1:
+vite@~3.2.4:
   version "3.2.4"
   resolved "https://registry.npmmirror.com/vite/-/vite-3.2.4.tgz#d8c7892dd4268064e04fffbe7d866207dd24166e"
   integrity sha512-Z2X6SRAffOUYTa+sLy3NQ7nlHFU100xwanq1WDwqaiFiCe+25zdxP1TfCS5ojPV2oDDcXudHIoPnI1Z/66B7Yw==
@@ -3778,7 +3778,7 @@ vite@~3.2.1:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitefu@^0.2.0:
+vitefu@^0.2.1:
   version "0.2.1"
   resolved "https://registry.npmmirror.com/vitefu/-/vitefu-0.2.1.tgz#9dcd78737c77b366206706dac2403a751903907d"
   integrity sha512-clkvXTAeUf+XQKm3bhWUhT4pye+3acm6YCTGaWhxxIvZZ/QjnA3JA8Zud+z/mO5y5XYvJJhevs5Sjkv/FI8nRw==
@@ -3947,6 +3947,6 @@ zod@^3.17.3:
   integrity sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==
 
 zwitch@^2.0.0:
-  version "2.0.3"
-  resolved "https://registry.npmmirror.com/zwitch/-/zwitch-2.0.3.tgz#fd16902a7119d139b6cf13fa41fc909e7936ea09"
-  integrity sha512-dn/sDAIuRCsXGnBD4P+SA6nv7Y54HQZjC4SPL8PToU3714zu7wSEc1129D/i0+vvjRfOlFo4Zqrpwj+Zhcykhw==
+  version "2.0.4"
+  resolved "https://registry.npmmirror.com/zwitch/-/zwitch-2.0.4.tgz#c827d4b0acb76fc3e685a4c6ec2902d51070e9d7"
+  integrity sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==
