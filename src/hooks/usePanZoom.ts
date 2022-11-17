@@ -16,6 +16,7 @@ export function usePanZoom() {
     const map = mapRef.current;
     panzoom.value = Panzoom(map, {
       maxScale: 10,
+      step: 0.1,
       contain: "outside",
       setTransform(elem: SVGSVGElement, { scale, x, y }: CurrentValues) {
         panzoom.value?.setStyle(
