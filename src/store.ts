@@ -35,7 +35,7 @@ export const achievementsOnMap = computed(() => {
 
 export const housingOnMap = computed(() => {
   if (mapData.value == null) return [];
-  return poisOnMap.value.filter((poi) => poi.type === 14);
+  return mapData.value.pois.filter((poi) => poi.type === 14);
 });
 
 export function togglePoiType(id: number) {
@@ -44,6 +44,11 @@ export function togglePoiType(id: number) {
   } else {
     selectedPoiIds.value = [...selectedPoiIds.value, id];
   }
+}
+
+export function togglePoiTypeOn(id: number) {
+  if (selectedPoiIds.value.includes(id)) return;
+  selectedPoiIds.value = [...selectedPoiIds.value, id];
 }
 
 export function toggleAchievementType(id: number) {

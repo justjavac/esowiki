@@ -1,5 +1,6 @@
-import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
-import { housingOnMap, panzoom } from "@/store";
+import { CDN_URL } from "@/consts";
+import { housingOnMap } from "@/store";
+import { Link } from "preact-router";
 
 export function Housing() {
   if (!housingOnMap.value.length) {
@@ -8,29 +9,18 @@ export function Housing() {
 
   return (
     <>
-      {housingOnMap.value.map((house) => (
-        <button
+      {housingOnMap.value.map((poi) => (
+        <Link
+          href={`/map/${poi.map_id}?poi=${poi.id}`}
           class="group flex w-full items-center py-1"
-          onClick={() => {
-            if (panzoom.value == null) return;
-
-            // const x = house.x * MAP_SIZE - MARKER_SIZE / 2;
-            // const y = house.y * MAP_SIZE - MARKER_SIZE / 2;
-            // panzoom.value.zoom(2);
-            // setTimeout(() => {
-            //   const x = house.x * MAP_SIZE - MARKER_SIZE / 2;
-            //   const y = house.y * MAP_SIZE - MARKER_SIZE / 2;
-            //   panzoom.value!.pan(x, y, { animate: true });
-            // });
-          }}
         >
           <img
             class="mr-1 h-5 w-5"
-            src={`${CDN_URL}${house.icon}?imageMogr2/format/webp`}
+            src={`${CDN_URL}${poi.icon}?imageMogr2/format/webp`}
             alt=""
           />
-          {house.name}
-        </button>
+          {poi.name}
+        </Link>
       ))}
     </>
   );
