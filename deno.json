@@ -1,5 +1,17 @@
 {
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs"
+  },
+  "fmt": {
+    "options": {
+      "lineWidth": 120
+    },
+    "files": {
+      "exclude": [
+        "node_modules",
+        "dist",
+        "public"
+      ]
+    }
   }
 }

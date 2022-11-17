@@ -1,3 +1,9 @@
 {
-    "deno.enable": false
+  "deno.enable": false,
+  "[typescript, typescriptreact, javascript, javascriptreact, json, jsonc, markdown]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  }
 }

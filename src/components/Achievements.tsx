@@ -1,9 +1,5 @@
 import { CDN_URL } from "@/consts";
-import {
-  selectedAchievementIds,
-  toggleAchievementType,
-  achievementsOnMap,
-} from "@/store";
+import { achievementsOnMap, selectedAchievementIds, toggleAchievementType } from "@/store";
 
 export function Achievements() {
   if (!achievementsOnMap.value.length) {
@@ -15,18 +11,12 @@ export function Achievements() {
       {achievementsOnMap.value.map((x) => (
         <button
           class={`${
-            selectedAchievementIds.value.includes(x.id)
-              ? "opacity-100"
-              : "opacity-50"
+            selectedAchievementIds.value.includes(x.id) ? "opacity-100" : "opacity-50"
           } group flex w-full items-center py-1`}
           onClick={() => toggleAchievementType(x.id)}
         >
           <img
-            class={`${
-              selectedAchievementIds.value.includes(x.id)
-                ? "opacity-100"
-                : "opacity-50"
-            } mr-1 h-5 w-5`}
+            class={`${selectedAchievementIds.value.includes(x.id) ? "opacity-100" : "opacity-50"} mr-1 h-5 w-5`}
             src={`${CDN_URL}${x.icon}?imageMogr2/format/webp`}
             alt=""
           />{" "}

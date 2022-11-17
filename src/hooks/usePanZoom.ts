@@ -89,7 +89,7 @@ export function usePanZoom() {
  * @param poi poi 数据
  * @param mapEl 地图元素
  */
-function calcPoiPosition(poi: PoiData, mapEl: SVGSVGElement) {  
+function calcPoiPosition(poi: PoiData, mapEl: SVGSVGElement) {
   const parent = mapEl.parentElement!;
   const poiCenterX = poi.x + MARKER_SIZE / 2 / 5 / MAP_SIZE;
   const poiCenterY = poi.y + MARKER_SIZE / 2 / 5 / MAP_SIZE;

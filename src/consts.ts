@@ -1,4 +1,3 @@
-
 /** 地图尺寸 */
 export const MAP_SIZE = 1600;
 
