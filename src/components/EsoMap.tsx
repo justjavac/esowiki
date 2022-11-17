@@ -1,4 +1,5 @@
 import Router from "preact-router";
+import { useMemo } from "preact/hooks";
 import { CDN_URL } from "@/consts";
 import type { MapData, PoiType } from "@/types";
 import { Map } from "@/components";
@@ -17,6 +18,7 @@ export function EsoMap(props: EsoMapProps) {
       onChange={async (r) => {
         if (r.previous == null) return;
         if (r.matches?.id == null) return;
+        if (Number(r.matches.id) === mapData.value?.id) return;
         const response = await fetch(`${CDN_URL}/maps/${r.matches.id}.json`);
         mapData.value = await response.json();
       }}
