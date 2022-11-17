@@ -109,7 +109,7 @@ type CircleProps =
 
 function Circle(props: CircleProps) {
   return (
-    <>
+    <Link href={`/map/${props.map_id}`} aria-label={props.name}>
       <circle
         class="hover:fill-[#e0af705d]"
         r={props.circle_r!}
@@ -122,7 +122,7 @@ function Circle(props: CircleProps) {
           {props.name}
         </Text>
       )}
-    </>
+    </Link>
   );
 }
 
