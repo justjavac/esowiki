@@ -1,5 +1,5 @@
 import type { ComponentChild } from "preact";
-import { Link, RoutableProps, useRouter } from "preact-router";
+import { Link, RoutableProps } from "preact-router";
 import type { PathData, PoiData } from "@/types";
 import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { usePanZoom } from "@/hooks";

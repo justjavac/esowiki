@@ -6,8 +6,8 @@ interface AreaListProps {
 }
 
 export function AreaList({ data }: AreaListProps) {
-  const [params] = useRouter();
-  const current = Number(params.matches?.id);
+  const [{matches}] = useRouter();
+  const current = Number(matches?.id);
 
   return (
     <div class="absolute z-10 top-5 left-5 p-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80 overflow-y-auto scrollbar:w-1.5 scrollbar:bg-transparent scrollbar-thumb:rounded scrollbar-thumb:bg-slate-500">
