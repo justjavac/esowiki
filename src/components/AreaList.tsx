@@ -6,7 +6,7 @@ interface AreaListProps {
 }
 
 export function AreaList({ data }: AreaListProps) {
-  const [{matches}] = useRouter();
+  const [{ matches }] = useRouter();
   const current = Number(matches?.id);
 
   return (
