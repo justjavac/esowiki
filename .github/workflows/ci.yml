@@ -20,24 +20,13 @@ jobs:
       - name: 💄 format
         run: deno fmt --check
 
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn astro telemetry disable
+
+      - name: check
+        run: yarn astro check
+
       - name: 🚀 build
-        uses: withastro/action@v0
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: |
-      startsWith(github.repository, 'justjavac') &&
-      github.ref == 'refs/heads/main'
-    environment:
-      name: latest
-      url: https://eso.denohub.com
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-
-      - name: 🚀 Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: deno
-          folder: github-pages
+        run: yarn build
