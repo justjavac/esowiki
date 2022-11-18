@@ -19,16 +19,26 @@ jobs:
         with:
           deno-version: 1.x
 
-      - name: 💄  format
+      - name: 💄 format
         run: deno fmt --check
 
-      - name: Install, build, and upload
-        uses: withastro/action@v0
+      - name: Install dependencies
+        run: |
+          yarn install
+          yarn astro telemetry disable
+
+      - name: check
+        run: yarn astro check
+
+      - name: 🚀 build
+        run: yarn build
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: |
+      startsWith(github.repository, 'justjavac') &&
+      github.ref == 'refs/heads/main'
     environment:
       name: latest
       url: https://eso.denohub.com
