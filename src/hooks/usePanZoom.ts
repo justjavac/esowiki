@@ -78,8 +78,9 @@ export function usePanZoom() {
 
     togglePoiTypeOn(poi.type);
     const { x, y } = calcPoiPosition(poi, mapRef.current);
+
     panzoom.value.zoom(5);
-    setTimeout(() => panzoom.value!.pan(x, y, { animate: true }));
+    requestAnimationFrame(() => panzoom.value!.pan(x, y, { animate: true }));
   }, [matches?.poi]);
 
   return mapRef;
