@@ -16,22 +16,15 @@ jobs:
 
       - name: 🦕 install Deno
         uses: denoland/setup-deno@v1
-        with:
-          deno-version: 1.x
 
       - name: 💄 format
         run: deno fmt --check
-
-      - name: Install dependencies
-        run: |
-          yarn install
-          yarn astro telemetry disable
 
       - name: check
         run: yarn astro check
 
       - name: 🚀 build
-        run: yarn build
+        uses: withastro/action@v0
 
   deploy:
     needs: build
@@ -43,8 +36,10 @@ jobs:
       name: latest
       url: https://eso.denohub.com
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+
       - name: 🚀 Deploy
-        id: deployment
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: deno
