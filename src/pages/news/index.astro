@@ -18,7 +18,7 @@ interface Post {
   frontmatter: Frontmatter;
 }
 
-const posts = (await Astro.glob<Post>("./*.{md,mdx}")).sort(
+const posts = (await Astro.glob<Post>("./post/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
@@ -39,10 +39,10 @@ const posts = (await Astro.glob<Post>("./*.{md,mdx}")).sort(
 
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
       <section class="md:col-span-3">
-        <ul role="list" class="p-6 md:p-12">
+        <ul role="list" class="m-4">
           {
             posts.map((post) => (
-              <li class="mt-6 overflow-hidden">
+              <li class="mt-4 overflow-hidden">
                 <div class="block md:flex mt-1 text-gray-900">
                   <div class="md:shrink-0 p-2 h-48 w-full md:h-full md:w-80">
                     <a href={post.url} class="hover:text-gray-500">
@@ -84,7 +84,7 @@ const posts = (await Astro.glob<Post>("./*.{md,mdx}")).sort(
           }
         </ul>
       </section>
-      <aside>侧边栏</aside>
+      <aside class="m-4">侧边栏</aside>
     </main>
   </body>
 </html>

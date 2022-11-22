@@ -39,10 +39,15 @@ async function getNewsDetail(item: NewsItem) {
   const newsDetailContent = document.querySelector("div.blog-body-box");
   newsDetailContent.querySelector(".col-sm-12").remove();
   newsDetailContent.querySelector(".tags").remove();
-  // 用 data-lazy-s 属性替换 src 属性
   Array.from(newsDetailContent.querySelectorAll("img")).forEach((img) => {
     img.setAttribute("src", img.getAttribute("data-lazy-src"));
     img.parentNode.parentNode.replaceWith(img);
+  });
+  Array.from(newsDetailContent.querySelectorAll("a")).forEach((a) => {
+    a.setAttribute(
+      "href",
+      a.getAttribute("href").replace("https://www.elderscrollsonline.com/cn/news/post/", "/news/post/"),
+    );
   });
 
   newsDetailContent.querySelector("p").remove();
@@ -51,7 +56,6 @@ async function getNewsDetail(item: NewsItem) {
   return html2md(newsDetailContent.innerHTML).replace(/\n{3,}/g, "\n\n");
 }
 
-// save to src/pages/news/
 export async function saveNewsAsMD(item: NewsItem) {
   const content = await getNewsDetail(item);
   const md = `---
@@ -60,19 +64,19 @@ pubDate: ${item.pubDate}
 description: ${item.description}
 image: ${item.image}
 tags: ${JSON.stringify(item.tags)}
-layout: ../../layouts/NewsLayout.astro
+layout: ../../../layouts/NewsLayout.astro
 ---
 
 ${content}
 `;
 
-  await Deno.writeTextFile(`src/pages/news/${item.url.substring(14)}.md`, md);
+  await Deno.writeTextFile(`src/pages/news/post/${item.url.substring(14)}.md`, md);
 }
 
 const newsList = await getNewsList();
 
 for (const item of newsList) {
-  if (await Deno.stat(`src/pages/news/${item.url.substring(14)}.md`).catch(() => false)) continue;
+  if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
   await saveNewsAsMD(item);
   console.log(`save ${item.url} success`);
 }
