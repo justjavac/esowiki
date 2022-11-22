@@ -16,7 +16,7 @@ interface NewsItem extends Frontmatter {
 
 /** 获取新闻列表 */
 export async function getNewsList() {
-  const newsList = await fetch("https://www.elderscrollsonline.com/cn/news?page=1").then((res) => res.text());
+  const newsList = await fetch("https://www.elderscrollsonline.com/cn/news?page=2").then((res) => res.text());
   const document = new DOMParser().parseFromString(newsList, "text/html");
   const newsListItemsEl = document.querySelectorAll("article.tier-2-list-item");
 
@@ -71,7 +71,7 @@ ${content}
 const newsList = await getNewsList();
 
 for (const item of newsList) {
-  if (Deno.statSync(`src/pages/news/${item.url.substring(14)}.md`).isFile) continue;
+  if (await Deno.stat(`src/pages/news/${item.url.substring(14)}.md`).catch(() => false)) continue;
   await saveNewsAsMD(item);
   console.log(`save ${item.url} success`);
 }
