@@ -1,5 +1,6 @@
 import html2md from "npm:html-to-md";
-import { DOMParser } from "https://esm.sh/linkedom@0.14.12";
+import { DOMParser, HTMLAnchorElement } from "https://esm.sh/linkedom@0.14.12";
+import { Element } from "https://esm.sh/v91/linkedom@0.14.12/types/interface/element.d.ts";
 
 interface Frontmatter {
   title: string;
@@ -20,13 +21,13 @@ export async function getNewsList() {
   const document = new DOMParser().parseFromString(newsList, "text/html");
   const newsListItemsEl = document.querySelectorAll("article.tier-2-list-item");
 
-  return Array.from(newsListItemsEl).map((item) => {
+  return Array.from<Element>(newsListItemsEl).map((item) => {
     const title = item.querySelector("h3").textContent;
     const url = item.querySelector("a").getAttribute("href");
     const pubDate = item.querySelector("p.date").textContent.trim().substring(0, 10);
     const image = item.querySelector("img").getAttribute("data-lazy-src");
     const description = item.querySelector("p").textContent;
-    const tags = Array.from(item.querySelectorAll("p.date a")).map((tag: any) => tag.textContent);
+    const tags = Array.from(item.querySelectorAll("p.date a")).map((tag: HTMLAnchorElement) => tag.textContent);
     return { title, url, pubDate, image, description, tags } as NewsItem;
   });
 }
