@@ -1,5 +1,6 @@
 {
-  "deno.enable": true,
+  "deno.enable": false,
+  "deno.enablePaths": ["./scripts"],
   "[typescript, typescriptreact, javascript, javascriptreact, json, jsonc, markdown]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
   },
