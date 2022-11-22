@@ -1,0 +1,90 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+
+interface Frontmatter {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  pubDate: string;
+}
+
+interface Post {
+  file: string;
+  url: string;
+  rawContent: string;
+  frontmatter: Frontmatter;
+}
+
+const posts = (await Astro.glob<Post>("./*.{md,mdx}")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`上古卷轴OL新闻 - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body class="bg-[#ededed]">
+    <HeaderNav />
+
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <section class="md:col-span-3">
+        <ul role="list" class="p-6 md:p-12">
+          {
+            posts.map((post) => (
+              <li class="mt-6 overflow-hidden">
+                <div class="block md:flex mt-1 text-gray-900">
+                  <div class="md:shrink-0 p-2 h-48 w-full md:h-full md:w-80">
+                    <a href={post.url} class="hover:text-gray-500">
+                      <img
+                        class="object-cover"
+                        src={post.frontmatter.image}
+                        alt={post.frontmatter.title}
+                      />
+                    </a>
+                  </div>
+                  <div class="p-2">
+                    <a href={post.url} class="hover:text-gray-500">
+                      <h2 class="leading-tight text-2xl font-bold">
+                        {post.frontmatter.title}
+                      </h2>
+                      <p class="mt-2 text-sm">{post.frontmatter.description}</p>
+                    </a>
+                    <div class="flex flex-wrap mt-4 text-sm">
+                      <span>
+                        {new Intl.DateTimeFormat("zh-CN", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }).format(new Date(post.frontmatter.pubDate))}
+                      </span>
+                      {post.frontmatter.tags.map((tag) => (
+                        <a
+                          href={`#${tag}`}
+                          class="mx-1 text-gray-500 hover:text-gray-700"
+                        >
+                          {tag}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <aside>侧边栏</aside>
+    </main>
+  </body>
+</html>

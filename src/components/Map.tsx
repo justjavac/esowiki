@@ -10,8 +10,10 @@ export function Map(props: RoutableProps) {
   if (mapData.value == null) return null;
 
   return (
-    <div class="relative w-[100vh] h-full mx-auto border-slate-600 touch-none">
-      <h1 class="absolute z-10 p-2 font-medium pointer-events-none">{mapData.value.name}</h1>
+    <div class="relative w-[80vh] h-[80vh] mx-auto border-slate-600 touch-none">
+      <h1 class="absolute z-10 p-2 font-medium pointer-events-none">
+        {mapData.value.name}
+      </h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
         <image
           href={`${CDN_URL}${mapData.value.file}?imageMogr2/format/webp`}

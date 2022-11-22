@@ -1,0 +1,45 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, CDN_URL } from "@/consts";
+
+export interface Props {
+  content: {
+    title: string;
+    description: string;
+    pubDate?: string;
+    updatedDate?: string;
+    image?: string;
+  };
+}
+const {
+  content: { title, description, pubDate, updatedDate, image },
+} = Astro.props;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={title
+        ? `${title} - 上古卷轴OL新闻 - ${SITE_TITLE}`
+        : `上古卷轴OL新闻 - ${SITE_TITLE}`}
+      description={description}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body class="bg-[#ededed]">
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="p-6 md:col-span-3 md:p-12">
+        <h1 class="text-4xl text-gray-900 font-bold">{title}</h1>
+        {image && <img class="my-8 shadow-gray-300" src={image} alt="" />}
+        <div class="markdown-body bg-[#ededed]">
+          <p class="text-gray-500">{description}</p>
+          <slot />
+        </div>
+      </article>
+      <aside>近期新闻</aside>
+    </main>
+  </body>
+</html>

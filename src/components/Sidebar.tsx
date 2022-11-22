@@ -3,7 +3,9 @@ import { Achievements, Filters, Housing } from "@/components";
 import { CDN_URL } from "@/consts";
 import type { IconType } from "@/types";
 
-const active = signal<IconType>(localStorage.getItem("activeTab") as IconType ?? "filters");
+const active = signal<IconType>(
+  (localStorage.getItem("activeTab") as IconType) ?? "filters",
+);
 
 effect(() => {
   localStorage.setItem("activeTab", active.value);
@@ -28,7 +30,7 @@ export function Sidebar() {
   });
 
   return (
-    <div class="absolute flex flex-col top-5 right-5 pt-2 w-60 h-[90vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80">
+    <div class="absolute flex flex-col top-20 right-5 pt-2 w-60 h-[80vh] divide-y bg-gray-900 bg-opacity-80 divide-gray-900 divide-opacity-80">
       <div class="flex px-2">
         <Icon type="quests" title="任务" />
         <Icon type="key" title="" />
