@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs"
+    "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
+    "html2md": "deno run --allow-net --allow-read --allow-write ./scripts/html2md.ts"
   },
   "fmt": {
     "options": {
