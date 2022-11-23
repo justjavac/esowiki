@@ -30,7 +30,9 @@ const menus = [
 ];
 ---
 
-<header class="px-3 h-12 lg:h-20 text-gray-500 flex items-center lg:px-8">
+<header
+  id="page-top"
+  class="px-3 h-12 lg:h-20 text-gray-500 flex items-center lg:px-8">
   <a class="flex items-center flex-shrink-0" href="/">
     <img src={`${CDN_URL}/ico/eso.ico`} alt="" />
     <span class="ml-4 text-2xl text-gray-900 font-bold">{SITE_TITLE}</span>
@@ -43,8 +45,7 @@ const menus = [
     }
     <label
       class="lg:hidden ml-4 bg-transparent border-none cursor-pointer"
-      for="fullscreennav-toggle"
-    >
+      for="fullscreennav-toggle">
       <svg viewBox="0 0 28 20" width="24" height="24">
         <rect width="28" height="4" rx="4"></rect>
         <rect y="8" width="28" height="4" rx="4"></rect>
