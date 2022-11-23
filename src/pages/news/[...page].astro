@@ -9,6 +9,8 @@ const posts = (await Astro.glob<Post>("./post/*.{md,mdx}")).sort(
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
 );
+
+const page = Number(Astro.params.page ?? 1);
 ---
 
 <html lang="zh-CN">
