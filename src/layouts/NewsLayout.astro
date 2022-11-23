@@ -2,6 +2,7 @@
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import { SITE_TITLE, CDN_URL } from "@/consts";
+import type { Post } from "@/types";
 
 export interface Props {
   content: {
@@ -12,9 +13,20 @@ export interface Props {
     image?: string;
   };
 }
+
 const {
-  content: { title, description, pubDate, updatedDate, image },
+  content: { title, description, pubDate, image },
 } = Astro.props;
+
+// 侧边栏最近 10 条新闻
+const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .filter((post) => post.frontmatter.title !== title)
+  .slice(0, 10);
 ---
 
 <html lang="zh-CN">
@@ -39,7 +51,20 @@ const {
           <slot />
         </div>
       </article>
-      <aside>近期新闻</aside>
+      <aside class="p-6 md:col-span-1 md:p-12">
+        <h2 class="text-2xl text-gray-900 font-bold">近期新闻</h2>
+        <ul class="mt-4">
+          {
+            posts.map(({ url, frontmatter: { title } }) => (
+              <li class="mt-4">
+                <a class="text-gray-900 hover:underline" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </aside>
     </main>
   </body>
 </html>

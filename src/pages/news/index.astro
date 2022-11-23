@@ -2,21 +2,7 @@
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
-
-interface Frontmatter {
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  pubDate: string;
-}
-
-interface Post {
-  file: string;
-  url: string;
-  rawContent: string;
-  frontmatter: Frontmatter;
-}
+import type { Post } from "@/types";
 
 const posts = (await Astro.glob<Post>("./post/*.{md,mdx}")).sort(
   (a, b) =>
