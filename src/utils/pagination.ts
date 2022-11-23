@@ -14,7 +14,7 @@ export interface PaginationResult<T> {
 
 export function pagination<T>(
   data: T[],
-  params: PaginationParameters
+  params: PaginationParameters,
 ): PaginationResult<T> {
   const { page = 1, pageSize = 10 } = params;
   const total = data.length;
