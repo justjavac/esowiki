@@ -1,6 +1,7 @@
 ---
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
+import { formatDate } from "@/utils";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
 import type { Post } from "@/types";
 
@@ -49,13 +50,9 @@ const page = parseInt(Astro.params.page as string) || 1;
                       <p class="mt-2 text-sm">{post.frontmatter.description}</p>
                     </a>
                     <div class="flex flex-wrap mt-4 text-sm">
-                      <span>
-                        {new Intl.DateTimeFormat("zh-CN", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        }).format(new Date(post.frontmatter.pubDate))}
-                      </span>
+                      <time datetime={post.frontmatter.pubDate}>
+                        {formatDate(post.frontmatter.pubDate)}
+                      </time>
                       {post.frontmatter.tags.map((tag) => (
                         <a
                           href={`#${tag}`}

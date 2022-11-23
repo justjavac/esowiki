@@ -1,6 +1,7 @@
 ---
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
+import { formatDate } from "@/utils";
 import { SITE_TITLE, CDN_URL } from "@/consts";
 import type { Post } from "@/types";
 
@@ -11,14 +12,14 @@ export interface Props {
     pubDate?: string;
     updatedDate?: string;
     image?: string;
+    tags: string[];
   };
 }
 
 const {
-  content: { title, description, pubDate, image },
+  content: { title, description, pubDate, image, tags },
 } = Astro.props;
 
-// 侧边栏最近 10 条新闻
 const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
   .sort(
     (a, b) =>
@@ -45,7 +46,22 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
       <article class="p-6 md:col-span-3">
         <h1 class="text-4xl text-gray-900 font-bold">{title}</h1>
-        {image && <img class="my-8 shadow-gray-300" src={image} alt="" />}
+        <div class="flex items-center mt-4">
+          <time class="text-gray-900 text-sm mr-4" datetime={pubDate}>
+            {formatDate(pubDate)}
+          </time>
+          {
+            tags.map((tag) => (
+              <a
+                href={`#${tag}`}
+                class="mx-1 text-gray-500 text-sm hover:text-gray-700"
+              >
+                {tag}
+              </a>
+            ))
+          }
+        </div>
+        {image && <img class="my-4 shadow-gray-300" src={image} alt="" />}
         <div class="markdown-body bg-[#ededed]">
           <p class="text-gray-500">{description}</p>
           <slot />
