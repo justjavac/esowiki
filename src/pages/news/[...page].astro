@@ -1,6 +1,7 @@
 ---
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 import { formatDate, toSafeInteger } from "@/utils";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
 import { pagination } from "@/utils";
@@ -59,8 +60,7 @@ const result = pagination(posts, {
                       {post.frontmatter.tags.map((tag) => (
                         <a
                           href={`#${tag}`}
-                          class="mx-1 text-gray-500 hover:text-gray-700"
-                        >
+                          class="mx-1 text-gray-500 hover:text-gray-700">
                           {tag}
                         </a>
                       ))}
@@ -90,6 +90,8 @@ const result = pagination(posts, {
         }
       </section>
       <aside class="m-4">侧边栏</aside>
+
+      <ScrollToTop />
     </main>
   </body>
 </html>

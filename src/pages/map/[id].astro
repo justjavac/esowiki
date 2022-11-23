@@ -1,6 +1,7 @@
 ---
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 import { EsoMap, AreaList, Sidebar } from "@/components";
 import type { MapData, PoiType } from "@/types";
 import dataInit from "@/initialize.json";
@@ -50,5 +51,6 @@ const title = `${mapData.name} - 上古卷轴OL地图 - ${SITE_TITLE}`;
     <AreaList client:load data={areaList} />
     <EsoMap client:load mapData={mapData} poiTypes={poiTypes} />
     <Sidebar client:only />
+    <ScrollToTop />
   </body>
 </html>
