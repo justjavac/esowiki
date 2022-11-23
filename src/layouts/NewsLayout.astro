@@ -1,6 +1,7 @@
 ---
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
 import { formatDate } from "@/utils";
 import { SITE_TITLE, CDN_URL } from "@/consts";
 import type { Post } from "@/types";
@@ -82,5 +83,6 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
         </ul>
       </aside>
     </main>
+    <ScrollToTop />
   </body>
 </html>
