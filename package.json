@@ -25,6 +25,7 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
-    "please-use-yarn": "^1.2.2"
+    "please-use-yarn": "^1.2.2",
+    "rehype-external-links": "^2.0.1"
   }
 }

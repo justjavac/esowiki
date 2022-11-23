@@ -2057,6 +2057,11 @@ inline-style-parser@0.1.1:
   resolved "https://registry.npmmirror.com/inline-style-parser/-/inline-style-parser-0.1.1.tgz#ec8a3b429274e9c0a1f1c4ffa9453a7fef72cea1"
   integrity sha512-7NXolsK4CAS5+xvdj5OMMbI962hU/wvwoxk+LWR9Ek9bVtyuuYScDN6eS0rUm6TxApFpw7CX1o4uJzcd4AyD3Q==
 
+is-absolute-url@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.npmmirror.com/is-absolute-url/-/is-absolute-url-4.0.1.tgz#16e4d487d4fded05cfe0685e53ec86804a5e94dc"
+  integrity sha512-/51/TKE88Lmm7Gc4/8btclNXWS+g50wXhYJq8HWIBAGUBnoAdRu1aXeh364t/O7wXDAcTJDP8PNuNKWUDWie+A==
+
 is-alphabetical@^2.0.0:
   version "2.0.1"
   resolved "https://registry.npmmirror.com/is-alphabetical/-/is-alphabetical-2.0.1.tgz#01072053ea7c1036df3c7d19a6daaec7f19e789b"
@@ -3361,6 +3366,18 @@ recast@^0.20.5:
     esprima "~4.0.0"
     source-map "~0.6.1"
     tslib "^2.0.1"
+
+rehype-external-links@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmmirror.com/rehype-external-links/-/rehype-external-links-2.0.1.tgz#fe54f9f227a1a2f8f6afe442ac4c9ee748f08756"
+  integrity sha512-u2dNypma+ps12SJWlS23zvbqwNx0Hl24t0YHXSM/6FCZj/pqWETCO3WyyrvALv4JYvRtuPjhiv2Lpen15ESqbA==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    extend "^3.0.0"
+    is-absolute-url "^4.0.0"
+    space-separated-tokens "^2.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
 
 rehype-parse@^8.0.0:
   version "8.0.4"
