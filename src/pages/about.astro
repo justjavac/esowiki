@@ -3,8 +3,18 @@ import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, OWNER, REPO } from "@/consts";
 import { Content as About } from "../../README.md";
+
+interface Contributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}
+
+const contributors: Contributor[] = await fetch(
+  `https://api.github.com/repos/${OWNER}/${REPO}/contributors`
+).then((res) => res.json());
 ---
 
 <html lang="zh-CN">
@@ -17,10 +27,29 @@ import { Content as About } from "../../README.md";
     <HeaderNav />
 
     <main class="flex flex-col items-center h-full">
-      <div class="max-w-3xl w-full">
+      <div class="max-w-5xl w-full">
         <div class="rounded-lg shadow-lg p-4">
           <div class="mt-4 markdown-body bg-[#ededed]">
             <About />
+            <h2>贡献者名单</h2>
+            <p class="flex space-x-1 overflow-hidden">
+              {
+                contributors.map((contributor) => (
+                  <a
+                    href={contributor.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={contributor.login}
+                  >
+                    <img
+                      src={contributor.avatar_url}
+                      alt={contributor.login}
+                      class="inline-block h-8 w-8 rounded-full ring-2 ring-transparent"
+                    />
+                  </a>
+                ))
+              }
+            </p>
           </div>
         </div>
       </div>
