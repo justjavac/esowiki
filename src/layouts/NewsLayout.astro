@@ -43,7 +43,7 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
   <body class="bg-[#ededed]">
     <HeaderNav />
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3 md:p-12">
+      <article class="p-6 md:col-span-3">
         <h1 class="text-4xl text-gray-900 font-bold">{title}</h1>
         {image && <img class="my-8 shadow-gray-300" src={image} alt="" />}
         <div class="markdown-body bg-[#ededed]">
@@ -51,7 +51,7 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
           <slot />
         </div>
       </article>
-      <aside class="p-6 md:col-span-1 md:p-12">
+      <aside class="p-6 md:col-span-1">
         <h2 class="text-2xl text-gray-900 font-bold">近期新闻</h2>
         <ul class="mt-4">
           {
