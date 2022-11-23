@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [
     preact(),
     tailwind(),
-    // mdx(),
+    mdx(),
   ],
   output: "server",
   adapter: deno(),
