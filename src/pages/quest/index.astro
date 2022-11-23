@@ -1,0 +1,27 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta title={`任务 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body class="bg-[#ededed]">
+    <HeaderNav />
+
+    <main class="flex flex-col items-center h-full">
+      <div class="max-w-3xl w-full">
+        <div class="rounded-lg shadow-lg p-4">
+          <h1 class="text-2xl font-bold">任务</h1>
+          <div class="mt-4">
+            <p class="text-gray-500">正在开发中。。。</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
