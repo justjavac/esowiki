@@ -10,7 +10,6 @@ import { type Handle, toMdast } from "hast-util-to-mdast";
 import { isElement } from "hast-util-is-element";
 import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
-import { DOMParser, HTMLAnchorElement, HTMLElement } from "https://esm.sh/v99/linkedom@0.14.12";
 import remarkStringify from "remark-stringify";
 
 interface Frontmatter {
@@ -21,35 +20,34 @@ interface Frontmatter {
   pubDate: string;
 }
 
-interface NewsItem extends Frontmatter {
+interface ListItem extends Frontmatter {
   url: string;
-  content: string;
 }
 
 /** 获取新闻列表 */
-async function getNewsList() {
-  const newsList = await fetch("https://www.elderscrollsonline.com/cn/news?page=1").then((res) => res.text());
-  const document = new DOMParser().parseFromString(newsList, "text/html");
-  const newsListItemsEl = document.querySelectorAll("article.tier-2-list-item");
+async function getNewsList(): Promise<ListItem[]> {
+  const html = await fetch("https://www.elderscrollsonline.com/cn/news?page=1").then((res) => res.text());
 
-  return Array.from<HTMLElement>(newsListItemsEl).map((item) => {
-    const title = item.querySelector("h3").textContent;
-    const url = item.querySelector("a").getAttribute("href");
-    const pubDate = item.querySelector("p.date").textContent.trim().substring(0, 10);
-    const image = item.querySelector("img").getAttribute("data-lazy-src");
-    const description = item.querySelector("p").textContent;
-    const tags = Array.from(item.querySelectorAll("p.date a")).map((tag: HTMLAnchorElement) => tag.textContent);
-    return { title, url, pubDate, image, description, tags } as NewsItem;
-  });
+  const root = unified()
+    .use(rehypeParse)
+    .parse(html);
+
+  const newsList = selectAll("article.tier-2-list-item", root) as Element[];
+
+  return newsList.map((news) => ({
+    title: toString(select("h3", news)),
+    url: select("a", news)?.properties?.href as string,
+    pubDate: toString(select("p.date", news)).trim().substring(0, 10),
+    description: toString(select("p", news)),
+    image: select("img", news)?.properties?.dataLazySrc as string,
+    tags: selectAll("p.date a", news).map((tag) => toString(tag)),
+  }));
 }
 
 /** 获取新闻详情 */
-async function getNewsDetail(item: NewsItem) {
-  const newsDetail = await fetch(`https://www.elderscrollsonline.com${item.url}`).then((res) => res.text());
-  const document = new DOMParser().parseFromString(newsDetail, "text/html");
-  const newsDetailContent = document.querySelector("div.blog-body-box");
-  newsDetailContent.querySelector("p").remove();
-  return (await html2md(newsDetail)).replace(/\n{3,}/g, "\n\n");
+async function getNewsDetail(url: string) {
+  const newsDetail = await fetch(`https://www.elderscrollsonline.com${url}`).then((res) => res.text());
+  return html2md(newsDetail);
 }
 
 async function html2md(html: string) {
@@ -171,15 +169,14 @@ const fixNestedList: Plugin<[], Root> = () => (tree) => {
   });
 };
 
-async function saveNewsAsMD(item: NewsItem) {
-  const content = await getNewsDetail(item);
-  await Deno.writeTextFile(`src/pages/news/post/${item.url.substring(14)}.md`, content);
-}
+if (import.meta.main) {
+  const newsList = await getNewsList();
 
-const newsList = await getNewsList();
-
-for (const item of newsList) {
-  if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
-  await saveNewsAsMD(item);
-  console.log(`save ${item.url} success`);
+  for (const item of newsList) {
+    const file = `src/pages/news/post/${item.url.substring(14)}.md`;
+    if (await Deno.stat(file).catch(() => false)) continue;
+    const content = await getNewsDetail(item.url);
+    await Deno.writeTextFile(file, content);
+    console.log(`save ${item.url} success`);
+  }
 }
