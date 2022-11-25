@@ -2,10 +2,11 @@ import { type Plugin, unified } from "unified";
 import rehypeParse from "rehype-parse";
 import rehypeRemark from "rehype-remark";
 import type { Element, Root } from "hast";
+import type { Content } from "mdast";
 import { visit } from "unist-util-visit";
 import { select, selectAll } from "hast-util-select";
 import { toHtml } from "hast-util-to-html";
-import { Options } from "hast-util-to-mdast";
+import { type Handle, toMdast } from "hast-util-to-mdast";
 import { isElement } from "hast-util-is-element";
 import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
@@ -26,7 +27,7 @@ interface NewsItem extends Frontmatter {
 }
 
 /** 获取新闻列表 */
-export async function getNewsList() {
+async function getNewsList() {
   const newsList = await fetch("https://www.elderscrollsonline.com/cn/news?page=1").then((res) => res.text());
   const document = new DOMParser().parseFromString(newsList, "text/html");
   const newsListItemsEl = document.querySelectorAll("article.tier-2-list-item");
@@ -52,6 +53,16 @@ async function getNewsDetail(item: NewsItem) {
 }
 
 async function html2md(html: string) {
+  const video: Handle = (h, node) => h(node, "html", toHtml(node));
+  const frontmatter: Handle = (h, node) => h(node, "frontmatter", node.children.map(toString).join("\n"));
+  const p: Handle = (h, node) => {
+    if (node.properties?.align === "center") {
+      node.properties = { className: ["text-gray-500 text-sm text-center"] };
+      return h(node, "html", toHtml(node));
+    }
+    return toMdast(node, { handlers: { video } }) as Content;
+  };
+
   const file = await unified()
     .use(esoNews)
     .use(removeBanner)
@@ -61,23 +72,7 @@ async function html2md(html: string) {
     .use(removeTags)
     .use(fixNestedList)
     .use(rehypeParse, { fragment: true })
-    .use(rehypeRemark, {
-      handlers: {
-        video(h, node) {
-          console.log(node);
-          return h(node, "html", toHtml(node));
-        },
-        frontmatter(h, node) {
-          return h(node, "frontmatter", node.children.map(toString).join("\n"));
-        },
-        p(h, node) {
-          if (isElement(node, "p") && node.properties?.align === "center") {
-            node.properties = { className: ["text-gray-500 text-sm text-center"] };
-            return h(node, "html", toHtml(node));
-          }
-        },
-      },
-    } as Options)
+    .use(rehypeRemark, { handlers: { video, p, frontmatter } })
     .use(remarkStringify, {
       handlers: {
         frontmatter(node) {
@@ -183,8 +178,10 @@ async function saveNewsAsMD(item: NewsItem) {
 
 const newsList = await getNewsList();
 
-for (const item of newsList) {
-  if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
-  await saveNewsAsMD(item);
-  console.log(`save ${item.url} success`);
-}
+// for (const item of newsList) {
+//   if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
+//   await saveNewsAsMD(item);
+//   console.log(`save ${item.url} success`);
+// }
+
+await saveNewsAsMD(newsList[8]);
