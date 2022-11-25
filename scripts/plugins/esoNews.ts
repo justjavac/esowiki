@@ -5,7 +5,7 @@ import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
 
 /** ESO 官方新闻 */
-export const esoNews: Plugin<[], Root> = () => (tree) => {
+const esoNews: Plugin<[], Root> = () => (tree) => {
   const title = toString(select("#post-title h1", tree));
   const pubDate = toString(select("#post-title .date", tree));
   const image = select("#blog-body .lead-img", tree)?.properties?.src as string;
@@ -28,3 +28,5 @@ export const esoNews: Plugin<[], Root> = () => (tree) => {
   select("p", root)!.children = []; // remove description
   return root;
 };
+
+export default esoNews;

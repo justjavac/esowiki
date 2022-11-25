@@ -1,0 +1,54 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Footer from "@/components/Footer.astro";
+import { formatDate } from "@/utils";
+import { SITE_TITLE, CDN_URL } from "@/consts";
+import type { Post } from "@/types";
+
+export interface Props {
+  content: {
+    title: string;
+  };
+}
+
+const {
+  content: { title },
+} = Astro.props;
+
+const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
+  )
+  .filter((post) => post.frontmatter.title !== title)
+  .slice(0, 10);
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={title
+        ? `${title} - 上古卷轴OL新闻 - ${SITE_TITLE}`
+        : `上古卷轴OL新闻 - ${SITE_TITLE}`}
+      description=""
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body class="bg-[#ededed]">
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="p-6 md:col-span-3">
+        <h1 class="text-4xl text-gray-900 font-bold">{title}</h1>
+        <div class="markdown-body mt-4 bg-[#ededed]">
+          <slot />
+        </div>
+      </article>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>

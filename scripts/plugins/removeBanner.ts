@@ -9,10 +9,12 @@ function isBanner(node: Element, parent: Element) {
     (parent.properties?.className as string[])?.includes("blog-body-box");
 }
 
-export const removeBanner: Plugin<[], Root> = () => (tree) => {
+const removeBanner: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node, index, parent) => {
     if (isBanner(node, parent as Element)) {
       parent!.children.splice(index!, 1);
     }
   });
 };
+
+export default removeBanner;

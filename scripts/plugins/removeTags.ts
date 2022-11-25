@@ -10,3 +10,5 @@ export const removeTags: Plugin<[], Root> = () => (tree) => {
     }
   });
 };
+
+export default removeTags;

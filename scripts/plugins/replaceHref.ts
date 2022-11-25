@@ -3,7 +3,7 @@ import type { Root } from "hast";
 import { visit } from "unist-util-visit";
 import { isElement } from "hast-util-is-element";
 
-export const replaceHref: Plugin<[], Root> = () => (tree) => {
+const replaceHref: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node) => {
     if (isElement(node, "a")) {
       node.properties!.href = (node.properties!.href as string).replace(
@@ -13,3 +13,5 @@ export const replaceHref: Plugin<[], Root> = () => (tree) => {
     }
   });
 };
+
+export default replaceHref;
