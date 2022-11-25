@@ -11,7 +11,7 @@ const uespWiki: Plugin<[], Root> = () => (tree) => {
   const frontmatter = [
     `---`,
     `title: ${title}`,
-    `layout: ../../../layouts/NewsLayout.astro`,
+    `layout: ../../../layouts/QuestLayout.astro`,
     `---`,
   ];
 
