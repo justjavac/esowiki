@@ -1,6 +1,16 @@
-import html2md from "npm:html-to-md";
-import { DOMParser, HTMLAnchorElement } from "https://esm.sh/linkedom@0.14.12";
-import { Element } from "https://esm.sh/v91/linkedom@0.14.12/types/interface/element.d.ts";
+import { type Plugin, unified } from "unified";
+import rehypeParse from "rehype-parse";
+import rehypeRemark from "rehype-remark";
+import type { Element, Root } from "hast";
+import { visit } from "unist-util-visit";
+import { select, selectAll } from "hast-util-select";
+import { toHtml } from "hast-util-to-html";
+import { Options } from "hast-util-to-mdast";
+import { isElement } from "hast-util-is-element";
+import { h } from "hastscript";
+import { toString } from "nlcst-to-string";
+import { DOMParser, HTMLAnchorElement, HTMLElement } from "https://esm.sh/v99/linkedom@0.14.12";
+import remarkStringify from "remark-stringify";
 
 interface Frontmatter {
   title: string;
@@ -21,7 +31,7 @@ export async function getNewsList() {
   const document = new DOMParser().parseFromString(newsList, "text/html");
   const newsListItemsEl = document.querySelectorAll("article.tier-2-list-item");
 
-  return Array.from<Element>(newsListItemsEl).map((item) => {
+  return Array.from<HTMLElement>(newsListItemsEl).map((item) => {
     const title = item.querySelector("h3").textContent;
     const url = item.querySelector("a").getAttribute("href");
     const pubDate = item.querySelector("p.date").textContent.trim().substring(0, 10);
@@ -37,40 +47,138 @@ async function getNewsDetail(item: NewsItem) {
   const newsDetail = await fetch(`https://www.elderscrollsonline.com${item.url}`).then((res) => res.text());
   const document = new DOMParser().parseFromString(newsDetail, "text/html");
   const newsDetailContent = document.querySelector("div.blog-body-box");
-  newsDetailContent.querySelector(".col-sm-12").remove();
-  newsDetailContent.querySelector(".tags").remove();
-  Array.from(newsDetailContent.querySelectorAll("img")).forEach((img) => {
-    img.setAttribute("src", img.getAttribute("data-lazy-src"));
-    img.parentNode.parentNode.replaceWith(img);
-  });
-  Array.from(newsDetailContent.querySelectorAll("a")).forEach((a) => {
-    a.setAttribute(
-      "href",
-      a.getAttribute("href").replace("https://www.elderscrollsonline.com/cn/news/post/", "/news/post/"),
-    );
-  });
-
   newsDetailContent.querySelector("p").remove();
-
-  // 删除多余的换行
-  return html2md(newsDetailContent.innerHTML).replace(/\n{3,}/g, "\n\n");
+  return (await html2md(newsDetail)).replace(/\n{3,}/g, "\n\n");
 }
 
-export async function saveNewsAsMD(item: NewsItem) {
+async function html2md(html: string) {
+  const file = await unified()
+    .use(esoNews)
+    .use(removeBanner)
+    .use(replaceHref)
+    .use(imgLazySrc)
+    .use(removeImgLink)
+    .use(removeTags)
+    .use(fixNestedList)
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeRemark, {
+      handlers: {
+        video(h, node) {
+          console.log(node);
+          return h(node, "html", toHtml(node));
+        },
+        frontmatter(h, node) {
+          return h(node, "frontmatter", node.children.map(toString).join("\n"));
+        },
+        p(h, node) {
+          if (isElement(node, "p") && node.properties?.align === "center") {
+            node.properties = { className: ["text-gray-500 text-sm text-center"] };
+            return h(node, "html", toHtml(node));
+          }
+        },
+      },
+    } as Options)
+    .use(remarkStringify, {
+      handlers: {
+        frontmatter(node) {
+          return node.value;
+        },
+      },
+    })
+    .process(html);
+
+  return file.toString();
+}
+
+const esoNews: Plugin<[], Root> = () => (tree) => {
+  const title = toString(select("#post-title h1", tree));
+  const pubDate = toString(select("#post-title .date", tree));
+  const image = select("#blog-body .lead-img", tree)?.properties?.src as string;
+  const description = toString(select("#blog-body p", tree));
+  const tags = selectAll("#blog-body .tags a", tree).map((tag) => toString(tag));
+
+  const frontmatter = [
+    `---`,
+    `title: ${title}`,
+    `description: ${description}`,
+    `pubDate: ${pubDate}`,
+    `image: ${image}`,
+    `tags: ${JSON.stringify(tags)}`,
+    `layout: ../../../layouts/NewsLayout.astro`,
+    `---`,
+  ];
+
+  const root = h(null, select("#blog-body", tree));
+  root.children.unshift(h("frontmatter", frontmatter.map((x) => h("text", x))));
+  select("p", root)!.children = []; // remove description
+  return root;
+};
+
+function isBanner(node: Element, parent: Element) {
+  return isElement(node, "div") &&
+    (node.properties?.className as string[])?.includes("col-sm-12") &&
+    (parent.properties?.className as string[])?.includes("blog-body-box");
+}
+
+const removeBanner: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (isBanner(node, parent as Element)) {
+      parent!.children.splice(index!, 1);
+    }
+  });
+};
+
+const removeTags: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (isElement(node, "div") && (node.properties?.className as string[])?.includes("tags")) {
+      parent!.children.splice(index!, 1);
+    }
+  });
+};
+
+const replaceHref: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node) => {
+    if (isElement(node, "a")) {
+      node.properties!.href = (node.properties!.href as string).replace(
+        "https://www.elderscrollsonline.com/cn/news/post/",
+        "/news/post/",
+      );
+    }
+  });
+};
+
+const imgLazySrc: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node) => {
+    if (isElement(node, "img")) {
+      if (node.properties?.src == null) return;
+      node.properties.src = node.properties.dataLazySrc;
+    }
+  });
+};
+
+const removeImgLink: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (isElement(node, "a") && (node.properties?.className as string[])?.includes("zl-link")) {
+      const img = select("img", node);
+      if (img == null) return;
+      parent!.children[index!] = img;
+    }
+  });
+};
+
+const fixNestedList: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (isElement(node, "ul") && isElement(parent, "ul")) {
+      parent!.children.splice(index!, 1);
+      const previous = parent!.children[index! - 1] as Element;
+      previous.children.push(node);
+    }
+  });
+};
+
+async function saveNewsAsMD(item: NewsItem) {
   const content = await getNewsDetail(item);
-  const md = `---
-title: ${item.title}
-pubDate: ${item.pubDate}
-description: ${item.description}
-image: ${item.image}
-tags: ${JSON.stringify(item.tags)}
-layout: ../../../layouts/NewsLayout.astro
----
-
-${content}
-`;
-
-  await Deno.writeTextFile(`src/pages/news/post/${item.url.substring(14)}.md`, md);
+  await Deno.writeTextFile(`src/pages/news/post/${item.url.substring(14)}.md`, content);
 }
 
 const newsList = await getNewsList();

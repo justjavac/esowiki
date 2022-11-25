@@ -18,7 +18,7 @@ export function usePanZoom() {
       maxScale: 10,
       step: 0.1,
       contain: "outside",
-      setTransform(elem: SVGSVGElement, { scale, x, y }: CurrentValues) {
+      setTransform(_elem: SVGSVGElement, { scale, x, y }: CurrentValues) {
         panzoom.value?.setStyle(
           "transform",
           `scale(${scale}) translate(${x}px, ${y}px)`,
