@@ -3,6 +3,7 @@ import rehypeRemoveComments from "rehype-remove-comments";
 import esoNews from "./esoNews.ts";
 import fixNestedList from "./fixNestedList.ts";
 import imgLazySrc from "./imgLazySrc.ts";
+import imgOriginSrc from "./imgOriginSrc.ts";
 import removeBanner from "./removeBanner.ts";
 import removeEditLink from "./removeEditLink.ts";
 import removeImgLink from "./removeImgLink.ts";
@@ -29,6 +30,7 @@ export const uesp: Preset = {
   plugins: [
     rehypeRemoveComments as Plugin,
     uespWiki,
+    imgOriginSrc,
     fixNestedList,
     removeEditLink,
     en2zh,

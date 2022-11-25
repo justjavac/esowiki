@@ -38,14 +38,14 @@ you'll need to speak with her.
 
 <!---->
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/22px-ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
+- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
   If you are a member of the Aldmeri Dominion, travel to the ship [间歇追求者号](/wiki/Online:The_Interim_Suitor "间歇追求者号") at
   the [弗克赫尔守卫](/wiki/Online:Vulkhel_Guard "弗克赫尔守卫") docks.
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/22px-ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
+  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
   If you are a member of the Daggerfall Covenant, you will need to head to the
   [Patheirry House](/wiki/Online:Patheirry_House "Patheirry House") in [匕落](/wiki/Online:Daggerfall "匕落")。\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/22px-ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
+  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
   If you are a member of the Ebonheart Pact, go to the [桑德诺的房子](/wiki/Online:Sadreno_House "桑德诺的房子") near the western
   gate of [达文卫城](/wiki/Online:Davon%27s_Watch "达文卫城")。
 
@@ -54,7 +54,7 @@ speak. A trio of [Worm Cultists](/wiki/Online:Worm_Cultist_(Main_Quest) "Worm Cu
 initiating a cutscene that culminates in your murder at the hands of [曼尼玛克](/wiki/Online:Mannimarco "曼尼玛克"), and your
 consignment to the Wailing Prison in [冷港](/wiki/Online:Coldharbour "冷港")。
 
-[![](//images.uesp.net/thumb/f/fc/ON-place-The_Wailing_Prison.jpg/200px-ON-place-The_Wailing_Prison.jpg)](/wiki/File:ON-place-The_Wailing_Prison.jpg)
+[![](//images.uesp.net/thumb/f/fc/ON-place-The_Wailing_Prison.jpg)](/wiki/File:ON-place-The_Wailing_Prison.jpg)
 
 [](/wiki/File:ON-place-The_Wailing_Prison.jpg "Enlarge")
 
@@ -113,7 +113,7 @@ you have gained a skill point. You have also gained an attribute point, which ca
 also comment on the battle from afar, urging you to keep moving as Molag Bal knows you've escaped. Follow the tunnel to
 reach a door that leads to the [Towers of Eyes](/wiki/Online:The_Towers_of_Eyes "眼之塔")。
 
-[![](//images.uesp.net/thumb/1/17/ON-quest-Soul_Shriven_in_Coldharbour_02.jpg/200px-ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)
+[![](//images.uesp.net/thumb/1/17/ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)
 
 [](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_02.jpg "Enlarge")
 
@@ -157,7 +157,7 @@ winding tunnels and pools of water until you reach a staircase leading up to the
 
 #### A Prophet for a Warrior
 
-[![](//images.uesp.net/thumb/4/42/ON-place-The_Prophet%27s_Cell.jpg/200px-ON-place-The_Prophet%27s_Cell.jpg)](/wiki/File:ON-place-The_Prophet%27s_Cell.jpg)
+[![](//images.uesp.net/thumb/4/42/ON-place-The_Prophet%27s_Cell.jpg)](/wiki/File:ON-place-The_Prophet%27s_Cell.jpg)
 
 [](/wiki/File:ON-place-The_Prophet%27s_Cell.jpg "Enlarge")
 
@@ -193,13 +193,13 @@ the room and through the tunnel into [the Anchor Mooring](/wiki/Online:The_Ancho
 
 ### Freedom
 
-[![](//images.uesp.net/thumb/9/9d/ON-quest-Soul_Shriven_in_Coldharbour_05.jpg/200px-ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)
+[![](//images.uesp.net/thumb/9/9d/ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)
 
 [](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_05.jpg "Enlarge")
 
 The Prophet calls on Akatosh to aid your escape
 
-[![](//images.uesp.net/thumb/a/a6/ON-quest-Soul_Shriven_in_Coldharbour_03.jpg/200px-ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)
+[![](//images.uesp.net/thumb/a/a6/ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)
 
 [](/wiki/File:ON-quest-Soul_Shriven_in_Coldharbour_03.jpg "Enlarge")
 
@@ -228,30 +228,30 @@ levitates him up from the ground and into the portal. Follow him, and escape to 
 
 You will be transported to one of three locations based on the faction you have joined:
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/22px-ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
+- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
   Members of the [先祖神洲](/wiki/Online:Aldmeri_Dominion "先祖神洲") will find themselves in
   [柯娜西的居所](/wiki/Online:Khenarthi%27s_Roost "柯娜西的居所"), with the option to go to [奥瑞敦](/wiki/Online:Auridon "奥瑞敦") after
   awakening.
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/22px-ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
+  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
   Members of the [匕落同盟](/wiki/Online:Daggerfall_Covenant "匕落同盟") will find themselves in
   [斯特罗斯·迈凯](/wiki/Online:Stros_M%27Kai "斯特罗斯·迈凯"), with the option to go to [格伦姆布拉](/wiki/Online:Glenumbra "格伦姆布拉")
   after awakening.\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/22px-ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
+  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
   Members of the [黑檀心公约联合](/wiki/Online:Ebonheart_Pact "黑檀心公约联合") will find themselves in
   [荒岩岛](/wiki/Online:Bleakrock_Isle "荒岩岛"), with the option to go to [石落](/wiki/Online:Stonefalls "石落") after awakening.
 
 You will awaken next to a projection of the Prophet. Talk to him, and he'll tell you that the two of you have ended up
 in different places. Where he will say he is depends on your faction.
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/22px-ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
+- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
   If you are part of the Aldmeri Dominion, he will say: _"I am in a city near the sea, in a land of eternal spring. The
   air smells of the ocean, and of markets, and gardens."_
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/22px-ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
+  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
   If you are part of the Daggerfall Covenant, he will say: _"I am in a city of industry, where men speak of intrigues
   and plots beneath layers of innuendo and pleasantry."_\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/22px-ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
+  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
   If you are part of the Ebonheart Pact, he will say: _"I am in a place with the smell of burning ash on a hot wind, and
   the sounds of a distant battle."_
 
@@ -302,14 +302,14 @@ After completing the quest, the Prophet will elaborate on the situation in Tamri
 Upon exiting the location you wake up in, you will meet someone who will present you with the introductory quest for
 your alliance if you have not started it already.
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/22px-ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
+- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/wiki/Online:Aldmeri_Dominion "先祖神洲")
   **先祖神洲:** [拉祖姆·达](/wiki/Online:Razum-dar "拉祖姆·达") will offer the quest
   [地平线上的风暴](/wiki/Online:Storm_on_the_Horizon "地平线上的风暴")。
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/22px-ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
+  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/wiki/Online:Daggerfall_Covenant "匕落同盟")
   **匕落同盟:** [Tumma-Shah](/wiki/Online:Tumma-Shah "Tumma-Shah") will offer the quest
   [破损枪头号](/wiki/Online:The_Broken_Spearhead "破损枪头号")。\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/22px-ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
+  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")
   **黑檀心公约联合:** [Captain Rana](/wiki/Online:Captain_Rana "Captain Rana") will offer the quest
   [荒岩的新开始](/wiki/Online:A_Beginning_at_Bleakrock "荒岩的新开始")。
 
