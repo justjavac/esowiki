@@ -1,6 +1,6 @@
 ---
 title: Soul Shriven in Coldharbour
-layout: ../../../layouts/NewsLayout.astro
+layout: ../../../layouts/QuestLayout.astro
 ---
 
 
