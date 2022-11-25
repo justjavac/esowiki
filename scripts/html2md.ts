@@ -178,10 +178,8 @@ async function saveNewsAsMD(item: NewsItem) {
 
 const newsList = await getNewsList();
 
-// for (const item of newsList) {
-//   if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
-//   await saveNewsAsMD(item);
-//   console.log(`save ${item.url} success`);
-// }
-
-await saveNewsAsMD(newsList[8]);
+for (const item of newsList) {
+  if (await Deno.stat(`src/pages/news/post/${item.url.substring(14)}.md`).catch(() => false)) continue;
+  await saveNewsAsMD(item);
+  console.log(`save ${item.url} success`);
+}
