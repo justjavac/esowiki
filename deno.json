@@ -1,6 +1,7 @@
 {
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
+    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "html2md": "deno run --allow-net --allow-read --allow-write ./scripts/html2md.ts",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts",
     "npm:add": "deno run -A https://esm.sh/v99 add",
