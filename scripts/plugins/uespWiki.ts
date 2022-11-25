@@ -3,6 +3,7 @@ import type { Root } from "hast";
 import { select, selectAll } from "hast-util-select";
 import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
+import toZH from "../en2zh.ts";
 
 /** uesp Wiki*/
 const uespWiki: Plugin<[], Root> = () => (tree) => {
@@ -10,7 +11,7 @@ const uespWiki: Plugin<[], Root> = () => (tree) => {
 
   const frontmatter = [
     `---`,
-    `title: ${title}`,
+    `title: ${toZH(title)}`,
     `layout: ../../../layouts/QuestLayout.astro`,
     `---`,
   ];
