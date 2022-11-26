@@ -1,6 +1,7 @@
 import { type Plugin, type Preset } from "unified";
 import rehypeRemoveComments from "rehype-remove-comments";
 import remarkFrontmatter from "remark-frontmatter";
+import remarkGfm from "remark-gfm";
 import esoNews from "./esoNews.ts";
 import fixNestedList from "./fixNestedList.ts";
 import imgLazySrc from "./imgLazySrc.ts";
@@ -42,5 +43,6 @@ export const remarkUesp: Preset = {
   settings: {},
   plugins: [
     remarkFrontmatter,
+    remarkGfm,
   ],
 };

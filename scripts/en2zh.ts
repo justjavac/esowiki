@@ -66,6 +66,8 @@ function isEnglish(str?: string) {
 }
 
 export default function (en: string) {
+  if (en == null) return "";
+
   const zh = en2zh.get(en);
 
   if (zh != null) {
@@ -83,6 +85,15 @@ export default function (en: string) {
   if (en.at(-1) === ":") {
     if (en2zh.get(en.slice(0, -1)) != null) {
       return `${en2zh.get(en.slice(0, -1))}${en.at(-1)}`;
+    }
+  }
+
+  // 如果中间包含冒号，分开翻译
+  if (en.includes(":")) {
+    const parts = en.split(":");
+    const zhParts = parts.map((part) => en2zh.get(part.trim()));
+    if (zhParts.every((part) => part != null)) {
+      return zhParts.join(": ");
     }
   }
 

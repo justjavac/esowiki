@@ -1,8 +1,8 @@
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import rehypeRemark from "rehype-remark";
-import { type Handle } from "hast-util-to-mdast";
-import { toString } from "nlcst-to-string";
+import { type Handle, toMdast } from "hast-util-to-mdast";
+import { Content, toString } from "nlcst-to-string";
 import remarkStringify from "remark-stringify";
 
 import { rehypeUesp, remarkUesp } from "./plugins/mod.ts";
@@ -26,7 +26,7 @@ async function getQuestFromCache(quest: string) {
 /** 获取任务详情 */
 async function getQuest(quest: string) {
   const html = await getQuestFromCache(quest);
-  const table: Handle = (h, node) => h(node, "html", "");
+
   const frontmatter: Handle = (h, node) => {
     return h(node, "yaml", node.children.map(toString).join("\n"));
   };
@@ -34,7 +34,7 @@ async function getQuest(quest: string) {
   const file = await unified()
     .use(rehypeUesp)
     .use(rehypeParse)
-    .use(rehypeRemark, { handlers: { table, frontmatter } })
+    .use(rehypeRemark, { handlers: { frontmatter } })
     .use(remarkUesp)
     .use(remarkStringify)
     .process(html);
