@@ -9,6 +9,7 @@ import rehypeExternalLinks from "rehype-external-links";
 export default defineConfig({
   site: "https://eso.denohub.com",
   markdown: {
+    extendDefaultPlugins: true,
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] }],
     ],

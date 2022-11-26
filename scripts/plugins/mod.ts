@@ -1,5 +1,6 @@
 import { type Plugin, type Preset } from "unified";
 import rehypeRemoveComments from "rehype-remove-comments";
+import remarkFrontmatter from "remark-frontmatter";
 import esoNews from "./esoNews.ts";
 import fixNestedList from "./fixNestedList.ts";
 import imgLazySrc from "./imgLazySrc.ts";
@@ -12,7 +13,7 @@ import replaceHref from "./replaceHref.ts";
 import uespWiki from "./uespWiki.ts";
 import en2zh from "./en2zh.ts";
 
-export const official: Preset = {
+export const rehypeOfficial: Preset = {
   plugins: [
     rehypeRemoveComments as Plugin,
     esoNews,
@@ -25,7 +26,7 @@ export const official: Preset = {
   ],
 };
 
-export const uesp: Preset = {
+export const rehypeUesp: Preset = {
   settings: {},
   plugins: [
     rehypeRemoveComments as Plugin,
@@ -34,5 +35,12 @@ export const uesp: Preset = {
     fixNestedList,
     removeEditLink,
     en2zh,
+  ],
+};
+
+export const remarkUesp: Preset = {
+  settings: {},
+  plugins: [
+    remarkFrontmatter,
   ],
 };

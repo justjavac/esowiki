@@ -27,7 +27,7 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
   .slice(0, 10);
 ---
 
-<style global>
+<style is:global>
   .markdown-body ul li img {
     width: 24px;
     height: 24px;

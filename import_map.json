@@ -12,6 +12,7 @@
     "rehype-parse": "https://esm.sh/v99/rehype-parse@8.0.4",
     "rehype-remark": "https://esm.sh/v99/rehype-remark@9.1.2",
     "rehype-remove-comments": "https://esm.sh/rehype-remove-comments@5.0.0",
+    "remark-frontmatter": "https://esm.sh/remark-frontmatter@4.0.1",
     "remark-stringify": "https://esm.sh/v99/remark-stringify@10.0.2",
     "unified": "https://esm.sh/v99/unified@10.1.2",
     "unist": "https://esm.sh/v99/@types/unist@2.0.6/index.d.ts",

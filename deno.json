@@ -2,7 +2,7 @@
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
     "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts",
-    "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts",
+    "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts && deno fmt src/pages/quest",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
   "fmt": {

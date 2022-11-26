@@ -10,10 +10,8 @@ const uespWiki: Plugin<[], Root> = () => (tree) => {
   const title = toString(select("#content h1", tree)).replace("Online:", "");
 
   const frontmatter = [
-    `---`,
     `title: ${toZH(title)}`,
     `layout: ../../../layouts/QuestLayout.astro`,
-    `---`,
   ];
 
   const root = h(null, select("#mw-content-text", tree));

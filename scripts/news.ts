@@ -8,8 +8,7 @@ import { toHtml } from "hast-util-to-html";
 import { type Handle, toMdast } from "hast-util-to-mdast";
 import { toString } from "nlcst-to-string";
 import remarkStringify from "remark-stringify";
-
-import { official } from "./plugins/mod.ts";
+import { rehypeOfficial } from "./plugins/mod.ts";
 
 interface Frontmatter {
   title: string;
@@ -61,7 +60,7 @@ async function html2md(html: string) {
   };
 
   const file = await unified()
-    .use(official)
+    .use(rehypeOfficial)
     .use(rehypeParse, { fragment: true })
     .use(rehypeRemark, { handlers: { video, p, frontmatter } })
     .use(remarkStringify, {
