@@ -1,11 +1,11 @@
 ---
 title: 冷港的丧魂傀儡
-description: Escape from the depths of Coldharbour. 
-zone: 
+description: Escape from the depths of Coldharbour.
+zone:
 giver: 神秘人
 location: 哀号监狱
 nextQuest: 避难所
-xp: Very High 
+xp: Very High
 layout: ../../../layouts/QuestLayout.astro
 ---
 
@@ -275,7 +275,7 @@ You will earn the following achievement for completing this quest:
 
 | 成就 |         | Points | Description | Unlocks   |
 | -- | ------- | ------ | ----------- | --------- |
-|    | 冷港的丧魂傀儡 | 10     | 完成主线任务第1章   | 染料: 丧魂傀儡灰 |
+|    | 冷港的丧魂傀儡 | 10     | 完成主线任务第 1 章 | 染料: 丧魂傀儡灰 |
 
 ## Alliance Story
 

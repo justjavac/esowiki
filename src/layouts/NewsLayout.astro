@@ -43,7 +43,7 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
   </head>
 
-  <body class="bg-[#ededed]">
+  <body>
     <HeaderNav />
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
       <article class="p-6 md:col-span-3">
@@ -64,7 +64,7 @@ const posts = (await Astro.glob<Post>("../pages/news/post/*.{md,mdx}"))
           }
         </div>
         {image && <img class="my-4 shadow-gray-300" src={image} alt="" />}
-        <div class="markdown-body bg-[#ededed]">
+        <div class="markdown-body">
           <p class="text-gray-500">{description}</p>
           <slot />
         </div>

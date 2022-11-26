@@ -2,7 +2,6 @@ import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 import deno from "@astrojs/deno";
-import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
 
@@ -17,7 +16,6 @@ export default defineConfig({
   integrations: [
     preact(),
     tailwind(),
-    mdx(),
     sitemap(),
   ],
   output: "server",
