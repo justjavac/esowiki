@@ -1,12 +1,14 @@
 ---
-title: 冷港的丧魂傀儡
-description: Escape from the depths of Coldharbour.
-zone:
-giver: 神秘人
-location: 哀号监狱
-nextQuest: 避难所
-xp: Very High
-layout: ../../../layouts/QuestLayout.astro
+title: "冷港的丧魂傀儡"
+description: '<b>Escape from the depths of <a href="/wiki/Online:Coldharbour" title="冷港">冷港</a>。</b>'
+zone: ""
+quest giver: '<a href="/wiki/Online:Hooded_Figure" title="神秘人">神秘人</a>'
+location(s): '<a href="/wiki/Online:The_Wailing_Prison" title="哀号监狱">哀号监狱</a>'
+next quest: '<a href="/wiki/Online:The_Harborage_(quest)" title="The Harborage (quest)">避难所</a>'
+reward: '<a href="//esoitem.uesp.net/itemLink.php?&#x26;itemid=54986&#x26;level=3&#x26;quality=1" class="eso_item_link eso_item_link_q1" itemid="54986" level="3" quality="1">密封的骨灰盒</a> (<a href="/wiki/Online:Sealed_Urn" title="密封的骨灰盒">contents</a>)<br>1 <a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点">Skill Point</a><br><a href="/wiki/Online:Soul_Magic" title="灵魂魔法">灵魂魔法</a> Skill Line<br>Achievement:<a href="/wiki/Online:Quests_Achievements#Main_Quest" title="Quests Achievements">冷港的丧魂傀儡</a>'
+xp gain: '<a href="/wiki/Online:Experience" class="mw-redirect" title="经验"><span class="esoqcepic">Very High</span></a> <a href="/wiki/Online:Experience" title="经验"><img alt="Experience" src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16" height="16" style="vertical-align: text-bottom" srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png 1.5x, //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png 2x"></a>'
+id: "4296"
+layout: "../../layouts/QuestLayout.astro"
 ---
 
 > 我死了，但这只是开始……我在湮灭之地醒来。我的肉体完好无损，但我的灵魂出离了身体。我必须想办法离开这个噩梦般的地方，找回我失落的灵魂。否则我将万劫不复。

@@ -11,25 +11,34 @@ export interface Props {
     title: string;
     description: string;
     zone: string;
-    giver: string;
-    location: string;
-    nextQuest: string;
-    xp: string;
+    faction: string;
+    objective: string;
+    "quest giver": string;
+    "location(s)": string;
+    "prerequisite quest": string;
+    "next quest": string;
+    "xp gain": string;
+    "solo only": string;
   };
 }
 
-const {
-  content: { url, title, description, zone, giver, location, nextQuest, xp },
-} = Astro.props;
+const { content } = Astro.props;
+
+const { title, url, description } = content;
 
 const meta = [
-  { name: "任务名称", content: title, url },
+  { name: "任务名称", content: title },
   { name: "任务描述", content: description },
-  { name: "任务区域", content: zone },
-  { name: "任务发布者", content: giver },
-  { name: "任务地点", content: location },
-  { name: "下一个任务", content: nextQuest },
-  { name: "经验值获得", content: xp },
+  { name: "任务区域", content: content.zone || "无" },
+  { name: "任务目标", content: content.objective || "无" },
+  { name: "任务阵营", content: content.faction || "无" },
+  { name: "任务接取者", content: content["quest giver"] || "无" },
+  { name: "任务发布者", content: content["quest giver"] },
+  { name: "任务地点", content: content["location(s)"] },
+  { name: "前置任务", content: content["prerequisite quest"] },
+  { name: "后续任务", content: content["next quest"] },
+  { name: "获得经验", content: content["xp gain"] },
+  { name: "是否单人", content: content["solo only"] },
 ];
 ---
 
@@ -44,6 +53,12 @@ const meta = [
   .markdown-body img {
     width: 60%;
     margin: auto;
+  }
+
+  aside .markdown-body img {
+    display: inline;
+    width: 24px;
+    height: 24px;
   }
 </style>
 
@@ -69,9 +84,11 @@ const meta = [
       </article>
       <aside class="py-6 md:col-span-1">
         <div
-          class="rounded p-2 border border-gray-300/50 shadow-lg shadow-transparent hover:shadow-gray-100 hover:border-gray-300/80 transition-shadow duration-450 ease-in-out"
+          class="rounded border border-gray-300/50 shadow-lg shadow-transparent hover:shadow-gray-100 hover:border-gray-300/80 transition-shadow duration-450 ease-in-out"
         >
-          <header class="flex items-center gap-1">
+          <header
+            class="flex p-2 items-center gap-1 border-b border-gray-300/50"
+          >
             <svg
               width="16"
               height="16"

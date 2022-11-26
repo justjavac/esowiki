@@ -2,10 +2,11 @@ import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import rehypeRemark from "rehype-remark";
 import { type Handle, toMdast } from "hast-util-to-mdast";
-import { Content, toString } from "nlcst-to-string";
+import { toHtml } from "hast-util-to-html";
 import remarkStringify from "remark-stringify";
-
+import type { Element } from "hast-util-select";
 import { rehypeUesp, remarkUesp } from "./plugins/mod.ts";
+import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
 
 /** 从网络或者缓存里获取任务详情 */
 async function getQuestFromCache(quest: string) {
@@ -28,7 +29,7 @@ async function getQuest(quest: string) {
   const html = await getQuestFromCache(quest);
 
   const frontmatter: Handle = (h, node) => {
-    return h(node, "yaml", node.children.map(toString).join("\n"));
+    return h(node, "yaml", node.children.map((x: Element) => `${x.tagName} '${toHtml(x.children)}'`).join("\n"));
   };
 
   const file = await unified()
@@ -43,9 +44,9 @@ async function getQuest(quest: string) {
 }
 
 if (import.meta.main) {
-  const quest = await getQuest("Soul_Shriven_in_Coldharbour");
+  const quest = await getQuest("The_Harborage_(quest)");
   await Deno.writeTextFile(
-    "./src/pages/quest/main/soul_shriven_in_coldharbour.md",
+    "./src/pages/quest/the_harborage.md",
     quest,
   );
 }

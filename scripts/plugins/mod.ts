@@ -33,6 +33,7 @@ export const rehypeUesp: Preset = {
   plugins: [
     rehypeRemoveComments as Plugin,
     uespWiki,
+    removeImgLink,
     imgOriginSrc,
     fixNestedList,
     removeEditLink,
