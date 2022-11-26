@@ -37,16 +37,19 @@ async function getQuest(quest: string) {
     .use(rehypeParse)
     .use(rehypeRemark, { handlers: { frontmatter } })
     .use(remarkUesp)
-    .use(remarkStringify)
+    .use(remarkStringify, {
+      bullet: "-",
+      bulletOther: "*", // see https://github.com/syntax-tree/mdast-util-to-markdown/tree/main#optionsbulletother
+    })
     .process(html);
 
   return file.toString();
 }
 
 if (import.meta.main) {
-  const quest = await getQuest("The_Harborage_(quest)");
+  const quest = await getQuest("Soul_Shriven_in_Coldharbour");
   await Deno.writeTextFile(
-    "./src/pages/quest/the_harborage.md",
+    "./src/pages/quest/soul_shriven_in_coldharbour.mdx",
     quest,
   );
 }

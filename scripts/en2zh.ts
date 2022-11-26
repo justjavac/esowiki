@@ -21,18 +21,21 @@ if (langEN.length !== langZH.length) {
 // 构建官方英文到中文的映射
 const en2zh = new Map<string, string>();
 langEN.forEach(({ Text: en }, i) => {
+  // 变小写，去掉空格
+  const enKey = en.toLowerCase();
+
   const zh = langZH[i].Text;
 
-  const zh0 = en2zh.get(en); // 已经存在的翻译
+  const zh0 = en2zh.get(enKey); // 已经存在的翻译
 
   if (zh0 == null) {
-    en2zh.set(en, zh);
+    en2zh.set(enKey, zh);
     return;
   }
 
   // 如果已经翻译的是英文，那么就用新的翻译
   if (isEnglish(zh0)) {
-    en2zh.set(en, zh);
+    en2zh.set(enKey, zh);
     return;
   }
 
@@ -45,9 +48,9 @@ langEN.forEach(({ Text: en }, i) => {
 });
 
 if (Deno.args.includes("--debug")) {
-  en2zh.forEach((zh, en) => {
+  en2zh.forEach((zh, enKey) => {
     if (isEnglish(zh)) {
-      console.log("未翻译 %s", en);
+      console.log("未翻译 %s", enKey);
     }
   });
 }
@@ -68,34 +71,40 @@ function isEnglish(str?: string) {
 export default function (en: string) {
   if (en == null) return "";
 
-  const zh = en2zh.get(en);
+  const enKey = en.toLowerCase();
+  const zh = en2zh.get(enKey);
 
   if (zh != null) {
     return zh;
   }
 
   // 去掉英文中的引号，再次尝试翻译
-  if (en.at(0) === '"' && en.at(-1) === '"') {
-    if (en2zh.get(en.slice(1, -1)!) != null) {
-      return `${en.at(0)}${en2zh.get(en.slice(1, -1))}${en.at(-1)}`;
+  if (enKey.at(0) === '"' && enKey.at(-1) === '"') {
+    if (en2zh.get(enKey.slice(1, -1)!) != null) {
+      return `${enKey.at(0)}${en2zh.get(enKey.slice(1, -1))}${enKey.at(-1)}`;
     }
   }
 
   // 去掉末尾的冒号，再次尝试翻译
-  if (en.at(-1) === ":") {
-    if (en2zh.get(en.slice(0, -1)) != null) {
-      return `${en2zh.get(en.slice(0, -1))}${en.at(-1)}`;
+  if (enKey.at(-1) === ":") {
+    if (en2zh.get(enKey.slice(0, -1)) != null) {
+      return `${en2zh.get(enKey.slice(0, -1))}${enKey.at(-1)}`;
+    }
+  }
+
+  // 去掉末尾的换行符，翻译后再加上
+  if (enKey.at(-1) === "\n") {
+    if (en2zh.get(enKey.slice(0, -1)) != null) {
+      return `${en2zh.get(enKey.slice(0, -1))}${enKey.at(-1)}\n`;
     }
   }
 
   // 如果中间包含冒号，分开翻译
   if (en.includes(":")) {
     const parts = en.split(":");
-    const zhParts = parts.map((part) => en2zh.get(part.trim()));
-    if (zhParts.every((part) => part != null)) {
-      return zhParts.join(": ");
-    }
+    const zhParts = parts.map((part) => en2zh.get(part.toLowerCase().trim()) ?? part);
+    return zhParts.join(":");
   }
 
-  return en2zh.get(en) ?? en;
+  return en2zh.get(enKey) ?? en;
 }
