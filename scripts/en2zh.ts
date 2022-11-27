@@ -22,9 +22,8 @@ if (langEN.length !== langZH.length) {
 const en2zh = new Map<string, string>();
 langEN.forEach(({ Text: en }, i) => {
   // 变小写，去掉空格
-  const enKey = en.toLowerCase();
-
-  const zh = langZH[i].Text;
+  const enKey = en.toLowerCase().split("^")[0];
+  const zh = langZH[i].Text.split("^")[0];
 
   const zh0 = en2zh.get(enKey); // 已经存在的翻译
 
@@ -101,9 +100,16 @@ export default function (en: string) {
 
   // 如果中间包含冒号，分开翻译
   if (en.includes(":")) {
-    const parts = en.split(":");
-    const zhParts = parts.map((part) => en2zh.get(part.toLowerCase().trim()) ?? part);
+    const parts = enKey.split(":");
+    const zhParts = parts.map((part) => en2zh.get(part.trim()) ?? part);
     return zhParts.join(": ");
+  }
+
+  // 如果有括号，则分开翻译 Chill House (Death's Wind) --> 冷却房间 (死亡之风)
+  if (en.includes("(")) {
+    const [en1, en2] = enKey.split(/[\|(\)]/);
+    const zh = `${en2zh.get(en1.trim())} (${en2zh.get(en2.trim())})` as string;
+    return zh;
   }
 
   return en2zh.get(enKey) ?? en;
