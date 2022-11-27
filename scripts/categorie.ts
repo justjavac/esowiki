@@ -5,7 +5,9 @@ import { select, selectAll } from "hast-util-select";
 import { toString } from "nlcst-to-string";
 import toZH from "./en2zh.ts";
 
-const NPC_URL = "https://en.uesp.net/w/index.php?title=Category:Online-NPCs";
+const NAME = "Books";
+
+const NPC_URL = `https://en.uesp.net/w/index.php?title=Category:Online-${NAME}`;
 
 type Item = string[];
 
@@ -33,6 +35,6 @@ async function fetchData(url: string): Promise<Item[] | []> {
 
 if (import.meta.main) {
   const list = await fetchData(NPC_URL);
-  const file = "src/data/npcs.json";
+  const file = `src/data/category/${NAME.toLowerCase()}.json`;
   await Deno.writeTextFile(file, JSON.stringify(list, null, 2));
 }
