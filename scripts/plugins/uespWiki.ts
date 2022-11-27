@@ -6,7 +6,6 @@ import { type Handle, toMdast } from "hast-util-to-mdast";
 import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
 import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
-import toZH from "../en2zh.ts";
 import { VFile } from "vfile";
 
 /**
@@ -18,7 +17,8 @@ import { VFile } from "vfile";
 const uespWiki: Plugin<[], Root> = () => {
   return (tree, file: VFile) => {
     const title = select("#content h1", tree)?.children[0]! as Text;
-    title.value = title.value.replace("Online:", "").replace("(quest|place|achievement)", "").trim();
+
+    title.value = title.value.replace("Online:", "").replace(/\([^)]*\)/, "").trim();
     file.cwd = Deno.cwd();
     file.data.title = toString(title);
 

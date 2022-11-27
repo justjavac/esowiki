@@ -2,7 +2,7 @@ import { type Plugin } from "unified";
 import type { Root } from "hast";
 import { visit } from "unist-util-visit";
 import { isElement } from "hast-util-is-element";
-import toZH from "../en2zh.ts";
+import toZH from "../toZH.ts";
 
 const en2zh: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node) => {

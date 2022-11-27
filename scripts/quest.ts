@@ -45,7 +45,7 @@ async function getQuest(quest: string) {
 }
 
 if (import.meta.main) {
-  const vfile = await getQuest("Storm_on_the_Horizon");
+  const vfile = await getQuest("The_Harborage_(quest)");
   await Deno.writeTextFile(
     vfile.path,
     vfile.toString(),

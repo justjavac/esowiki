@@ -67,10 +67,10 @@ function isEnglish(str?: string) {
   return !/[^\x00-\xff]/.test(str);
 }
 
-export default function (en: string) {
+export default function toZH(en: string): string {
   if (en == null) return "";
 
-  const enKey = en.toLowerCase();
+  const enKey = en.toLowerCase().trim();
   const zh = en2zh.get(enKey);
 
   if (zh != null) {
@@ -78,38 +78,32 @@ export default function (en: string) {
   }
 
   // 去掉英文中的引号，再次尝试翻译
-  if (enKey.at(0) === '"' && enKey.at(-1) === '"') {
-    if (en2zh.get(enKey.slice(1, -1)!) != null) {
-      return `${enKey.at(0)}${en2zh.get(enKey.slice(1, -1))}${enKey.at(-1)}`;
-    }
+  if (en.at(0) === '"' && en.at(-1) === '"') {
+    return `"${toZH(en.slice(1, -1))}"`;
   }
 
   // 去掉末尾的冒号，再次尝试翻译
-  if (enKey.at(-1) === ":") {
-    if (en2zh.get(enKey.slice(0, -1)) != null) {
-      return `${en2zh.get(enKey.slice(0, -1))}${enKey.at(-1)}`;
-    }
+  if (en.at(-1) === ":") {
+    return `${toZH(en.slice(0, -1))}:`;
   }
 
   // 去掉末尾的换行符，翻译后再加上
-  if (enKey.at(-1) === "\n") {
-    if (en2zh.get(enKey.slice(0, -1)) != null) {
-      return `${en2zh.get(enKey.slice(0, -1))}${enKey.at(-1)}\n`;
-    }
+  if (en.at(-1) === "\n") {
+    return `${toZH(en.slice(0, -1))}\n`;
   }
 
   // 如果中间包含冒号，分开翻译
   if (en.includes(":")) {
-    const parts = enKey.split(":");
-    const zhParts = parts.map((part) => en2zh.get(part.trim()) ?? part);
+    const parts = en.split(":");
+    const zhParts = parts.map((part) => toZH(part));
     return zhParts.join(": ");
   }
 
   // 如果有括号，则分开翻译 Chill House (Death's Wind) --> 冷却房间 (死亡之风)
-  if (en.includes("(")) {
-    const [en1, en2] = enKey.split(/[\|(\)]/);
-    const zh = `${en2zh.get(en1.trim())} (${en2zh.get(en2.trim())})` as string;
-    return zh;
+  if (en.includes("(") && en.includes(")")) {
+    const parts = en.split(/(\(|\))/);
+    const zhParts = parts.map((part) => toZH(part));
+    return zhParts.join("");
   }
 
   return en2zh.get(enKey) ?? en;

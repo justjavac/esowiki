@@ -3,7 +3,7 @@ import rehypeParse from "rehype-parse";
 import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import { toString } from "nlcst-to-string";
-import toZH from "./en2zh.ts";
+import toZH from "./toZH.ts";
 
 const NAME = "Books";
 
