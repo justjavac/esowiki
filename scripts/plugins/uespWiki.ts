@@ -19,9 +19,10 @@ const uespWiki: Plugin<[], Root> = () => {
   return (tree, file: VFile) => {
     const title = select("#content h1", tree)?.children[0]! as Text;
     title.value = title.value.replace("Online:", "").replace("(quest|place|achievement)", "").trim();
-
     file.cwd = Deno.cwd();
     file.data.title = toString(title);
+
+    const categorie = select("#contentSub a:nth-child(2)", tree);
 
     const root = h(null, select("#mw-content-text", tree));
 
@@ -32,6 +33,13 @@ const uespWiki: Plugin<[], Root> = () => {
       ),
     );
 
+    // 忽略警告和通知
+    const notice = select(".notice-default", root);
+    if (notice?.properties != null) {
+      notice.properties.dataMdast = "ignore";
+    }
+
+    // 忽略目录和导航
     const mwContentText = select("table.hiddentable", root);
     if (mwContentText?.properties != null) {
       mwContentText.properties.dataMdast = "ignore";

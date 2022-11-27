@@ -284,6 +284,7 @@
     "https://esm.sh/v99/vfile-location@4.0.1/deno/vfile-location.js": "52696eca676de97de51fc5828a3e4af5ef914a84d21bd274e171f75586c18c2e",
     "https://esm.sh/v99/vfile-message@3.1.3/deno/vfile-message.js": "ecc5c19462e8a29769e226311a1bb9ad3b72dc85847e34238ac1ae3e448a1a59",
     "https://esm.sh/v99/vfile-message@3.1.3/index.d.ts": "95ada3f48f05d42099741cc16749bd8787a5d99b29b07ed515ecf7fce9627acc",
+    "https://esm.sh/v99/vfile@5.3.6": "fb85435a47522f8f211f03cc31d391bcfce8b7cc157c30c7292ca829a9ad7b6f",
     "https://esm.sh/v99/vfile@5.3.6/deno/vfile.js": "ba140806dc8afd77ba9768421bab5dca57c69756e7f916aca571ff3013b8e629",
     "https://esm.sh/v99/vfile@5.3.6/index.d.ts": "6723559bb22bf7f2eea158222d3e1f0a04e3f09d132f6d6387d8e5acf1be9ed0",
     "https://esm.sh/v99/vfile@5.3.6/lib/index.d.ts": "6290ba0b59641d1b5dbe7a607340317a120d3c600c0a1b26f7505cb893393b0c",
