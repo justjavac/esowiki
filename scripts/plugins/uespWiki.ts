@@ -13,6 +13,50 @@ const uespWiki: Plugin<[], Root> = () => (tree) => {
   const title = select("#content h1", tree)?.children[0]! as Text;
   title.value = title.value.replace("Online:", "").replace("(quest)", "").trim();
 
+  const root = h(null, select("#mw-content-text", tree));
+
+  const infoNode = select("table.hiddentable tr td:nth-child(3)", root);
+  if (infoNode == null) {
+    console.log("uespWiki: infoNode is null");
+    return;
+  }
+
+  const description = selectAll("table.hiddentable td", infoNode).map((x) => x.children).flat();
+
+  const questInfo = selectAll("table.questheader tr", infoNode)
+    .map((x) => {
+      const key = select("th", x);
+      const value = select("td", x);
+      if (key == null || value == null) {
+        return null;
+      }
+      return h(toString(key).trim(), value.children);
+    })
+    .filter(Boolean);
+
+  root.children.unshift(
+    h(
+      "frontmatter",
+      h("title:", title),
+      h("description:", description),
+      ...questInfo,
+      h("layout:", "../../layouts/QuestLayout.astro"),
+    ),
+  );
+
+  const mwContentText = select("table.hiddentable", root);
+  if (mwContentText?.properties != null) {
+    mwContentText.properties.dataMdast = "ignore";
+  }
+
+  select("#genMidColor", root)!.tagName = "blockquote";
+  return root;
+};
+
+const frontmatterQuest: Plugin<[], Root> = () => (tree) => {
+  const title = select("#content h1", tree)?.children[0]! as Text;
+  title.value = title.value.replace("Online:", "").replace("(quest)", "").trim();
+
   const infoNode = select("#mw-content-text > table.hiddentable tr td:nth-child(3)", tree);
   if (infoNode == null) {
     console.log("uespWiki: infoNode is null");
@@ -42,8 +86,12 @@ const uespWiki: Plugin<[], Root> = () => (tree) => {
       h("layout:", "../../layouts/QuestLayout.astro"),
     ),
   );
-  select("#mw-content-text > table.hiddentable", root)!.children = [];
-  select("#mw-content-text > table.hiddentable", root)!.tagName = "";
+
+  const mwContentText = select("#mw-content-text > table.hiddentable", root);
+  if (mwContentText?.properties != null) {
+    mwContentText.properties.dataMdast = "ignore";
+  }
+
   select("#genMidColor", root)!.tagName = "blockquote";
   return root;
 };

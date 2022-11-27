@@ -103,7 +103,7 @@ export default function (en: string) {
   if (en.includes(":")) {
     const parts = en.split(":");
     const zhParts = parts.map((part) => en2zh.get(part.toLowerCase().trim()) ?? part);
-    return zhParts.join(":");
+    return zhParts.join(": ");
   }
 
   return en2zh.get(enKey) ?? en;
