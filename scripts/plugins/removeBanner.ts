@@ -1,6 +1,6 @@
 import { type Plugin } from "unified";
 import type { Element, Root } from "hast";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import { isElement } from "hast-util-is-element";
 
 function isBanner(node: Element, parent: Element) {
@@ -13,6 +13,7 @@ const removeBanner: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node, index, parent) => {
     if (isBanner(node, parent as Element)) {
       parent!.children.splice(index!, 1);
+      return [SKIP, index];
     }
   });
 };

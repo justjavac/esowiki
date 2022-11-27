@@ -12,7 +12,7 @@ import removeEditLink from "./removeEditLink.ts";
 import removeImgLink from "./removeImgLink.ts";
 import removeTags from "./removeTags.ts";
 import replaceHref from "./replaceHref.ts";
-import uespWiki from "./uespWiki.ts";
+import uespWiki, { frontmatterQuest } from "./uespWiki.ts";
 import en2zh from "./en2zh.ts";
 
 export const rehypeOfficial: Preset = {
@@ -33,6 +33,7 @@ export const rehypeUesp: Preset = {
   plugins: [
     rehypeRemoveComments as Plugin,
     uespWiki,
+    frontmatterQuest,
     removeImgLink,
     imgOriginSrc,
     fixNestedList,

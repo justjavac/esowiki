@@ -6,7 +6,6 @@ import { toHtml } from "hast-util-to-html";
 import remarkStringify from "remark-stringify";
 import type { Element } from "hast-util-select";
 import { rehypeUesp, remarkUesp } from "./plugins/mod.ts";
-import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
 
 /** 从网络或者缓存里获取任务详情 */
 async function getQuestFromCache(quest: string) {
@@ -32,7 +31,8 @@ async function getQuest(quest: string) {
     return h(node, "yaml", node.children.map((x: Element) => `${x.tagName} '${toHtml(x.children)}'`).join("\n"));
   };
 
-  const file = await unified()
+  const processor = unified();
+  return await processor
     .use(rehypeUesp)
     .use(rehypeParse)
     .use(rehypeRemark, { handlers: { frontmatter } })
@@ -42,14 +42,12 @@ async function getQuest(quest: string) {
       bulletOther: "*", // see https://github.com/syntax-tree/mdast-util-to-markdown/tree/main#optionsbulletother
     })
     .process(html);
-
-  return file.toString();
 }
 
 if (import.meta.main) {
-  const quest = await getQuest("Soul_Shriven_in_Coldharbour");
+  const vfile = await getQuest("Soul_Shriven_in_Coldharbour");
   await Deno.writeTextFile(
-    "./src/pages/quest/soul_shriven_in_coldharbour.mdx",
-    quest,
+    vfile.path,
+    vfile.toString(),
   );
 }

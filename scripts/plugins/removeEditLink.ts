@@ -1,6 +1,6 @@
 import { type Plugin } from "unified";
 import type { Element, Root } from "hast";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import { isElement } from "hast-util-is-element";
 
 function isEditLink(node: Element, parent: Element) {
@@ -12,6 +12,7 @@ const removeEditLink: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node, index, parent) => {
     if (isEditLink(node, parent as Element)) {
       parent!.children.splice(index!, 1);
+      return [SKIP, index];
     }
   });
 };
