@@ -9,7 +9,7 @@ export interface Props {
   content: {
     url: string;
     title: string;
-    en: string;
+    title_en: string;
     description: string;
     zone: string;
     faction: string;
@@ -27,11 +27,11 @@ export interface Props {
 
 const { content } = Astro.props;
 
-const { title, en, url, description } = content;
+const { title, title_en, url, description } = content;
 
 const meta = [
   { name: "任务名称", content: title },
-  { name: "英文名", content: en },
+  { name: "英文名称", content: title_en },
   { name: "任务描述", content: description },
   { name: "任务区域", content: content.zone },
   { name: "任务目标", content: content.objective },
