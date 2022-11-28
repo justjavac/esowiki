@@ -8,7 +8,6 @@ import fixNestedList from "./fixNestedList.ts";
 import imgLazySrc from "./imgLazySrc.ts";
 import imgOriginSrc from "./imgOriginSrc.ts";
 import removeBanner from "./removeBanner.ts";
-import removeEditLink from "./removeEditLink.ts";
 import removeImgLink from "./removeImgLink.ts";
 import removeTags from "./removeTags.ts";
 import replaceHref from "./replaceHref.ts";
@@ -38,7 +37,6 @@ export const rehypeUesp: Preset = {
     fixWikiLink,
     imgOriginSrc,
     fixNestedList,
-    removeEditLink,
     en2zh,
   ],
 };

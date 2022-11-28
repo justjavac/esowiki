@@ -1,17 +1,24 @@
 ---
 title: 避难所
+title_en: The Harborage
 description: >-
   <img alt="ON-qico-Instance.png"
   src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48"
   srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of
-  the past with <a href="/npc/the_prophet" title="先知">先知</a>。
+  the past with <a href="/npc/the_prophet" title="先知 (The Prophet)">先知</a>。
 zone: ''
-quest giver:
-  - <a href="/npc/the_prophet" title="先知">先知</a>
-location(s):
-  - <a href="/location/the_harborage" title="避难所(放置)">避难所</a>
-prerequisite quest: <a href="/quest/soul_shriven_in_coldharbour" title="冷港的丧魂傀儡">冷港的丧魂傀儡</a>
-next quest: <a href="/quest/daughter_of_giants" title="巨人的女儿">巨人的女儿</a>
+quest_giver:
+  - <a href="/npc/the_prophet" title="先知 (The Prophet)">先知</a>
+location:
+  - >-
+    <a href="/location/the_harborage" title="避难所(放置) (The Harborage
+    (place))">避难所</a>
+prerequisite_quest: >-
+  <a href="/quest/soul_shriven_in_coldharbour" title="冷港的丧魂傀儡 (Soul Shriven in
+  Coldharbour)">冷港的丧魂傀儡</a>
+next_quest: >-
+  <a href="/quest/daughter_of_giants" title="巨人的女儿 (Daughter of
+  Giants)">巨人的女儿</a>
 reward:
   - >-
     <a
@@ -19,23 +26,23 @@ reward:
     class="eso_item_link eso_item_link_q3" itemid="27269" level="5" quality="3"
     summary="1">先知的回忆</a>
   - >-
-    1<a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点">Skill
-    Point</a>
-  - "Very High\_<a href=\"/wiki/Online:Gold\" title=\"金币\">Leveled</a>金币"
+    1<a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点 (Skill
+    Points)">Skill Point</a>
+  - "Very High\_<a href=\"/wiki/Online:Gold\" title=\"金币 (Gold)\">Leveled</a>金币"
   - >-
     成就：<a href="/wiki/Online:Quests_Achievements#Main_Quest" title="Quests
     Achievements">避难所</a>
-xp gain: >-
-  <a href="/wiki/Online:Experience" class="mw-redirect" title="经验"><span
-  class="esoqcepic">Very High</span></a> <a href="/wiki/Online:Experience"
-  title="经验"><img alt="Experience"
+xp_gain: >-
+  <a href="/wiki/Online:Experience" class="mw-redirect" title="经验
+  (Experience)"><span class="esoqcepic">Very High</span></a> <a
+  href="/wiki/Online:Experience" title="经验 (Experience)"><img alt="Experience"
   src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16"
   height="16" style="vertical-align: text-bottom"
   srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png
   1.5x,
   //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png
   2x"></a>
-solo only: 是的
+solo_only: 是的
 layout: ../../layouts/QuestLayout.astro
 
 ---
@@ -44,34 +51,36 @@ layout: ../../layouts/QuestLayout.astro
 
 ## Quick Walkthrough
 
-1. Speak to [先知](/npc/the_prophet "先知")。
-2. Visit [避难所](/location/the_harborage "避难所(放置)") to find the Prophet.
+1. Speak to [先知](/npc/the_prophet "先知 (The Prophet)")。
+2. Visit [避难所](/location/the_harborage "避难所(放置) (The Harborage (place))") to find the Prophet.
 3. Enter the Prophet's mind to view visions of the past.
-4. Follow the Prophet and learn about his life with the
-   [Moth Priests](/wiki/Lore:Cult_of_the_Ancestor_Moth "Lore: Cult of the Ancestor Moth")。
-5. Watch the visions of the Five Companions and the [Soulburst](/wiki/Lore:Soulburst "Lore: Soulburst")。
-6. Follow the Prophet and learn about the threat of [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔")'s
-   [暗锚](/location/dark_anchors "暗锚") and the [位面融合](/wiki/Lore:Planemeld "Lore: 位面融合")。
+4. Follow the Prophet and learn about his life with the Moth Priests。
+5. Watch the visions of the Five Companions and the Soulburst。
+6. Follow the Prophet and learn about the threat of [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔 (Molag Bal)")'s
+   [暗锚](/location/dark_anchors "暗锚 (Dark Anchors)") and the 位面融合。
 7. Return to the Harborage and discuss your next moves.
 
 ## Detailed Walkthrough
 
-[先知](/npc/the_prophet "先知") will appear before you as soon as you enter a safe area, such as a city. Talk to him to hear
-about a safe place from which you will be able able to plan how to defeat [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔"). The
-Prophet calls this place "[避难所](/location/the_harborage "避难所(放置)")."
+[先知](/npc/the_prophet "先知 (The Prophet)") will appear before you as soon as you enter a safe area, such as a city. Talk
+to him to hear about a safe place from which you will be able able to plan how to defeat
+[莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔 (Molag Bal)"). The Prophet calls this place
+"[避难所](/location/the_harborage "避难所(放置) (The Harborage (place))")."
 
 ### To the Harborage
 
-For those starting in [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫") ([先祖神洲](/faction/aldmeri_dominion "先祖神洲")), the
-Harborage is directly east from the docks and close to the [奥瑞敦](/location/auridon "奥瑞敦") coast. The Harborage is in a
-seaside cave.
+For those starting in [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫 (Vulkhel Guard)")
+([先祖神洲](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")), the Harborage is directly east from the docks and close
+to the [奥瑞敦](/location/auridon "奥瑞敦 (Auridon)") coast. The Harborage is in a seaside cave.
 
-For those beginning in [达文卫城](/location/davon_s_watch "达文卫城") ([黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合")), the
-Harborage is west of the city and slightly south. If you get to [沉船浅滩](/location/shipwreck_strand "沉船浅滩"), a boss
-location on the coast, you've gone too far west.
+For those beginning in [达文卫城](/location/davon_27s_watch "达文卫城 (Davon's Watch)")
+([黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")), the Harborage is west of the city and slightly south.
+If you get to [沉船浅滩](/location/shipwreck_strand "沉船浅滩 (Shipwreck Strand)"), a boss location on the coast, you've gone
+too far west.
 
-If you start in [匕落](/location/daggerfall "匕落") ([匕落同盟](/faction/daggerfall_covenant "匕落同盟")), the Harborage will be
-east of [巴兹加拉的马](/location/bazgara_s_horses "巴兹加拉的马"), the Daggerfall stables.
+If you start in [匕落](/location/daggerfall "匕落 (Daggerfall)")
+([匕落同盟](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")), the Harborage will be east of
+[巴兹加拉的马](/location/bazgara_27s_horses "巴兹加拉的马 (Bazgara's Horses)"), the Daggerfall stables.
 
 - _"Welcome to the Harborage, Vestige."_
 
@@ -87,21 +96,18 @@ The Prophet opens a portal to a Coldharbour-like realm and walks along the path 
 
 <p class="text-gray-500 text-sm text-center">The Elder Scroll and the Dragonfire Brazier</p>
 
-- _"My part in the story began when I awoke on the steps of the Abbey of the
-  [Moth Priests](/wiki/Lore:Cult_of_the_Ancestor_Moth "Lore: Cult of the Ancestor Moth"), with no memory of my past
+- _"My part in the story began when I awoke on the steps of the Abbey of the Moth Priests, with no memory of my past
   life. The Moth Priests took pity on me and brought me into their fold. I was weak and near death. It was there that I
-  first set eyes upon the [上古卷轴](/wiki/Lore:Elder_Scrolls "Lore: 上古卷轴"), and devoted my life to their study."_
+  first set eyes upon the 上古卷轴, and devoted my life to their study."_
 
 At this point, you and the Prophet pass a brazier with an Elder Scrolls spinning above it.
 
 - _"卷轴让我瞥见了现实的结构，但每一次深刻的洞察都会使我的视线变暗，最终永远丧失视力，再不能窥见世界的光亮。"_
 
 He stops, and you need to talk to him again. He says your destiny is intertwined with the Five Companions, a band of
-adventures who sought out the [诸王护符](/wiki/Lore:Amulet_of_Kings "Lore: 诸王护符") to persuade
-[Akatosh](/wiki/Lore:Akatosh "Lore: Akatosh") to accept their leader as
-[Dragonborn](/wiki/Lore:Dragonborn "Lore: Dragonborn"). The leader was
-[瓦仁·阿基拉里奥斯](/wiki/Online:Varen_Aquilarios "瓦仁·阿基拉里奥斯"), "the son of a Colovian duke, who led a rebellion against the
-[利奥维克皇帝](/wiki/Lore:Leovic "Lore: 利奥维克")" and crowned himself emperor.
+adventures who sought out the 诸王护符 to persuade Akatosh to accept their leader as Dragonborn. The leader was
+[瓦仁·阿基拉里奥斯](/wiki/Online:Varen_Aquilarios "瓦仁·阿基拉里奥斯 (Varen Aquilarios)"), "the son of a Colovian duke, who led a
+rebellion against the 利奥维克皇帝" and crowned himself emperor.
 
 #### Meet the Five Companions
 
@@ -109,12 +115,12 @@ adventures who sought out the [诸王护符](/wiki/Lore:Amulet_of_Kings "Lore: �
 
 <p class="text-gray-500 text-sm text-center">五方使者</p>
 
-- _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩"), daughter of giants, was the greatest warrior in
-  the service of the Empire. Next, [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩"), a powerful sorcerer and Grand Chancellor to
-  the [Imperial Elder Council](/wiki/Lore:Elder_Council "Lore: Elder Council"). The [红卫人](/wiki/Online:Redguard "红卫人")
-  sword master [赛·萨汗](/npc/sai_sahan "赛·萨汗"), leader of the [Imperial Dragonguard](/wiki/Lore:Dragonguard "Lore: 龙卫").
-  The Imperial Emperor, Varen Aquilarios, who attempted to light the Dragonfires and failed. And finally,
-  [曼尼玛克](/npc/mannimarco "曼尼玛克") the traitor. The King of Worms. A powerful necromancer, and your executioner."_
+- _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩 (Lyris Titanborn)"), daughter of giants, was the
+  greatest warrior in the service of the Empire. Next, [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩 (Abnur Tharn)"), a powerful
+  sorcerer and Grand Chancellor to the Imperial Elder Council. The [红卫人](/race/redguard "红卫人 (Redguard)") sword master
+  [赛·萨汗](/npc/sai_sahan "赛·萨汗 (Sai Sahan)"), leader of the Imperial Dragonguard. The Imperial Emperor, Varen Aquilarios,
+  who attempted to light the Dragonfires and failed. And finally, [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)") the
+  traitor. The King of Worms. A powerful necromancer, and your executioner."_
 
 Talk to the Prophet again after he finishes describing each of the Five Companions. He says Mannimarco convinced Varen
 that the Amulet of Kings could be used to rekindle the Dragonfires. According to Mannimarco, the Emperor could perform a
@@ -188,9 +194,8 @@ gives you a reward.
 
 ## Quest Stages
 
-| 避难所                                                       |                                                                          |
-| --------------------------------------------------------- | ------------------------------------------------------------------------ |
 | Finishes Quest                                            | Journal Entry                                                            |
+| --------------------------------------------------------- | ------------------------------------------------------------------------ |
 |                                                           | 先知的投影出现在我面前。我应该跟它谈谈。_Objective_: 与先知交谈                                   |
 |                                                           | 先知要我去寻找一处叫“避难所”的地方。我应该找到这个地方，然后和他谈谈。_Objective_: 寻找避难所                   |
 |                                                           | 我找到了避难所。我应该到山洞里和先知谈谈。_Objective_: 与先知交谈                                  |

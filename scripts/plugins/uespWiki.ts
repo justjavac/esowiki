@@ -8,7 +8,7 @@ import { toString } from "nlcst-to-string";
 import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
 import { VFile } from "vfile";
 import { isElement } from "hast-util-is-element";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import linkType from "../linkType.ts";
 
 /**
@@ -25,6 +25,9 @@ const uespWiki: Plugin<[], Root> = () => {
     title.value = title.value.replace("Online:", "").replace(/\([^)]*\)/, "").trim();
     file.cwd = Deno.cwd();
     file.data.title = toString(title);
+
+    const category = select("#contentSub .subpages > a:nth-child(2)", tree) as Element;
+    file.data.category = toString(category);
 
     const root = h(null, select("#mw-content-text", tree));
     const hTitle = h("title", title);
@@ -49,12 +52,23 @@ const uespWiki: Plugin<[], Root> = () => {
       mwContentText.properties.dataMdast = "ignore";
     }
 
+    const toc = select("#toc", root);
+    if (toc?.properties != null) {
+      toc.properties.dataMdast = "ignore";
+    }
+
     // 忽略所有的图标
     const magnify = selectAll(".magnify", root);
     magnify.forEach((node) => {
-      if (node.properties != null) {
-        node.properties.dataMdast = "ignore";
-      }
+      if (node.properties == null) return;
+      node.properties.dataMdast = "ignore";
+    });
+
+    // 忽略所有编辑按钮
+    const editsection = selectAll(".mw-editsection", root);
+    editsection.forEach((node) => {
+      if (node.properties == null) return;
+      node.properties.dataMdast = "ignore";
     });
 
     // 忽略任务列表的第一行
@@ -80,45 +94,101 @@ const uespWiki: Plugin<[], Root> = () => {
 
 /** 解析任务详情 */
 export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
-  file.path = "src/pages/quest/" + snakeCase(`${file.data.title}`) + ".md";
-  const infoNode = select("table.hiddentable tr td:nth-child(3)", tree);
-  if (infoNode == null) {
-    console.log("uespWiki: infoNode is null");
-    return;
-  }
+  file.path = "drafts/" + snakeCase(`${file.data.title}`) + ".md";
 
-  const description = selectAll("table.hiddentable td", infoNode)
-    .flatMap((x) => x.children)
-    .flatMap((x) => isElement(x, "b") ? x.children : x);
+  const info: Element[] = [];
 
-  const questInfo = selectAll("table.questheader tr", infoNode)
-    .map((x) => {
-      const key = select("th", x);
-      const value = select("td", x);
-      if (key == null || value == null) {
-        return null;
+  switch (file.data.category) {
+    // 任务
+    case "Quests": {
+      file.dirname = "src/pages/quest/";
+
+      const infobox = select("table.hiddentable tr td:nth-child(3)", tree);
+      if (infobox == null) {
+        console.log("uespWiki: infoNode is null");
+        return;
       }
-      return h(toString(key).replace(":", "").trim(), value.children);
-    })
-    .filter(Boolean) as Element[];
 
-  const frontmatter = select("frontmatter", tree);
-  if (frontmatter == null) {
-    console.log("uespWiki: frontmatter is null");
-    Deno.exit(1);
+      const description = selectAll("table.hiddentable td", infobox)
+        .flatMap((x) => x.children)
+        .flatMap((x) => isElement(x, "b") ? x.children : x);
+
+      info.push(h("description", description));
+
+      selectAll("table.questheader tr", infobox)
+        .forEach((x) => {
+          const key = select("th", x);
+          const value = select("td", x);
+          if (key != null && value != null) {
+            const tagName = toString(key)
+              .replace(":", "")
+              .replace("(s)", "")
+              .trim()
+              .replace(" ", "_");
+            info.push(h(tagName, value.children));
+          }
+        });
+
+      info.push(h("layout", "../../layouts/QuestLayout.astro"));
+      break;
+    }
+
+    // 人物
+    case "People": {
+      file.dirname = "src/pages/npc/";
+
+      const thumb = select(".thumb", tree);
+      if (thumb != null) {
+        info.push(h("thumb", thumb.children));
+      }
+      selectAll(".thumb", tree).forEach((x) => {
+        if (x.properties != null) {
+          x.properties.dataMdast = "ignore";
+        }
+      });
+
+      const infobox = select(".infobox", tree);
+      if (infobox == null) {
+        console.log("uespWiki: infoNode is null");
+        return;
+      }
+
+      selectAll("tr", infobox)
+        .forEach((x) => {
+          const keys = selectAll("th", x);
+          const values = selectAll("td", x);
+          if (keys.length == 0 || values.length == 0) {
+            return;
+          }
+
+          keys.forEach((key, index) => {
+            const value = values[index];
+            if (value != null) {
+              const tagName = toString(key)
+                .replace(":", "")
+                .replace("(s)", "")
+                .trim()
+                .replace(" ", "_");
+              info.push(h(tagName, value.children));
+            }
+          });
+        });
+
+      infobox.properties!.dataMdast = "ignore";
+      info.push(h("layout", "../../layouts/NpcLayout.astro"));
+      break;
+    }
+    default: {
+      console.log("uespWiki: unknown category", file.data.category);
+      info.push(h("layout", "../../layouts/QuestLayout.astro"));
+    }
   }
 
-  if ((frontmatter.children[0] as Element)?.tagName !== "title") {
-    console.log("uespWiki: frontmatter title is null");
-    Deno.exit(1);
-  }
-
+  const frontmatter = select("frontmatter", tree)!;
   frontmatter.children.splice(
     1,
     0,
-    h("description", description),
-    ...questInfo,
-    h("layout", "../../layouts/QuestLayout.astro"),
+    ...info,
   );
 
   const mwContentText = select("table.hiddentable", tree);
@@ -126,7 +196,10 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
     mwContentText.properties.dataMdast = "ignore";
   }
 
-  select("#genMidColor", tree)!.tagName = "blockquote";
+  if (select("#genMidColor", tree)) {
+    select("#genMidColor", tree)!.tagName = "blockquote";
+  }
+
   return tree;
 };
 
@@ -135,11 +208,18 @@ export const fixWikiLink: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node, index, parent) => {
     if (isElement(node, "a")) {
       const href = node.properties!.href as string;
-      if (linkType[href] == null) return;
-      const text = toString(node);
+
+      if (href.startsWith("/wiki/Lore:")) {
+        parent!.children.splice(index!, 1, ...node.children);
+        return [SKIP, index];
+      }
+
+      if (linkType[href] == null) {
+        return;
+      }
       node.properties!.href = href.replace(
         /\/wiki\/Online:(.*)/,
-        (_, name: string) => `/${linkType[href]}/${snakeCase(name)}`,
+        (_, name: string) => `/${linkType[href]}/${snakeCase(name.replace(/_\(.*\)/, ""))}`,
       );
     }
   });

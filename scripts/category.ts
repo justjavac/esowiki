@@ -5,7 +5,7 @@ import { select, selectAll } from "hast-util-select";
 import { toString } from "nlcst-to-string";
 import toZH from "./toZH.ts";
 
-const NAME = "Places";
+const NAME = "Races";
 
 const NPC_URL = `https://en.uesp.net/w/index.php?title=Category:Online-${NAME}`;
 

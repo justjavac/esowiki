@@ -7,6 +7,7 @@ import locations from "../gamedata/category/locations.json" assert { type: "json
 import quests from "../gamedata/category/quests.json" assert { type: "json" };
 import skills from "../gamedata/category/skills.json" assert { type: "json" };
 import npcs from "../gamedata/category/npcs.json" assert { type: "json" };
+import races from "../gamedata/category/races.json" assert { type: "json" };
 
 const linkType: Record<string, string> = {};
 
@@ -25,5 +26,6 @@ genSearchMap(locations, "location");
 genSearchMap(quests, "quest");
 genSearchMap(skills, "skill");
 genSearchMap(npcs, "npc");
+genSearchMap(races, "race");
 
 export default linkType;

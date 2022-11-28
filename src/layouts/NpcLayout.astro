@@ -11,55 +11,39 @@ export interface Props {
     title: string;
     title_en: string;
     description: string;
-    zone: string;
-    faction: string;
-    objective: string;
-    quest_giver: string[];
+    thumb?: string;
+    race: string;
+    gender: string;
+    health: string;
+    reaction: string;
+    "faction(s)": string[];
     location: string[];
-    prerequisite_quest: string;
-    next_quest: string;
-    concurrent_quest: string;
-    reward: string[];
-    xp_gain: string;
-    solo_only: string;
   };
 }
 
+const { content } = Astro.props;
+
 const {
-  content: {
-    url,
-    title,
-    title_en,
-    description,
-    zone,
-    faction,
-    objective,
-    quest_giver,
-    location,
-    prerequisite_quest,
-    next_quest,
-    concurrent_quest,
-    reward,
-    xp_gain,
-    solo_only,
-  },
-} = Astro.props;
+  title,
+  title_en,
+  url,
+  race,
+  location,
+  thumb,
+  gender,
+  health,
+  reaction,
+} = content;
 
 const meta = [
-  { name: "任务名称", content: title },
-  { name: "英文名称", content: title_en },
-  { name: "任务描述", content: description },
-  { name: "任务区域", content: zone },
-  { name: "任务目标", content: objective },
-  { name: "任务阵营", content: faction },
-  { name: "任务发布者", content: quest_giver.join("<br>") },
-  { name: "任务地点", content: location.join("<br>") },
-  { name: "前置任务", content: prerequisite_quest },
-  { name: "后续任务", content: next_quest },
-  { name: "并行任务", content: concurrent_quest },
-  { name: "任务奖励", content: reward.join("<br>") },
-  { name: "获得经验", content: xp_gain },
-  { name: "单人任务", content: solo_only || "否" },
+  { name: "姓名", content: title },
+  { name: "英文", content: title_en },
+  { name: "地点", content: location.join("<br>") },
+  { name: "种族", content: race },
+  { name: "性别", content: gender },
+  { name: "生命", content: health },
+  { name: "反应", content: reaction },
+  { name: "阵营", content: content["faction(s)"]?.join("<br>") },
 ];
 ---
 
@@ -75,6 +59,17 @@ const meta = [
   .markdown-body img {
     width: 60%;
     margin: auto;
+  }
+
+  .markdown-body img.thumb {
+    margin: 0 10px;
+    width: 16rem;
+  }
+
+  .markdown-body img.thumb + p:after {
+    content: "";
+    display: block;
+    clear: both;
   }
 </style>
 
@@ -93,8 +88,9 @@ const meta = [
     <HeaderNav />
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
       <article class="p-6 md:col-span-3">
-        <h1 class="text-4xl text-gray-900 font-bold">{title}</h1>
-        <div class="markdown-body mt-6">
+        <div class="markdown-body">
+          <h1>{title}</h1>
+          <img class="thumb float-left block" src={thumb} alt={title} />
           <slot />
         </div>
       </article>
@@ -118,7 +114,7 @@ const meta = [
               >
               </path>
             </svg>
-            <h3 class="ftext-base font-medium text-gray-800">任务信息</h3>
+            <h3 class="ftext-base font-medium text-gray-800">人物信息</h3>
           </header>
           <ul class="markdown-body my-2 text-sm text-gray-600">
             {

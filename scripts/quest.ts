@@ -9,16 +9,17 @@ import { toString } from "nlcst-to-string";
 import { Element, ElementContent, Node, Text } from "hast";
 import { stringify } from "yaml";
 import { isElement } from "hast-util-is-element";
+import { select } from "hast-util-select";
 
 /** 从网络或者缓存里获取任务详情 */
-async function getQuestFromCache(quest: string) {
-  const cachePath = `.cache/quest/${quest}.html`;
+async function getQuestFromCache(name: string) {
+  const cachePath = `.cache/quest/${name}.html`;
 
   try {
     const html = await Deno.readTextFile(cachePath);
     return html;
   } catch {
-    const url = `https://en.uesp.net/wiki/Online:${quest}`;
+    const url = `https://en.uesp.net/wiki/Online:${name}`;
     const res = await fetch(url);
     const html = await res.text();
     await Deno.writeTextFile(cachePath, html);
@@ -56,14 +57,28 @@ const frontmatter: Handle = (h, node) => {
         frontmatter.title_en = x.properties?.en as string;
         break;
       case "description":
+      case "zone":
+      case "prerequisite_quest":
+      case "next_quest":
+      case "xp_gain":
+      case "solo_only":
         frontmatter[x.tagName] = toHtml(x.children);
         break;
-      case "quest giver":
-      case "location(s)":
+      case "layout":
+        frontmatter[x.tagName] = toString(x);
+        break;
+      case "quest_giver":
+      case "home_city":
+      case "location":
+      case "faction":
       case "reward":
         frontmatter[x.tagName] = splitByBr(x).map((x) => toHtml(x));
         break;
+      case "thumb":
+        frontmatter[x.tagName] = select("img", x)?.properties?.src as string;
+        break;
       default:
+        console.log(x.tagName);
         frontmatter[x.tagName] = toHtml(x.children);
     }
   });
@@ -94,8 +109,10 @@ async function getQuest(quest: string) {
     .process(html);
 }
 
+const NAME = "The_Harborage_(quest)";
+
 if (import.meta.main) {
-  const vfile = await getQuest("Storm_on_the_Horizon");
+  const vfile = await getQuest(NAME);
   await Deno.writeTextFile(
     vfile.path,
     vfile.toString(),
