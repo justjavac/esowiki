@@ -24,13 +24,13 @@ async function getQuestFromCache(quest: string) {
   }
 }
 
+const frontmatter: Handle = (h, node) => {
+  return h(node, "yaml", node.children.map((x: Element) => `${x.tagName} '${toHtml(x.children)}'`).join("\n"));
+};
+
 /** 获取任务详情 */
 async function getQuest(quest: string) {
   const html = await getQuestFromCache(quest);
-
-  const frontmatter: Handle = (h, node) => {
-    return h(node, "yaml", node.children.map((x: Element) => `${x.tagName} '${toHtml(x.children)}'`).join("\n"));
-  };
 
   const center: Handle = (h, node) => {
     node.properties = { className: ["text-gray-500 text-sm text-center"] };
