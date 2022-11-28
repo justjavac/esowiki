@@ -6,7 +6,9 @@ import { toHtml } from "hast-util-to-html";
 import remarkStringify from "remark-stringify";
 import { rehypeUesp, remarkUesp } from "./plugins/mod.ts";
 import { toString } from "nlcst-to-string";
-import { Element, Node, Text } from "hast";
+import { Element, ElementContent, Node, Text } from "hast";
+import { stringify } from "yaml";
+import { isElement } from "hast-util-is-element";
 
 /** 从网络或者缓存里获取任务详情 */
 async function getQuestFromCache(quest: string) {
@@ -24,8 +26,50 @@ async function getQuestFromCache(quest: string) {
   }
 }
 
+function splitByBr(node: Element): ElementContent[][] {
+  const children: ElementContent[][] = [];
+  let current: ElementContent[] = [];
+
+  for (const child of node.children) {
+    if (isElement(child, "br")) {
+      children.push(current);
+      current = [];
+    } else {
+      current.push(child);
+    }
+  }
+
+  if (current.length > 0) {
+    children.push(current);
+  }
+
+  return children;
+}
+
 const frontmatter: Handle = (h, node) => {
-  return h(node, "yaml", node.children.map((x: Element) => `${x.tagName} '${toHtml(x.children)}'`).join("\n"));
+  const frontmatter: Record<string, string | string[]> = {};
+
+  node.children.forEach((x: Element) => {
+    switch (x.tagName) {
+      case "title":
+        frontmatter.title = toString(x);
+        break;
+      case "description":
+        frontmatter.description = toHtml(x.children);
+        break;
+      case "quest giver":
+      case "location(s)":
+      case "reward":
+        frontmatter[x.tagName] = splitByBr(x).map((x) => toHtml(x));
+        break;
+      default:
+        frontmatter[x.tagName] = toHtml(x.children);
+    }
+  });
+
+  frontmatter.arr = [{ a: 1 }, { b: 2, foo: "bar" }];
+
+  return h(node, "yaml", stringify(frontmatter));
 };
 
 /** 获取任务详情 */
@@ -52,7 +96,7 @@ async function getQuest(quest: string) {
 }
 
 if (import.meta.main) {
-  const vfile = await getQuest("The_Harborage_(quest)");
+  const vfile = await getQuest("Storm_on_the_Horizon");
   await Deno.writeTextFile(
     vfile.path,
     vfile.toString(),

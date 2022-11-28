@@ -13,12 +13,12 @@ export interface Props {
     zone: string;
     faction: string;
     objective: string;
-    "quest giver": string;
-    "location(s)": string;
+    "quest giver": string[];
+    "location(s)": string[];
     "prerequisite quest": string;
     "next quest": string;
     "concurrent quest": string;
-    reward: string;
+    reward: string[];
     "xp gain": string;
     "solo only": string;
   };
@@ -31,15 +31,15 @@ const { title, url, description } = content;
 const meta = [
   { name: "任务名称", content: title },
   { name: "任务描述", content: description },
-  { name: "任务区域", content: content.zone || "无" },
-  { name: "任务目标", content: content.objective || "无" },
-  { name: "任务阵营", content: content.faction || "无" },
-  { name: "任务发布者", content: content["quest giver"] || "无" },
-  { name: "任务地点", content: content["location(s)"] || "无" },
-  { name: "前置任务", content: content["prerequisite quest"] || "无" },
-  { name: "后续任务", content: content["next quest"] || "无" },
-  { name: "并行任务", content: content["concurrent quest"] || "无" },
-  { name: "任务奖励", content: content.reward },
+  { name: "任务区域", content: content.zone },
+  { name: "任务目标", content: content.objective },
+  { name: "任务阵营", content: content.faction },
+  { name: "任务发布者", content: content["quest giver"].join("<br>") },
+  { name: "任务地点", content: content["location(s)"].join("<br>") },
+  { name: "前置任务", content: content["prerequisite quest"] },
+  { name: "后续任务", content: content["next quest"] },
+  { name: "并行任务", content: content["concurrent quest"] },
+  { name: "任务奖励", content: content.reward.join("<br>") },
   { name: "获得经验", content: content["xp gain"] },
   { name: "单人任务", content: content["solo only"] || "否" },
 ];
@@ -107,7 +107,7 @@ const meta = [
               meta.map((item) => (
                 <li class="flex gap-1 py-1 px-5">
                   <span class="font-bold whitespace-nowrap">{item.name}:</span>
-                  <span set:html={item.content} />
+                  <span set:html={item.content || "无"} />
                 </li>
               ))
             }

@@ -32,7 +32,7 @@ const uespWiki: Plugin<[], Root> = () => {
     root.children.unshift(
       h(
         "frontmatter",
-        h("title:", title),
+        h("title", title),
       ),
     );
 
@@ -91,7 +91,7 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
       if (key == null || value == null) {
         return null;
       }
-      return h(toString(key).trim(), value.children);
+      return h(toString(key).replace(":", "").trim(), value.children);
     })
     .filter(Boolean) as Element[];
 
@@ -101,7 +101,7 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
     Deno.exit(1);
   }
 
-  if ((frontmatter.children[0] as Element)?.tagName !== "title:") {
+  if ((frontmatter.children[0] as Element)?.tagName !== "title") {
     console.log("uespWiki: frontmatter title is null");
     Deno.exit(1);
   }
@@ -109,9 +109,9 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
   frontmatter.children.splice(
     1,
     0,
-    h("description:", description),
+    h("description", description),
     ...questInfo,
-    h("layout:", "../../layouts/QuestLayout.astro"),
+    h("layout", "../../layouts/QuestLayout.astro"),
   );
 
   const mwContentText = select("table.hiddentable", tree);

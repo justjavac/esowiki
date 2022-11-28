@@ -1,15 +1,43 @@
 ---
-title: '避难所'
-description: '<img alt="ON-qico-Instance.png" src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48" srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of the past with <a href="/npc/the_prophet" title="先知">先知</a>。'
+title: 避难所
+description: >-
+  <img alt="ON-qico-Instance.png"
+  src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48"
+  srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of
+  the past with <a href="/npc/the_prophet" title="先知">先知</a>。
 zone: ''
-quest giver: '<a href="/npc/the_prophet" title="先知">先知</a>'
-location(s): '<a href="/location/the_harborage" title="避难所(放置)">避难所</a>'
-prerequisite quest: '<a href="/quest/soul_shriven_in_coldharbour" title="冷港的丧魂傀儡">冷港的丧魂傀儡</a>'
-next quest: '<a href="/quest/daughter_of_giants" title="巨人的女儿">巨人的女儿</a>'
-reward: '<a href="//esoitem.uesp.net/itemLink.php?&#x26;itemid=27269&#x26;level=5&#x26;quality=3&#x26;summary" class="eso_item_link eso_item_link_q3" itemid="27269" level="5" quality="3" summary="1">先知的回忆</a><br>1<a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点">Skill Point</a><br>Very High <a href="/wiki/Online:Gold" title="金币">Leveled</a>金币<br>成就：<a href="/wiki/Online:Quests_Achievements#Main_Quest" title="Quests Achievements">避难所</a>'
-xp gain: '<a href="/wiki/Online:Experience" class="mw-redirect" title="经验"><span class="esoqcepic">Very High</span></a> <a href="/wiki/Online:Experience" title="经验"><img alt="Experience" src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16" height="16" style="vertical-align: text-bottom" srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png 1.5x, //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png 2x"></a>'
-solo only: '是的'
-layout: '../../layouts/QuestLayout.astro'
+quest giver:
+  - <a href="/npc/the_prophet" title="先知">先知</a>
+location(s):
+  - <a href="/location/the_harborage" title="避难所(放置)">避难所</a>
+prerequisite quest: <a href="/quest/soul_shriven_in_coldharbour" title="冷港的丧魂傀儡">冷港的丧魂傀儡</a>
+next quest: <a href="/quest/daughter_of_giants" title="巨人的女儿">巨人的女儿</a>
+reward:
+  - >-
+    <a
+    href="//esoitem.uesp.net/itemLink.php?&#x26;itemid=27269&#x26;level=5&#x26;quality=3&#x26;summary"
+    class="eso_item_link eso_item_link_q3" itemid="27269" level="5" quality="3"
+    summary="1">先知的回忆</a>
+  - >-
+    1<a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点">Skill
+    Point</a>
+  - "Very High\_<a href=\"/wiki/Online:Gold\" title=\"金币\">Leveled</a>金币"
+  - >-
+    成就：<a href="/wiki/Online:Quests_Achievements#Main_Quest" title="Quests
+    Achievements">避难所</a>
+xp gain: >-
+  <a href="/wiki/Online:Experience" class="mw-redirect" title="经验"><span
+  class="esoqcepic">Very High</span></a> <a href="/wiki/Online:Experience"
+  title="经验"><img alt="Experience"
+  src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16"
+  height="16" style="vertical-align: text-bottom"
+  srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png
+  1.5x,
+  //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png
+  2x"></a>
+solo only: 是的
+layout: ../../layouts/QuestLayout.astro
+
 ---
 
 > 先知通过一种魔法投影联系上了我。他要我去寻找一个名叫避难所的地方，他正在那里暂避风头。我必须去找他，并确保他的安全。
