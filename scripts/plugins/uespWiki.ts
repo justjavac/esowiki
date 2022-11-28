@@ -19,20 +19,21 @@ import linkType from "../linkType.ts";
  */
 const uespWiki: Plugin<[], Root> = () => {
   return (tree, file: VFile) => {
-    const title = select("#content h1", tree)?.children[0]! as Text;
+    const h1 = select("#content h1", tree) as Element;
+    const title = h1.children[0]! as Text;
 
     title.value = title.value.replace("Online:", "").replace(/\([^)]*\)/, "").trim();
     file.cwd = Deno.cwd();
     file.data.title = toString(title);
 
-    const categorie = select("#contentSub a:nth-child(2)", tree);
-
     const root = h(null, select("#mw-content-text", tree));
+    const hTitle = h("title", title);
+    hTitle.properties = { en: title.value };
 
     root.children.unshift(
       h(
         "frontmatter",
-        h("title", title),
+        hTitle,
       ),
     );
 

@@ -2,13 +2,14 @@ import { type Plugin } from "unified";
 import type { Root } from "hast";
 import { visit } from "unist-util-visit";
 import { isElement } from "hast-util-is-element";
-import toZH from "../toZH.ts";
+import toZH, { isEnglish } from "../toZH.ts";
 
 const en2zh: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node) => {
-    if (isElement(node, "a") && node.properties?.title) {
-      const title = (node.properties.title as string).replace("Online:", "");
-      node.properties!.title = toZH(title);
+    if (isElement(node, "a") && node.properties?.title && isEnglish(node.properties.title as string)) {
+      const en = (node.properties.title as string).replace("Online:", "");
+      const zh = toZH(en);
+      node.properties!.title = isEnglish(zh) ? zh : `${zh} (${en})`;
     }
   });
 

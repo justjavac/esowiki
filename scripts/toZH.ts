@@ -61,7 +61,7 @@ async function parseLang(path: string) {
   }) as LangItem[];
 }
 
-function isEnglish(str?: string) {
+export function isEnglish(str?: string) {
   if (str == null) return false;
   // deno-lint-ignore no-control-regex
   return !/[^\x00-\xff]/.test(str);

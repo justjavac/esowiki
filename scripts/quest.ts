@@ -53,9 +53,10 @@ const frontmatter: Handle = (h, node) => {
     switch (x.tagName) {
       case "title":
         frontmatter.title = toString(x);
+        frontmatter.title_en = x.properties?.en as string;
         break;
       case "description":
-        frontmatter.description = toHtml(x.children);
+        frontmatter[x.tagName] = toHtml(x.children);
         break;
       case "quest giver":
       case "location(s)":
@@ -66,8 +67,6 @@ const frontmatter: Handle = (h, node) => {
         frontmatter[x.tagName] = toHtml(x.children);
     }
   });
-
-  frontmatter.arr = [{ a: 1 }, { b: 2, foo: "bar" }];
 
   return h(node, "yaml", stringify(frontmatter));
 };
