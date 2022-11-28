@@ -57,6 +57,12 @@ const uespWiki: Plugin<[], Root> = () => {
       }
     });
 
+    // 忽略任务列表的第一行
+    const tr = select("table.wikitable > tbody > tr:nth-child(1)", root);
+    if (tr?.properties != null) {
+      tr.properties.dataMdast = "ignore";
+    }
+
     // 将 .thumbcaption 元素的类型转为 center
     const thumbcaption = selectAll(".thumbcaption", root);
     thumbcaption.forEach((node) => {
@@ -124,13 +130,17 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
   return tree;
 };
 
+/** /wiki/Online:Note_from_Razum-dar --> /book/note_from_razum-dar */
 export const fixWikiLink: Plugin<[], Root> = () => (tree) => {
   visit(tree, "element", (node, index, parent) => {
     if (isElement(node, "a")) {
       const href = node.properties!.href as string;
       if (linkType[href] == null) return;
       const text = toString(node);
-      node.properties!.href = `/${linkType[href]}/${snakeCase(text)}`;
+      node.properties!.href = href.replace(
+        /\/wiki\/Online:(.*)/,
+        (_, name: string) => `/${linkType[href]}/${snakeCase(name)}`,
+      );
     }
   });
 };

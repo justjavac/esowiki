@@ -5,22 +5,23 @@ description: >-
   <img alt="ON-qico-Zone Story.png"
   src="//images.uesp.net/thumb/b/b4/ON-qico-Zone_Story.png" width="48"
   height="48" srcset="//images.uesp.net/b/b4/ON-qico-Zone_Story.png 1.5x">前往<a
-  href="/location/khenarthi_s_roost" title="柯娜西的居所 (Khenarthi&#x27;s
-  Roost)">柯娜西的居所</a> to find the <a href="/npc/khajiit" title="拉祖姆达
+  href="/location/khenarthi_27s_roost" title="柯娜西的居所 (Khenarthi&#x27;s
+  Roost)">柯娜西的居所</a> to find the <a href="/npc/razum_dar" title="拉祖姆达
   (Razum-dar)">虎人</a> who saved you.
 zone: >-
-  <a href="/location/khenarthi_s_roost" title="柯娜西的居所 (Khenarthi&#x27;s
-  Roost)">柯娜西的居所</a><br><a href="/quest/" title="Zone Story"><img alt="Zone
-  Story" src="//images.uesp.net/thumb/e/e1/ON-icon-quest-story.png" width="20"
-  height="20"
+  <a href="/location/khenarthi_27s_roost" title="柯娜西的居所 (Khenarthi&#x27;s
+  Roost)">柯娜西的居所</a><br><a href="/quest/story_quests" title="Zone Story"><img
+  alt="Zone Story" src="//images.uesp.net/thumb/e/e1/ON-icon-quest-story.png"
+  width="20" height="20"
   srcset="//images.uesp.net/thumb/e/e1/ON-icon-quest-story.png/30px-ON-icon-quest-story.png
   1.5x, //images.uesp.net/e/e1/ON-icon-quest-story.png 2x"></a>This quest is
-  part of the <a href="/quest/zone_story" title="Story Quests">Zone Story</a>
+  part of the <a href="/quest/story_quests" title="Story Quests">Zone Story</a>
 faction: <a href="/faction/aldmeri_dominion" title="先祖神洲 (Aldmeri Dominion)">先祖神洲</a>
 quest giver:
   - >-
     <a href="/npc/razum_dar" title="拉祖姆达 (Razum-dar)">拉祖姆达</a> in <a
-    href="/location/eagle_s_strand" title="鹰栖崖堡 (Eagle&#x27;s Strand)">鹰栖崖堡</a>;
+    href="/location/eagle_27s_strand" title="鹰栖崖堡 (Eagle&#x27;s
+    Strand)">鹰栖崖堡</a>;
   - >-
     <a href="/npc/captain_tremouille" title="崔莫勒船长 (Captain
     Tremouille)">崔莫勒船长</a> in <a href="/location/vulkhel_guard" title="弗克赫尔守卫
@@ -35,7 +36,7 @@ quest giver:
     From the Beach)">致我来自海滩的朋友</a>
 location(s):
   - >-
-    <a href="/location/eagle_s_strand" title="鹰栖崖堡 (Eagle&#x27;s
+    <a href="/location/eagle_27s_strand" title="鹰栖崖堡 (Eagle&#x27;s
     Strand)">鹰栖崖堡</a>, <a href="/location/shattered_shoals" title="破碎浅滩
     (Shattered Shoals)">破碎浅滩</a>, <a
     href="/location/temple_of_the_mourning_springs" title="哀悼之泉神殿 (Temple of the
@@ -100,8 +101,9 @@ just another soldier. Then, he will have you speak to [指挥官卡莉妮斯](/n
 who will then send you to speak with [伊尔希尔](/npc/ealcil "伊尔希尔 (Ealcil)"). Karinith needs you to help search for
 survivors of the storm in the [破碎浅滩](/location/shattered_shoals "破碎浅滩 (Shattered Shoals)") area to the west. Ealcil, on
 the other hand, is a scholar who has just returned from a
-[神殿](/location/temple "哀悼之泉神殿 (Temple of the Mourning Springs)") with a mysterious rock that produces endless water. He
-was attacked by skeletons and barely escaped with his life and the stone, leaving behind the rest of the expedition.
+[神殿](/location/temple_of_the_mourning_springs "哀悼之泉神殿 (Temple of the Mourning Springs)") with a mysterious rock that
+produces endless water. He was attacked by skeletons and barely escaped with his life and the stone, leaving behind the
+rest of the expedition.
 
 Follow Razum-dar back to the north exit. He will suggest that you to help one or both of them in order to obtain the
 trust of the locals, then meet him in [米斯特拉尔](/location/mistral "米斯特拉尔 (Mistral)"), a port city to the north. You will
@@ -114,13 +116,13 @@ head to Mistral. When you arrive, Razum-dar will be on the north end of the long
 If you leave Khenarthi's Roost before starting this quest, you will be able to acquire it from
 [崔莫勒船长](/npc/captain_tremouille "崔莫勒船长 (Captain Tremouille)") in
 [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫 (Vulkhel Guard)"). He is standing on the deck of the ship you wake up in; you
-can't miss him. He'll say you slept all the way from [柯娜西的居所](/location/khenarthi_s_roost "柯娜西的居所 (Khenarthi's Roost)"),
-right through a hurricane. A [虎人](/wiki/Online:Khajiit "虎人 (Khajiit)")已呼唤[拉祖姆达](/npc/razum_dar "拉祖姆达 (Razum-dar)")
-fished you out of the ocean and paid for your passage, then went to
-[鹰栖崖堡](/location/eagle_s_strand "鹰栖崖堡 (Eagle's Strand)"), an old fort on the island. If you want to go back to
-Khenarthi's Roost, he says to find a boatswain called [甜爪子](/npc/sugar_claws "甜爪子 (Sugar-Claws)"). She is on the eastern
-side of the docks. At first, she'll think that you're there about some worrying business with fish, but she offers to
-take you to Khenarthi's Roost for free.
+can't miss him. He'll say you slept all the way from
+[柯娜西的居所](/location/khenarthi_27s_roost "柯娜西的居所 (Khenarthi's Roost)"), right through a hurricane. A
+[虎人](/wiki/Online:Khajiit "虎人 (Khajiit)")已呼唤[拉祖姆达](/npc/razum_dar "拉祖姆达 (Razum-dar)") fished you out of the ocean and
+paid for your passage, then went to [鹰栖崖堡](/location/eagle_27s_strand "鹰栖崖堡 (Eagle's Strand)"), an old fort on the
+island. If you want to go back to Khenarthi's Roost, he says to find a boatswain called
+[甜爪子](/npc/sugar_claws "甜爪子 (Sugar-Claws)"). She is on the eastern side of the docks. At first, she'll think that you're
+there about some worrying business with fish, but she offers to take you to Khenarthi's Roost for free.
 
 Once there, you will be on the shore, facing the south entrance to Eagle's Strand. Head on in, and Razum-dar will
 approach you.
@@ -129,8 +131,8 @@ approach you.
 
 - If you leave Eagle's Strand before speaking to both Commander Karinith, Ealcil, and meeting Razum-dar at the statues,
   then you will fail the current objective and be told to find Razum-dar back in the camp. There will be a
-  [字条](/book/note "拉祖姆达的字条 (Note from Razum-dar)") from him there, giving you the quest's objectives (Shattered Shoals
-  and Temple of the Mourning Springs) and telling you to meet him in Mistral.
+  [字条](/book/note_from_razum_dar "拉祖姆达的字条 (Note from Razum-dar)") from him there, giving you the quest's objectives
+  (Shattered Shoals and Temple of the Mourning Springs) and telling you to meet him in Mistral.
 - If you complete Cast Adrift or Tears of the Two Moons without starting this quest, [扎里](/npc/zaeri "扎里 (Zaeri)") will
   appear at those locations once the quest is complete to direct you to the other objective.
 - If you bypass everything including Eagle's Strand, Shattered Shoals, and the Temple of the Mourning Springs, there is
@@ -148,9 +150,8 @@ approach you.
   primary starting point for the quest. During this time, the objectives to complete the quests at Shattered Shoals and
   the Temple of the Mourning Springs were optional.
 
-| 地平线上的风暴                                                   |                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Finishes Quest                                            | Journal Entry                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |                                                           | If I want to meet Razum-dar on Khenarthi's Roost I should speak with Sugar-Claws, the boatswain in Vulkhel Guard. She should be able to take me there._Objective_: 与水手长交谈                                                                                                                                                                                           |
 |                                                           | Sugar-Claws took me from the docks of Vulkhel Guard to Khenarthi's Roost. I should look for Razum-dar at Eagle's Strand._Objective_: 与拉祖姆·达交谈                                                                                                                                                                                                                       |
 | ![Latest start](//images.uesp.net/5/5e/Blue_chevron.png)  | Razum-dar approached me in Eagle's Strand. He seemed to know more about my situation than I do. I should speak with him._Objective_: 与拉祖姆·达交谈                                                                                                                                                                                                                       |
