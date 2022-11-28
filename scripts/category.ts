@@ -35,6 +35,6 @@ async function fetchData(url: string): Promise<Item[] | []> {
 
 if (import.meta.main) {
   const list = await fetchData(NPC_URL);
-  const file = `src/data/category/${NAME.toLowerCase()}.json`;
+  const file = `gamedata/category/${NAME.toLowerCase()}.json`;
   await Deno.writeTextFile(file, JSON.stringify(list, null, 2));
 }

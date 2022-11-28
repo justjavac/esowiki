@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 import deno from "@astrojs/deno";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
+import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
 
 export default defineConfig({
   site: "https://eso.denohub.com",
@@ -12,6 +13,7 @@ export default defineConfig({
     extendDefaultPlugins: true,
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] }],
+      // rehypeUnreachableLink,
     ],
   },
   integrations: [
