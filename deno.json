@@ -2,7 +2,7 @@
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
     "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts && deno fmt src/pages/news/",
-    "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts && yarn prettier 'src/pages/quest/*.mdx' -w",
+    "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts && deno fmt src/data/quest",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts && deno fmt src/data/category",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },

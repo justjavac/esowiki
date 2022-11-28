@@ -12,7 +12,7 @@ import removeEditLink from "./removeEditLink.ts";
 import removeImgLink from "./removeImgLink.ts";
 import removeTags from "./removeTags.ts";
 import replaceHref from "./replaceHref.ts";
-import uespWiki, { frontmatterQuest } from "./uespWiki.ts";
+import uespWiki, { fixWikiLink, frontmatterQuest } from "./uespWiki.ts";
 import en2zh from "./en2zh.ts";
 
 export const rehypeOfficial: Preset = {
@@ -35,6 +35,7 @@ export const rehypeUesp: Preset = {
     uespWiki,
     frontmatterQuest,
     removeImgLink,
+    fixWikiLink,
     imgOriginSrc,
     fixNestedList,
     removeEditLink,

@@ -8,6 +8,8 @@ import { toString } from "nlcst-to-string";
 import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
 import { VFile } from "vfile";
 import { isElement } from "hast-util-is-element";
+import { visit } from "unist-util-visit";
+import linkType from "../linkType.ts";
 
 /**
  * https://en.uesp.net/wiki 内容解析
@@ -45,6 +47,20 @@ const uespWiki: Plugin<[], Root> = () => {
     if (mwContentText?.properties != null) {
       mwContentText.properties.dataMdast = "ignore";
     }
+
+    // 忽略所有的图标
+    const magnify = selectAll(".magnify", root);
+    magnify.forEach((node) => {
+      if (node.properties != null) {
+        node.properties.dataMdast = "ignore";
+      }
+    });
+
+    // 将 .thumbcaption 元素的类型转为 center
+    const thumbcaption = selectAll(".thumbcaption", root);
+    thumbcaption.forEach((node) => {
+      node.tagName = "center";
+    });
 
     if (select("#genMidColor", root)) {
       select("#genMidColor", root)!.tagName = "blockquote";
@@ -104,6 +120,17 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
 
   select("#genMidColor", tree)!.tagName = "blockquote";
   return tree;
+};
+
+export const fixWikiLink: Plugin<[], Root> = () => (tree) => {
+  visit(tree, "element", (node, index, parent) => {
+    if (isElement(node, "a")) {
+      const href = node.properties!.href as string;
+      if (linkType[href] == null) return;
+      const text = toString(node);
+      node.properties!.href = `/${linkType[href]}/${snakeCase(text)}`;
+    }
+  });
 };
 
 export default uespWiki;

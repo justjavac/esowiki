@@ -1,50 +1,49 @@
 ---
-title: "避难所"
-description: '<img alt="ON-qico-Instance.png" src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48" srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of the past with <a href="/wiki/Online:The_Prophet" title="先知">先知</a>。'
-zone: ""
-quest giver: '<a href="/wiki/Online:The_Prophet" title="先知">先知</a>'
-location(s): '<a href="/wiki/Online:The_Harborage_(place)" title="避难所(放置)">避难所</a>'
-prerequisite quest: '<a href="/wiki/Online:Soul_Shriven_in_Coldharbour" title="冷港的丧魂傀儡">冷港的丧魂傀儡</a>'
-next quest: '<a href="/wiki/Online:Daughter_of_Giants" title="巨人的女儿">巨人的女儿</a>'
+title: '避难所'
+description: '<img alt="ON-qico-Instance.png" src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48" srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of the past with <a href="/npc/the_prophet" title="先知">先知</a>。'
+zone: ''
+quest giver: '<a href="/npc/the_prophet" title="先知">先知</a>'
+location(s): '<a href="/location/the_harborage" title="避难所(放置)">避难所</a>'
+prerequisite quest: '<a href="/quest/soul_shriven_in_coldharbour" title="冷港的丧魂傀儡">冷港的丧魂傀儡</a>'
+next quest: '<a href="/quest/daughter_of_giants" title="巨人的女儿">巨人的女儿</a>'
 reward: '<a href="//esoitem.uesp.net/itemLink.php?&#x26;itemid=27269&#x26;level=5&#x26;quality=3&#x26;summary" class="eso_item_link eso_item_link_q3" itemid="27269" level="5" quality="3" summary="1">先知的回忆</a><br>1<a href="/wiki/Online:Skill_Points" class="mw-redirect" title="技能点">Skill Point</a><br>Very High <a href="/wiki/Online:Gold" title="金币">Leveled</a>金币<br>成就：<a href="/wiki/Online:Quests_Achievements#Main_Quest" title="Quests Achievements">避难所</a>'
 xp gain: '<a href="/wiki/Online:Experience" class="mw-redirect" title="经验"><span class="esoqcepic">Very High</span></a> <a href="/wiki/Online:Experience" title="经验"><img alt="Experience" src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16" height="16" style="vertical-align: text-bottom" srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png 1.5x, //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png 2x"></a>'
-solo only: "是的"
-layout: "../../layouts/QuestLayout.astro"
+solo only: '是的'
+layout: '../../layouts/QuestLayout.astro'
 ---
 
 > 先知通过一种魔法投影联系上了我。他要我去寻找一个名叫避难所的地方，他正在那里暂避风头。我必须去找他，并确保他的安全。
 
 ## Quick Walkthrough
 
-1. Speak to [先知](/wiki/Online:The_Prophet "先知")。
-2. Visit [避难所](/wiki/Online:The_Harborage_(place) "避难所(放置)") to find the Prophet.
+1. Speak to [先知](/npc/the_prophet "先知")。
+2. Visit [避难所](/location/the_harborage "避难所(放置)") to find the Prophet.
 3. Enter the Prophet's mind to view visions of the past.
 4. Follow the Prophet and learn about his life with the
    [Moth Priests](/wiki/Lore:Cult_of_the_Ancestor_Moth "Lore: Cult of the Ancestor Moth")。
 5. Watch the visions of the Five Companions and the [Soulburst](/wiki/Lore:Soulburst "Lore: Soulburst")。
 6. Follow the Prophet and learn about the threat of [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔")'s
-   [暗锚](/wiki/Online:Dark_Anchors "暗锚") and the [位面融合](/wiki/Lore:Planemeld "Lore: 位面融合")。
+   [暗锚](/location/dark_anchors "暗锚") and the [位面融合](/wiki/Lore:Planemeld "Lore: 位面融合")。
 7. Return to the Harborage and discuss your next moves.
 
 ## Detailed Walkthrough
 
-[先知](/wiki/Online:The_Prophet "先知") will appear before you as soon as you enter a safe area, such as a city. Talk to him
-to hear about a safe place from which you will be able able to plan how to defeat
-[莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔"). The Prophet calls this place
-"[避难所](/wiki/Online:The_Harborage_(place) "避难所(放置)")."
+[先知](/npc/the_prophet "先知") will appear before you as soon as you enter a safe area, such as a city. Talk to him to hear
+about a safe place from which you will be able able to plan how to defeat [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔"). The
+Prophet calls this place "[避难所](/location/the_harborage "避难所(放置)")."
 
 ### To the Harborage
 
-For those starting in [弗克赫尔守卫](/wiki/Online:Vulkhel_Guard "弗克赫尔守卫") ([先祖神洲](/wiki/Online:Aldmeri_Dominion "先祖神洲")), the
-Harborage is directly east from the docks and close to the [奥瑞敦](/wiki/Online:Auridon "奥瑞敦") coast. The Harborage is in
-a seaside cave.
+For those starting in [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫") ([先祖神洲](/faction/aldmeri_dominion "先祖神洲")), the
+Harborage is directly east from the docks and close to the [奥瑞敦](/location/auridon "奥瑞敦") coast. The Harborage is in a
+seaside cave.
 
-For those beginning in [达文卫城](/wiki/Online:Davon%27s_Watch "达文卫城") ([黑檀心公约联合](/wiki/Online:Ebonheart_Pact "黑檀心公约联合")),
-the Harborage is west of the city and slightly south. If you get to [沉船浅滩](/wiki/Online:Shipwreck_Strand "沉船浅滩"), a boss
+For those beginning in [达文卫城](/location/davon_s_watch "达文卫城") ([黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合")), the
+Harborage is west of the city and slightly south. If you get to [沉船浅滩](/location/shipwreck_strand "沉船浅滩"), a boss
 location on the coast, you've gone too far west.
 
-If you start in [匕落](/wiki/Online:Daggerfall "匕落") ([匕落同盟](/wiki/Online:Daggerfall_Covenant "匕落同盟")), the Harborage will
-be east of [巴兹加拉的马](/wiki/Online:Bazgara%27s_Horses "巴兹加拉的马"), the Daggerfall stables.
+If you start in [匕落](/location/daggerfall "匕落") ([匕落同盟](/faction/daggerfall_covenant "匕落同盟")), the Harborage will be
+east of [巴兹加拉的马](/location/bazgara_s_horses "巴兹加拉的马"), the Daggerfall stables.
 
 - _"Welcome to the Harborage, Vestige."_
 
@@ -57,8 +56,6 @@ The Prophet says you need to understand how events came to be before you can lea
 The Prophet opens a portal to a Coldharbour-like realm and walks along the path while recounting his story.
 
 ![](//images.uesp.net/thumb/0/02/ON-quest-The_Harborage_06.jpg)
-
-[](/wiki/File:ON-quest-The_Harborage_06.jpg "Enlarge")
 
 The Elder Scroll and the Dragonfire Brazier
 
@@ -82,17 +79,14 @@ adventures who sought out the [诸王护符](/wiki/Lore:Amulet_of_Kings "Lore: �
 
 ![](//images.uesp.net/thumb/0/08/ON-quest-The_Harborage_02.jpg)
 
-[](/wiki/File:ON-quest-The_Harborage_02.jpg "Enlarge")
-
 五方使者
 
-- _"The first Companion, [丽里丝·泰坦伯恩](/wiki/Online:Lyris_Titanborn "丽里丝·泰坦伯恩"), daughter of giants, was the greatest
-  warrior in the service of the Empire. Next, [阿布努尔·萨恩](/wiki/Online:Abnur_Tharn "阿布努尔·萨恩"), a powerful sorcerer and
-  Grand Chancellor to the [Imperial Elder Council](/wiki/Lore:Elder_Council "Lore: Elder Council"). The
-  [红卫人](/wiki/Online:Redguard "红卫人") sword master [赛·萨汗](/wiki/Online:Sai_Sahan "赛·萨汗"), leader of the
-  [Imperial Dragonguard](/wiki/Lore:Dragonguard "Lore: 龙卫"). The Imperial Emperor, Varen Aquilarios, who attempted to
-  light the Dragonfires and failed. And finally, [曼尼玛克](/wiki/Online:Mannimarco "曼尼玛克") the traitor. The King of Worms.
-  A powerful necromancer, and your executioner."_
+- _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩"), daughter of giants, was the greatest warrior in
+  the service of the Empire. Next, [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩"), a powerful sorcerer and Grand Chancellor to
+  the [Imperial Elder Council](/wiki/Lore:Elder_Council "Lore: Elder Council"). The [红卫人](/wiki/Online:Redguard "红卫人")
+  sword master [赛·萨汗](/npc/sai_sahan "赛·萨汗"), leader of the [Imperial Dragonguard](/wiki/Lore:Dragonguard "Lore: 龙卫").
+  The Imperial Emperor, Varen Aquilarios, who attempted to light the Dragonfires and failed. And finally,
+  [曼尼玛克](/npc/mannimarco "曼尼玛克") the traitor. The King of Worms. A powerful necromancer, and your executioner."_
 
 Talk to the Prophet again after he finishes describing each of the Five Companions. He says Mannimarco convinced Varen
 that the Amulet of Kings could be used to rekindle the Dragonfires. According to Mannimarco, the Emperor could perform a
@@ -105,8 +99,6 @@ enter and begin the ritual.
 
 ![](//images.uesp.net/thumb/6/6e/ON-quest-The_Harborage_03.jpg)
 
-[](/wiki/File:ON-quest-The_Harborage_03.jpg "Enlarge")
-
 Mannimarco betrays the Emperor.
 
 -
@@ -118,8 +110,6 @@ Mannimarco betrays the Emperor.
   - **瓦仁·阿基拉里奥斯：** _"阿布努尔，开始仪式。我得去完成我的使命。"_
 
 ![](//images.uesp.net/thumb/5/53/ON-quest-The_Harborage_04.jpg)
-
-[](/wiki/File:ON-quest-The_Harborage_04.jpg "Enlarge")
 
 The Soulburst
 
@@ -143,8 +133,6 @@ Talk to the Prophet again, after the scene finishes.
 #### Anchors from Coldharbour
 
 ![](//images.uesp.net/thumb/2/25/ON-quest-The_Harborage_05.jpg)
-
-[](/wiki/File:ON-quest-The_Harborage_05.jpg "Enlarge")
 
 One of Molag Bal's Dark Anchors
 
