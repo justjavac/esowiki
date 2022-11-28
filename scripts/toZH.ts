@@ -84,7 +84,7 @@ export default function toZH(en: string): string {
 
   // 去掉末尾的冒号，再次尝试翻译
   if (en.at(-1) === ":") {
-    return `${toZH(en.slice(0, -1))}:`;
+    return `${toZH(en.slice(0, -1))}：`;
   }
 
   // 去掉末尾的换行符，翻译后再加上

@@ -7,6 +7,7 @@ import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
 import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
 import { VFile } from "vfile";
+import { isElement } from "hast-util-is-element";
 
 /**
  * https://en.uesp.net/wiki 内容解析
@@ -55,14 +56,16 @@ const uespWiki: Plugin<[], Root> = () => {
 
 /** 解析任务详情 */
 export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
-  file.path = "src/pages/quest/" + snakeCase(`${file.data.title}`) + ".mdx";
+  file.path = "src/pages/quest/" + snakeCase(`${file.data.title}`) + ".md";
   const infoNode = select("table.hiddentable tr td:nth-child(3)", tree);
   if (infoNode == null) {
     console.log("uespWiki: infoNode is null");
     return;
   }
 
-  const description = selectAll("table.hiddentable td", infoNode).map((x) => x.children).flat();
+  const description = selectAll("table.hiddentable td", infoNode)
+    .flatMap((x) => x.children)
+    .flatMap((x) => isElement(x, "b") ? x.children : x);
 
   const questInfo = selectAll("table.questheader tr", infoNode)
     .map((x) => {
