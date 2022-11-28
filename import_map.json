@@ -19,7 +19,8 @@
     "unified": "https://esm.sh/v99/unified@10.1.2",
     "unist": "https://esm.sh/v99/@types/unist@2.0.6/index.d.ts",
     "unist-util-visit": "https://esm.sh/v99/unist-util-visit@4.1.1",
-    "vfile": "https://esm.sh/v99/vfile@5.3.6"
+    "vfile": "https://esm.sh/v99/vfile@5.3.6",
+    "@/": "./src/"
   },
   "scopes": {}
 }

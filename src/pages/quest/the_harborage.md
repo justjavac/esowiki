@@ -57,7 +57,7 @@ The Prophet opens a portal to a Coldharbour-like realm and walks along the path 
 
 ![](//images.uesp.net/thumb/0/02/ON-quest-The_Harborage_06.jpg)
 
-The Elder Scroll and the Dragonfire Brazier
+<p class="text-gray-500 text-sm text-center">The Elder Scroll and the Dragonfire Brazier</p>
 
 - _"My part in the story began when I awoke on the steps of the Abbey of the
   [Moth Priests](/wiki/Lore:Cult_of_the_Ancestor_Moth "Lore: Cult of the Ancestor Moth"), with no memory of my past
@@ -79,7 +79,7 @@ adventures who sought out the [诸王护符](/wiki/Lore:Amulet_of_Kings "Lore: �
 
 ![](//images.uesp.net/thumb/0/08/ON-quest-The_Harborage_02.jpg)
 
-五方使者
+<p class="text-gray-500 text-sm text-center">五方使者</p>
 
 - _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩"), daughter of giants, was the greatest warrior in
   the service of the Empire. Next, [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩"), a powerful sorcerer and Grand Chancellor to
@@ -99,7 +99,7 @@ enter and begin the ritual.
 
 ![](//images.uesp.net/thumb/6/6e/ON-quest-The_Harborage_03.jpg)
 
-Mannimarco betrays the Emperor.
+<p class="text-gray-500 text-sm text-center">Mannimarco betrays the Emperor.</p>
 
 -
   - **瓦仁·阿基拉里奥斯：** _"就在那里。龙火火盆。曼尼玛克，你确定这能行吗？"_
@@ -111,7 +111,7 @@ Mannimarco betrays the Emperor.
 
 ![](//images.uesp.net/thumb/5/53/ON-quest-The_Harborage_04.jpg)
 
-The Soulburst
+<p class="text-gray-500 text-sm text-center">The Soulburst</p>
 
 Abnur Tharn steps up to the brazier and holds out the Amulet of Kings. Flames shoot out of the amulet, lighting the
 brazier. Varen prays on the other side.
@@ -134,7 +134,7 @@ Talk to the Prophet again, after the scene finishes.
 
 ![](//images.uesp.net/thumb/2/25/ON-quest-The_Harborage_05.jpg)
 
-One of Molag Bal's Dark Anchors
+<p class="text-gray-500 text-sm text-center">One of Molag Bal's Dark Anchors</p>
 
 Follow the Prophet through the southeast arch. A Dark Anchor appears as you follow him down the path.
 

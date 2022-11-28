@@ -60,6 +60,7 @@ const uespWiki: Plugin<[], Root> = () => {
     const thumbcaption = selectAll(".thumbcaption", root);
     thumbcaption.forEach((node) => {
       node.tagName = "center";
+      node.children = node.children.filter((x) => x.type == "text");
     });
 
     if (select("#genMidColor", root)) {

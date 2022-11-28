@@ -5,7 +5,7 @@ import mdx from "@astrojs/mdx";
 import deno from "@astrojs/deno";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
-import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
+// import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
 
 export default defineConfig({
   site: "https://eso.denohub.com",
