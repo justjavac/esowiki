@@ -80,7 +80,7 @@ if (import.meta.main) {
 
   for (const item of newsList) {
     const file = `src/pages/news/post/${item.url.substring(14)}.md`;
-    // if (await Deno.stat(file).catch(() => false)) continue;
+    if (await Deno.stat(file).catch(() => false)) continue;
     const content = await getNewsDetail(item.url);
     await Deno.writeTextFile(file, content);
     console.log(`save ${item.url} success`);
