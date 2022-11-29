@@ -16,6 +16,7 @@
     "remark-gfm": "https://esm.sh/remark-gfm@3.0.1",
     "remark-remove-comments": "https://esm.sh/remark-remove-comments@0.2.0",
     "remark-stringify": "https://esm.sh/v99/remark-stringify@10.0.2",
+    "satori": "https://esm.sh/satori@0.0.44",
     "unified": "https://esm.sh/v99/unified@10.1.2",
     "unist": "https://esm.sh/v99/@types/unist@2.0.6/index.d.ts",
     "unist-util-visit": "https://esm.sh/v99/unist-util-visit@4.1.1",
