@@ -167,6 +167,7 @@ export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
               const tagName = toString(key)
                 .replace(":", "")
                 .replace("(s)", "")
+                .replace(/\xC2|\xA0/, " ")
                 .trim()
                 .replace(" ", "_");
               info.push(h(tagName, value.children));

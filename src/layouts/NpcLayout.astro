@@ -10,13 +10,14 @@ export interface Props {
     url: string;
     title: string;
     title_en: string;
+    home_city: string;
     description: string;
     thumb?: string;
     race: string;
     gender: string;
     health: string;
     reaction: string;
-    "faction(s)": string[];
+    faction: string[];
     location: string[];
   };
 }
@@ -26,24 +27,27 @@ const { content } = Astro.props;
 const {
   title,
   title_en,
+  home_city,
   url,
   race,
   location,
   thumb,
   gender,
   health,
+  faction,
   reaction,
 } = content;
 
 const meta = [
   { name: "姓名", content: title },
   { name: "英文", content: title_en },
+  { name: "主城", content: home_city?.join("<br>") },
   { name: "地点", content: location.join("<br>") },
   { name: "种族", content: race },
   { name: "性别", content: gender },
   { name: "生命", content: health },
   { name: "反应", content: reaction },
-  { name: "阵营", content: content["faction(s)"]?.join("<br>") },
+  { name: "阵营", content: faction?.join("<br>") },
 ];
 ---
 

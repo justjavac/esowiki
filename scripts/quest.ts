@@ -68,11 +68,17 @@ const frontmatter: Handle = (h, node) => {
         frontmatter[x.tagName] = toString(x);
         break;
       case "quest_giver":
-      case "home_city":
       case "location":
       case "faction":
       case "reward":
         frontmatter[x.tagName] = splitByBr(x).map((x) => toHtml(x));
+        break;
+      case "home_city":
+        if ((x.children[0] as Element).tagName === "div") {
+          frontmatter[x.tagName] = splitByBr(x.children[0] as Element).map((x) => toHtml(x));
+        } else {
+          frontmatter[x.tagName] = splitByBr(x).map((x) => toHtml(x));
+        }
         break;
       case "thumb":
         frontmatter[x.tagName] = select("img", x)?.properties?.src as string;
@@ -109,7 +115,7 @@ async function getQuest(quest: string) {
     .process(html);
 }
 
-const NAME = "The_Harborage_(quest)";
+const NAME = "The Benefactor";
 
 if (import.meta.main) {
   const vfile = await getQuest(NAME);
