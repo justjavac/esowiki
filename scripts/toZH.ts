@@ -10,52 +10,58 @@ type LangItem = {
 
 const columns = ["ID", "Unknown", "Index", "Offset", "Text"];
 
-const langEN = await parseLang("./gamedata/lang/en.lang.csv");
-const langZH = await parseLang("./gamedata/lang/zh.lang.csv");
-
-if (langEN.length !== langZH.length) {
-  console.log("中文文件不完整");
-  Deno.exit(1);
-}
-
 // 构建官方英文到中文的映射
 const en2zh = new Map<string, string>();
-langEN.forEach(({ Text: en }, i) => {
-  // 变小写，去掉空格
-  const enKey = en.toLowerCase().split("^")[0];
-  const zh = langZH[i].Text.split("^")[0];
 
-  const zh0 = en2zh.get(enKey); // 已经存在的翻译
+export function initLang(ids?: number[]) {
+  const langEN = parseLang("./gamedata/lang/en.lang.csv");
+  const langZH = parseLang("./gamedata/lang/zh.lang.csv");
 
-  if (zh0 == null) {
-    en2zh.set(enKey, zh);
-    return;
+  if (langEN.length !== langZH.length) {
+    console.log("中文文件不完整");
+    Deno.exit(1);
   }
 
-  // 如果已经翻译的是英文，那么就用新的翻译
-  if (isEnglish(zh0)) {
-    en2zh.set(enKey, zh);
-    return;
-  }
+  langEN
+    .forEach(({ Text: en, ID }, i) => {
+      if (ids != null && !ids.includes(Number(ID))) return;
 
-  // 如果已经翻译的是中文，那么就不用新的翻译
-  if (zh0 !== zh) {
-    if (Deno.args.includes("--debug")) {
-      console.info("%s 重复翻译: %s, %s", en, zh0, zh);
-    }
-  }
-});
+      // 变小写，去掉空格
+      const enKey = en.toLowerCase().split("^")[0];
+      const zh = langZH[i].Text.split("^")[0];
 
-if (Deno.args.includes("--debug")) {
-  en2zh.forEach((zh, enKey) => {
-    if (isEnglish(zh)) {
-      console.log("未翻译 %s", enKey);
-    }
-  });
+      const zh0 = en2zh.get(enKey); // 已经存在的翻译
+
+      if (zh0 == null) {
+        en2zh.set(enKey, zh);
+        return;
+      }
+
+      // 如果已经翻译的是英文，那么就用新的翻译
+      if (isEnglish(zh0)) {
+        en2zh.set(enKey, zh);
+        return;
+      }
+
+      // 如果已经翻译的是中文，那么就不用新的翻译
+      if (zh0 !== zh) {
+        if (Deno.args.includes("--debug")) {
+          console.info("%s 重复翻译: %s, %s", en, zh0, zh);
+        }
+      }
+    });
+
+  if (Deno.args.includes("--debug")) {
+    en2zh.forEach((zh, enKey) => {
+      if (isEnglish(zh)) {
+        console.log("未翻译 %s", enKey);
+      }
+    });
+  }
 }
 
-async function parseLang(path: string) {
-  return parse(await Deno.readTextFile(path), {
+function parseLang(path: string) {
+  return parse(Deno.readTextFileSync(path), {
     skipFirstRow: true,
     columns,
   }) as LangItem[];

@@ -23,6 +23,7 @@
     "unist-util-visit": "https://esm.sh/v99/unist-util-visit@4.1.1",
     "vfile": "https://esm.sh/v99/vfile@5.3.6",
     "yaml": "https://deno.land/std@0.166.0/encoding/yaml.ts",
+    "yup": "https://esm.sh/v99/yup@0.32.11",
     "@/": "./src/"
   },
   "scopes": {}

@@ -19,8 +19,7 @@ export function Set({ data }: SetProps) {
         marginBottom: 5,
         width: 394,
         height: 280,
-        backgroundImage:
-          "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
+        backgroundImage: "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
         backgroundRepeat: "repeat-y",
       }}
     >
@@ -103,8 +102,7 @@ export function Set({ data }: SetProps) {
 
       <Row>
         <span>
-          (5件) 使用重击攻击造成伤害时，回复<Text>30</Text>%资源，创造出一个持续
-          12 秒的区域，为区域内的友军赋予强化、虚弱效果。该效果每 3 秒触发一次。
+          (5件) 使用重击攻击造成伤害时，回复<Text>30</Text>%资源，创造出一个持续 12 秒的区域，为区域内的友军赋予强化、虚弱效果。该效果每 3 秒触发一次。
         </span>
       </Row>
 

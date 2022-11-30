@@ -10,6 +10,9 @@ import { VFile } from "vfile";
 import { isElement } from "hast-util-is-element";
 import { SKIP, visit } from "unist-util-visit";
 import linkType from "../linkType.ts";
+import { initLang } from "../toZH.ts";
+
+initLang(); // 初始化全部语言包
 
 /**
  * https://en.uesp.net/wiki 内容解析
