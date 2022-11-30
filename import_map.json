@@ -1,5 +1,6 @@
 {
   "imports": {
+    "fastest-levenshtein": "https://deno.land/x/fastest_levenshtein@1.0.10/mod.ts",
     "hast": "https://esm.sh/v99/@types/hast@2.3.4/index.d.ts",
     "hastscript": "https://esm.sh/v99/hastscript@7.1.0",
     "hast-util-is-element": "https://esm.sh/v99/hast-util-is-element@2.1.2",
@@ -24,6 +25,7 @@
     "vfile": "https://esm.sh/v99/vfile@5.3.6",
     "yaml": "https://deno.land/std@0.166.0/encoding/yaml.ts",
     "yup": "https://esm.sh/v99/yup@0.32.11",
+    "asserts": "https://deno.land/std@0.166.0/testing/asserts.ts",
     "@/": "./src/"
   },
   "scopes": {}

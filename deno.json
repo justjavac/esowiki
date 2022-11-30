@@ -31,5 +31,13 @@
       ]
     }
   },
+  "test": {
+    "files": {
+      "exclude": [
+        "node_modules",
+        "src"
+      ]
+    }
+  },
   "importMap": "import_map.json"
 }

@@ -4,7 +4,7 @@ import { toString } from "nlcst-to-string";
 import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang } from "./toZH.ts";
-import { array, type InferType, number, object, ref, string } from "yup";
+import { array, type InferType, number, object, string } from "yup";
 
 const achievementCategoriesSchema = object({
   id: number().required().integer().positive(),
@@ -105,6 +105,16 @@ const setTypeSchema = string()
   ])
   .transform(toZh);
 
+function toBonusDescZh(en: string) {
+  if (en === "") return "";
+
+  const match = en.match(/^(?:\((\d+) items?\) )?(.*)$/);
+  if (!match) throw new Error(`Unexpected bonus description: ${en}`);
+
+  const [, count, desc] = match;
+  return count ? `（${count}件）${toZh(desc, true)}` : desc;
+}
+
 const setSummarySchema = object({
   gameId: number().required().integer().positive(),
   setName: string().required().transform(toZh),
@@ -115,13 +125,13 @@ const setSummarySchema = object({
   setBonusDesc: string().required(),
   itemSlots: string().required().transform(toZh),
   itemCount: number().required().integer().positive(),
-  setBonusDesc1: string().required(),
-  setBonusDesc2: string().required(),
-  setBonusDesc3: string().required(),
-  setBonusDesc4: string().required(),
-  setBonusDesc5: string().required(),
-  setBonusDesc6: string().required(),
-  setBonusDesc7: string().required(),
+  setBonusDesc1: string().required().transform(toBonusDescZh),
+  setBonusDesc2: string().required().transform(toBonusDescZh),
+  setBonusDesc3: string().required().transform(toBonusDescZh),
+  setBonusDesc4: string().required().transform(toBonusDescZh),
+  setBonusDesc5: string().required().transform(toBonusDescZh),
+  setBonusDesc6: string().required().transform(toBonusDescZh),
+  setBonusDesc7: string().required().transform(toBonusDescZh),
   "Internal ID": number().required().integer().positive(),
 });
 

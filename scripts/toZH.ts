@@ -1,4 +1,5 @@
-import { parse, stringify } from "https://deno.land/std@0.162.0/encoding/csv.ts";
+import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
+import { closest } from "fastest-levenshtein";
 
 type LangItem = {
   ID: string;
@@ -12,6 +13,7 @@ const columns = ["ID", "Unknown", "Index", "Offset", "Text"];
 
 // 构建官方英文到中文的映射
 const en2zh = new Map<string, string>();
+const enLines: string[] = [];
 
 export function initLang(ids?: number[]) {
   const langEN = parseLang("./gamedata/lang/en.lang.csv");
@@ -29,6 +31,10 @@ export function initLang(ids?: number[]) {
       // 变小写，去掉空格
       const enKey = en.toLowerCase().split("^")[0];
       const zh = langZH[i].Text.split("^")[0];
+
+      if (en.includes("<<1>>") && !enLines.includes(en)) {
+        enLines.push(en);
+      }
 
       const zh0 = en2zh.get(enKey); // 已经存在的翻译
 
@@ -73,7 +79,7 @@ export function isEnglish(str?: string) {
   return !/[^\x00-\xff]/.test(str);
 }
 
-export default function toZH(en: string): string {
+export default function toZH(en: string, useSlot = false): string {
   if (en == null) return "";
 
   const enKey = en.toLowerCase().trim();
@@ -110,6 +116,23 @@ export default function toZH(en: string): string {
     const parts = en.split(/(\(|\))/);
     const zhParts = parts.map((part) => toZH(part));
     return zhParts.join("");
+  }
+
+  // 如果有插值，分开翻译
+  // `Adds 40-1752 Maximum Stamina` --> `Adds <<1>> Maximum Stamina`
+  // TOOD(justjavac): 这个方法需要优化，去掉 fastest-levenshtein
+  if (useSlot) {
+    for (const line of enLines) {
+      let word = "";
+      const slots: string[] = [];
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] !== en[i]) continue;
+        if (line[i] === "<" && line[i++] === "<") continue;
+      }
+    }
+
+    const key = closest(en, enLines);
+    return en.replace(key, toZH(key));
   }
 
   return en2zh.get(enKey) ?? en;
