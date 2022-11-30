@@ -2,30 +2,34 @@
 title: 恩人
 title_en: The Benefactor
 thumb: //images.uesp.net/thumb/b/b0/ON-npc-The_Benefactor.jpg
-home_city: >-
-  <div style="text-align: left; display: inline-block;"><a
-  href="/faction/aldmeri_dominion" title="先祖神洲 (Aldmeri Dominion)"><img
-  alt="Aldmeri Dominion"
-  src="//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png"
-  width="22" height="22"
-  srcset="//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/33px-ON-icon-alliance-Aldmeri_%28color%29.png
-  1.5x,
-  //images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/44px-ON-icon-alliance-Aldmeri_%28color%29.png
-  2x"></a>弗克赫尔守卫(奥瑞敦)<br><a href="/faction/daggerfall_covenant" title="匕落同盟
-  (Daggerfall Covenant)"><img alt="Daggerfall Covenant"
-  src="//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png"
-  width="22" height="22"
-  srcset="//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/33px-ON-icon-alliance-Daggerfall_%28color%29.png
-  1.5x,
-  //images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/44px-ON-icon-alliance-Daggerfall_%28color%29.png
-  2x"></a>匕落(格伦姆布拉)<br><a href="/faction/ebonheart_pact" title="黑檀心公约联合
-  (Ebonheart Pact)"><img alt="Ebonheart Pact"
-  src="//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png"
-  width="22" height="22"
-  srcset="//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/33px-ON-icon-alliance-Ebonheart_%28color%29.png
-  1.5x,
-  //images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/44px-ON-icon-alliance-Ebonheart_%28color%29.png
-  2x"></a>达文卫城(石落)</div>
+home_city:
+  - >-
+    <a href="/faction/aldmeri_dominion" title="先祖神洲 (Aldmeri Dominion)"><img
+    alt="Aldmeri Dominion"
+    src="//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png"
+    width="22" height="22"
+    srcset="//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/33px-ON-icon-alliance-Aldmeri_%28color%29.png
+    1.5x,
+    //images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png/44px-ON-icon-alliance-Aldmeri_%28color%29.png
+    2x"></a>弗克赫尔守卫(奥瑞敦)
+  - >-
+    <a href="/faction/daggerfall_covenant" title="匕落同盟 (Daggerfall
+    Covenant)"><img alt="Daggerfall Covenant"
+    src="//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png"
+    width="22" height="22"
+    srcset="//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/33px-ON-icon-alliance-Daggerfall_%28color%29.png
+    1.5x,
+    //images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png/44px-ON-icon-alliance-Daggerfall_%28color%29.png
+    2x"></a>匕落(格伦姆布拉)
+  - >-
+    <a href="/faction/ebonheart_pact" title="黑檀心公约联合 (Ebonheart Pact)"><img
+    alt="Ebonheart Pact"
+    src="//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png"
+    width="22" height="22"
+    srcset="//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/33px-ON-icon-alliance-Ebonheart_%28color%29.png
+    1.5x,
+    //images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png/44px-ON-icon-alliance-Ebonheart_%28color%29.png
+    2x"></a>达文卫城(石落)
 location:
   - >-
     <div style="text-align: left; display: inline-block;"><a
