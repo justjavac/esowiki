@@ -1,5 +1,6 @@
 import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
 import { closest } from "fastest-levenshtein";
+import { parse as parseTemplate } from "./template.ts";
 
 type LangItem = {
   ID: string;
@@ -118,21 +119,22 @@ export default function toZH(en: string, useSlot = false): string {
     return zhParts.join("");
   }
 
-  // 如果有插值，分开翻译
   // `Adds 40-1752 Maximum Stamina` --> `Adds <<1>> Maximum Stamina`
-  // TOOD(justjavac): 这个方法需要优化，去掉 fastest-levenshtein
   if (useSlot) {
-    for (const line of enLines) {
-      let word = "";
-      const slots: string[] = [];
-      for (let i = 0; i < line.length; i++) {
-        if (line[i] !== en[i]) continue;
-        if (line[i] === "<" && line[i++] === "<") continue;
-      }
+    let slots: string[] | undefined = undefined;
+    let template = "";
+    let i = 0;
+    for (; i < enLines.length; i++) {
+      template = enLines[i];
+      slots = parseTemplate(en, template);
+      if (slots != null) break;
     }
 
-    const key = closest(en, enLines);
-    return en.replace(key, toZH(key));
+    if (i === enLines.length) {
+      return en;
+    }
+
+    return toZH(template);
   }
 
   return en2zh.get(enKey) ?? en;

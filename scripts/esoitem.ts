@@ -108,11 +108,17 @@ const setTypeSchema = string()
 function toBonusDescZh(en: string) {
   if (en === "") return "";
 
-  const match = en.match(/^(?:\((\d+) items?\) )?(.*)$/);
+  const match = en.match(/^\((\d+)( perfected)? items?\) (.*)$/);
   if (!match) throw new Error(`Unexpected bonus description: ${en}`);
 
-  const [, count, desc] = match;
-  return count ? `（${count}件）${toZh(desc, true)}` : desc;
+  const [, count, perfected, desc] = match;
+  const prefix = `（${count}件${perfected ? "完美" : ""}）`;
+
+  if (desc.startsWith("Adds ")) {
+    return `${prefix}增加${toZh(desc.substring(5), true)}`;
+  }
+
+  return `${prefix}${toZh(desc, true)}`;
 }
 
 const setSummarySchema = object({

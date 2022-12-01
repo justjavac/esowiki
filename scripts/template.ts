@@ -1,4 +1,4 @@
-export function parseSlot(str: string, template: string): string[] | undefined {
+export function parse(str: string, template: string): string[] | undefined {
   const slots: string[] = [];
   let i = 0;
   let j = 0;
@@ -6,24 +6,32 @@ export function parseSlot(str: string, template: string): string[] | undefined {
   while (i < str.length && j < template.length) {
     const c = template.at(j);
 
-    if (c === "<") {
+    if (c === "<" && template.at(j + 1) === "<") {
+      // 解析 `<<<`
+      if (template.at(j + 2) === "<") {
+        i++;
+        j++;
+        continue;
+      }
+
       // Foo <<1>> Bar
       //        ^
       //        k - 模版结束标记
       const k = template.indexOf(">>", j + 1);
 
       if (k === -1) {
+        console.log(template);
         throw new Error("Invalid template");
       }
 
       // Foo <<1>> Bar
       //       ^
-      //      slot - 插值，必须为数字
+      //      slot - 插值
       const slot = template.slice(j + 2, k);
       const n = parseInt(slot, 10);
 
       if (isNaN(n) || n < 1) {
-        throw new Error("Invalid template");
+        // TODO 插值又可能不是数字，目前还不知道如何处理
       }
 
       // Foo 123 Bar
@@ -60,7 +68,41 @@ export function parseSlot(str: string, template: string): string[] | undefined {
   return slots;
 }
 
-if (import.meta.main) {
-  const template = "Foo <<1>>";
-  console.log(parseSlot("Foo 123", template));
+export function apply(template: string, ...slots: string[]): string {
+  let i = 0;
+  let j = 0;
+  let str = "";
+
+  while (i < template.length) {
+    const c = template.at(i);
+
+    if (c === "<") {
+      // Foo <<1>> Bar
+      //        ^
+      //        k - 模版结束标记
+      const k = template.indexOf(">>", i + 1);
+
+      if (k === -1) {
+        throw new Error("Invalid template");
+      }
+
+      // Foo <<1>> Bar
+      //       ^
+      //      slot - 插值，必须为数字
+      const slot = template.slice(i + 2, k);
+      const n = parseInt(slot, 10);
+
+      if (isNaN(n) || n < 1) {
+        throw new Error("Invalid template");
+      }
+
+      str += slots[n - 1];
+      i = k + 2;
+    } else {
+      str += c;
+      i++;
+    }
+  }
+
+  return str;
 }
