@@ -1,4 +1,16 @@
-export function parse(str: string, template: string): string[] | undefined {
+/**
+ * 用给定的模版解析一个字符串。
+ *
+ * 例如
+ * - 字符串: `Adds 40-1752 Maximum Stamina`
+ * - 模版: `Adds <<1>> Maximum Stamina`
+ *
+ * 返回值: `["40-1752"]`
+ *
+ * @param str 待解析的字符串
+ * @param template 模版
+ */
+export function resove(str: string, template: string): string[] | undefined {
   const slots: string[] = [];
   let i = 0;
   let j = 0;
@@ -71,7 +83,6 @@ export function parse(str: string, template: string): string[] | undefined {
 // TODO
 export function apply(template: string, ...slots: string[]): string {
   let i = 0;
-  let j = 0;
   let str = "";
 
   while (i < template.length) {

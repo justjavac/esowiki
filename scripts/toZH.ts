@@ -1,6 +1,5 @@
 import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
-import { closest } from "fastest-levenshtein";
-import { parse as parseTemplate } from "./template.ts";
+import { resove } from "./template.ts";
 
 type LangItem = {
   ID: string;
@@ -126,7 +125,7 @@ export default function toZH(en: string, useSlot = false): string {
     let i = 0;
     for (; i < enLines.length; i++) {
       template = enLines[i];
-      slots = parseTemplate(en, template);
+      slots = resove(en, template);
       if (slots != null) break;
     }
 
