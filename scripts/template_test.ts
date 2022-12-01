@@ -38,9 +38,8 @@ Deno.test("解析多个", () => {
 });
 
 Deno.test("eso 套装效果解析", () => {
-  const template = "Gain <<1>> and <<2>> at all times, increasing your Movement Speed and Mounted Speed by <<3>>.";
-  const en =
-    "Gain Major Gallop and Major Expedition at all times, increasing your Movement Speed and Mounted Speed by 30%.";
+  const template = "Gain <<1>> and <<2>> at all times, increasing <<3>>.";
+  const en = "Gain Major Gallop and Major Expedition at all times, increasing 30%.";
 
   assertEquals(resove(en, template), ["Major Gallop", "Major Expedition", "30%"]);
 });

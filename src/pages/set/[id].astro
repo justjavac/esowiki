@@ -3,27 +3,10 @@ import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
-import { Set, node } from "@/components";
+import { Set } from "@/components";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
-import { toSvg } from "@/utils";
 ---
 
-<style is:global>
-font-face {
-	font-family: 'EsoFontStyle';
-	src: url('/fonts/eso_fwntlgudc70-db.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'EsoFontStyle';
-	src: url('/fonts/eso_fwntlgudc70-db.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-}
-
-</style>
 
 <html lang="zh-CN">
   <head>
@@ -37,7 +20,7 @@ font-face {
       <div class="max-w-3xl w-full">
         <div class="rounded-lg shadow-lg p-4">
           <div class="mt-4">
-            <Set />
+            <Set data={{}} />
           </div>
         </div>
       </div>
