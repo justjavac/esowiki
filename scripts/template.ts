@@ -10,8 +10,8 @@
  * @param str 待解析的字符串
  * @param template 模版
  */
-export function resove(str: string, template: string): string[] | undefined {
-  const slots: string[] = [];
+export function resove(str: string, template: string): Record<string, string> | undefined {
+  const slots: Record<string, string> = {};
   let i = 0;
   let j = 0;
 
@@ -33,15 +33,11 @@ export function resove(str: string, template: string): string[] | undefined {
       //       ^
       //      slot - 插值
       const slot = template.slice(j + 2, k);
-      const n = parseInt(slot, 10);
-
-      if (isNaN(n) || n < 1) {
-        // TODO 插值又可能不是数字，目前还不知道如何处理
-      }
+      const key = slot;
 
       // 如果模版已结束，则匹配剩余的
       if (k === template.length - 2) {
-        slots.push(str.slice(i));
+        slots[key] = str.slice(i);
         return slots;
       }
 
@@ -58,7 +54,7 @@ export function resove(str: string, template: string): string[] | undefined {
         return undefined;
       }
 
-      slots.push(str.slice(i, m));
+      slots[key] = str.slice(i, m);
       i = m + 1;
       j = k + 3;
     } else {
@@ -79,14 +75,14 @@ export function resove(str: string, template: string): string[] | undefined {
 }
 
 // TODO
-export function apply(template: string, ...slots: string[]): string {
+export function apply(template: string, slots: Record<string, string> = {}): string {
   let i = 0;
   let str = "";
 
   while (i < template.length) {
     const c = template.at(i);
 
-    if (c === "<") {
+    if (c === "<" && template.at(i + 1) === "<" && template.at(i + 2) !== "<") {
       // Foo <<1>> Bar
       //        ^
       //        k - 模版结束标记
@@ -100,13 +96,9 @@ export function apply(template: string, ...slots: string[]): string {
       //       ^
       //      slot - 插值
       const slot = template.slice(i + 2, k);
-      const n = parseInt(slot, 10);
+      const key = slot;
 
-      if (isNaN(n) || n < 1) {
-        // TODO 插值又可能不是数字，目前还不知道如何处理
-      }
-
-      str += slots[n - 1];
+      str += slots[key];
       i = k + 2;
     } else {
       str += c;
@@ -120,7 +112,5 @@ export function apply(template: string, ...slots: string[]): string {
 if (import.meta.main) {
   const str = "Adds 123 4567 Maximum Stamina";
   const template = "Adds <<1>> Maximum <<2>>";
-  console.log(str);
-  console.log(template);
-  console.log(resove(str, template));
+  console.log(apply(template, { 1: "123 4567", 2: "Stamina" }));
 }

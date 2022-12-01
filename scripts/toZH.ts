@@ -1,5 +1,5 @@
 import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
-import { resove } from "./template.ts";
+import { apply, resove } from "./template.ts";
 
 type LangItem = {
   ID: string;
@@ -29,11 +29,11 @@ export function initLang(ids?: number[]) {
       if (ids != null && !ids.includes(Number(ID))) return;
 
       // 变小写，去掉空格
-      const enKey = en.toLowerCase().split("^")[0];
+      const enKey = en.toLowerCase().split("^")[0].replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1");
       const zh = langZH[i].Text.split("^")[0];
 
       if (en.length > 6 && en.includes("<<1>>") && !enLines.includes(en)) {
-        enLines.push(en);
+        enLines.push(en.replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1"));
       }
 
       const zh0 = en2zh.get(enKey); // 已经存在的翻译
@@ -64,6 +64,8 @@ export function initLang(ids?: number[]) {
       }
     });
   }
+
+  enLines.sort((a, b) => a.length > b.length ? -1 : 1);
 }
 
 function parseLang(path: string) {
@@ -120,7 +122,7 @@ export default function toZH(en: string, useSlot = false): string {
 
   // `Adds 40-1752 Maximum Stamina` --> `Adds <<1>> Maximum Stamina`
   if (useSlot) {
-    let slots: string[] | undefined = undefined;
+    let slots: Record<string, string> | undefined = undefined;
     let template = "";
     let i = 0;
     for (; i < enLines.length; i++) {
@@ -133,8 +135,25 @@ export default function toZH(en: string, useSlot = false): string {
       return en;
     }
 
-    return toZH(template);
+    if (slots == null) {
+      return en;
+    }
+
+    Object.keys(slots).forEach((key) => {
+      slots![key] = toZH(slots![key]);
+    });
+
+    const templateZh = toZH(template).replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1");
+    return apply(templateZh, slots);
   }
 
   return en2zh.get(enKey) ?? en;
+}
+
+if (import.meta.main) {
+  initLang();
+  const str =
+    "When you deal critical damage with a Martial melee attack, summon a Lesser Aegis for 11 seconds. After 2.5 seconds, the Lesser Aegis spins its blades, dealing 478 Bleed Damage every 1 second. This effect can occur once every 12 seconds and scales off the higher of your Weapon or Spell Damage.";
+
+  console.log(toZH(str, true));
 }

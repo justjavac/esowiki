@@ -114,6 +114,7 @@ function toBonusDescZh(en: string) {
   const prefix = `（${count}件${perfected ? "完美" : ""}）`;
 
   if (desc.startsWith("Adds ")) {
+    // return desc.replace(/^Adds ([\d-%]+) (.*)$/, (match, num, stat) => `${prefix}增加${num}${toZh(stat)}`);
     return `${prefix}增加${toZh(desc.substring(5), true)}`;
   }
 
