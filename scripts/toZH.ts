@@ -1,6 +1,5 @@
 import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
 import { apply, resove } from "./template.ts";
-import { closest } from "fastest-levenshtein";
 
 type LangItem = {
   ID: string;
@@ -145,13 +144,6 @@ export default function toZH(en: string, useSlot = false): string {
     });
 
     const templateZh = toZH(template).replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1");
-
-    // 如果没有翻译成功，尝试用最接近的翻译
-    if (isEnglish(templateZh)) {
-      const closestZh = closest(template, enLines);
-      return apply(closestZh, slots);
-    }
-
     return apply(templateZh, slots);
   }
 
