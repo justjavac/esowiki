@@ -24,7 +24,7 @@ Deno.test("解析结束", () => {
   const template = "Foo <<1>>";
 
   assertEquals(resove("Foo 123", template), ["123"]);
-  assertEquals(resove("Foo 123 xxx", template), undefined);
+  assertEquals(resove("Foo 123 xxx", template), ["123 xxx"]);
   assertEquals(resove("Foo hello", template), ["hello"]);
   assertEquals(resove("Foo", template), undefined);
 });

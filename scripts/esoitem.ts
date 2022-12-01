@@ -102,8 +102,7 @@ const setTypeSchema = string()
     "Achievement",
     "Vendor",
     "Other",
-  ])
-  .transform(toZh);
+  ]);
 
 function toBonusDescZh(en: string) {
   if (en === "") return "";
@@ -128,7 +127,6 @@ const setSummarySchema = object({
   sources: array().required().transform((_, x) => x.split(",").map(toZh)),
   setMaxEquipCount: number().required().integer().positive(),
   setBonusCount: number().required().integer().positive(),
-  setBonusDesc: string().required(),
   itemSlots: string().required().transform(toZh),
   itemCount: number().required().integer().positive(),
   setBonusDesc1: string().required().transform(toBonusDescZh),
@@ -198,7 +196,7 @@ async function parseContent<K extends keyof typeof schemaMap>(
         .map((node) => select("img", node) ? (select("img", node)?.properties?.src as string) : toString(node))
         .slice(1, -1);
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
-      return schemaMap[name].cast(Object.fromEntries(pairs)) as InferType<
+      return schemaMap[name].cast(Object.fromEntries(pairs), { stripUnknown: true }) as InferType<
         typeof schemaMap[K]
       >;
     })

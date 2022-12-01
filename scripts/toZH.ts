@@ -32,7 +32,7 @@ export function initLang(ids?: number[]) {
       const enKey = en.toLowerCase().split("^")[0];
       const zh = langZH[i].Text.split("^")[0];
 
-      if (en.includes("<<1>>") && !enLines.includes(en)) {
+      if (en.length > 6 && en.includes("<<1>>") && !enLines.includes(en)) {
         enLines.push(en);
       }
 

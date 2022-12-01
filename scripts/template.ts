@@ -18,14 +18,7 @@ export function resove(str: string, template: string): string[] | undefined {
   while (i < str.length && j < template.length) {
     const c = template.at(j);
 
-    if (c === "<" && template.at(j + 1) === "<") {
-      // 解析 `<<<`
-      if (template.at(j + 2) === "<") {
-        i++;
-        j++;
-        continue;
-      }
-
+    if (c === "<" && template.at(j + 1) === "<" && template.at(j + 2) !== "<") {
       // Foo <<1>> Bar
       //        ^
       //        k - 模版结束标记
@@ -46,17 +39,22 @@ export function resove(str: string, template: string): string[] | undefined {
         // TODO 插值又可能不是数字，目前还不知道如何处理
       }
 
-      // Foo 123 Bar
-      //        ^
-      //        m - 字符串结束标记
-      const m = str.indexOf(" ", i);
+      // 如果模版已结束，则匹配剩余的
+      if (k === template.length - 2) {
+        slots.push(str.slice(i));
+        return slots;
+      }
 
-      if (m === -1) {
-        // 如果字符串已结束，模版也已结束，则匹配成功
-        if (k === template.length - 2) {
-          slots.push(str.slice(i));
-          return slots;
+      const next5 = template.slice(k + 2, k + 7);
+
+      let m = i + 1;
+      for (; m < str.length; m++) {
+        if (str.slice(m, m + 5) == next5) {
+          break;
         }
+      }
+
+      if (m === str.length) {
         return undefined;
       }
 
@@ -117,4 +115,12 @@ export function apply(template: string, ...slots: string[]): string {
   }
 
   return str;
+}
+
+if (import.meta.main) {
+  const str = "Adds 123 4567 Maximum Stamina";
+  const template = "Adds <<1>> Maximum <<2>>";
+  console.log(str);
+  console.log(template);
+  console.log(resove(str, template));
 }
