@@ -68,6 +68,7 @@ export function parse(str: string, template: string): string[] | undefined {
   return slots;
 }
 
+// TODO
 export function apply(template: string, ...slots: string[]): string {
   let i = 0;
   let j = 0;
@@ -88,12 +89,12 @@ export function apply(template: string, ...slots: string[]): string {
 
       // Foo <<1>> Bar
       //       ^
-      //      slot - 插值，必须为数字
+      //      slot - 插值
       const slot = template.slice(i + 2, k);
       const n = parseInt(slot, 10);
 
       if (isNaN(n) || n < 1) {
-        throw new Error("Invalid template");
+        // TODO 插值又可能不是数字，目前还不知道如何处理
       }
 
       str += slots[n - 1];
