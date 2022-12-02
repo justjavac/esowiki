@@ -221,10 +221,9 @@ if (import.meta.main) {
     );
     Deno.exit(1);
   }
-
   initLang(langMap[name]);
-  Deno.writeTextFile(
-    `gamedata/${name}.json`,
-    JSON.stringify(await parseContent(name), null, 2),
-  );
+
+  const result = await parseContent(name);
+
+  Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(result, null, 2));
 }

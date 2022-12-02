@@ -1,6 +1,24 @@
+// TODO: 类型定义重复了
 interface SetProps {
-  data: Record<string, string>;
+  data: {
+    name: string;
+    type: string;
+    itemCount: number;
+    setBonusCount: number;
+    setMaxEquipCount: number;
+    gameId: number;
+    setBonusDesc1: string;
+    setBonusDesc2: string;
+    setBonusDesc3: string;
+    setBonusDesc4: string;
+    setBonusDesc5: string;
+    setBonusDesc6: string;
+    setBonusDesc7: string;
+    itemSlots: string;
+  };
 }
+
+type Key = keyof SetProps["data"];
 
 export function Set({ data }: SetProps) {
   return (
@@ -19,7 +37,8 @@ export function Set({ data }: SetProps) {
         marginBottom: 5,
         width: 394,
         height: 280,
-        backgroundImage: "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
+        backgroundImage:
+          "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
         backgroundRepeat: "repeat-y",
       }}
     >
@@ -57,7 +76,7 @@ export function Set({ data }: SetProps) {
           textAlign: "center",
         }}
       >
-        套装名称
+        {data.name}
       </div>
       <div
         style={{
@@ -89,24 +108,14 @@ export function Set({ data }: SetProps) {
         alt=""
       />
 
-      <Row>
-        (2件) 增加<Text>1096</Text>攻击穿透
-      </Row>
-      <Row>
-        (3件) 增加<Text>129</Text>魔法恢复速度
-      </Row>
+      {Array(7)
+        .fill(0)
+        .map(function (_, i) {
+          if (!Object.hasOwn(data, `setBonusDesc${i + 1}`)) return null;
+          return <Row>{data[`setBonusDesc${i + 1}` as Key]}</Row>;
+        })}
 
-      <Row>
-        (4件) 增加<Text>1206</Text>最大生命
-      </Row>
-
-      <Row>
-        <span>
-          (5件) 使用重击攻击造成伤害时，回复<Text>30</Text>%资源，创造出一个持续 12 秒的区域，为区域内的友军赋予强化、虚弱效果。该效果每 3 秒触发一次。
-        </span>
-      </Row>
-
-      <Row style={{ margin: 10 }}>部位：武器、轻甲、首饰、重甲(肩)、盾牌</Row>
+      <Row style={{ margin: 10 }}>部位：{data.itemSlots}</Row>
     </div>
   );
 }

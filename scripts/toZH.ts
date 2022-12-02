@@ -152,8 +152,9 @@ export default function toZH(en: string, useSlot = false): string {
 
 if (import.meta.main) {
   initLang();
-  const str =
-    "When you deal critical damage with a Martial melee attack, summon a Lesser Aegis for 11 seconds. After 2.5 seconds, the Lesser Aegis spins its blades, dealing 478 Bleed Damage every 1 second. This effect can occur once every 12 seconds and scales off the higher of your Weapon or Spell Damage.";
-
-  console.log(toZH(str, true));
+  console.log(toZH("achievement"));
+  console.log(toZH("achievements"));
+  console.log(toZH("Category"));
+  console.log(toZH("Categories"));
+  console.log(toZH("Criteria"));
 }
