@@ -140,12 +140,42 @@ const setSummarySchema = object({
   "Internal ID": number().required().integer().positive(),
 });
 
+const zonesSchema = object({
+  id: number().required().integer().positive(),
+  zoneId: number().required().integer().positive(),
+  zoneIndex: number().required().integer().positive(),
+  zoneName: string().required().transform(toZh),
+  subZoneName: string().required().transform(toZh),
+  description: string().required().transform(toZh),
+  mapName: string().required().transform(toZh),
+  mapType: number().required().integer().positive(),
+  mapContentType: number().required().integer().positive(),
+  mapFilterType: number().required().integer().positive(),
+  numPOIs: number().required().integer().positive(),
+  allowsScaling: number().required().integer().positive(),
+  allowsBattleScaling: number().required().integer().positive(),
+  minLevel: number().required().integer().positive(),
+  maxLevel: number().required().integer().positive(),
+  isAvA1: number().required().integer().positive(),
+  isAvA2: number().required().integer().positive(),
+  isBattleground: number().required().integer().positive(),
+  telvarBehavior: number().required().integer().positive(),
+  isOutlaw: number().required().integer().positive(),
+  isJustice: number().required().integer().positive(),
+  isTutorial: number().required().integer().positive(),
+  isGroupOwnable: number().required().integer().positive(),
+  isDungeon: number().required().integer().positive(),
+  dungeonDifficulty: number().required().integer().positive(),
+  count: number().required().integer().positive(),
+});
+
 const schemaMap = {
   achievementCategories: achievementCategoriesSchema,
   achievementCriteria: achievementCriteriaSchema,
   achievements: achievementsSchema,
   setSummary: setSummarySchema,
   antiquityLeads: antiquityLeadsSchema,
+  zones: zonesSchema,
 };
 
 type Key = keyof typeof schemaMap;
@@ -197,7 +227,7 @@ async function parseContent<K extends keyof typeof schemaMap>(
         .map((node) => select("img", node) ? (select("img", node)?.properties?.src as string) : toString(node))
         .slice(1, -1);
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
-      return schemaMap[name].cast(Object.fromEntries(pairs), { stripUnknown: true }) as InferType<
+      return schemaMap[name].cast(Object.fromEntries(pairs)) as InferType<
         typeof schemaMap[K]
       >;
     })
