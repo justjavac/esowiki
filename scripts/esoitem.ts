@@ -5,6 +5,7 @@ import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang } from "./toZH.ts";
 import { array, type InferType, number, object, string } from "yup";
+import { paramCase } from "https://deno.land/x/case@2.1.1/mod.ts";
 
 const achievementCategoriesSchema = object({
   id: number().required().integer().positive(),
@@ -123,7 +124,7 @@ function toBonusDescZh(en: string) {
 
 const setSummarySchema = object({
   gameId: number().required().integer().positive(),
-  setName: string().required().transform(toZh),
+  setName: string().required(),
   type: setTypeSchema.strict().required(),
   sources: array().required().transform((_, x) => x.split(",").map(toZh)),
   setMaxEquipCount: number().required().integer().positive(),
@@ -238,6 +239,21 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
   return record in schemaMap;
 }
 
+async function saveToStrapi(data: any) {
+  const response = await fetch(`https://esoapi.denohub.com/api/set-summaries`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${Deno.env.get("STRAPI_TOKEN")}`,
+    },
+    body: JSON.stringify({ data }),
+  });
+
+  if (!response.ok) {
+    console.error(await response.text());
+  }
+}
+
 if (import.meta.main) {
   const name = Deno.args[0];
 
@@ -254,6 +270,10 @@ if (import.meta.main) {
   initLang(langMap[name]);
 
   const result = await parseContent(name);
+
+  // for (const item of result) {
+  //   await saveToStrapi(item);
+  // }
 
   Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(result, null, 2));
 }
