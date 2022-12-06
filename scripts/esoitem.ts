@@ -124,7 +124,7 @@ function toBonusDescZh(en: string) {
 
 const setSummarySchema = object({
   gameId: number().required().integer().positive(),
-  setName: string().required(),
+  setName: string().required().transform(toZh),
   type: setTypeSchema.strict().required(),
   sources: array().required().transform((_, x) => x.split(",").map(toZh)),
   setMaxEquipCount: number().required().integer().positive(),
