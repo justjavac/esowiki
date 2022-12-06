@@ -16,3 +16,4 @@
 - [Preact](https://preactjs.com)
 - [TailwindCSS](https://tailwindcss.com)
 - [Deno](https://deno.land)
+- [strapi](https://strapi.io)

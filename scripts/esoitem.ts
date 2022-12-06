@@ -239,7 +239,7 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
   return record in schemaMap;
 }
 
-async function saveToStrapi(data: any) {
+async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
   const response = await fetch(`https://esoapi.denohub.com/api/set-summaries`, {
     method: "PUT",
     headers: {
