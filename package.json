@@ -23,10 +23,14 @@
     "astro": "^1.6.12",
     "preact": "^10.11.3",
     "preact-router": "^4.1.0",
+    "qs": "^6.11.0",
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest",
     "satori": "^0.0.44",
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "@types/qs": "^6.9.7",
     "please-use-yarn": "^1.2.2",
     "prettier": "^2.8.0",
     "rehype-external-links": "^2.0.1"

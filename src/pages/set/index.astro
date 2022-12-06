@@ -3,12 +3,43 @@ import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL, CDN_URL } from "@/consts";
+import qs from "qs";
 
-const response = await fetch(
-  `${ESO_API_URL}/api/set-summaries?pagination[page]=1&pagination[pageSize]=1000`
+let { page = 1 } = qs.parse(Astro.url.search.substring(1));
+
+if (!/^\d+$/.test(page as string)) {
+  page = 1;
+}
+
+const query = qs.stringify(
+  {
+    filters: {},
+    pagination: {
+      pageSize: 20,
+      page,
+    },
+  },
+  {
+    encodeValuesOnly: true,
+  }
 );
-const { data = [] } = await response.json();
+
+const response = await fetch(`${ESO_API_URL}/api/set-summaries?${query}`);
+const result = await response.json();
+
+if (result.error) {
+  return new Response(result.error.message, {
+    status: result.error.status,
+    statusText: result.error.message,
+  });
+}
+
+const {
+  data = [],
+  meta: { pagination },
+} = result;
 ---
 
 <html lang="zh-CN">
@@ -20,54 +51,45 @@ const { data = [] } = await response.json();
   <body>
     <HeaderNav />
 
-    <main>
-      <div class="markdown-body mt-4">
-        <table>
+    <main class="max-w-screen-xl mx-auto">
+      <h1 class="text-2xl font-bold">套装</h1>
+      <Pagination {...pagination} />
+      <div class="markdown-body w-full">
+        <table class="w-full">
           <thead class="whitespace-nowrap">
             <tr>
-              <th>ID</th>
-              <th>游戏内ID</th>
-              <th>名称</th>
-              <th>类型</th>
-              <th>物品个数</th>
-              <th>套装加成数量</th>
-              <th>最大装备数量</th>
-              <th>套装效果1</th>
-              <th>套装效果2</th>
-              <th>套装效果3</th>
-              <th>套装效果4</th>
-              <th>套装效果5</th>
-              <th>套装效果6</th>
-              <th>套装效果7</th>
+              <th class="w-44">名称</th>
+              <th class="w-20">类型</th>
+              <th>套装效果</th>
             </tr>
           </thead>
           <tbody>
             {
               data.map(({ id, attributes }: any) => (
                 <tr>
-                  <td>{id}</td>
-                  <td>{attributes.gameId}</td>
-                  <td>
-                    <a href={`/set/${id}`}>{attributes.name}</a>
+                  <td class="text-center">
+                    <a href={`/set/${attributes.slug}`}>
+                      {attributes.name}
+                      <div class="text-xs">{attributes.nameEn}</div>
+                    </a>
                   </td>
-                  <td>{attributes.type}</td>
-                  <td>{attributes.itemCount}</td>
-                  <td>{attributes.setBonusCount}</td>
-                  <td>{attributes.setMaxEquipCount}</td>
-                  <td>{attributes.setBonusDesc1}</td>
-                  <td>{attributes.setBonusDesc2}</td>
-                  <td>{attributes.setBonusDesc3}</td>
-                  <td>{attributes.setBonusDesc4}</td>
-                  <td>{attributes.setBonusDesc5}</td>
-                  <td>{attributes.setBonusDesc6}</td>
-                  <td>{attributes.setBonusDesc7}</td>
+                  <td class="text-center">{attributes.type}</td>
+                  <td
+                    set:html={Array(7)
+                      .fill(0)
+                      .map((_, i) => attributes[`setBonusDesc${i + 1}`])
+                      .filter(Boolean)
+                      .join("<br/>")}
+                  />
                 </tr>
               ))
             }
           </tbody>
         </table>
       </div>
+      <Pagination {...pagination} />
     </main>
     <ScrollToTop />
+    <Footer />
   </body>
 </html>

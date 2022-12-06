@@ -4,13 +4,33 @@ import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import { Set } from "@/components";
+import qs from "qs";
 import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL } from "@/consts";
 
-const { id } = Astro.params;
-const response = await fetch(`${ESO_API_URL}/api/set-summaries/${id}`);
-const {data} = await response.json();
+const { slug } = Astro.params;
 
-if (data == null) {
+const query = qs.stringify(
+  {
+    filters: {
+      slug: {
+        $eq: slug,
+      },
+    },
+    pagination: {
+      pageSize: 1,
+      page: 1,
+    },
+  },
+  {
+    encodeValuesOnly: true,
+  }
+);
+
+const response = await fetch(`${ESO_API_URL}/api/set-summaries?${query}`);
+
+const { data } = await response.json();
+
+if (data == null || data.length === 0) {
   return Astro.redirect("/404");
 }
 ---
@@ -27,7 +47,7 @@ if (data == null) {
       <div class="max-w-3xl w-full">
         <div class="rounded-lg shadow-lg p-4">
           <div class="mt-4">
-            <Set data={data.attributes} />
+            <Set data={data[0].attributes} />
           </div>
         </div>
       </div>

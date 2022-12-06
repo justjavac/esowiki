@@ -17,7 +17,7 @@ export default defineConfig({
     ],
   },
   integrations: [
-    preact(),
+    preact({ compat: true }),
     tailwind(),
     mdx(),
     sitemap(),
