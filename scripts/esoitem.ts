@@ -4,7 +4,7 @@ import { toString } from "nlcst-to-string";
 import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang } from "./toZH.ts";
-import { array, type InferType, number, object, string } from "yup";
+import { array, type InferType, number, object, ref, string } from "yup";
 
 const achievementCategoriesSchema = object({
   id: number().required().integer().positive(),
@@ -25,7 +25,7 @@ const achievementCategoriesSchema = object({
 const achievementCriteriaSchema = object({
   id: number().required().integer().positive(),
   achievementId: number().required().integer().positive(),
-  name: string().required().transform(toZh),
+  name: string().required(),
   description: string().required().transform(toZh),
   numRequired: number().required().integer().positive(),
   criteriaIndex: number().required().integer().positive(),
@@ -33,7 +33,7 @@ const achievementCriteriaSchema = object({
 
 const achievementsSchema = object({
   id: number().required().integer().positive(),
-  name: string().required().transform(toZh),
+  name: string().required(),
   description: string().required().transform(toZh),
   categoryIndex: number().required().integer().positive(),
   subCategoryIndex: number().required().integer(),
@@ -61,7 +61,7 @@ const achievementsSchema = object({
 
 const antiquityLeadsSchema = object({
   id: number().required().integer().positive(),
-  name: string().required().transform(toZh),
+  name: string().required(),
   icon: string().required(),
   quality: number().required().integer().positive(),
   difficulty: number().required().integer().positive(),
@@ -90,6 +90,17 @@ const antiquityLeadsSchema = object({
   loreDescription4: string().required().transform(toZh),
   loreName5: string().required().transform(toZh),
   loreDescription5: string().required().transform(toZh),
+});
+
+const minedSkillLinesSchema = object({
+  id: number().required().integer().positive(),
+  name: string().required(),
+  fullName: string().required().transform((x) => x.split("::").map(toZh).join("::")),
+  skillType: string().required().transform(toZh),
+  raceType: string().required().transform(toZh),
+  classType: string().required().transform(toZh),
+  numRanks: number().required().integer().positive(),
+  totalXp: number().required().integer().positive(),
 });
 
 const setTypeSchema = string()
@@ -177,6 +188,7 @@ const schemaMap = {
   antiquityLeads: antiquityLeadsSchema,
   zones: zonesSchema,
   skillTree: object(),
+  minedSkillLines: minedSkillLinesSchema,
 };
 
 type Key = keyof typeof schemaMap;
@@ -228,9 +240,8 @@ async function parseContent<K extends keyof typeof schemaMap>(
         .map((node) => select("img", node) ? (select("img", node)?.properties?.src as string) : toString(node))
         .slice(1, -1);
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
-      return schemaMap[name].cast(Object.fromEntries(pairs)) as InferType<
-        typeof schemaMap[K]
-      >;
+      const obj = Object.fromEntries(pairs);
+      return schemaMap[name].cast(obj) as InferType<typeof schemaMap[K]>;
     })
     .concat(nextPage ? await parseContent(name, start + 500) : []);
 }
@@ -240,8 +251,10 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
 }
 
 async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
-  const response = await fetch(`https://esoapi.denohub.com/api/set-summaries`, {
-    method: "PUT",
+  data.nameEn = data.name;
+  data.name = toZh(data.name);
+  const response = await fetch(`https://esoapi.denohub.com/api/skill-lines`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${Deno.env.get("STRAPI_TOKEN")}`,
