@@ -5,7 +5,6 @@ import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang } from "./toZH.ts";
 import { array, type InferType, number, object, string } from "yup";
-import { paramCase } from "https://deno.land/x/case@2.1.1/mod.ts";
 
 const achievementCategoriesSchema = object({
   id: number().required().integer().positive(),
@@ -177,6 +176,7 @@ const schemaMap = {
   setSummary: setSummarySchema,
   antiquityLeads: antiquityLeadsSchema,
   zones: zonesSchema,
+  skillTree: object(),
 };
 
 type Key = keyof typeof schemaMap;
