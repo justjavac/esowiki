@@ -2,6 +2,7 @@
 interface SetProps {
   data: {
     name: string;
+    nameEn: string;
     type: string;
     itemCount: number;
     setBonusCount: number;
@@ -37,7 +38,8 @@ export function Set({ data }: SetProps) {
         marginBottom: 5,
         width: 394,
         height: 280,
-        backgroundImage: "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
+        backgroundImage:
+          "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
         backgroundRepeat: "repeat-y",
       }}
     >
@@ -88,7 +90,7 @@ export function Set({ data }: SetProps) {
           textAlign: "center",
         }}
       >
-        English name
+        {data.nameEn}
       </div>
 
       <img
