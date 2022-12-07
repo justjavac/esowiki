@@ -281,9 +281,9 @@ if (import.meta.main) {
 
   const result = await parseContent(name);
 
-  for (const item of result) {
-    await saveToStrapi(item);
-  }
+  // for (const item of result) {
+  //   await saveToStrapi(item);
+  // }
 
   Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(result, null, 2));
 }
