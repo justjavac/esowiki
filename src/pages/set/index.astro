@@ -105,6 +105,7 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
         <table class="w-full shadow">
           <thead class="whitespace-nowrap">
             <tr>
+              <th class="w-24">图标</th>
               <th class="w-44">名称</th>
               <th class="w-20">类型</th>
               <th>套装效果</th>
@@ -115,10 +116,11 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
               data.map(({ id, attributes }: any) => (
                 <tr>
                   <td class="text-center">
-                    <a href={`/set/${attributes.slug}`}>
-                      {attributes.name}
-                      <div class="text-xs">{attributes.nameEn}</div>
-                    </a>
+                    <img src={attributes.icon} width="64" height="64" alt="" />
+                  </td>
+                  <td class="text-center">
+                    <a href={`/set/${attributes.slug}`}>{attributes.name}</a>
+                    <div class="text-xs">{attributes.nameEn}</div>
                   </td>
                   <td class="text-center">{attributes.type}</td>
                   <td
