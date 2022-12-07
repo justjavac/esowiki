@@ -15,6 +15,12 @@ const columns = ["ID", "Unknown", "Index", "Offset", "Text"];
 const en2zh = new Map<string, string>();
 const enLines: string[] = [];
 
+en2zh.set("second", "秒");
+en2zh.set("seconds", "秒");
+en2zh.set("meter", "米");
+en2zh.set("meters", "米");
+en2zh.set("enemy", "敌人");
+
 export function initLang(ids?: number[]) {
   const langEN = parseLang("./gamedata/lang/en.lang.csv");
   const langZH = parseLang("./gamedata/lang/zh.lang.csv");
@@ -28,8 +34,11 @@ export function initLang(ids?: number[]) {
     .forEach(({ Text: en, ID }, i) => {
       if (ids != null && !ids.includes(Number(ID))) return;
 
-      // 变小写，去掉空格
-      const enKey = en.toLowerCase().split("^")[0].replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1");
+      // 变小写，去掉样式
+      const enKey = en.toLowerCase().split("^")[0]
+        .replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1")
+        .replaceAll("\\n", "\n")
+        .trim();
       const zh = langZH[i].Text.split("^")[0];
 
       if (en.length > 6 && en.includes("<<1>>") && !enLines.includes(en)) {
@@ -84,11 +93,22 @@ export function isEnglish(str?: string) {
 export default function toZH(en: string, useSlot = false): string {
   if (en == null) return "";
 
-  const enKey = en.toLowerCase().trim();
+  const enKey = en.toLowerCase()
+    .replace(/\|c[a-zA-Z]{6}(.*)\|r/g, "$1")
+    .replaceAll("\\n", "\n")
+    .trim();
   const zh = en2zh.get(enKey);
 
   if (zh != null) {
     return zh;
+  }
+
+  if (en.match(/^\d+ .+$/)) {
+    return en.replace(/^(\d+) (.+)$/, (_, p1, p2) => `${p1}${toZH(p2)}`);
+  }
+
+  if (en.includes(" ") && en.split(" ").length <= 3) {
+    return en.split(" ").map((part) => toZH(part)).join("");
   }
 
   // 去掉英文中的引号，再次尝试翻译

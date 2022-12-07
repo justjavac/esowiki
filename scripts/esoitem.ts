@@ -187,7 +187,6 @@ const schemaMap = {
   setSummary: setSummarySchema,
   antiquityLeads: antiquityLeadsSchema,
   zones: zonesSchema,
-  skillTree: object(),
   minedSkillLines: minedSkillLinesSchema,
 };
 
@@ -251,9 +250,7 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
 }
 
 async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
-  data.nameEn = data.name;
-  data.name = toZh(data.name);
-  const response = await fetch(`https://esoapi.denohub.com/api/skill-lines`, {
+  const response = await fetch(`https://esoapi.denohub.com/api/skills`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -284,9 +281,9 @@ if (import.meta.main) {
 
   const result = await parseContent(name);
 
-  // for (const item of result) {
-  //   await saveToStrapi(item);
-  // }
+  for (const item of result) {
+    await saveToStrapi(item);
+  }
 
   Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(result, null, 2));
 }

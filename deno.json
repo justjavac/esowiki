@@ -5,6 +5,7 @@
     "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts && deno fmt src/pages/quest",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
     "esoitem": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
+    "skill": "deno run --allow-net --allow-read  --allow-env ./scripts/skill.ts",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
   "fmt": {
