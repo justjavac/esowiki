@@ -41,7 +41,7 @@ if (pageCount <= 7) {
 
 function createUrl(page: number | string): string {
   Astro.url.searchParams.set("page", String(page));
-  return Astro.url.toString();
+  return Astro.url.pathname + Astro.url.search;
 }
 ---
 
