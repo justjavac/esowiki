@@ -116,7 +116,13 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
               data.map(({ id, attributes }: any) => (
                 <tr>
                   <td class="text-center">
-                    <img src={attributes.icon} width="64" height="64" alt="" />
+                    <img
+                      data-set="hello world"
+                      src={attributes.icon}
+                      width="64"
+                      height="64"
+                      alt=""
+                    />
                   </td>
                   <td class="text-center">
                     <a href={`/set/${attributes.slug}`}>{attributes.name}</a>
