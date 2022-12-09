@@ -136,7 +136,7 @@ const setSummarySchema = object({
   gameId: number().required().integer().positive(),
   setName: string().required().transform(toZh),
   type: setTypeSchema.strict().required(),
-  sources: array().required().transform((_, x) => x.split(",").map((x) => toZh(x.trim()))),
+  sources: array(string()).required().transform((_, x) => x.split(",").map((x: string) => toZh(x.trim()))),
   setMaxEquipCount: number().required().integer().positive(),
   setBonusCount: number().required().integer().positive(),
   itemSlots: string().required().transform(toZh),
