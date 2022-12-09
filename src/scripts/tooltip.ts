@@ -1,9 +1,9 @@
-function tooltipType(el: HTMLElement) {
-  if (el.tagName !== "A" || el.classList.contains("no-tooltip")) {
+function tooltipType(el: HTMLAnchorElement) {
+  if (el.classList.contains("no-tooltip") || !el.href) {
     return undefined;
   }
 
-  const parts = (el as HTMLAnchorElement).pathname.split("/");
+  const parts = el.pathname.split("/");
   if (parts.length <= 2) return undefined;
 
   return parts[1];
@@ -95,24 +95,25 @@ style.innerHTML = `.eso-tooltip {
 `;
 document.body.appendChild(style);
 
-document.addEventListener("mouseout", (e) => {
-  tooltip.style.display = "none";
-});
+const allLinks = document.querySelectorAll("a");
 
-document.addEventListener("mouseover", async (e) => {
-  const target = e.target as HTMLAnchorElement;
+allLinks.forEach((link) => {
+  link.addEventListener("mouseout", () => tooltip.style.display = "none");
 
-  switch (tooltipType(target)) {
-    case "item": {
-      const data = await getData(target.href);
-      tooltip.innerHTML = `
+  link.addEventListener("mouseover", async (e) => {
+    const target = e.currentTarget as HTMLAnchorElement;
+
+    switch (tooltipType(target)) {
+      case "item": {
+        const data = await getData(target.href);
+        tooltip.innerHTML = `
   
         `;
-      break;
-    }
-    case "set": {
-      const data = await getData(target.href);
-      tooltip.innerHTML = `
+        break;
+      }
+      case "set": {
+        const data = await getData(target.href);
+        tooltip.innerHTML = `
         <div class="eso-tooltip-header">
           <b class="eso-tooltip-type">${data.type}</b>
         </div>
@@ -123,11 +124,11 @@ document.addEventListener("mouseover", async (e) => {
         ${data.description}
         </div>
       `;
-      break;
-    }
-    case "skill": {
-      const data = await getData(target.href);
-      tooltip.innerHTML = `
+        break;
+      }
+      case "skill": {
+        const data = await getData(target.href);
+        tooltip.innerHTML = `
         <div class="eso-tooltip-header">
           <b>${data.skillTypeName}</b>
           <b>${data.morph > 0 ? `${data.baseName}变形` : ""}</b>
@@ -168,20 +169,21 @@ document.addEventListener("mouseover", async (e) => {
           ${data.effectLines}
         </div>
       `;
-      break;
+        break;
+      }
+      default:
+        return;
     }
-    default:
-      return;
-  }
 
-  tooltip.style.display = "block";
-  tooltip.style.top = `${e.pageY - 30}px`;
-  tooltip.style.left = `${e.pageX + 10}px`;
-});
+    tooltip.style.display = "block";
+    tooltip.style.top = `${e.pageY - 30}px`;
+    tooltip.style.left = `${e.pageX + 10}px`;
+  });
 
-document.addEventListener("mousemove", (e) => {
-  const target = e.target as HTMLElement;
-  if (tooltipType(target) == null) return;
-  tooltip.style.top = `${e.pageY - 30}px`;
-  tooltip.style.left = `${e.pageX + 10}px`;
+  link.addEventListener("mousemove", (e) => {
+    const target = e.currentTarget as HTMLAnchorElement;
+    if (tooltipType(target) == null) return;
+    tooltip.style.top = `${e.pageY - 30}px`;
+    tooltip.style.left = `${e.pageX + 10}px`;
+  });
 });
