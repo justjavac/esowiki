@@ -53,7 +53,7 @@ export const toDate = (dateline: string): Date => {
     return new Date(`${date.trim()} ${time.trim().replace("UTC", "")}`);
   } else {
     return new Date(
-      `${head.split("-")[0].trim()} ${tail.trim().replace("UTC", "")}`
+      `${head.split("-")[0].trim()} ${tail.trim().replace("UTC", "")}`,
     );
   }
 };
@@ -188,7 +188,7 @@ export const toServerZone = (slug: ServerSlug): ServerZone => {
 
 const getWebSiteContent = async () => {
   const response = await fetch(
-    "https://help.elderscrollsonline.com/app/answers/detail/a_id/4320"
+    "https://help.elderscrollsonline.com/app/answers/detail/a_id/4320",
   );
 
   return response.text();
@@ -196,7 +196,7 @@ const getWebSiteContent = async () => {
 
 const getRawListContent = (htmlContent: string) => {
   const result = htmlContent.split(
-    "<div><!-- ENTER ESO SERVICE ALERTS BELOW THIS LINE -->"
+    "<div><!-- ENTER ESO SERVICE ALERTS BELOW THIS LINE -->",
   );
 
   if (result.length > 2) return [];

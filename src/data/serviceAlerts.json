@@ -1,82 +1,82 @@
 {
-    "eso_store": {
-        "raw": "The issues affecting the ESO Store and Account System have been resolved.",
-        "slug": "eso_store",
-        "status": "up",
-        "zone": "unknown",
-        "support": "unknown",
-        "timestamp": 1670437800000
-    },
-    "account_system": {
-        "raw": "The issues affecting the ESO Store and Account System have been resolved.",
-        "slug": "account_system",
-        "status": "up",
-        "zone": "unknown",
-        "support": "unknown",
-        "timestamp": 1670437800000
-    },
-    "xbox_na": {
-        "raw": "The North American Xbox megaserver is currently available.",
-        "slug": "xbox_na",
-        "status": "up",
-        "zone": "na",
-        "support": "xbox",
-        "timestamp": 1670406000000
-    },
-    "xbox_eu": {
-        "raw": "The European Xbox megaserver is currently available.",
-        "slug": "xbox_eu",
-        "status": "up",
-        "zone": "eu",
-        "support": "xbox",
-        "timestamp": 1670406000000
-    },
-    "ps_na": {
-        "raw": "The North American PlayStation® megaserver is currently available.",
-        "slug": "ps_na",
-        "status": "up",
-        "zone": "na",
-        "support": "ps",
-        "timestamp": 1670406000000
-    },
-    "ps_eu": {
-        "raw": "The European PlayStation® megaserver is currently available.",
-        "slug": "ps_eu",
-        "status": "up",
-        "zone": "eu",
-        "support": "ps",
-        "timestamp": 1670406000000
-    },
-    "pc_na": {
-        "raw": "The North American PC/Mac megaserver is currently available.",
-        "slug": "pc_na",
-        "status": "up",
-        "zone": "na",
-        "support": "pc",
-        "timestamp": 1670215800000
-    },
-    "pc_eu": {
-        "raw": "The European PC/Mac megaserver is currently available.",
-        "slug": "pc_eu",
-        "status": "up",
-        "zone": "eu",
-        "support": "pc",
-        "timestamp": 1670215800000
-    },
-    "pts": {
-        "raw": "The PTS is currently available.",
-        "slug": "pts",
-        "status": "up",
-        "zone": "unknown",
-        "support": "unknown",
-        "timestamp": 1668595800000
-    },
-    "site_web": {
-        "raw": "The ESO Website is currently online.",
-        "slug": "site_web",
-        "status": "up",
-        "zone": "unknown",
-        "support": "unknown",
-        "timestamp": 1662531000000
-    }
+  "eso_store": {
+    "raw": "The issues affecting the ESO Store and Account System have been resolved.",
+    "slug": "eso_store",
+    "status": "up",
+    "zone": "unknown",
+    "support": "unknown",
+    "timestamp": 1670437800000
+  },
+  "account_system": {
+    "raw": "The issues affecting the ESO Store and Account System have been resolved.",
+    "slug": "account_system",
+    "status": "up",
+    "zone": "unknown",
+    "support": "unknown",
+    "timestamp": 1670437800000
+  },
+  "xbox_na": {
+    "raw": "The North American Xbox megaserver is currently available.",
+    "slug": "xbox_na",
+    "status": "up",
+    "zone": "na",
+    "support": "xbox",
+    "timestamp": 1670406000000
+  },
+  "xbox_eu": {
+    "raw": "The European Xbox megaserver is currently available.",
+    "slug": "xbox_eu",
+    "status": "up",
+    "zone": "eu",
+    "support": "xbox",
+    "timestamp": 1670406000000
+  },
+  "ps_na": {
+    "raw": "The North American PlayStation® megaserver is currently available.",
+    "slug": "ps_na",
+    "status": "up",
+    "zone": "na",
+    "support": "ps",
+    "timestamp": 1670406000000
+  },
+  "ps_eu": {
+    "raw": "The European PlayStation® megaserver is currently available.",
+    "slug": "ps_eu",
+    "status": "up",
+    "zone": "eu",
+    "support": "ps",
+    "timestamp": 1670406000000
+  },
+  "pc_na": {
+    "raw": "The North American PC/Mac megaserver is currently available.",
+    "slug": "pc_na",
+    "status": "up",
+    "zone": "na",
+    "support": "pc",
+    "timestamp": 1670215800000
+  },
+  "pc_eu": {
+    "raw": "The European PC/Mac megaserver is currently available.",
+    "slug": "pc_eu",
+    "status": "up",
+    "zone": "eu",
+    "support": "pc",
+    "timestamp": 1670215800000
+  },
+  "pts": {
+    "raw": "The PTS is currently available.",
+    "slug": "pts",
+    "status": "up",
+    "zone": "unknown",
+    "support": "unknown",
+    "timestamp": 1668595800000
+  },
+  "site_web": {
+    "raw": "The ESO Website is currently online.",
+    "slug": "site_web",
+    "status": "up",
+    "zone": "unknown",
+    "support": "unknown",
+    "timestamp": 1662531000000
+  }
 }
