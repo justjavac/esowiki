@@ -1,4 +1,4 @@
-import { getServiceAlerts } from "../src/utils/serviceAlerts.ts";
+import { getServiceAlerts } from "@/utils/serviceAlerts.ts";
 
 const serviceAlerts = await getServiceAlerts();
 
