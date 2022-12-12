@@ -1,0 +1,123 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+import {
+  getServiceAlerts,
+  type ServerStatus,
+  type ServerSupport,
+} from "@/utils/serviceAlerts";
+
+const serviceAlerts = await getServiceAlerts();
+
+if (Astro.request.headers.get("Content-Type") === "application/json") {
+  return new Response(JSON.stringify(serviceAlerts), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
+function getZoneName(zone: string) {
+  switch (zone) {
+    case "eu":
+      return "欧服";
+    case "na":
+      return "美服";
+    default:
+      return "未知";
+  }
+}
+
+function getSupportName(support: ServerSupport) {
+  switch (support) {
+    case "pc":
+      return "PC";
+    case "xbox":
+      return "Xbox";
+    case "ps":
+      return "PlayStation";
+    default:
+      return "未知";
+  }
+}
+
+function getStatusName(status: ServerStatus) {
+  switch (status) {
+    case "up":
+      return "在线";
+    case "issues":
+      return "维护中";
+    case "down":
+      return "离线";
+    default:
+      return "未知";
+  }
+}
+
+function getStatusColor(status: ServerStatus) {
+  switch (status) {
+    case "up":
+      return "bg-green-100 text-green-800";
+    case "issues":
+      return "bg-yellow-100 text-yellow-800";
+    case "down":
+      return "bg-red-100 text-red-800";
+    default:
+      return "bg-gray-100 text-gray-800";
+  }
+}
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`服务器状态 - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+  </head>
+
+  <body class="h-screen flex flex-col">
+    <HeaderNav />
+
+    <main class="flex-1 mx-auto max-w-3xl w-full">
+      <h1 class="text-3xl mt-5 font-bold tracking-tight text-center">
+        上古卷轴OL服务器状态
+      </h1>
+      <ul
+        role="list"
+        class="mt-10 w-full divide-y divide-gray-200 rounded-md border border-gray-200"
+      >
+        {
+          Object.values(serviceAlerts)
+            .sort((x, y) => x.support.localeCompare(y.support))
+            .map((x) => {
+              if (x.support === "unknown" || x.zone === "unknown") {
+                return;
+              }
+              return (
+                <li class="flex items-center justify-between py-3 pl-3 pr-4 text-sm">
+                  <div class="flex w-0 flex-1 items-center">
+                    <span class="ml-2 w-0 flex-1">
+                      {getSupportName(x.support)} ({getZoneName(x.zone)})
+                    </span>
+                  </div>
+                  <div class="ml-4 flex-shrink-0">
+                    <span
+                      class={`font-medium inline-block px-2.5 py-1 rounded-full leading-none ${getStatusColor(
+                        x.status
+                      )}`}
+                    >
+                      {getStatusName(x.status)}
+                    </span>
+                  </div>
+                </li>
+              );
+            })
+        }
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
