@@ -1,4 +1,12 @@
 {
+  "ps_na": {
+    "raw": "The issues related to logging in to the North American PlayStation® megaserver have been resolved at this time.",
+    "slug": "ps_na",
+    "status": "up",
+    "zone": "na",
+    "support": "ps",
+    "timestamp": 1670702400000
+  },
   "eso_store": {
     "raw": "The issues affecting the ESO Store and Account System have been resolved.",
     "slug": "eso_store",
@@ -29,14 +37,6 @@
     "status": "up",
     "zone": "eu",
     "support": "xbox",
-    "timestamp": 1670406000000
-  },
-  "ps_na": {
-    "raw": "The North American PlayStation® megaserver is currently available.",
-    "slug": "ps_na",
-    "status": "up",
-    "zone": "na",
-    "support": "ps",
     "timestamp": 1670406000000
   },
   "ps_eu": {
