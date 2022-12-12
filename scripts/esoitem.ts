@@ -92,6 +92,25 @@ const antiquityLeadsSchema = object({
   loreDescription5: string().required().transform(toZh),
 });
 
+const minedItemSummarySchema = object({
+  name: string().required(),
+  description: string().required().transform(toZh),
+  style: string().required().transform(toZh),
+  trait: string().required().transform(toZh),
+  type: string().required().transform(toZh),
+  specialType: string().required().transform(toZh),
+  equipType: string().required().transform(toZh),
+  weaponType: string().required().transform(toZh),
+  armorType: string().required().transform(toZh),
+  craftType: string().required().transform(toZh),
+  enchantName: string().required().transform(toZh),
+  enchantDesc: string().required().transform(toZh),
+  setName: string().required().transform(toZh),
+  traitDesc: string().required().transform(toZh),
+  traitAbilityDesc: string().required().transform(toZh),
+  materialLevelDesc: string().required().transform(toZh),
+});
+
 const minedSkillLinesSchema = object({
   id: number().required().integer().positive(),
   name: string().required(),
@@ -101,6 +120,18 @@ const minedSkillLinesSchema = object({
   classType: string().required().transform(toZh),
   numRanks: number().required().integer().positive(),
   totalXp: number().required().integer().positive(),
+});
+
+const npcSchema = object({
+  id: number().required().integer().positive(),
+  name: string().required().transform(toZh),
+  level: number().required().integer().positive(),
+  gender: number().required().integer().positive(),
+  difficulty: number().required().integer().positive(),
+  ppClass: string().required(),
+  ppDifficulty: number().required().integer().positive(),
+  count: number().required().integer().positive(),
+  reaction: string().required(),
 });
 
 const setTypeSchema = string()
@@ -188,6 +219,8 @@ const schemaMap = {
   antiquityLeads: antiquityLeadsSchema,
   zones: zonesSchema,
   minedSkillLines: minedSkillLinesSchema,
+  minedItemSummary: minedItemSummarySchema,
+  npc: npcSchema,
 };
 
 type Key = keyof typeof schemaMap;
