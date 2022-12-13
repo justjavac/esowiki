@@ -20,3 +20,14 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+
+<script>
+  // @ts-ignore
+  var _hmt = _hmt || [];
+  (function () {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?72db0bea07113e3948629f55bd6a6d22";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode!.insertBefore(hm, s);
+  })();
+</script>
