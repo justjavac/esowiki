@@ -3,8 +3,8 @@ import { Fragment } from "preact";
 import { Dialog, Transition } from "@headlessui/react";
 import { CDN_URL } from "@/consts";
 
-/** [id, map_id, name, type, x, y] */
-type Item = [string, number, string, number, number, number];
+/** [id, map_id, map_name, name, type, x, y] */
+type Item = [string, number, string, string, number, number, number];
 
 let data: Item[] = [];
 
@@ -131,7 +131,7 @@ export function Search() {
                   >
                     {search.length >= 2 &&
                       data
-                        .filter((x) => x[2].includes(search))
+                        .filter((x) => x[3].includes(search))
                         .map((x) => (
                           <li
                             class="flex items-center justify-between p-4 hover:bg-slate-50"
@@ -144,10 +144,10 @@ export function Search() {
                               class="whitespace-nowrap font-semibold text-slate-900"
                               href={`/map/${x[1]}?poi=${x[0]}`}
                             >
-                              {x[2]}
+                              {x[3]}
                             </a>
                             <span class="ml-4 text-right text-xs text-slate-600">
-                              {x[3]}
+                              {x[2]}
                             </span>
                           </li>
                         ))}
