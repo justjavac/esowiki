@@ -29,8 +29,8 @@ export default defineConfig({
         "https://eso.denohub.com/set",
         "https://eso.denohub.com/map/27",
         "https://eso.denohub.com/about",
-        "https://eso.denohub.com/serverstatus"
-      ]
+        "https://eso.denohub.com/serverstatus",
+      ],
     }),
   ],
   output: "server",
