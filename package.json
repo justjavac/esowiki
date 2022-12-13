@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/deno": "^2.0.1",
-    "@astrojs/mdx": "^0.12.1",
+    "@astrojs/mdx": "^0.12.2",
     "@astrojs/preact": "^1.2.0",
     "@astrojs/rss": "^1.1.0",
     "@astrojs/sitemap": "^1.0.0",
@@ -22,7 +22,7 @@
     "@panzoom/panzoom": "^4.5.1",
     "@preact/signals": "^1.1.2",
     "@tailwindcss/forms": "^0.5.3",
-    "astro": "^1.6.13",
+    "astro": "^1.6.15",
     "preact": "^10.11.3",
     "preact-router": "^4.1.0",
     "react": "npm:@preact/compat@latest",
