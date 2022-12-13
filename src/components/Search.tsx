@@ -126,29 +126,23 @@ export function Search() {
                   <ul
                     class="max-h-[18.375rem] min-h-[60vh] vi divide-y bg-white divide-slate-200 overflow-y-auto rounded-b-lg border-t border-slate-200 text-sm leading-6"
                     role="listbox"
-                    id="headlessui-combobox-options-192"
-                    data-headlessui-state="open"
                   >
                     {search.length >= 2 &&
                       data
                         .filter((x) => x[3].includes(search))
                         .map((x) => (
                           <li
-                            class="flex items-center justify-between p-4 hover:bg-slate-50"
-                            id="headlessui-combobox-option-193"
+                            class="flex items-center justify-between px-4 py-2 hover:bg-slate-50"
                             role="option"
-                            aria-selected="false"
-                            data-headlessui-state=""
                           >
-                            <a
-                              class="whitespace-nowrap font-semibold text-slate-900"
-                              href={`/map/${x[1]}?poi=${x[0]}`}
-                            >
-                              {x[3]}
+                            <a href={`/map/${x[1]}?poi=${x[0]}`}>
+                              <span class="whitespace-nowrap font-semibold text-slate-900">
+                                {x[3]}
+                              </span>
+                              <span class="ml-4 text-right text-xs text-slate-600">
+                                {x[2]}
+                              </span>
                             </a>
-                            <span class="ml-4 text-right text-xs text-slate-600">
-                              {x[2]}
-                            </span>
                           </li>
                         ))}
                   </ul>
