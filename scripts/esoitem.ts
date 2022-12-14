@@ -128,10 +128,10 @@ const npcSchema = object({
   level: number().required().integer().positive(),
   gender: number().required().integer().positive(),
   difficulty: number().required().integer().positive(),
-  ppClass: string().required(),
+  ppClass: string().required().transform(toZh),
   ppDifficulty: number().required().integer().positive(),
   count: number().required().integer().positive(),
-  reaction: string().required(),
+  reaction: string().required().transform(toZh),
 });
 
 const setTypeSchema = string()
