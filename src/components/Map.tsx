@@ -30,9 +30,7 @@ export function Map(props: RoutableProps) {
           />
         )}
         {mapData.value.paths.map((path) =>
-          path.svg_path ? (
-            <Path key={path.id} {...path} showName={mapData.value?.id === 27} />
-          ) : (
+          path.svg_path ? <Path key={path.id} {...path} showName={mapData.value?.id === 27} /> : (
             <Circle
               key={path.id}
               {...path}
@@ -40,9 +38,7 @@ export function Map(props: RoutableProps) {
             />
           )
         )}
-        {poisOnMap.value.map((poi) => (
-          <Poi key={poi.id} {...poi} />
-        ))}
+        {poisOnMap.value.map((poi) => <Poi key={poi.id} {...poi} />)}
       </svg>
     </div>
   );
@@ -51,11 +47,7 @@ export function Map(props: RoutableProps) {
 function Poi(props: PoiData) {
   return (
     <Link
-      href={
-        props.sub_zone_map_ids.length >= 1
-          ? `/map/${props.sub_zone_map_ids[0]}`
-          : undefined
-      }
+      href={props.sub_zone_map_ids.length >= 1 ? `/map/${props.sub_zone_map_ids[0]}` : undefined}
       aria-label={props.name}
     >
       <image
@@ -108,12 +100,14 @@ function Path(props: PathProps) {
   );
 }
 
-type CircleProps = Pick<
-  PathData,
-  "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
-> & {
-  showName: boolean;
-};
+type CircleProps =
+  & Pick<
+    PathData,
+    "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
+  >
+  & {
+    showName: boolean;
+  };
 
 function Circle(props: CircleProps) {
   return (

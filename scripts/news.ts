@@ -24,7 +24,13 @@ interface ListItem extends Frontmatter {
 
 /** 获取新闻列表 */
 async function getNewsList(): Promise<ListItem[]> {
-  const html = await fetch("https://www.elderscrollsonline.com/cn/news?page=1").then((res) => res.text());
+  const html = await fetch("https://www.elderscrollsonline.com/cn/news?page=1", {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      "cookie": "age_gate=568022400&1671009942;APE-Age-Gate=1",
+    },
+  }).then((res) => res.text());
 
   const root = unified()
     .use(rehypeParse)
@@ -44,7 +50,13 @@ async function getNewsList(): Promise<ListItem[]> {
 
 /** 获取新闻详情 */
 async function getNewsDetail(url: string) {
-  const newsDetail = await fetch(`https://www.elderscrollsonline.com${url}`).then((res) => res.text());
+  const newsDetail = await fetch(`https://www.elderscrollsonline.com${url}`, {
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      "cookie": "age_gate=568022400&1671009942;APE-Age-Gate=1",
+    },
+  }).then((res) => res.text());
   return html2md(newsDetail);
 }
 
