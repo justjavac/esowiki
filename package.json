@@ -15,7 +15,7 @@
     "@astrojs/deno": "^2.0.1",
     "@astrojs/mdx": "^0.12.2",
     "@astrojs/preact": "^1.2.0",
-    "@astrojs/rss": "^1.1.0",
+    "@astrojs/rss": "^1.2.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.1.3",
     "@headlessui/react": "^1.7.5",
