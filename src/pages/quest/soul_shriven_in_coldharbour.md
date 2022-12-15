@@ -89,13 +89,15 @@ you'll need to speak with her.
   If you are a member of the Daggerfall Covenant, you will need to head to the
   [Patheirry House](/location/patheirry_house "Patheirry House") in [匕落](/location/daggerfall "匕落 (Daggerfall)")。\
   [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
-  If you are a member of the Ebonheart Pact, go to the [桑德诺的房子](/location/sadreno_house "桑德诺的房子 (Sadreno House)") near
-  the western gate of [达文卫城](/location/davon_27s_watch "达文卫城 (Davon's Watch)")。
+  If you are a member of the Ebonheart Pact, go to the
+  [桑德诺的房子](/location/sadreno_house "桑德诺的房子 (Sadreno House)") near the western gate of
+  [达文卫城](/location/davon_27s_watch "达文卫城 (Davon's Watch)")。
 
 Inside, you'll find the [benefactor](/npc/the_benefactor "恩人 (The Benefactor)"). However, they're incapacitated, and
-unable to speak. A trio of [Worm Cultists](/npc/worm_cultist "黑虫教信徒(主线任务) (Worm Cultist (Main Quest))") will appear,
-initiating a cutscene that culminates in your murder at the hands of [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)"), and
-your consignment to the Wailing Prison in [冷港](/location/coldharbour "冷港 (Coldharbour)")。
+unable to speak. A trio of [Worm Cultists](/npc/worm_cultist "黑虫教信徒(主线任务) (Worm Cultist (Main Quest))") will
+appear, initiating a cutscene that culminates in your murder at the hands of
+[曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)"), and your consignment to the Wailing Prison in
+[冷港](/location/coldharbour "冷港 (Coldharbour)")。
 
 ![](//images.uesp.net/thumb/f/fc/ON-place-The_Wailing_Prison.jpg)
 
@@ -111,22 +113,22 @@ approach the door, Lyris Titanborn will approach.
   - **丽里丝·泰坦伯恩：** _"我叫丽里丝。"_
   - **丽里丝·泰坦伯恩：** _"我希望你还保有斗志。你会需要的。"_
 
-Exit the cell and follow Lyris over to the body of a [低等魔人](/npc/dremora_churl "低等魔人 (Dremora Churl)"). If you're
-playing through the quest as the tutorial, she'll instruct you to pick up its
-[被弃用的巨铁剑](//esoitem.uesp.net/itemLink.php?&itemid=42411&level=1&quality=1). Once you have done so, follow Lyris down the
-passageway. As you continue through the dark tunnels, another Dremora Churl appears. If you're playing through this
-quest as a tutorial, it freezes the action to guide you though attacking the enemy. Otherwise, you're free to kill it on
-your own. Once it is defeated, continue to follow Lyris into a larger room. Three
-[丧魂傀儡](/npc/soul_shriven "丧魂傀儡 (Soul Shriven)") prisoners are trying to keep a door closed, while something large
-pummels it from the other side. One of them, an [亚龙人](/race/argonian "亚龙人 (Argonian)") named
+Exit the cell and follow Lyris over to the body of a [低等魔人](/npc/dremora_churl "低等魔人 (Dremora Churl)"). If
+you're playing through the quest as the tutorial, she'll instruct you to pick up its
+[被弃用的巨铁剑](//esoitem.uesp.net/itemLink.php?&itemid=42411&level=1&quality=1). Once you have done so, follow Lyris
+down the passageway. As you continue through the dark tunnels, another Dremora Churl appears. If you're playing through
+this quest as a tutorial, it freezes the action to guide you though attacking the enemy. Otherwise, you're free to kill
+it on your own. Once it is defeated, continue to follow Lyris into a larger room. Three
+[丧魂傀儡](/npc/soul_shriven "丧魂傀儡 (Soul Shriven)") prisoners are trying to keep a door closed, while something
+large pummels it from the other side. One of them, an [亚龙人](/race/argonian "亚龙人 (Argonian)") named
 [厄·杰森](/npc/er_jaseen "厄·杰森 (Er-Jaseen)"), calls out as you approach to keep going.
 
 Lyris will agree, and move on. As you enter a room filled with a number of torture cages, a
-[魔人上民](/npc/dremora_kynval "魔人上民 (Dremora Kynval)") appears. The tutorial guides you through blocking an enemy's heavy
-attack, indicated by the yellow starburst around the enemy, and exploiting the resulting effect of them being knocked
-off balance using a heavy attack yourself. Afterwards, you are immediately confronted by a
-[魔人火法师](/npc/dremora_kyngald "魔人火法师 (Dremora Kyngald)"), who begins to cast a spell. Here, you are introduced to
-interrupting a special attack, indicated by the red starburst. Once again, you can exploit while the enemy is
+[魔人上民](/npc/dremora_kynval "魔人上民 (Dremora Kynval)") appears. The tutorial guides you through blocking an enemy's
+heavy attack, indicated by the yellow starburst around the enemy, and exploiting the resulting effect of them being
+knocked off balance using a heavy attack yourself. Afterwards, you are immediately confronted by a
+[魔人火法师](/npc/dremora_kyngald "魔人火法师 (Dremora Kyngald)"), who begins to cast a spell. Here, you are introduced
+to interrupting a special attack, indicated by the red starburst. Once again, you can exploit while the enemy is
 disoriented. A disoriented or off-balance enemy is indicated by the swirling circle around their head.
 
 Defeat the enemies, and follow Lyris. As you approach the door, a glowing rune appears before you and a ghostly figure
@@ -146,11 +148,12 @@ before moving on. Once the conversation has ended, head into the
 
 ### Blinding the God of Brutality
 
-When you enter the forge, you see [锻造大师维卡尔](/npc/vaekar_the_forgemaster "锻造大师维卡尔 (Vaekar the Forgemaster)") murder a
-Soul Shriven. He attacks you and Lyris next. Kill him to continue, and once you've defeated him Lyris will congratulate
-you on your skills. If you are playing this quest as the tutorial, opening the character menu shows that you are now at
-level 2, and you have gained a skill point. You have also gained an attribute point, which can now be used to increase
-either your [生命](/wiki/Online:Health "生命 (Health)"), [魔力](/wiki/Online:Magicka "魔力 (Magicka)") or
+When you enter the forge, you see
+[锻造大师维卡尔](/npc/vaekar_the_forgemaster "锻造大师维卡尔 (Vaekar the Forgemaster)") murder a Soul Shriven. He
+attacks you and Lyris next. Kill him to continue, and once you've defeated him Lyris will congratulate you on your
+skills. If you are playing this quest as the tutorial, opening the character menu shows that you are now at level 2, and
+you have gained a skill point. You have also gained an attribute point, which can now be used to increase either your
+[生命](/wiki/Online:Health "生命 (Health)"), [魔力](/wiki/Online:Magicka "魔力 (Magicka)") or
 [耐力](/wiki/Online:Stamina "耐力 (Stamina)"). The Prophet will also comment on the battle from afar, urging you to keep
 moving as Molag Bal knows you've escaped. Follow the tunnel to reach a door that leads to the
 [Towers of Eyes](/wiki/Online:The_Towers_of_Eyes "眼之塔 (The Towers of Eyes)")。
@@ -178,21 +181,21 @@ eccentric, but knows Coldharbour better than anyone else, and might know of anot
 #### Detour
 
 Head downstream along the river to find a small gathering of Soul Shriven by a campfire, surrounding
-[卡德韦尔](/npc/cadwell "卡德韦尔 (Cadwell)") as he plays the lute, singing a nonsensical song. Speak to him, and he'll joyfully
-greet you. He directs you to a route further along the river that leads to the Undercroft, which is filled with traps
-and enemies. You can ask him about a few things. When you're done, he wishes you luck and tells you to give the Prophet
-his best.
+[卡德韦尔](/npc/cadwell "卡德韦尔 (Cadwell)") as he plays the lute, singing a nonsensical song. Speak to him, and he'll
+joyfully greet you. He directs you to a route further along the river that leads to the Undercroft, which is filled with
+traps and enemies. You can ask him about a few things. When you're done, he wishes you luck and tells you to give the
+Prophet his best.
 
 Lyris warns that Cadwell probably made the route ahead sound much less dangerous than it is, and suggests caution.
 She'll then proceed to run down the river, and you should follow. You'll find that the door to the Undercroft is locked.
-This introduces the [开锁](/wiki/Online:Lockpicking "开锁 (Lockpicking)") system, and you have 60 seconds to try to pick the
-lock—unlike most other locks in the game. Once you have successfully picked it, or just forced it open, you can enter
-the Undercroft.
+This introduces the [开锁](/wiki/Online:Lockpicking "开锁 (Lockpicking)") system, and you have 60 seconds to try to pick
+the lock—unlike most other locks in the game. Once you have successfully picked it, or just forced it open, you can
+enter the Undercroft.
 
 [地下室](/wiki/Online:The_Undercroft "地下室 (The Undercroft)") is lined with traps and corpses. Head forward, and a
-[骷髅战士](/npc/skeletal_warrior "骷髅战士 (Skeletal Warrior)") will dig its way out of the ground. Dispatch it and continue
-forward, taking care to avoid the numerous flamethrower traps lining the walls. Continue to traverse your way though the
-winding tunnels and pools of water until you reach a staircase leading up to the
+[骷髅战士](/npc/skeletal_warrior "骷髅战士 (Skeletal Warrior)") will dig its way out of the ground. Dispatch it and
+continue forward, taking care to avoid the numerous flamethrower traps lining the walls. Continue to traverse your way
+though the winding tunnels and pools of water until you reach a staircase leading up to the
 [Prophet's Cell](/wiki/Online:The_Prophet%27s_Cell "先知的牢房 (The Prophet's Cell)")。
 
 #### A Prophet for a Warrior
@@ -206,21 +209,22 @@ As soon as you enter the cell, Lyris will speak.
 -
   - **丽里丝·泰坦伯恩：** _"The Prophet's cage should be just ahead. Quickly now! We haven't much time."_
   - **丽里丝·泰坦伯恩：** _"很好。好消息是，我们完好无损地到达了这里，先知看起来也没受伤。"_
-  - **丽里丝·泰坦伯恩：** _"Now the bad news. It's going to be up to you to keep him safe and get him back to Tamriel. I'm not
-    going with you."_
+  - **丽里丝·泰坦伯恩：** _"Now the bad news. It's going to be up to you to keep him safe and get him back to Tamriel.
+    I'm not going with you."_
 
 Follow her to reach a vast cavern housing a number of spiked rock formations, piles of spent
-[灵魂石](/wiki/Online:Soul_Gems "灵魂石 (Soul Gems)") and pools of [灵质](/wiki/Online:Azure_Plasm "灵质 (Azure Plasm)"). At the
-center of the room is a large ritual circle, above which the Prophet hangs in a magical force-field. Speak to Lyris to
-find out the plan: Lyris will swap herself with the Prophet, as the only way to remove him from the cell requires
-switching him out for someone with a living soul. This naturally precludes you from sacrificing yourself. Tell her when
-you're ready, and she will conclude by telling you to protect the Prophet, who will know where you need to go.
+[灵魂石](/wiki/Online:Soul_Gems "灵魂石 (Soul Gems)") and pools of
+[灵质](/wiki/Online:Azure_Plasm "灵质 (Azure Plasm)"). At the center of the room is a large ritual circle, above which
+the Prophet hangs in a magical force-field. Speak to Lyris to find out the plan: Lyris will swap herself with the
+Prophet, as the only way to remove him from the cell requires switching him out for someone with a living soul. This
+naturally precludes you from sacrificing yourself. Tell her when you're ready, and she will conclude by telling you to
+protect the Prophet, who will know where you need to go.
 
 When you have finished speaking, you will need to defend Lyris from two
-[Dremora Baunekyns](/npc/dremora_baunekyn "魔人闪电重锤 (Dremora Baunekyn)"). When you defeat each one, its essence will fly
-off to feed a respective Dark Pinion. The two Dark Pinions are found on the north and south sides of Lyris. Head over to
-each one and disable it. Once this has been completed the exchange will begin to take place. Lyris and the Prophet are
-swapped, and the Prophet collapses onto the ground where Lyris was.
+[Dremora Baunekyns](/npc/dremora_baunekyn "魔人闪电重锤 (Dremora Baunekyn)"). When you defeat each one, its essence will
+fly off to feed a respective Dark Pinion. The two Dark Pinions are found on the north and south sides of Lyris. Head
+over to each one and disable it. Once this has been completed the exchange will begin to take place. Lyris and the
+Prophet are swapped, and the Prophet collapses onto the ground where Lyris was.
 
 - **先知：** _"自由。我记得这感觉。但要是莫拉格巴尔得逞，这种感觉就不会持久。"_
 
@@ -243,13 +247,13 @@ Proceed into the Anchor Mooring. Suddenly, Molag Bal appears before you.
 
 - **莫拉格·巴尔：** _"这凡人竟然觉得他能违抗我的命令，没用的，很快你的世界就会是我的了。"_
 
-He disappears and summons the [骸骨之子](/wiki/Online:Child_of_Bones "骸骨之子 (Child of Bones)"). The Prophet will run ahead
-and say: _"过来，我会保护你的！"_ During battle, the bone colossus will primarily use melee attacks. There will also be one final
-tutorial instructing you how to break free of a crowd-control effect. Once the colossus has been defeated, the Prophet
-will call to you. Speak to him, to learn that you'll need a skyshard (Aetherial magicka carrying the essence of Nirn) to
-maintain a physical body back on Nirn. He summons one, which you should interact with. Once the power has been absorbed,
-you will receive a short message outlining skyshards in the tutorial. Once you have collected it, blinding light fills
-the room and the Prophet begins his ritual.
+He disappears and summons the [骸骨之子](/wiki/Online:Child_of_Bones "骸骨之子 (Child of Bones)"). The Prophet will run
+ahead and say: _"过来，我会保护你的！"_ During battle, the bone colossus will primarily use melee attacks. There will
+also be one final tutorial instructing you how to break free of a crowd-control effect. Once the colossus has been
+defeated, the Prophet will call to you. Speak to him, to learn that you'll need a skyshard (Aetherial magicka carrying
+the essence of Nirn) to maintain a physical body back on Nirn. He summons one, which you should interact with. Once the
+power has been absorbed, you will receive a short message outlining skyshards in the tutorial. Once you have collected
+it, blinding light fills the room and the Prophet begins his ritual.
 
 - **先知：** _"Great [Akatosh](/wiki/Lore:Akatosh "Lore: Akatosh"), Dragon God of Time! I require your strength! Let the
   way be opened! Let these wandering souls return home! Let the will of Molag Bal be denied!"_
@@ -358,23 +362,23 @@ your alliance if you have not started it already.
   - Skipping the tutorial will cause the Soul Magic skill line to be unlocked from the start.
 
 - Prior to Update 10, you were sent to [奥瑞敦](/location/auridon "奥瑞敦 (Auridon)"),
-  [格伦姆布拉](/location/glenumbra "格伦姆布拉 (Glenumbra)") or [石落](/location/stonefalls "石落 (Stonefalls)") at the conclusion of
-  the tutorial, requiring you to backtrack to the "starter islands" in order to play the storyline quests in the
-  intended order.
+  [格伦姆布拉](/location/glenumbra "格伦姆布拉 (Glenumbra)") or [石落](/location/stonefalls "石落 (Stonefalls)") at the
+  conclusion of the tutorial, requiring you to backtrack to the "starter islands" in order to play the storyline quests
+  in the intended order.
 
 - During the [beta](/wiki/Online:Beta "Beta"), you were sent to
   [柯娜西的居所](/location/khenarthi_27s_roost "柯娜西的居所 (Khenarthi's Roost)"),
-  [斯特罗斯·迈凯](/location/stros_m_27_kai "斯特罗斯·迈凯 (Stros M'Kai)") or [荒岩岛](/location/bleakrock_isle "荒岩岛 (Bleakrock Isle)")
-  as you are now, but you were forced to complete those quests before gaining access to the mainland. This was viewed
-  unfavorably by players and reviewers, resulting in the pre-Update 10 setup of being sent straight to the first main
-  zone.
+  [斯特罗斯·迈凯](/location/stros_m_27_kai "斯特罗斯·迈凯 (Stros M'Kai)") or
+  [荒岩岛](/location/bleakrock_isle "荒岩岛 (Bleakrock Isle)") as you are now, but you were forced to complete those
+  quests before gaining access to the mainland. This was viewed unfavorably by players and reviewers, resulting in the
+  pre-Update 10 setup of being sent straight to the first main zone.
 
-- Prior to Update 6, [厄·杰森](/npc/er_jaseen "厄·杰森 (Er-Jaseen)") had a more prominent role, including being the character
-  who broke you out of your prison cell.
+- Prior to Update 6, [厄·杰森](/npc/er_jaseen "厄·杰森 (Er-Jaseen)") had a more prominent role, including being the
+  character who broke you out of your prison cell.
 
 - Prior to Update 30, this was the tutorial quest for anyone who did not own any chapters (beginning at
-  [越狱](#Prison_Break)). As of Update 30, [坚石之门](/quest/the_gates_of_adamant "坚石之门 (The Gates of Adamant)") is the
-  tutorial quest for all players.
+  [越狱](#Prison_Break)). As of Update 30, [坚石之门](/quest/the_gates_of_adamant "坚石之门 (The Gates of Adamant)") is
+  the tutorial quest for all players.
 
 ## Quest Stages
 

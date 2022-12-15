@@ -62,21 +62,21 @@ layout: ../../layouts/QuestLayout.astro
 
 ## Detailed Walkthrough
 
-[先知](/npc/the_prophet "先知 (The Prophet)") will appear before you as soon as you enter a safe area, such as a city. Talk
-to him to hear about a safe place from which you will be able able to plan how to defeat
+[先知](/npc/the_prophet "先知 (The Prophet)") will appear before you as soon as you enter a safe area, such as a city.
+Talk to him to hear about a safe place from which you will be able able to plan how to defeat
 [莫拉格·巴尔](/wiki/Online:Molag_Bal "莫拉格·巴尔 (Molag Bal)"). The Prophet calls this place
 "[避难所](/location/the_harborage "避难所(放置) (The Harborage (place))")."
 
 ### To the Harborage
 
 For those starting in [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫 (Vulkhel Guard)")
-([先祖神洲](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")), the Harborage is directly east from the docks and close
-to the [奥瑞敦](/location/auridon "奥瑞敦 (Auridon)") coast. The Harborage is in a seaside cave.
+([先祖神洲](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")), the Harborage is directly east from the docks and
+close to the [奥瑞敦](/location/auridon "奥瑞敦 (Auridon)") coast. The Harborage is in a seaside cave.
 
 For those beginning in [达文卫城](/location/davon_27s_watch "达文卫城 (Davon's Watch)")
-([黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")), the Harborage is west of the city and slightly south.
-If you get to [沉船浅滩](/location/shipwreck_strand "沉船浅滩 (Shipwreck Strand)"), a boss location on the coast, you've gone
-too far west.
+([黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")), the Harborage is west of the city and
+slightly south. If you get to [沉船浅滩](/location/shipwreck_strand "沉船浅滩 (Shipwreck Strand)"), a boss location on
+the coast, you've gone too far west.
 
 If you start in [匕落](/location/daggerfall "匕落 (Daggerfall)")
 ([匕落同盟](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")), the Harborage will be east of
@@ -106,8 +106,8 @@ At this point, you and the Prophet pass a brazier with an Elder Scrolls spinning
 
 He stops, and you need to talk to him again. He says your destiny is intertwined with the Five Companions, a band of
 adventures who sought out the 诸王护符 to persuade Akatosh to accept their leader as Dragonborn. The leader was
-[瓦仁·阿基拉里奥斯](/wiki/Online:Varen_Aquilarios "瓦仁·阿基拉里奥斯 (Varen Aquilarios)"), "the son of a Colovian duke, who led a
-rebellion against the 利奥维克皇帝" and crowned himself emperor.
+[瓦仁·阿基拉里奥斯](/wiki/Online:Varen_Aquilarios "瓦仁·阿基拉里奥斯 (Varen Aquilarios)"), "the son of a Colovian duke,
+who led a rebellion against the 利奥维克皇帝" and crowned himself emperor.
 
 #### Meet the Five Companions
 
@@ -115,12 +115,14 @@ rebellion against the 利奥维克皇帝" and crowned himself emperor.
 
 <p class="text-gray-500 text-sm text-center">五方使者</p>
 
-- _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩 (Lyris Titanborn)"), daughter of giants, was the
-  greatest warrior in the service of the Empire. Next, [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩 (Abnur Tharn)"), a powerful
-  sorcerer and Grand Chancellor to the Imperial Elder Council. The [红卫人](/race/redguard "红卫人 (Redguard)") sword master
-  [赛·萨汗](/npc/sai_sahan "赛·萨汗 (Sai Sahan)"), leader of the Imperial Dragonguard. The Imperial Emperor, Varen Aquilarios,
-  who attempted to light the Dragonfires and failed. And finally, [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)") the
-  traitor. The King of Worms. A powerful necromancer, and your executioner."_
+- _"The first Companion, [丽里丝·泰坦伯恩](/npc/lyris_titanborn "丽里丝·泰坦伯恩 (Lyris Titanborn)"), daughter of
+  giants, was the greatest warrior in the service of the Empire. Next,
+  [阿布努尔·萨恩](/npc/abnur_tharn "阿布努尔·萨恩 (Abnur Tharn)"), a powerful sorcerer and Grand Chancellor to the
+  Imperial Elder Council. The [红卫人](/race/redguard "红卫人 (Redguard)") sword master
+  [赛·萨汗](/npc/sai_sahan "赛·萨汗 (Sai Sahan)"), leader of the Imperial Dragonguard. The Imperial Emperor, Varen
+  Aquilarios, who attempted to light the Dragonfires and failed. And finally,
+  [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)") the traitor. The King of Worms. A powerful necromancer, and your
+  executioner."_
 
 Talk to the Prophet again after he finishes describing each of the Five Companions. He says Mannimarco convinced Varen
 that the Amulet of Kings could be used to rekindle the Dragonfires. According to Mannimarco, the Emperor could perform a
@@ -150,13 +152,15 @@ enter and begin the ritual.
 Abnur Tharn steps up to the brazier and holds out the Amulet of Kings. Flames shoot out of the amulet, lighting the
 brazier. Varen prays on the other side.
 
-- **瓦仁·阿基拉里奥斯：** _"我将以点燃龙火宣称我的正统传承！创造之火，让我重生吧！在阿卡托什的意志下，我宣布自己是......龙裔!"_
+- **瓦仁·阿基拉里奥斯：**
+  _"我将以点燃龙火宣称我的正统传承！创造之火，让我重生吧！在阿卡托什的意志下，我宣布自己是......龙裔!"_
 
 However, Mannimarco steps forward as Varen is lifted screaming off the ground by dark magic. Mannimarco floats up above
 the brazier.
 
 -
-  - **曼尼玛克：** _"瓦伦·阿基拉里奥斯，你不是阿莱西亚的继承人！你将为你的亵渎行为付出代价！泰姆瑞尔和湮灭之地的交界，裂开了！"_
+  - **曼尼玛克：**
+    _"瓦伦·阿基拉里奥斯，你不是阿莱西亚的继承人！你将为你的亵渎行为付出代价！泰姆瑞尔和湮灭之地的交界，裂开了！"_
   - **Abnur：** _"发生了什么？天空打开了！太糟了！非常非常糟！"_
   - **瓦仁·阿基拉里奥斯：** _"事情不应该这样的！这到底是什么意思？曼尼玛克，你做了什么？"_
   - **曼尼玛克：** _"一群傻瓜！遗忘之地和这个世界之间的交界已经被撕开了！我的主人，莫拉格巴尔可以轻易占领泰姆瑞尔了！"_

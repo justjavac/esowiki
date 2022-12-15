@@ -39,13 +39,13 @@ layout: ../../layouts/NpcLayout.astro
 
 ---
 
-The **神秘人** is a [布莱顿人](/race/breton "布莱顿人 (Breton)") who is in the employ of a mysterious contact known as "the
-Benefactor". In reality, she is deceiving you to hand you over to the Worm Cult.
+The **神秘人** is a [布莱顿人](/race/breton "布莱顿人 (Breton)") who is in the employ of a mysterious contact known as
+"the Benefactor". In reality, she is deceiving you to hand you over to the Worm Cult.
 
 ## Related Quests
 
-- **[冷港的丧魂傀儡](/quest/soul_shriven_in_coldharbour "冷港的丧魂傀儡 (Soul Shriven in Coldharbour)")**: Escape from the depths of
-  [冷港](/location/coldharbour "冷港 (Coldharbour)")。
+- **[冷港的丧魂傀儡](/quest/soul_shriven_in_coldharbour "冷港的丧魂傀儡 (Soul Shriven in Coldharbour)")**: Escape from
+  the depths of [冷港](/location/coldharbour "冷港 (Coldharbour)")。
 
 ## Quest-Related Events
 
@@ -77,4 +77,5 @@ find her fixing a cart in front of Sadreno House after accepting the quest.
 
 ## 笔记
 
-- She uses the same facial preset and voice actress as [大地守护](/npc/the_groundskeeper "大地守护 (The Groundskeeper)")。
+- She uses the same facial preset and voice actress as
+  [大地守护](/npc/the_groundskeeper "大地守护 (The Groundskeeper)")。

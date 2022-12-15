@@ -69,13 +69,13 @@ layout: ../../layouts/NpcLayout.astro
 [桑德诺的房子](/location/sadreno_house "桑德诺的房子 (Sadreno House)"), the
 [Patheirry House](/location/patheirry_house "Patheirry House"), or
 [间歇追求者号](/location/the_interim_suitor "间歇追求者号 (The Interim Suitor)"), depending on your alliance. The
-[神秘人](/npc/hooded_figure "神秘人 (Hooded Figure)") sends you to him, purportedly about a matter concerning the fate of the
-world.
+[神秘人](/npc/hooded_figure "神秘人 (Hooded Figure)") sends you to him, purportedly about a matter concerning the fate
+of the world.
 
 ## Related Quests
 
-- **[冷港的丧魂傀儡](/quest/soul_shriven_in_coldharbour "冷港的丧魂傀儡 (Soul Shriven in Coldharbour)")**: Escape from the depths of
-  [冷港](/location/coldharbour "冷港 (Coldharbour)")。
+- **[冷港的丧魂傀儡](/quest/soul_shriven_in_coldharbour "冷港的丧魂傀儡 (Soul Shriven in Coldharbour)")**: Escape from
+  the depths of [冷港](/location/coldharbour "冷港 (Coldharbour)")。
 
 ## Quest-Related Events
 
@@ -85,6 +85,7 @@ Upon entering the room he's in, you can speak to him to continue the quest：
   - _"呜嗯！"_
   - **What the—'**
 
-You will be knocked out by a trio of [Worm Cultists](/npc/worm_cultist "黑虫教信徒(主线任务) (Worm Cultist (Main Quest))") and
-enter a cutscene in which you are sacrificed by [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)"). The Benefactor will despawn
-and you will not see him again.
+You will be knocked out by a trio of
+[Worm Cultists](/npc/worm_cultist "黑虫教信徒(主线任务) (Worm Cultist (Main Quest))") and enter a cutscene in which you
+are sacrificed by [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)"). The Benefactor will despawn and you will not see
+him again.
