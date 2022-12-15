@@ -12,16 +12,18 @@ const query = new URLSearchParams();
 query.set("pagination[pageSize]", "1");
 query.set("pagination[page]", "1");
 query.set("filters[slug][$eq]", slug!);
+query.set("populate", "*");
 
-const response = await fetch(`${ESO_API_URL}/api/newslist?${query}`);
-const { data } = await response.json();
+const response = await fetch(`${ESO_API_URL}/api/builds?${query}`);
+const result = await response.json();
+const data = result?.data[0];
 
-if (data == null || data.length === 0) {
-  return Astro.redirect("/404");
+if (data == null) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
 }
-
-const { attributes } = data[0];
-const content = md2html(attributes.content);
 ---
 
 <html lang="zh-CN">
@@ -34,28 +36,33 @@ const content = md2html(attributes.content);
     <HeaderNav />
     <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
       <article class="p-6 md:col-span-3">
-        <h1 class="text-4xl text-gray-900 font-bold">{attributes.title}</h1>
+        <h1 class="text-4xl text-gray-900 font-bold">
+          {data.attributes.title}
+        </h1>
         <div class="flex items-center mt-4">
           {
-            attributes.tags &&
-              attributes.tags.map((tag: string) => (
-                <a
-                  href={`#${tag}`}
-                  class="mx-1 text-gray-500 text-sm hover:text-gray-700"
-                >
-                  {tag}
-                </a>
-              ))
+            data.attributes.tags.data.map((tag: any) => (
+              <a
+                href={`#${tag.attributes.name}`}
+                class="mx-1 text-gray-500 text-sm hover:text-gray-700"
+              >
+                {tag.attributes.name}
+              </a>
+            ))
           }
         </div>
         {
-          attributes.image && (
-            <img class="my-4 shadow-gray-300" src={attributes.image} alt="" />
+          data.attributes.image && (
+            <img
+              class="my-4 shadow-gray-300"
+              src={data.attributes.image}
+              alt=""
+            />
           )
         }
         <div class="markdown-body">
-          <p class="text-gray-500">{attributes.description}</p>
-          <div set:html={content} />
+          <p class="text-gray-500">{data.attributes.description}</p>
+          <div set:html={md2html(data.attributes.content)} />
         </div>
       </article>
       <aside class="p-6 md:col-span-1">
