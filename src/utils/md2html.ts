@@ -1,20 +1,19 @@
-import { unified } from "unified";
-import remarkGfm from "remark-gfm";
-import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify";
-import rehypeRaw from "rehype-raw";
-import rehypeExternalLinks from "rehype-external-links";
+import { micromark } from "micromark";
+import type { HtmlExtension } from "micromark-util-types";
+import { gfm, gfmHtml } from "micromark-extension-gfm";
 
 export function md2html(md: string): string {
-  const file = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] })
-    .use(rehypeStringify)
-    .processSync(md);
+  return micromark(md, {
+    allowDangerousHtml: true,
+    extensions: [gfm()],
+    htmlExtensions: [gfmHtml(), externalLinks()],
+  });
+}
 
-  return file.toString();
+/** TODO: */
+function externalLinks(): HtmlExtension {
+  return {
+    enter: {},
+    exit: {},
+  };
 }
