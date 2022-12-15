@@ -14,6 +14,7 @@ const servers = Object.entries(data.attributes.servers).map(([key, value]) => {
     platform: getPlatformName(platform),
     zone: getZoneName(zone),
     status: value as boolean,
+    updatedAt: data.attributes.updatedAt,
   };
 });
 
