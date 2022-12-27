@@ -4,7 +4,8 @@ import { toString } from "nlcst-to-string";
 import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang } from "./toZH.ts";
-import { array, type InferType, number, object, ref, string } from "yup";
+import { array, boolean, type InferType, number, object, ref, string } from "yup";
+import paramCase from "https://deno.land/x/case@2.1.1/paramCase.ts";
 
 const achievementCategoriesSchema = object({
   id: number().required().integer().positive(),
@@ -90,6 +91,19 @@ const antiquityLeadsSchema = object({
   loreDescription4: string().required().transform(toZh),
   loreName5: string().required().transform(toZh),
   loreDescription5: string().required().transform(toZh),
+});
+
+const bookSchema = object({
+  id: number().required().integer().positive(),
+  bookId: number().required().integer().positive(),
+  title: string().required().transform(toZh),
+  titleEn: string().required(),
+  slug: string().required(),
+  icon: string().required().transform((x) => x.replace("//esoicons.uesp.net", "https://eso-cdn.denohub.com")),
+  isLore: boolean().transform((x) => x === "Yes"),
+  skill: string().required().transform(toZh),
+  mediumIndex: string().required().transform(toZh),
+  body: string().required().transform(() => ""),
 });
 
 const minedItemSummarySchema = object({
@@ -215,6 +229,7 @@ const schemaMap = {
   achievementCategories: achievementCategoriesSchema,
   achievementCriteria: achievementCriteriaSchema,
   achievements: achievementsSchema,
+  book: bookSchema,
   setSummary: setSummarySchema,
   antiquityLeads: antiquityLeadsSchema,
   zones: zonesSchema,
@@ -273,6 +288,9 @@ async function parseContent<K extends keyof typeof schemaMap>(
         .slice(1, -1);
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
       const obj = Object.fromEntries(pairs);
+      obj.zoneNameEn = obj.zoneName;
+      obj.subZoneNameEn = obj.subZoneName;
+      obj.slug = obj.subZoneName ? paramCase(obj.subZoneName) : paramCase(obj.zoneName);
       return schemaMap[name].cast(obj) as InferType<typeof schemaMap[K]>;
     })
     .concat(nextPage ? await parseContent(name, start + 500) : []);
@@ -283,7 +301,7 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
 }
 
 async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
-  const response = await fetch(`https://esoapi.denohub.com/api/skills`, {
+  const response = await fetch(`https://esoapi.denohub.com/api/zone`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -294,6 +312,7 @@ async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
 
   if (!response.ok) {
     console.error(await response.text());
+    console.error(data);
   }
 }
 

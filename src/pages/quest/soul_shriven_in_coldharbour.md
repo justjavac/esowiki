@@ -4,7 +4,7 @@ title_en: Soul Shriven in Coldharbour
 description: >-
   Escape from the depths of <a href="/location/coldharbour" title="冷港
   (Coldharbour)">冷港</a>。
-zone: ''
+zone: ""
 quest_giver:
   - <a href="/npc/hooded_figure" title="神秘人 (Hooded Figure)">神秘人</a>
 location:
@@ -34,15 +34,10 @@ xp_gain: >-
   <a href="/wiki/Online:Experience" class="mw-redirect" title="经验
   (Experience)"><span class="esoqcepic">Very High</span></a> <a
   href="/wiki/Online:Experience" title="经验 (Experience)"><img alt="Experience"
-  src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16"
-  height="16" style="vertical-align: text-bottom"
-  srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png
-  1.5x,
-  //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png
-  2x"></a>
-id: '4296'
+  src="https://eso-cdn.denohub.com/thumb/1/15/ON-icon-misc-Experience.png" width="16"
+  height="16" style="vertical-align: text-bottom"></a>
+id: "4296"
 layout: ../../layouts/QuestLayout.astro
-
 ---
 
 > 我死了，但这只是开始……我在湮灭之地醒来。我的肉体完好无损，但我的灵魂出离了身体。我必须想办法离开这个噩梦般的地方，找回我失落的灵魂。否则我将万劫不复。
@@ -80,15 +75,15 @@ you'll need to speak with her.
   - _"我的恩人就在附近等我，不要耽搁了。"_
   - **我这就出发。**
 
-* [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
+* [![Aldmeri Dominion](https://eso-cdn.denohub.com/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
   If you are a member of the Aldmeri Dominion, travel to the ship
   [间歇追求者号](/location/the_interim_suitor "间歇追求者号 (The Interim Suitor)") at the
   [弗克赫尔守卫](/location/vulkhel_guard "弗克赫尔守卫 (Vulkhel Guard)") docks.
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
+  [![Daggerfall Covenant](https://eso-cdn.denohub.com/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
   If you are a member of the Daggerfall Covenant, you will need to head to the
   [Patheirry House](/location/patheirry_house "Patheirry House") in [匕落](/location/daggerfall "匕落 (Daggerfall)")。\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
+  [![Ebonheart Pact](https://eso-cdn.denohub.com/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
   If you are a member of the Ebonheart Pact, go to the
   [桑德诺的房子](/location/sadreno_house "桑德诺的房子 (Sadreno House)") near the western gate of
   [达文卫城](/location/davon_27s_watch "达文卫城 (Davon's Watch)")。
@@ -99,7 +94,7 @@ appear, initiating a cutscene that culminates in your murder at the hands of
 [曼尼玛克](/npc/mannimarco "曼尼玛克 (Mannimarco)"), and your consignment to the Wailing Prison in
 [冷港](/location/coldharbour "冷港 (Coldharbour)")。
 
-![](//images.uesp.net/thumb/f/fc/ON-place-The_Wailing_Prison.jpg)
+![](https://eso-cdn.denohub.com/thumb/f/fc/ON-place-The_Wailing_Prison.jpg)
 
 <p class="text-gray-500 text-sm text-center">The cell you're stuck in</p>
 
@@ -158,7 +153,7 @@ you have gained a skill point. You have also gained an attribute point, which ca
 moving as Molag Bal knows you've escaped. Follow the tunnel to reach a door that leads to the
 [Towers of Eyes](/wiki/Online:The_Towers_of_Eyes "眼之塔 (The Towers of Eyes)")。
 
-![](//images.uesp.net/thumb/1/17/ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)
+![](https://eso-cdn.denohub.com/thumb/1/17/ON-quest-Soul_Shriven_in_Coldharbour_02.jpg)
 
 <p class="text-gray-500 text-sm text-center">A Coldharbour Sentinel</p>
 
@@ -200,7 +195,7 @@ though the winding tunnels and pools of water until you reach a staircase leadin
 
 #### A Prophet for a Warrior
 
-![](//images.uesp.net/thumb/4/42/ON-place-The_Prophet%27s_Cell.jpg)
+![](https://eso-cdn.denohub.com/thumb/4/42/ON-place-The_Prophet%27s_Cell.jpg)
 
 <p class="text-gray-500 text-sm text-center">You'll need to free The Prophet before you can escape from Coldharbour</p>
 
@@ -235,11 +230,11 @@ the room and through the tunnel into [锚泊点](/wiki/Online:The_Anchor_Mooring
 
 ### Freedom
 
-![](//images.uesp.net/thumb/9/9d/ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)
+![](https://eso-cdn.denohub.com/thumb/9/9d/ON-quest-Soul_Shriven_in_Coldharbour_05.jpg)
 
 <p class="text-gray-500 text-sm text-center">The Prophet calls on Akatosh to aid your escape</p>
 
-![](//images.uesp.net/thumb/a/a6/ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)
+![](https://eso-cdn.denohub.com/thumb/a/a6/ON-quest-Soul_Shriven_in_Coldharbour_03.jpg)
 
 <p class="text-gray-500 text-sm text-center">Escape through the Anchor Mooring</p>
 
@@ -266,16 +261,16 @@ levitates him up from the ground and into the portal. Follow him, and escape to 
 
 You will be transported to one of three locations based on the faction you have joined：
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
+- [![Aldmeri Dominion](https://eso-cdn.denohub.com/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
   Members of the [先祖神洲](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)") will find themselves in
   [柯娜西的居所](/location/khenarthi_27s_roost "柯娜西的居所 (Khenarthi's Roost)"), with the option to go to
   [奥瑞敦](/location/auridon "奥瑞敦 (Auridon)") after awakening.
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
+  [![Daggerfall Covenant](https://eso-cdn.denohub.com/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
   Members of the [匕落同盟](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)") will find themselves in
   [斯特罗斯·迈凯](/location/stros_m_27_kai "斯特罗斯·迈凯 (Stros M'Kai)"), with the option to go to
   [格伦姆布拉](/location/glenumbra "格伦姆布拉 (Glenumbra)") after awakening.\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
+  [![Ebonheart Pact](https://eso-cdn.denohub.com/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
   Members of the [黑檀心公约联合](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)") will find themselves in
   [荒岩岛](/location/bleakrock_isle "荒岩岛 (Bleakrock Isle)"), with the option to go to
   [石落](/location/stonefalls "石落 (Stonefalls)") after awakening.
@@ -283,14 +278,14 @@ You will be transported to one of three locations based on the faction you have 
 You will awaken next to a projection of the Prophet. Talk to him, and he'll tell you that the two of you have ended up
 in different places. Where he will say he is depends on your faction.
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
+- [![Aldmeri Dominion](https://eso-cdn.denohub.com/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
   If you are part of the Aldmeri Dominion, he will say: _"I am in a city near the sea, in a land of eternal spring. The
   air smells of the ocean, and of markets, and gardens."_
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
+  [![Daggerfall Covenant](https://eso-cdn.denohub.com/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
   If you are part of the Daggerfall Covenant, he will say: _"I am in a city of industry, where men speak of intrigues
   and plots beneath layers of innuendo and pleasantry."_\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
+  [![Ebonheart Pact](https://eso-cdn.denohub.com/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
   If you are part of the Ebonheart Pact, he will say: _"I am in a place with the smell of burning ash on a hot wind, and
   the sounds of a distant battle."_
 
@@ -306,8 +301,8 @@ settlement.
 
 You will earn the following achievement for completing this quest：
 
-|   | 冷港的丧魂傀儡 | 10 | 完成主线任务第1章 | 染料: 丧魂傀儡灰 |
-| - | -------------- | -- | ----------------- | ---------------- |
+|   | 冷港的丧魂傀儡 | 10 | 完成主线任务第 1 章 | 染料: 丧魂傀儡灰 |
+| - | -------------- | -- | ------------------- | ---------------- |
 
 ## Alliance Story
 
@@ -344,14 +339,14 @@ After completing the quest, the Prophet will elaborate on the situation in Tamri
 Upon exiting the location you wake up in, you will meet someone who will present you with the introductory quest for
 your alliance if you have not started it already.
 
-- [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
+- [![Aldmeri Dominion](https://eso-cdn.denohub.com/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")
   **先祖神洲：** [拉祖姆达](/npc/razum_dar "拉祖姆达 (Razum-dar)") will offer the quest
   [地平线上的风暴](/quest/storm_on_the_horizon "地平线上的风暴 (Storm on the Horizon)")。
   \
-  [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
+  [![Daggerfall Covenant](https://eso-cdn.denohub.com/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)")
   **匕落同盟：** [图玛莎](/npc/tumma_shah "图玛莎 (Tumma-Shah)") will offer the quest
   [破损枪头号](/quest/the_broken_spearhead "破损枪头号 (The Broken Spearhead)")。\
-  [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
+  [![Ebonheart Pact](https://eso-cdn.denohub.com/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")
   **黑檀心公约联合：** [队长拉纳](/npc/captain_rana "队长拉纳 (Captain Rana)") will offer the quest
   [荒岩的新开始](/quest/a_beginning_at_bleakrock "荒岩的新开始 (A Beginning at Bleakrock)")。
 
@@ -382,47 +377,47 @@ your alliance if you have not started it already.
 
 ## Quest Stages
 
-| 冷港的丧魂傀儡                                                                                                                                                    |                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Finishes Quest                                                                                                                                                    | Journal Entry                                                                                                                                                                      |
-|                                                                                                                                                                   | 有个蒙面人想和我谈谈。我应该搞清楚他想干什么。_Objective_: 与蒙面人交谈                                                                                                            |
-|                                                                                                                                                                   | 一个蒙面人走近我，表示想和我谈谈，但我还有其他事要处理。我应该找到他们，搞清楚他们接近我的意图。_Objective_: 与蒙面人交谈*(If you walk away without talking to the Hooded Figure)* |
-| [![Aldmeri Dominion](//images.uesp.net/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")             | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在弗克赫尔卫城找到这个资助者。_Objective_: 与资助者交谈                                                |
-| [![Ebonheart Pact](//images.uesp.net/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")           | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在达文卫城找到这个资助者。_Objective_: 与资助者交谈                                                    |
-| [![Daggerfall Covenant](//images.uesp.net/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)") | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在匕落找到这个资助者。_Objective_: 与资助者交谈                                                        |
-| ![Latest start](//images.uesp.net/5/5e/Blue_chevron.png)                                                                                                          | 我在一个类似监狱牢房的地方醒来。我应该想办法离开。_Objective_: 想办法逃离冷港_Hidden Objective_: 等待丽里丝                                                                        |
-|                                                                                                                                                                   | 一个名叫丽里丝女人破开我的牢门，让我逃离。要想活命，我最好武装起来。_Objective_: 加入丽里丝                                                                                        |
-|                                                                                                                                                                   | 丽里丝似乎对监狱地形很熟悉。我应该跟着她。_Objective_: 跟随丽里丝                                                                                                                  |
-|                                                                                                                                                                   | 我们被一个监狱守卫——一个魔人拦住去路。我要打败他才能出去。_Objective_: 击败监狱守卫                                                                                                |
-|                                                                                                                                                                   | 打败了守卫，丽里丝和我逃出了监狱。_Objective_: 跟随丽里丝                                                                                                                          |
-|                                                                                                                                                                   | 另一个魔人守卫挡住了我的去路。我必须打败他，打败任何挡住我去路的人。_Objective_: 击败监狱守卫                                                                                      |
-|                                                                                                                                                                   | 我们打败了守卫，现在终于能逃出去了。我应该让丽里丝带路。_Objective_: 跟随丽里丝                                                                                                    |
-|                                                                                                                                                                   | 一个奇怪的幻象出现在我们俩面前，一个自称“先知”的男人。我应该和丽里丝讨论下这是谁。_Objective_: 和丽里丝交谈                                                                        |
-|                                                                                                                                                                   | 丽里丝前去救先知，她需要我的帮助。我应该跟着她。_Objective_: 继续深入流血锻造区                                                                                                    |
-|                                                                                                                                                                   | 又一个魔人挡住了我的去路，但这个看起来更可怕。我们必须打败他，就像打败其他守卫一样。_Objective_: 击败锻造大师维卡尔                                                                |
-|                                                                                                                                                                   | 丽里丝前去救先知，她需要我的帮助。我应该跟着她。_Objective_: 到达眼之塔                                                                                                            |
-|                                                                                                                                                                   | 丽里丝说有了冷港哨兵城，莫拉格巴尔就可以直接掌握哀号监狱的情况。要想逃出冷港，我们必须摧毁其中一个哨兵城，制造监控盲区。_Objective_: 摧毁冷港哨兵城                                |
-|                                                                                                                                                                   | 哨兵城被摧毁了。我们应该去通往先知牢房的入口。_Objective_: 到达先知牢房                                                                                                            |
-|                                                                                                                                                                   | 先知牢房的门被封上了。问问丽里丝下一步该做什么，看她有没有主意。_Objective_: 和丽里丝交谈                                                                                          |
-|                                                                                                                                                                   | 丽里丝认识一个叫卡德韦尔的人，他也许知道另一条通往先知牢房的路。我们应该找到他，看看他能提供什么信息。_Objective_: 与卡德韦尔交谈                                                  |
-|                                                                                                                                                                   | 卡德韦尔告诉我们另一条通往先知牢房的路。但那条路充满陷阱和怪物。我们应该进入地下室。_Objective_: 进入地下室                                                                        |
-|                                                                                                                                                                   | 地下室充满死亡气息。我们要小心穿越，进入先知的牢房。_Objective_: 寻找先知的牢房                                                                                                    |
-|                                                                                                                                                                   | 我们进入了牢房。先知应该就在这里某个地方。_Objective_: 跟随丽里丝                                                                                                                  |
-|                                                                                                                                                                   | 我们找到了先知，但他似乎在一个魔法监牢里。问问丽里丝是否知道怎么救出他。_Objective_: 和丽里丝交谈                                                                                  |
-|                                                                                                                                                                   | 为了救出先知，丽里丝一定是和他互换了位置。她这么做，毫无疑问会引来更多守卫。_Objective_: 保护丽里丝                                                                                |
-|                                                                                                                                                                   | 仪式场两端的浮点都被激活了。我应该试试，看能否操控它们完成仪式。_Objective_: 激活浮体                                                                                              |
-|                                                                                                                                                                   | 为了救出先知，丽里丝不得不和他互换位置。我应该等她完成互换。_Objective_: 等待交换                                                                                                  |
-|                                                                                                                                                                   | 先知得救了，但丽里丝却被困在了牢房中。我应该和先知谈谈，计划下一步行动。_Objective_: 与先知交谈                                                                                    |
-|                                                                                                                                                                   | 先知知道一处魔族锚地，我们可以通过那儿回到泰姆瑞尔。我们应该离开这个地方。_Objective_: 进入锚泊点                                                                                  |
-|                                                                                                                                                                   | 我们抵达了暗锚。先知和我需要赶到锚泊点。_Objective_: 赶到锚地                                                                                                                      |
-|                                                                                                                                                                   | 要想逃出去，先知和我必须击败守卫，杀出一条血路，赶到系泊用具基地才行。_Objective_: 击败骨之子                                                                                      |
-|                                                                                                                                                                   | 我们到了锚泊点。我应该和先知谈谈。_Objective_: 与先知交谈                                                                                                                          |
-|                                                                                                                                                                   | 先知说我们需要一个天空裂片，才能回到泰姆瑞尔，并将我的肉身和奈恩融合。我要去收集天空裂片。_Objective_: 收集天空裂片                                                                |
-|                                                                                                                                                                   | 先知开始召唤着什么，将我们抬送至传送门。我应该等他完成法术。_Objective_: 等待先知                                                                                                  |
-|                                                                                                                                                                   | 法术完成了！我应该能回到传送门。_Objective_: 接近传送门                                                                                                                            |
-|                                                                                                                                                                   | 返回泰姆瑞尔的通道打开了！我必须进入裂缝逃离这里！_Objective_: 利用裂谷逃往泰姆瑞尔                                                                                                |
-|                                                                                                                                                                   | 我从裂谷出来后，到了一个陌生的地方。先知在我身旁，但他全身透明，形态模糊。我应该和他谈谈。_Objective_: 与先知交谈                                                                  |
-| Finishes quest![☑](//images.uesp.net/4/4d/Green_Tick.svg)                                                                                                         | 我出现在一个陌生的地方。先知化作一团阴影现身。我应该和他谈谈，了解我下一步该去哪儿。_Objective_: 与先知交谈                                                                        |
+| 冷港的丧魂傀儡                                                                                                                                                              |                                                                                                                                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Finishes Quest                                                                                                                                                              | Journal Entry                                                                                                                                                                      |
+|                                                                                                                                                                             | 有个蒙面人想和我谈谈。我应该搞清楚他想干什么。_Objective_: 与蒙面人交谈                                                                                                            |
+|                                                                                                                                                                             | 一个蒙面人走近我，表示想和我谈谈，但我还有其他事要处理。我应该找到他们，搞清楚他们接近我的意图。_Objective_: 与蒙面人交谈*(If you walk away without talking to the Hooded Figure)* |
+| [![Aldmeri Dominion](https://eso-cdn.denohub.com/thumb/4/40/ON-icon-alliance-Aldmeri_%28color%29.png)](/faction/aldmeri_dominion "先祖神洲 (Aldmeri Dominion)")             | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在弗克赫尔卫城找到这个资助者。_Objective_: 与资助者交谈                                                |
+| [![Ebonheart Pact](https://eso-cdn.denohub.com/thumb/f/f2/ON-icon-alliance-Ebonheart_%28color%29.png)](/faction/ebonheart_pact "黑檀心公约联合 (Ebonheart Pact)")           | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在达文卫城找到这个资助者。_Objective_: 与资助者交谈                                                    |
+| [![Daggerfall Covenant](https://eso-cdn.denohub.com/thumb/4/4f/ON-icon-alliance-Daggerfall_%28color%29.png)](/faction/daggerfall_covenant "匕落同盟 (Daggerfall Covenant)") | 这个蒙面人说，有个未透露姓名的资助者要和我谈谈，关乎世界命运的一件事。我可以在匕落找到这个资助者。_Objective_: 与资助者交谈                                                        |
+| ![Latest start](https://eso-cdn.denohub.com/icons/Blue_chevron.png)                                                                                                         | 我在一个类似监狱牢房的地方醒来。我应该想办法离开。_Objective_: 想办法逃离冷港_Hidden Objective_: 等待丽里丝                                                                        |
+|                                                                                                                                                                             | 一个名叫丽里丝女人破开我的牢门，让我逃离。要想活命，我最好武装起来。_Objective_: 加入丽里丝                                                                                        |
+|                                                                                                                                                                             | 丽里丝似乎对监狱地形很熟悉。我应该跟着她。_Objective_: 跟随丽里丝                                                                                                                  |
+|                                                                                                                                                                             | 我们被一个监狱守卫——一个魔人拦住去路。我要打败他才能出去。_Objective_: 击败监狱守卫                                                                                                |
+|                                                                                                                                                                             | 打败了守卫，丽里丝和我逃出了监狱。_Objective_: 跟随丽里丝                                                                                                                          |
+|                                                                                                                                                                             | 另一个魔人守卫挡住了我的去路。我必须打败他，打败任何挡住我去路的人。_Objective_: 击败监狱守卫                                                                                      |
+|                                                                                                                                                                             | 我们打败了守卫，现在终于能逃出去了。我应该让丽里丝带路。_Objective_: 跟随丽里丝                                                                                                    |
+|                                                                                                                                                                             | 一个奇怪的幻象出现在我们俩面前，一个自称“先知”的男人。我应该和丽里丝讨论下这是谁。_Objective_: 和丽里丝交谈                                                                        |
+|                                                                                                                                                                             | 丽里丝前去救先知，她需要我的帮助。我应该跟着她。_Objective_: 继续深入流血锻造区                                                                                                    |
+|                                                                                                                                                                             | 又一个魔人挡住了我的去路，但这个看起来更可怕。我们必须打败他，就像打败其他守卫一样。_Objective_: 击败锻造大师维卡尔                                                                |
+|                                                                                                                                                                             | 丽里丝前去救先知，她需要我的帮助。我应该跟着她。_Objective_: 到达眼之塔                                                                                                            |
+|                                                                                                                                                                             | 丽里丝说有了冷港哨兵城，莫拉格巴尔就可以直接掌握哀号监狱的情况。要想逃出冷港，我们必须摧毁其中一个哨兵城，制造监控盲区。_Objective_: 摧毁冷港哨兵城                                |
+|                                                                                                                                                                             | 哨兵城被摧毁了。我们应该去通往先知牢房的入口。_Objective_: 到达先知牢房                                                                                                            |
+|                                                                                                                                                                             | 先知牢房的门被封上了。问问丽里丝下一步该做什么，看她有没有主意。_Objective_: 和丽里丝交谈                                                                                          |
+|                                                                                                                                                                             | 丽里丝认识一个叫卡德韦尔的人，他也许知道另一条通往先知牢房的路。我们应该找到他，看看他能提供什么信息。_Objective_: 与卡德韦尔交谈                                                  |
+|                                                                                                                                                                             | 卡德韦尔告诉我们另一条通往先知牢房的路。但那条路充满陷阱和怪物。我们应该进入地下室。_Objective_: 进入地下室                                                                        |
+|                                                                                                                                                                             | 地下室充满死亡气息。我们要小心穿越，进入先知的牢房。_Objective_: 寻找先知的牢房                                                                                                    |
+|                                                                                                                                                                             | 我们进入了牢房。先知应该就在这里某个地方。_Objective_: 跟随丽里丝                                                                                                                  |
+|                                                                                                                                                                             | 我们找到了先知，但他似乎在一个魔法监牢里。问问丽里丝是否知道怎么救出他。_Objective_: 和丽里丝交谈                                                                                  |
+|                                                                                                                                                                             | 为了救出先知，丽里丝一定是和他互换了位置。她这么做，毫无疑问会引来更多守卫。_Objective_: 保护丽里丝                                                                                |
+|                                                                                                                                                                             | 仪式场两端的浮点都被激活了。我应该试试，看能否操控它们完成仪式。_Objective_: 激活浮体                                                                                              |
+|                                                                                                                                                                             | 为了救出先知，丽里丝不得不和他互换位置。我应该等她完成互换。_Objective_: 等待交换                                                                                                  |
+|                                                                                                                                                                             | 先知得救了，但丽里丝却被困在了牢房中。我应该和先知谈谈，计划下一步行动。_Objective_: 与先知交谈                                                                                    |
+|                                                                                                                                                                             | 先知知道一处魔族锚地，我们可以通过那儿回到泰姆瑞尔。我们应该离开这个地方。_Objective_: 进入锚泊点                                                                                  |
+|                                                                                                                                                                             | 我们抵达了暗锚。先知和我需要赶到锚泊点。_Objective_: 赶到锚地                                                                                                                      |
+|                                                                                                                                                                             | 要想逃出去，先知和我必须击败守卫，杀出一条血路，赶到系泊用具基地才行。_Objective_: 击败骨之子                                                                                      |
+|                                                                                                                                                                             | 我们到了锚泊点。我应该和先知谈谈。_Objective_: 与先知交谈                                                                                                                          |
+|                                                                                                                                                                             | 先知说我们需要一个天空裂片，才能回到泰姆瑞尔，并将我的肉身和奈恩融合。我要去收集天空裂片。_Objective_: 收集天空裂片                                                                |
+|                                                                                                                                                                             | 先知开始召唤着什么，将我们抬送至传送门。我应该等他完成法术。_Objective_: 等待先知                                                                                                  |
+|                                                                                                                                                                             | 法术完成了！我应该能回到传送门。_Objective_: 接近传送门                                                                                                                            |
+|                                                                                                                                                                             | 返回泰姆瑞尔的通道打开了！我必须进入裂缝逃离这里！_Objective_: 利用裂谷逃往泰姆瑞尔                                                                                                |
+|                                                                                                                                                                             | 我从裂谷出来后，到了一个陌生的地方。先知在我身旁，但他全身透明，形态模糊。我应该和他谈谈。_Objective_: 与先知交谈                                                                  |
+| Finishes quest                                                                                                                                                              | 我出现在一个陌生的地方。先知化作一团阴影现身。我应该和他谈谈，了解我下一步该去哪儿。_Objective_: 与先知交谈                                                                        |
 
 笔记
 

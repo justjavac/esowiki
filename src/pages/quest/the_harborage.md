@@ -3,10 +3,9 @@ title: 避难所
 title_en: The Harborage
 description: >-
   <img alt="ON-qico-Instance.png"
-  src="//images.uesp.net/thumb/4/4a/ON-qico-Instance.png" width="48" height="48"
-  srcset="//images.uesp.net/4/4a/ON-qico-Instance.png 1.5x">Explore visions of
+  src="https://eso-cdn.denohub.com/thumb/4/4a/ON-qico-Instance.png" width="48" height="48">Explore visions of
   the past with <a href="/npc/the_prophet" title="先知 (The Prophet)">先知</a>。
-zone: ''
+zone: ""
 quest_giver:
   - <a href="/npc/the_prophet" title="先知 (The Prophet)">先知</a>
 location:
@@ -36,15 +35,10 @@ xp_gain: >-
   <a href="/wiki/Online:Experience" class="mw-redirect" title="经验
   (Experience)"><span class="esoqcepic">Very High</span></a> <a
   href="/wiki/Online:Experience" title="经验 (Experience)"><img alt="Experience"
-  src="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png" width="16"
-  height="16" style="vertical-align: text-bottom"
-  srcset="//images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/24px-ON-icon-misc-Experience.png
-  1.5x,
-  //images.uesp.net/thumb/1/15/ON-icon-misc-Experience.png/32px-ON-icon-misc-Experience.png
-  2x"></a>
+  src="https://eso-cdn.denohub.com/thumb/1/15/ON-icon-misc-Experience.png" width="16"
+  height="16" style="vertical-align: text-bottom"></a>
 solo_only: 是的
 layout: ../../layouts/QuestLayout.astro
-
 ---
 
 > 先知通过一种魔法投影联系上了我。他要我去寻找一个名叫避难所的地方，他正在那里暂避风头。我必须去找他，并确保他的安全。
@@ -92,7 +86,7 @@ The Prophet says you need to understand how events came to be before you can lea
 
 The Prophet opens a portal to a Coldharbour-like realm and walks along the path while recounting his story.
 
-![](//images.uesp.net/thumb/0/02/ON-quest-The_Harborage_06.jpg)
+![](https://eso-cdn.denohub.com/thumb/0/02/ON-quest-The_Harborage_06.jpg)
 
 <p class="text-gray-500 text-sm text-center">The Elder Scroll and the Dragonfire Brazier</p>
 
@@ -111,7 +105,7 @@ who led a rebellion against the 利奥维克皇帝" and crowned himself emperor.
 
 #### Meet the Five Companions
 
-![](//images.uesp.net/thumb/0/08/ON-quest-The_Harborage_02.jpg)
+![](https://eso-cdn.denohub.com/thumb/0/08/ON-quest-The_Harborage_02.jpg)
 
 <p class="text-gray-500 text-sm text-center">五方使者</p>
 
@@ -133,7 +127,7 @@ enter and begin the ritual.
 
 #### The Soulburst
 
-![](//images.uesp.net/thumb/6/6e/ON-quest-The_Harborage_03.jpg)
+![](https://eso-cdn.denohub.com/thumb/6/6e/ON-quest-The_Harborage_03.jpg)
 
 <p class="text-gray-500 text-sm text-center">Mannimarco betrays the Emperor.</p>
 
@@ -145,7 +139,7 @@ enter and begin the ritual.
   - **Sai：** _"够了，你们两个！我们在这里是为了确保陛下名正言顺加冕红宝石王座。"_
   - **瓦仁·阿基拉里奥斯：** _"阿布努尔，开始仪式。我得去完成我的使命。"_
 
-![](//images.uesp.net/thumb/5/53/ON-quest-The_Harborage_04.jpg)
+![](https://eso-cdn.denohub.com/thumb/5/53/ON-quest-The_Harborage_04.jpg)
 
 <p class="text-gray-500 text-sm text-center">The Soulburst</p>
 
@@ -170,7 +164,7 @@ Talk to the Prophet again, after the scene finishes.
 
 #### Anchors from Coldharbour
 
-![](//images.uesp.net/thumb/2/25/ON-quest-The_Harborage_05.jpg)
+![](https://eso-cdn.denohub.com/thumb/2/25/ON-quest-The_Harborage_05.jpg)
 
 <p class="text-gray-500 text-sm text-center">One of Molag Bal's Dark Anchors</p>
 
@@ -198,21 +192,21 @@ gives you a reward.
 
 ## Quest Stages
 
-| Finishes Quest                                            | Journal Entry                                                                                                                       |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-|                                                           | 先知的投影出现在我面前。我应该跟它谈谈。_Objective_: 与先知交谈                                                                     |
-|                                                           | 先知要我去寻找一处叫“避难所”的地方。我应该找到这个地方，然后和他谈谈。_Objective_: 寻找避难所                                       |
-|                                                           | 我找到了避难所。我应该到山洞里和先知谈谈。_Objective_: 与先知交谈                                                                   |
-|                                                           | 先知要我进入他的思想，以便观看过去发生的事件。我必须等他做好准备。_Objective_: 等待先知                                             |
-|                                                           | 我进入先知的思想，看到了一些过去的幻象。我应该跟随他，聆听他讲的故事。_Objective_: 跟随先知                                         |
-|                                                           | 先知向我讲述了他的一生，讲述了他与莫斯祭司一起研究上古卷轴的事。我应该和他谈谈，多问问他关于这些事件的问题。_Objective_: 与先知交谈 |
-|                                                           | 先知想给我看看五方使者的故事。我应该观看这些事件，聆听他的故事。_Objective_: 了解五方使者                                           |
-|                                                           | 我应该和先知谈谈，更详尽地了解五方使者。_Objective_: 与先知交谈                                                                     |
-|                                                           | 先知给我看了一个五方使者试图点燃龙火的幻象。我应该和他一起看看当时的情景。_Objective_: 见证五方使者的行动                           |
-|                                                           | 我观看了五方使者的幻象，还有那个被称为“灵魂震爆”的事件。我应该和先知谈谈，再多了解一些相关的信息。_Objective_: 与先知交谈           |
-|                                                           | 先知想再给我看一个与五方使者有关的幻象。我应该和他一起观看这个幻象。_Objective_: 跟随先知                                           |
-|                                                           | 先知的故事讲完了。我应该和他谈谈，以便返回避难所。_Objective_: 返回避难所_Objective Hint_: _与先知交谈_                             |
-| Finishes quest![☑](//images.uesp.net/4/4d/Green_Tick.svg) | 我和先知回到了避难所。我应该和他谈谈，了解一下接下来该怎么做。_Objective_: 与先知交谈                                               |
+| Finishes Quest | Journal Entry                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+|                | 先知的投影出现在我面前。我应该跟它谈谈。_Objective_: 与先知交谈                                                                     |
+|                | 先知要我去寻找一处叫“避难所”的地方。我应该找到这个地方，然后和他谈谈。_Objective_: 寻找避难所                                       |
+|                | 我找到了避难所。我应该到山洞里和先知谈谈。_Objective_: 与先知交谈                                                                   |
+|                | 先知要我进入他的思想，以便观看过去发生的事件。我必须等他做好准备。_Objective_: 等待先知                                             |
+|                | 我进入先知的思想，看到了一些过去的幻象。我应该跟随他，聆听他讲的故事。_Objective_: 跟随先知                                         |
+|                | 先知向我讲述了他的一生，讲述了他与莫斯祭司一起研究上古卷轴的事。我应该和他谈谈，多问问他关于这些事件的问题。_Objective_: 与先知交谈 |
+|                | 先知想给我看看五方使者的故事。我应该观看这些事件，聆听他的故事。_Objective_: 了解五方使者                                           |
+|                | 我应该和先知谈谈，更详尽地了解五方使者。_Objective_: 与先知交谈                                                                     |
+|                | 先知给我看了一个五方使者试图点燃龙火的幻象。我应该和他一起看看当时的情景。_Objective_: 见证五方使者的行动                           |
+|                | 我观看了五方使者的幻象，还有那个被称为“灵魂震爆”的事件。我应该和先知谈谈，再多了解一些相关的信息。_Objective_: 与先知交谈           |
+|                | 先知想再给我看一个与五方使者有关的幻象。我应该和他一起观看这个幻象。_Objective_: 跟随先知                                           |
+|                | 先知的故事讲完了。我应该和他谈谈，以便返回避难所。_Objective_: 返回避难所_Objective Hint_: _与先知交谈_                             |
+| Finishes quest | 我和先知回到了避难所。我应该和他谈谈，了解一下接下来该怎么做。_Objective_: 与先知交谈                                               |
 
 笔记
 
