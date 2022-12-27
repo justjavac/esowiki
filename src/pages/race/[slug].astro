@@ -71,38 +71,32 @@ const meta = [
           </h1>
           <p>{data.attributes.description}</p>
           <h2>种族技能</h2>
-
-          <table>
-            <thead>
-              <tr>
-                <th colspan="2">技能</th>
-                <th>描述</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                skills.map((skill: any) => (
-                  <tr>
-                    <td>
-                      <a href={`/skill/${skill.attributes.slug}`}>
-                        <img
-                          src={skill.attributes.icon}
-                          alt={skill.attributes.name}
-                          class="w-16 h-16"
-                        />
-                      </a>
-                    </td>
-                    <td class="w-32">
-                      <a href={`/skill/${skill.attributes.slug}`}>
-                        {skill.attributes.name}
-                      </a>
-                    </td>
-                    <td>{skill.attributes.description}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
+          <ol>
+            {
+              skills.map((skill: any) => (
+                <li>
+                  <p>
+                    <a href={`/skill/${skill.attributes.slug}`}>
+                      <img
+                        class="inline-flex"
+                        src={skill.attributes.icon}
+                        width="24"
+                        height="24"
+                        alt=""
+                      />
+                      {skill.attributes.name}
+                    </a>
+                  </p>
+                  <p
+                    set:html={skill.attributes.description.replace(
+                      "\n",
+                      "<br />"
+                    )}
+                  />
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </article>
       <aside class="py-6 md:col-span-1">
