@@ -26,6 +26,7 @@ async function getRace(slug: string) {
 /** 技能 */
 async function getSkills(race: string) {
   const query = new URLSearchParams();
+  if (race === "帝都人") race = "帝都";
   query.set("filters[skillTypeName][$eq]", `种族::${race}技能`);
   query.set("sort[0]", "skillIndex:asc");
 
@@ -45,7 +46,9 @@ if (data == null) {
 }
 
 const skills = await getSkills(data.attributes.name);
-const faction = `<a href="/faction/${data.attributes.faction.data.attributes.slug}">${data.attributes.faction.data.attributes.name}</a>`;
+const faction = data.attributes.faction.data
+  ? `<a href="/faction/${data.attributes.faction.data.attributes.slug}">${data.attributes.faction.data.attributes.name}</a>`
+  : null;
 
 const meta = [
   { name: "姓名", content: data.attributes.name },

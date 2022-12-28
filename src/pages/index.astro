@@ -4,6 +4,21 @@ import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+import { md2html } from "@/utils";
+
+const content = `《上古卷轴OL》是由 ZeniMax Online Studios 开发的一款大型多人在线角色扮演游戏，是《上古卷轴》（TES）系列的首款多人在线游戏，
+于 2014 年 4 月 4 日正式发布，《上古卷轴OL》有着庞大而复杂的故事背景。
+
+该游戏主要讲述了在第二纪元时期玩家对抗[莫拉格·巴尔](/npm/molag-bal)入侵与三个观念分歧的阵营互相对抗的故事。
+
+《上古卷轴OL》的背景故事讲述发生在泰姆瑞尔大陆上的战争，这场战争发生于《上古卷轴5：天际》的 1000 年前。
+未来玩家将可以选择加入 3 个阵营，每个阵营分别由 3 个种族组成。
+
+- [黑檀心公约联合](/faction/ebonheart-pact)阵营由[诺德人](/rece/nord)、[暗精灵](/rece/dark-elf)和[亚龙人](/rece/argonian)三大种族组成。
+- [先祖神州](/faction/aldmeri-dominion)阵营由[高精灵](/rece/high-elf)、[木精灵](/rece/wood-elf)和[虎人](/rece/khajiit)三大种族组成。
+- [匕落同盟](/faction/daggerfall-covenant)阵营由[布莱顿人](/rece/breton)、[红卫人](/rece/redguard)和[兽人](/rece/orc)三大种族组成。
+- [西罗帝尔](/location/cyrodiil)是泰姆瑞尔大陆的中心，由[帝都人](/race/imperial)统治。
+`;
 ---
 
 <html lang="zh-CN">
@@ -20,28 +35,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
         <div class="rounded-lg shadow-lg p-4">
           <h1 class="text-2xl font-bold">{SITE_TITLE}</h1>
           <div class="mt-4 markdown-body">
-            <p>
-              《上古卷轴OL》是由 ZeniMax Online Studios
-              开发的一款大型多人在线角色扮演游戏，是《上古卷轴》（TES）系列的首款多人在线游戏，于
-              2014 年 4 月 4
-              日正式发布，《上古卷轴OL》有着庞大而复杂的故事背景。
-            </p>
-            <p>
-              该游戏主要讲述了在第二纪元时期玩家对抗
-              <a href="/npm/molag-bal">莫拉格·巴尔</a>
-              入侵与三个观念分歧的阵营互相对抗的故事。
-            </p>
-            <p>
-              《上古卷轴OL》的背景故事讲述发生在泰姆瑞尔大陆上的战争，这场战争发生于《上古卷轴5：天际》的
-              1000 年前。 未来玩家将可以选择加入 3 个阵营，每个阵营分别由 3
-              个种族组成。
-              <a href="/faction/ebonheart-pact">黑檀心公约联合</a
-              >阵营由诺德人、暗精灵和亚龙人三大种族组成。
-              <a href="/faction/aldmeri-dominion">先祖神州</a
-              >阵营由高精灵、木精灵、虎人三大种族组成。
-              <a href="/faction/daggerfall-covenant">匕落同盟</a
-              >阵营由布莱顿人、红卫人和兽人三大种族组成。
-            </p>
+            <Fragment set:html={md2html(content)} />
           </div>
         </div>
       </div>
