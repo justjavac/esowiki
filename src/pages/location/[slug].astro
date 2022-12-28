@@ -40,7 +40,7 @@ if (data == null) {
 }
 
 const name = data.attributes.subZoneName || data.attributes.zoneName;
-const nameEn = data.attributes.zoneNameEn || data.attributes.subZoneNameEn;
+const nameEn = data.attributes.subZoneNameEn || data.attributes.zoneNameEn;
 
 const { pois, paths } = await getMap(data.attributes.mapId);
 
@@ -52,6 +52,7 @@ const POIs: [string, string, PoiData[]][] = [
   ["公开地牢", "Public Dungeons", pois.filter((x) => x.type === 8)],
   ["组队地牢", "Group Dungeons", pois.filter((x) => x.type === 3)],
   ["世界头目", "World Bosses", pois.filter((x) => x.type === 5)],
+  ["组队头目", "Group Bosses", pois.filter((x) => x.type === 21)],
   ["房屋", "Player Houses", pois.filter((x) => x.type === 14)],
   ["路点神龛", "Wayshrines", pois.filter((x) => x.type === 10)],
   ["天空碎片", "Skyshards", pois.filter((x) => x.type === 16)],
@@ -116,48 +117,57 @@ for (let poi of POIs) {
 
           <Fragment set:html={md2html(data.attributes.description)} />
 
-          <h2>地点 <small class="text-gray-500">Places</small></h2>
-          <ul>
-            {
-              paths.map((x: any) => (
-                <li>
-                  <a href={`/map/${x.map_id}`}>
-                    <img
-                      class="inline-flex"
-                      src={`${CDN_URL}/esoui/art/icons/poi/poi_city_complete.png`}
-                      width="18"
-                      height="18"
-                      alt=""
-                    />
-                    {x.name}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-
           {
-            POIs.map(([zh, en, pois]) => (
+            paths.length > 0 && (
               <>
-                <h2 id={slugId(en)}>
-                  {zh} <small class="text-gray-500">{en}</small>
+                <h2>
+                  地点 <small class="text-gray-500">Places</small>
                 </h2>
                 <ul>
-                  {pois.map((x) => (
+                  {paths.map((x: any) => (
                     <li>
-                      <img
-                        class="inline-flex"
-                        src={`${CDN_URL}${x.icon}`}
-                        width="18"
-                        height="18"
-                        alt=""
-                      />
-                      <a href={`/map/${x.map_id}?poi=${x.id}`}>{x.name}</a>
+                      <a href={`/map/${x.map_id}`}>
+                        <img
+                          class="inline-flex"
+                          src={`${CDN_URL}/esoui/art/icons/poi/poi_city_complete.png`}
+                          width="18"
+                          height="18"
+                          alt=""
+                        />
+                        {x.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </>
-            ))
+            )
+          }
+
+          {
+            POIs.map(
+              ([zh, en, pois]) =>
+                pois.length > 0 && (
+                  <>
+                    <h2 id={slugId(en)}>
+                      {zh} <small class="text-gray-500">{en}</small>
+                    </h2>
+                    <ul>
+                      {pois.map((x) => (
+                        <li>
+                          <img
+                            class="inline-flex"
+                            src={`${CDN_URL}${x.icon}`}
+                            width="18"
+                            height="18"
+                            alt=""
+                          />
+                          <a href={`/map/${x.map_id}?poi=${x.id}`}>{x.name}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )
+            )
           }
 
           <Fragment set:html={md2html(data.attributes.content ?? "")} />
