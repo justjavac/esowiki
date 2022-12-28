@@ -42,7 +42,7 @@ if (data == null) {
 const name = data.attributes.subZoneName || data.attributes.zoneName;
 const nameEn = data.attributes.zoneNameEn || data.attributes.subZoneNameEn;
 
-const { pois, paths } = await getMap(data.attributes.mapId ?? 255);
+const { pois, paths } = await getMap(data.attributes.mapId);
 
 const POIs: [string, string, PoiData[]][] = [
   ["洞穴", "Delves", pois.filter((x) => x.type === 4)],
@@ -76,6 +76,19 @@ for (let poi of POIs) {
 }
 ---
 
+<style is:global>
+  .markdown-body img.thumb {
+    margin: 0 10px;
+    width: 16rem;
+  }
+
+  .markdown-body img.thumb + p:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+</style>
+
 <html lang="zh-CN">
   <head>
     <HeaderMeta
@@ -94,7 +107,14 @@ for (let poi of POIs) {
             {name}
             <small class="text-gray-500">{nameEn}</small>
           </h1>
-          <p class="text-gray-500">{data.attributes.description}</p>
+
+          <img
+            class="thumb float-left block"
+            src={data.attributes.thumb}
+            alt={data.attributes.name}
+          />
+
+          <Fragment set:html={md2html(data.attributes.description)} />
 
           <h2>地点 <small class="text-gray-500">Places</small></h2>
           <ul>
