@@ -56,6 +56,7 @@ const meta = [
   { name: "种族", content: race },
   { name: "性别", content: GENDERS[data.attributes.gender] },
   { name: "反应", content: data.attributes.reaction },
+  { name: "职业", content: data.attributes.ppClass },
   { name: "位置", content: locations },
 ];
 ---
@@ -96,11 +97,15 @@ const meta = [
             {data.attributes.name}
             <small class="text-gray-500">{data.attributes.nameEn}</small>
           </h1>
-          <img
-            class="thumb float-left block"
-            src={data.attributes.thumb}
-            alt={data.attributes.name}
-          />
+          {
+            data.attributes.thumb && (
+              <img
+                class="thumb float-left block"
+                src={data.attributes.thumb}
+                alt={data.attributes.name}
+              />
+            )
+          }
           <Fragment set:html={md2html(data.attributes.content)} />
         </div>
       </article>
