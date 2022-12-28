@@ -39,7 +39,7 @@ const race = data.attributes.race.data
 const locations = data.attributes.locations.data
   ?.map((location: any) => {
     return `<a href="/location/${location.attributes.slug}">${
-      location.attributes.subZoneName ?? location.attributes.zoneName
+      location.attributes.subZoneName || location.attributes.zoneName
     }</a>`;
   })
   .join("<br />");
