@@ -225,6 +225,25 @@ const zonesSchema = object({
   count: number().required().integer().positive(),
 });
 
+const poiSchema = object({
+  id: number().required().integer().positive(),
+  zoneId: number().required().integer().positive(),
+  zoneName: string().required().transform(toZh),
+  subZoneName: string().required().transform(toZh),
+  objName: string().required().transform(toZh),
+  objStartDesc: string().required().transform(toZh),
+  objEndDesc: string().required().transform(toZh),
+  mapIcon: string().required().transform((x: string) => x.replace(".dds", ".png")),
+  poiIndex: number().required().integer().positive(),
+  normX: number().required().positive(),
+  normY: number().required().positive(),
+  pinType: number().required().integer(),
+  isShown: boolean().required(),
+  poiType: number().required().integer().positive(),
+  objLevel: number().required().integer(),
+  count: number().required().integer().positive(),
+});
+
 const schemaMap = {
   achievementCategories: achievementCategoriesSchema,
   achievementCriteria: achievementCriteriaSchema,
@@ -236,6 +255,7 @@ const schemaMap = {
   minedSkillLines: minedSkillLinesSchema,
   minedItemSummary: minedItemSummarySchema,
   npc: npcSchema,
+  zonePois: poiSchema,
 };
 
 type Key = keyof typeof schemaMap;
