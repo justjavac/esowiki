@@ -45,11 +45,12 @@ if (data == null) {
 }
 
 const skills = await getSkills(data.attributes.name);
+const faction = `<a href="/faction/${data.attributes.faction.data.attributes.slug}">${data.attributes.faction.data.attributes.name}</a>`;
 
 const meta = [
   { name: "姓名", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
-  { name: "阵营", content: data.attributes.faction.data.attributes.name },
+  { name: "阵营", content: faction },
 ];
 ---
 
