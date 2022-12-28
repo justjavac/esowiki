@@ -18,3 +18,7 @@
 - [TailwindCSS](https://tailwindcss.com)
 - [Deno](https://deno.land)
 - [strapi](https://strapi.io)
+
+## 手机版
+
+感谢 [@cgqaq](https://github.com/cgqaq) 开发了手机版 <https://github.com/cgqaq/esomap_mobile>
