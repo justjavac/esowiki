@@ -75,36 +75,43 @@ const meta = [
             {data.attributes.name}
             <small class="text-gray-500">{data.attributes.nameEn}</small>
           </h1>
-          <p>{data.attributes.description}</p>
-          <h2>种族技能</h2>
-          <ol>
-            {
-              skills.map((skill: any) => (
-                <li>
-                  <p>
-                    <a href={`/skill/${skill.attributes.slug}`}>
-                      <img
-                        class="inline-flex"
-                        src={skill.attributes.icon}
-                        width="24"
-                        height="24"
-                        alt=""
+          <Fragment set:html={md2html(data.attributes.description)} />
+          <Fragment set:html={md2html(data.attributes.content)} />
+
+          {
+            skills.length > 0 && (
+              <>
+                <h2>种族技能</h2>
+                <ol>
+                  {skills.map((skill: any) => (
+                    <li>
+                      <p>
+                        <a href={`/skill/${skill.attributes.slug}`}>
+                          <img
+                            class="inline-flex"
+                            src={skill.attributes.icon}
+                            width="24"
+                            height="24"
+                            alt=""
+                          />
+                          {skill.attributes.name}
+                        </a>
+                      </p>
+                      <p
+                        set:html={skill.attributes.description.replace(
+                          "\n",
+                          "<br />"
+                        )}
                       />
-                      {skill.attributes.name}
-                    </a>
-                  </p>
-                  <p
-                    set:html={skill.attributes.description.replace(
-                      "\n",
-                      "<br />"
-                    )}
-                  />
-                </li>
-              ))
-            }
-          </ol>
+                    </li>
+                  ))}
+                </ol>
+              </>
+            )
+          }
         </div>
       </article>
+
       <aside class="py-6 md:col-span-1">
         <div
           class="rounded border border-gray-300/50 shadow-lg shadow-transparent hover:shadow-gray-100 hover:border-gray-300/80 transition-shadow duration-450 ease-in-out"
