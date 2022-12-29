@@ -61,7 +61,7 @@ const meta = [
   <head>
     <HeaderMeta
       title={`${data.attributes.name} - 上古卷轴OL阵营 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
+      description={data.attributes.description || SITE_DESCRIPTION}
     />
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
   </head>
@@ -75,6 +75,7 @@ const meta = [
             {data.attributes.name}
             <small class="text-gray-500">{data.attributes.nameEn}</small>
           </h1>
+          <Fragment set:html={md2html(data.attributes.description)} />
           <Fragment set:html={md2html(data.attributes.content)} />
         </div>
       </article>
