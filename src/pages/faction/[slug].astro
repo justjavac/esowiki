@@ -88,6 +88,7 @@ const meta = [
             <small class="text-gray-500">{data.attributes.nameEn}</small>
           </h1>
           <Fragment set:html={md2html(data.attributes.description)} />
+          <Fragment set:html={md2html(data.attributes.content)} />
 
           {skills.length > 0 && <h2>公会技能</h2>}
 
@@ -122,8 +123,6 @@ const meta = [
               </>
             ))
           }
-
-          <Fragment set:html={md2html(data.attributes.content)} />
         </div>
       </article>
       <aside class="py-6 md:col-span-1">
