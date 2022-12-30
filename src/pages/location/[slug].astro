@@ -25,8 +25,13 @@ async function getZone(slug: string) {
 }
 
 /** 地图 */
-async function getMap(id: number): Promise<MapData> {
+async function getMap(id: number): Promise<MapData | Record<string, any>> {
   const response = await fetch(`${CDN_URL}/maps/${id}.json`);
+
+  if (response.status === 404) {
+    return {};
+  }
+
   return response.json();
 }
 
@@ -42,21 +47,21 @@ if (data == null) {
 const name = data.attributes.subZoneName || data.attributes.zoneName;
 const nameEn = data.attributes.subZoneNameEn || data.attributes.zoneNameEn;
 
-const { pois, paths } = await getMap(data.attributes.mapId);
+const { pois = [], paths = [], file } = await getMap(data.attributes.mapId);
 
 const POIs: [string, string, PoiData[]][] = [
-  ["洞穴", "Delves", pois.filter((x) => x.type === 4)],
-  ["兴趣点", "Points of Interest", pois.filter((x) => x.type === 1)],
-  ["探路者", "Striking Locales", pois.filter((x) => x.type === 2)],
-  ["套装铸造点", "Set Stations", pois.filter((x) => x.type === 13)],
-  ["公开地牢", "Public Dungeons", pois.filter((x) => x.type === 8)],
-  ["组队地牢", "Group Dungeons", pois.filter((x) => x.type === 3)],
-  ["世界头目", "World Bosses", pois.filter((x) => x.type === 5)],
-  ["组队头目", "Group Bosses", pois.filter((x) => x.type === 21)],
-  ["房屋", "Player Houses", pois.filter((x) => x.type === 14)],
-  ["路点神龛", "Wayshrines", pois.filter((x) => x.type === 10)],
-  ["天空碎片", "Skyshards", pois.filter((x) => x.type === 16)],
-  // ["书籍", "Books", pois.filter((x) => x.type === 22)],
+  ["洞穴", "Delves", pois.filter((x: PoiData) => x.type === 4)],
+  ["兴趣点", "Points of Interest", pois.filter((x: PoiData) => x.type === 1)],
+  ["探路者", "Striking Locales", pois.filter((x: PoiData) => x.type === 2)],
+  ["套装铸造点", "Set Stations", pois.filter((x: PoiData) => x.type === 13)],
+  ["公开地牢", "Public Dungeons", pois.filter((x: PoiData) => x.type === 8)],
+  ["组队地牢", "Group Dungeons", pois.filter((x: PoiData) => x.type === 3)],
+  ["世界头目", "World Bosses", pois.filter((x: PoiData) => x.type === 5)],
+  ["组队头目", "Group Bosses", pois.filter((x: PoiData) => x.type === 21)],
+  ["房屋", "Player Houses", pois.filter((x: PoiData) => x.type === 14)],
+  ["路点神龛", "Wayshrines", pois.filter((x: PoiData) => x.type === 10)],
+  ["天空碎片", "Skyshards", pois.filter((x: PoiData) => x.type === 16)],
+  // ["书籍", "Books", pois.filter((x: PoiData) => x.type === 22)],
 ];
 
 const meta = [
@@ -111,9 +116,7 @@ for (let poi of POIs) {
           />
 
           <Fragment set:html={md2html(data.attributes.description)} />
-
-          <h2 id="content">介绍</h2>
-          <Fragment set:html={md2html(data.attributes.content ?? "")} />
+          <Fragment set:html={md2html(data.attributes.content)} />
 
           {
             paths.length > 0 && (
@@ -199,6 +202,15 @@ for (let poi of POIs) {
                   <span set:html={item.content || "无"} />
                 </li>
               ))
+            }
+            {
+              file && (
+                <li class="flex gap-1 py-1 px-5">
+                  <a href={`/map/${data.attributes.mapId}`}>
+                    <img src={`${CDN_URL}/${file}`} alt="" />
+                  </a>
+                </li>
+              )
             }
           </ul>
         </div>
