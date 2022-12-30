@@ -62,16 +62,6 @@ const meta = [
 ---
 
 <style is:global>
-  .markdown-body img {
-    width: 90%;
-    margin: auto;
-  }
-
-  .markdown-body img.thumb {
-    margin: 0 10px;
-    width: 16rem;
-  }
-
   .markdown-body img.thumb + p:after {
     content: "";
     display: block;
@@ -100,7 +90,7 @@ const meta = [
           {
             data.attributes.thumb && (
               <img
-                class="thumb float-left block"
+                class="thumb float-left w-5/12 mr-6"
                 src={data.attributes.thumb}
                 alt={data.attributes.name}
               />

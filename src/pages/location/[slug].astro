@@ -78,11 +78,6 @@ for (let poi of POIs) {
 ---
 
 <style is:global>
-  .markdown-body img.thumb {
-    margin: 0 10px;
-    width: 16rem;
-  }
-
   .markdown-body img.thumb + p:after {
     content: "";
     display: block;
@@ -110,7 +105,7 @@ for (let poi of POIs) {
           </h1>
 
           <img
-            class="thumb float-left block"
+            class="thumb float-left w-5/12 mr-6"
             src={data.attributes.thumb}
             alt={data.attributes.name}
           />
