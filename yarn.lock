@@ -488,24 +488,12 @@
   resolved "https://registry.npmmirror.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@preact/signals-core@^1.2.2":
-  version "1.2.2"
-  resolved "https://registry.npmmirror.com/@preact/signals-core/-/signals-core-1.2.2.tgz#279dcc5ab249de2f2e8f6e6779b1958256ba843e"
-  integrity sha512-z3/bCj7rRA21RJb4FeJ4guCrD1CQbaURHkCTunUWQpxUMAFOPXCD8tSFqERyGrrcSb4T3Hrmdc1OAl0LXBHwiw==
-
 "@preact/signals-core@^1.2.3":
   version "1.2.3"
   resolved "https://registry.npmmirror.com/@preact/signals-core/-/signals-core-1.2.3.tgz#36bf8b31027a5b9ade9e50cf9fba80614e8a2354"
   integrity sha512-Kui4p7PMcEQevBgsTO0JBo3gyQ88Q3qzEvsVCuSp11t0JcN4DmGCTJcGRVSCq7Bn7lGxJBO+57jNSzDoDJ+QmA==
 
-"@preact/signals@^1.1.0":
-  version "1.1.2"
-  resolved "https://registry.npmmirror.com/@preact/signals/-/signals-1.1.2.tgz#a71c9d5dc213e314735420c3a01d84eb392b8739"
-  integrity sha512-MLNNrICSllHBhpXBvXbl7K5L1HmIjuTzgBw+zdODqjM/cLGPXdYiAWt4lqXlrxNavYdoU4eljb+TLE+DRL+6yw==
-  dependencies:
-    "@preact/signals-core" "^1.2.2"
-
-"@preact/signals@^1.1.3":
+"@preact/signals@^1.1.0", "@preact/signals@^1.1.3":
   version "1.1.3"
   resolved "https://registry.npmmirror.com/@preact/signals/-/signals-1.1.3.tgz#8226d3001cc162c568225083275ed8d595f8bf1f"
   integrity sha512-N09DuAVvc90bBZVRwD+aFhtGyHAmJLhS3IFoawO/bYJRcil4k83nBOchpCEoS0s5+BXBpahgp0Mjf+IOqP57Og==
