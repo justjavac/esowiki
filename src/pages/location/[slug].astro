@@ -49,7 +49,7 @@ const nameEn = data.attributes.subZoneNameEn || data.attributes.zoneNameEn;
 
 const { pois = [], paths = [], file } = await getMap(data.attributes.mapId);
 
-const POIs: [string, string, PoiData[]][] = [
+const POIs = [
   ["洞穴", "Delves", pois.filter((x: PoiData) => x.type === 4)],
   ["兴趣点", "Points of Interest", pois.filter((x: PoiData) => x.type === 1)],
   ["探路者", "Striking Locales", pois.filter((x: PoiData) => x.type === 2)],
@@ -62,7 +62,7 @@ const POIs: [string, string, PoiData[]][] = [
   ["路点神龛", "Wayshrines", pois.filter((x: PoiData) => x.type === 10)],
   ["天空碎片", "Skyshards", pois.filter((x: PoiData) => x.type === 16)],
   // ["书籍", "Books", pois.filter((x: PoiData) => x.type === 22)],
-];
+].filter((x) => x[2].length > 0) as [string, string, PoiData[]][];
 
 const meta = [
   { name: "名称", content: name },
