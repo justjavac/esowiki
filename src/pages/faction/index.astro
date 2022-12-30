@@ -52,7 +52,12 @@ const data = await getFactions();
                     <li>
                       <Fragment
                         set:html={md2html(
-                          `[${x.attributes.name}](/faction/${x.attributes.slug}) - ${x.attributes.description}`
+                          `[${x.attributes.name}](/faction/${x.attributes.slug})
+                          - ${x.attributes.description}${
+                            x.attributes.icon && type.attributes.name === "公会"
+                              ? `<img class="inline-flex" src="${x.attributes.icon}" width="16" height="16" alt="" />`
+                              : ""
+                          }`
                         )}
                       />
                     </li>
