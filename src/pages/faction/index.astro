@@ -45,7 +45,10 @@ const data = await getFactions();
           {
             data.map((type: any) => (
               <>
-                <h2>{type.attributes.name}</h2>
+                <h2 id={type.attributes.slug}>
+                  {type.attributes.name}
+                  <small class="text-gray-500">{type.attributes.nameEn}</small>
+                </h2>
                 <Fragment set:html={md2html(type.attributes.description)} />
                 <ul>
                   {type.attributes.factions.data?.map((x: any) => (
