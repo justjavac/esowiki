@@ -38,7 +38,8 @@ export function Set({ data }: SetProps) {
         marginBottom: 5,
         width: 394,
         height: 280,
-        backgroundImage: "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
+        backgroundImage:
+          "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
         backgroundRepeat: "repeat-y",
       }}
     >
@@ -102,7 +103,7 @@ export function Set({ data }: SetProps) {
           marginTop: 5,
           marginBottom: 10,
         }}
-        src="https://esolog.uesp.net/resources/eso_item_hr.png"
+        src="https://eso-cdn.denohub.com/images/eso_item_hr.png"
         width="339"
         height="3"
         alt=""

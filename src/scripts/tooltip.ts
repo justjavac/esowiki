@@ -160,7 +160,7 @@ allLinks.forEach((link) => {
           <span class="eso-tooltip-skill-label">消耗</span>
           <span class="eso-tooltip-skill-value">${data.cost}</span>
         </div>
-        <img src="//esolog.uesp.net/resources/skill_divider.png" width="100%" height="3" class="eso-tooltip-divider">
+        <img src="https://eso-cdn.denohub.com/images/skill_divider.png" width="100%" height="3" class="eso-tooltip-divider">
         <div class="eso-tooltip-description">
           ${data.description}
         </div>
