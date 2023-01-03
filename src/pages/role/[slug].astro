@@ -68,6 +68,19 @@ const meta = [
           </p>
           <Fragment set:html={md2html(data.attributes.description)} />
           <Fragment set:html={md2html(data.attributes.content)} />
+
+          <h2 id="build">构建</h2>
+          <ul>
+            {
+              data.attributes.builds.data.map((build: any) => (
+                <li>
+                  <a href={`/build/${build.attributes.slug}`}>
+                    {build.attributes.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </article>
 
