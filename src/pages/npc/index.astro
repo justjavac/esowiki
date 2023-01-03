@@ -1,0 +1,125 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+
+const query = new URLSearchParams();
+// query.set("sort[0]", "id:asc");
+// query.set("populate", "*");
+query.set("pagination[pageSize]", "1");
+query.set("pagination[page]", "1");
+
+const response = await fetch(`${ESO_API_URL}/api/npcs?${query}`);
+const result = await response.json();
+const data = result?.data;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`NPC - 上古卷轴OL攻略 - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="p-6 md:col-span-3">
+        <div class="markdown-body">
+          <h1>NPC</h1>
+          <p>
+            上古卷轴OL目前一共有 <strong>{result.meta.pagination.total}</strong>
+            个 NPC。
+          </p>
+          <p>
+            NPC（Non-Player Character）是除玩家外在上古卷轴OL中遇到的所有<strong
+              >类人生物</strong
+            >的通用术语。NPC 包含各种不同的<a href="/race">种族</a>和<a
+              href="/class">职业</a
+            >。
+          </p>
+          <p>
+            从技术上讲，所有生物也被认为是 NPC，但只有那些类人生物才会包含在 NPC
+            列表中，通过与其他 NPC 具有不同的<a href="/race">种族</a
+            >或者动画效果来区分。
+          </p>
+
+          <h2 id="reaction">
+            反应
+            <small class="text-gray-500">Reaction</small>
+          </h2>
+
+          <p>
+            术语<strong>反应</strong>描述了 NPC 如何与玩家互动。
+            如果玩家打开了这些 UI 选项，NPC
+            对玩家的反应也会决定他们的健康条、铭牌和发光的轮廓颜色。
+
+            <ul>
+              <li>
+                <strong>友善</strong>: 友善的 NPC 不能被攻击或扒窃。一些友善的
+                NPC（即商人）可以举报犯罪，但他们不会打架。除商人之外的友善 NPC
+                不会举报犯罪。如果铭牌已打开，则其生命条、名称和轮廓为绿色。
+              </li>
+              <li>
+                <strong>司法中立</strong>: 司法中立的 NPC
+                可能会受到攻击和扒窃，后果不堪设想。如果他们目睹犯罪，他们会报告犯罪，如果受到攻击，他们会反击。如果他们目睹犯罪发生，他们也可能会被激怒攻击，但他们并不总是这样做。如果他们目睹谋杀，他们会报告，有些人会攻击你或逃离现场。他们有黄色的健康条和白色的铭牌和轮廓。
+              </li>
+              <li>
+                <strong>中立</strong>: 中立的 NPC
+                可以不受后果地攻击，也不会报告犯罪。如果被激怒，他们会反击。中立的
+                NPC 不能被扒窃。他们的名字、生命条和发光的轮廓是黄色的。
+              </li>
+              <li>
+                <strong>敌对</strong>: 敌对的 NPC
+                可以不受后果地攻击，也不会报告犯罪。他们一见到玩家就攻击会攻击玩家。敌对的
+                NPC 有红色的生命条，名称和轮廓。
+              </li>
+              <li>
+                <strong>无</strong>: 通常保留给已故角色，也适用于没有生命条的
+                NPC，无法以任何方式与之互动（编码为
+                <code>0</code>）
+              </li>
+              <li>
+                <strong>玩家盟友</strong>: ？（编码为 <code>4</code>）
+              </li>
+              <li>
+                <strong>NPC 盟友</strong>: ？（编码为 <code>5</code>）
+              </li>
+              <li>
+                <strong>同伴</strong>: 仅用于随从（编码为 <code>6</code>）
+              </li>
+            </ul>
+          </p>
+
+          <h2>你知道吗？</h2>
+          <ul>
+            <li>
+              大多数任务由 NPC
+              提供，但您仍然可以从书籍、笔记、尸体和地点中获取许多任务。
+            </li>
+            <li>
+              <a href="/companion">同伴</a>在 Update 30 中作为永久“追随者” NPC
+              被引入。还有任务追随者，他们会在特定任务期间跟随你，通常只在任务位置的一个小半径内，还有<a
+                href="/assistant">助手</a
+              >，他们不会卷入冲突。
+            </li>
+            <li>
+              在 2014 年 4 月 4 日推出时，该游戏赢得了电子游戏中<a
+                href="http://www.guinnessworldrecords.com/world-records/first-real-time-strategy-game"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                >最多的独立 NPC 的吉尼斯世界纪录</a
+              >。当时，它的总数量为 10202。
+            </li>
+          </ul>
+        </div>
+      </article>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>

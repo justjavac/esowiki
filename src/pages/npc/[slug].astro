@@ -36,6 +36,10 @@ const race = data.attributes.race.data
   ? `<a href="/race/${data.attributes.race.data.attributes.slug}">${data.attributes.race.data.attributes.name}</a>`
   : null;
 
+const reaction = data.attributes.reaction
+  ? `<a href="/npc#reaction">${data.attributes.reaction}</a>`
+  : null;
+
 const locations = data.attributes.locations.data
   ?.map((location: any) => {
     return `<a href="/location/${location.attributes.slug}">${
@@ -55,7 +59,7 @@ const meta = [
   { name: "英文", content: data.attributes.nameEn },
   { name: "种族", content: race },
   { name: "性别", content: GENDERS[data.attributes.gender] },
-  { name: "反应", content: data.attributes.reaction },
+  { name: "反应", content: reaction },
   { name: "职业", content: data.attributes.ppClass },
   { name: "位置", content: locations },
 ];
@@ -72,7 +76,7 @@ const meta = [
 <html lang="zh-CN">
   <head>
     <HeaderMeta
-      title={`${data.attributes.name} - 上古卷轴OL种族 - ${SITE_TITLE}`}
+      title={`${data.attributes.name} - NPC - ${SITE_TITLE}`}
       description={SITE_DESCRIPTION}
     />
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
