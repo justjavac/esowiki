@@ -5,7 +5,7 @@ import { toMarkdown } from "mdast-util-to-markdown";
 import { type Handle, toMdast } from "hast-util-to-mdast";
 import { h } from "hastscript";
 import { toString } from "nlcst-to-string";
-import snakeCase from "https://deno.land/x/case@2.1.1/snakeCase.ts";
+import paramCase from "https://deno.land/x/case@2.1.1/paramCase.ts";
 import { VFile } from "vfile";
 import { isElement } from "hast-util-is-element";
 import { SKIP, visit } from "unist-util-visit";
@@ -97,7 +97,7 @@ const uespWiki: Plugin<[], Root> = () => {
 
 /** 解析任务详情 */
 export const frontmatterQuest: Plugin<[], Root> = () => (tree, file) => {
-  file.path = "drafts/" + snakeCase(`${file.data.title}`) + ".md";
+  file.path = "drafts/" + paramCase(`${file.data.title}`) + ".md";
 
   const info: Element[] = [];
 
@@ -223,7 +223,7 @@ export const fixWikiLink: Plugin<[], Root> = () => (tree) => {
       }
       node.properties!.href = href.replace(
         /\/wiki\/Online:(.*)/,
-        (_, name: string) => `/${linkType[href]}/${snakeCase(name.replace(/_\(.*\)/, ""))}`,
+        (_, name: string) => `/${linkType[href]}/${paramCase(name.replace(/_\(.*\)/, ""))}`,
       );
     }
   });
