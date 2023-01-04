@@ -5,6 +5,7 @@ function tooltipType(el: HTMLAnchorElement) {
 
   const parts = el.pathname.split("/");
   if (parts.length <= 2) return undefined;
+  if (parts[1] === "map" && !el.search) return undefined;
 
   return parts[1];
 }
@@ -169,6 +170,73 @@ allLinks.forEach((link) => {
           ${data.effectLines}
         </div>
       `;
+        break;
+      }
+      case "map": {
+        const data = await getData(target.href);
+        tooltip.innerHTML = `
+        <svg viewBox="0 0 ${data.size} ${data.size}">
+          <defs>
+            <filter id="blur"><feGaussianBlur stdDeviation="0.5" /></filter>
+          </defs>
+          <image href="${data.file}" width="${data.size}" />
+          <image
+            class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
+            href="${data.poi_icon}"
+            width="128"
+            height="128"
+            x="${data.x * data.size - 128 / 2}"
+            y="${data.y * data.size - 128 / 2}"
+          />
+          ${
+          Array(3).fill(0).map((_, i) => `
+            <circle
+              cx="${data.x * data.size}"
+              cy="${data.y * data.size}"
+              r="0"
+              stroke="#5990D3"
+              stroke-width="6"
+              fill="transparent"
+              shape-rendering="optimizeSpeed"
+              filter="url(#blur)"
+              >
+                <animate
+                  attributeName="r"
+                  begin="${i}s"
+                  values="0; 50; 90; 130; 160"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  begin="${i}s"
+                  values="0.5;.8;.8;.8;0"
+                  dur="3s"
+                  repeatCount="indefinite"
+                />
+            </circle>
+          `)
+        }
+            <circle
+              cx="${data.x * data.size}"
+              cy="${data.y * data.size}"
+              r="20"
+              stroke="#222"
+              stroke-width="6"
+              fill="#5990D3"
+            />
+            <circle
+              cx="${data.x * data.size}"
+              cy="${data.y * data.size}"
+              r="10"
+              stroke="#222"
+              stroke-width="6"
+              fill="#5990D3"
+            />
+        </svg>
+      `;
+        tooltip.style.padding = "0";
+        tooltip.style.border = "none";
         break;
       }
       default:

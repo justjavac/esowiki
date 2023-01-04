@@ -4,7 +4,7 @@ import HeaderMeta from "@/components/HeaderMeta.astro";
 import { EsoMap, AreaList, Sidebar } from "@/components";
 import type { MapData, PoiType } from "@/types";
 import dataInit from "@/data/initialize.json";
-import { CDN_URL, SITE_TITLE } from "@/consts";
+import { CDN_URL, SITE_TITLE, MAP_SIZE, MARKER_SIZE } from "@/consts";
 
 export async function getStaticPaths({}) {
   return dataInit.maps.map(({ id }: { id: number }) => ({ params: { id } }));
@@ -13,6 +13,36 @@ export async function getStaticPaths({}) {
 const { id } = Astro.params;
 
 const response = await fetch(`${CDN_URL}/maps/${id}.json`);
+
+// 当请求 tooltip 的时候，返回 json 数据
+if (Astro.request.headers.get("x-request-for") === "tooltip") {
+  if (response.status === 404) {
+    return new Response(JSON.stringify({}), {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  }
+
+  const mapData = (await response.json()) as MapData;
+  const poiId = Astro.url.searchParams.get("poi");
+  const poi = mapData.pois.find(({ id }) => id === poiId);
+
+  const result = {
+    name: mapData.name,
+    file: `${CDN_URL}${mapData.file}?imageMogr2/format/webp`,
+    size: MAP_SIZE,
+    poi_icon: `${CDN_URL}${poi?.icon}?imageMogr2/format/webp`,
+    x: poi?.x,
+    y: poi?.y,
+  };
+
+  return new Response(JSON.stringify(result), {
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+}
 
 if (response.status === 404) {
   return Astro.redirect("/404");
