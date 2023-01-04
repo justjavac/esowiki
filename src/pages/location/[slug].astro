@@ -53,7 +53,7 @@ const { pois = [], paths = [], file } = await getMap(data.attributes.mapId);
 const POIs = [
   ["洞穴", "Delves", pois.filter((x: PoiData) => x.type === 4)],
   ["兴趣点", "Points of Interest", pois.filter((x: PoiData) => x.type === 1)],
-  ["探路者", "Striking Locales", pois.filter((x: PoiData) => x.type === 2)],
+  ["标志性地点", "Striking Locales", pois.filter((x: PoiData) => x.type === 2)],
   ["套装铸造点", "Set Stations", pois.filter((x: PoiData) => x.type === 13)],
   ["试炼", "Trial", pois.filter((x: PoiData) => x.type === 6)],
   ["单人试炼", "Solo Trial", pois.filter((x: PoiData) => x.type === 7)],
