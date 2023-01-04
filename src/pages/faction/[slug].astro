@@ -87,7 +87,11 @@ const meta = [
             {data.attributes.name}
             <small class="text-gray-500">{data.attributes.nameEn}</small>
           </h1>
-          <Fragment set:html={md2html(data.attributes.description)} />
+          <Fragment
+            set:html={md2html(
+              `**${data.attributes.name}**是上古卷轴OL的一个[阵营](/faction)。${data.attributes.description}`
+            )}
+          />
           <Fragment set:html={md2html(data.attributes.content)} />
 
           {skills.length > 0 && <h2>公会技能</h2>}
