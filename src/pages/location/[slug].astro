@@ -55,6 +55,8 @@ const POIs = [
   ["兴趣点", "Points of Interest", pois.filter((x: PoiData) => x.type === 1)],
   ["探路者", "Striking Locales", pois.filter((x: PoiData) => x.type === 2)],
   ["套装铸造点", "Set Stations", pois.filter((x: PoiData) => x.type === 13)],
+  ["试炼", "Trial", pois.filter((x: PoiData) => x.type === 6)],
+  ["单人试炼", "Solo Trial", pois.filter((x: PoiData) => x.type === 7)],
   ["公开地牢", "Public Dungeons", pois.filter((x: PoiData) => x.type === 8)],
   ["组队地牢", "Group Dungeons", pois.filter((x: PoiData) => x.type === 3)],
   ["世界头目", "World Bosses", pois.filter((x: PoiData) => x.type === 5)],
@@ -99,7 +101,7 @@ meta.push({
 <html lang="zh-CN">
   <head>
     <HeaderMeta
-      title={`${name} - 上古卷轴OL地点 - ${SITE_TITLE}`}
+      title={`${name} - 地点 - ${SITE_TITLE}`}
       description={SITE_DESCRIPTION}
     />
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
@@ -115,12 +117,16 @@ meta.push({
             <small class="text-gray-500">{nameEn}</small>
           </h1>
 
-          <img
-            class="thumb float-left w-5/12 mr-4"
-            src={`${data.attributes.thumb}?imageView2/2/w/400/q/85`}
-            width="400"
-            alt={data.attributes.name}
-          />
+          {
+            data.attributes.thumb && (
+              <img
+                class="thumb float-left w-5/12 mr-4"
+                src={`${data.attributes.thumb}?imageView2/2/w/400/q/85`}
+                width="400"
+                alt={data.attributes.name}
+              />
+            )
+          }
 
           <Fragment set:html={md2html(data.attributes.description)} />
           <Fragment set:html={md2html(data.attributes.content)} />

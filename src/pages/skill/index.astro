@@ -1,0 +1,101 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import { md2html } from "@/utils";
+
+const query = new URLSearchParams();
+query.set("sort[0]", "id:asc");
+query.set("populate", "*");
+
+const response = await fetch(`${ESO_API_URL}/api/skill-lines?${query}`);
+const result = await response.json();
+const data = result?.data;
+
+const content = `
+在上古卷轴OL中，玩家具有不同技能线。**玩家只需要把技能放入操作栏里面，就可以升级该技能**。有 3 种类型的技能：被动技能、主动技能和终极技能。
+
+**被动技能** 始终提供加成。有些需要装备某些物品或放置主动技能，但除此之外，玩家无需考虑它们。他们通常有许多可用的升级，可以通过提高相关技能的等级来获得。在大多数情况下，这是通过在同一技能系中使用主动技能来实现的。在其他情况下，例如制作技能，可以通过制作物品或研究来实现。每次升级都会花费 1 个额外的技能点。一些被动技能不需要话费技能点，而是在某些情况下免费提供。例如，每个种族都会获得 1 个免费的被动，这会增加他们在给定技能下的经验增益。每个制作技能的第一个技能都是免费的。有与成为狼人或吸血鬼相关的免费被动技能，以及一些由你的联盟拥有的保持和资源提供的技能，如果你参加联盟战争。所有现任皇帝也会获得一些免费的被动技能。
+
+**主动技能** 是使用最多的技能。操作栏中最多可以有 5 个插槽，默认情况下绑定到 1-5 个键。在角色等级 15 时，会获得武器切换功能，此时你将获得额外的 5 个技能插槽。与被动技能一样，一旦达到技能线中的某个级别，它们就会可用。但是，它们不能升级，而是通过使用来改进。每个技能有 4 个等级，之后他们可能会变成新版本。您将有 2 个变形选项，它们为技能添加不同的效果。变形技能需要额外的技能点。一旦一个技能被变形，它的等级可以再增加 4 倍，但可能不会再次变形（所以你不能同时获得任何技能的变形加成）。使用主动技能将提高技能系中的整体水平，随着您的进步，新技能变得可用。
+
+**终极技能** 类似于主动技能，但不像大多数主动技能那样使用耐力或魔法，而是使用称为终极点的第三种资源。随着战斗时间的流逝，终极点会生成，并且（只有一个例外: [过载](/skill/overload)）在你施展终极技能时完全耗尽。每个技能线只有一个终极技能。与主动技能一样，它们在技能等级达到一定等级后可用或者提升，并且可以在等级 IV 后变形为新技能。您每次只能获得 1 个终极技能（如果您在达到 15 级后可以切换武器，则有 1 个）。默认情况下，它绑定到 \`R\` 键。
+
+<h2 id="class">职业</h2>
+
+游戏的每个[职业](/class)都有 3 条与之关联的技能线，这些技能线可立即对您的角色使用，并且特定于您的职业。要在技能系中升级，必须在获得经验值时，至少将技能系中的一个主动技能放置在您的两个技能条中的任何一个上。
+
+TODO
+
+<h2 id="earning-skill-points">获取技能点数</h2>
+
+下面列出了几种获得技能点的方法，目前总共不超过 521 点，包括所有章节和 DLC：
+
+- 升级你的角色，最高等级 50（64 技能点）
+- 完成主线任务（11 技能点）
+- 完成[黑檀心公约联合](/faction/ebonheart-pact)、[先祖神州](/faction/aldmeri-dominion)、[匕落同盟](/faction/daggerfall-covenant)和[冷港](/location/coldharbour)主线故事情节（冷港 3 个，匕落同盟 16 个，黑檀心公约联合 15 个，先祖神州 15 个）
+- 完成[帝都](/location/imperial-city)故事线（1 技能点）
+- 完成[沃斯加](/location/wrothgar)故事情节（3 技能点）
+- 在[瓦登费尔](/location/vvardenfell)完成提供能量、莫拉格帮和泰尔瓦尼家族任（3 技能点）
+- 完成[夏暮岛](/location/summerset)故事情节（3 技能点）
+- 完成艾斯维尔的故事情节（3 技能点）
+- 完成灰沼故事情节（3 技能点）
+- 完成[黑木](/location/blackwood)的故事情节（2 技能点）
+- 完成[高岛](/location/high-isle)故事情节（3 技能点）
+- 阅读未知之叶（[法师公会](/faction/mages-guild)的可选任务奖励）（2 技能点）
+- 完成[盗贼公会](/faction/thieves-guild)的主线任务（6 技能点）
+- 完成[黑暗兄弟会](/faction/dark-brotherhood)的主线任务（8 技能点）
+- 完成[发条城](/location/clockwork-city)的主线任务（8 技能点）
+- 完成[幽暗沼泽](/location/murkmire)的主线任务（7 技能点）
+- 完成龙堡的主线任务（6 技能点）
+- 完成[马卡斯城](/location/markarth)的主线任务（6 技能点）
+- 完成[死地](/location/the-deadlands)的主线任务（6 技能点）
+- 完成焱歌的[伽林](/location/galen)主线任务（6 技能点）
+- 完成龙之季节的主线任务（3 技能点）
+- 完成天际的黑暗之心的主线任务（3 技能点）
+- 完成湮灭之门的主线任务（3 技能点）
+- 完成布赖顿人的遗产的主线任务（3 技能点）
+- 玩或跳过教程任务[坚石之门](/quest/the-gates-of-adamant)或任何先前的章节教程（1 技能点 - 晨风之前创建的角色无法获得此技能点）
+- 获取天空碎片（基础游戏 113 技能点，DLC 和章节 62 技能点)
+- 在联盟战争中上榜（50 技能点）
+- 在公共地牢中完成挑战（基础游戏 16 技能点，DLC 和章节 14 技能点)
+- 完成[高岛](/location/high-isle)的[公共地牢](/location/high-isle#public-dungeons)任务（2 技能点）
+- 在组队地牢中完成故事任务（基础游戏 24 技能点，DLC 和章节 26 技能点)
+- 完成[沃斯加](/location/wrothgar)的[漩涡竞技场](/location/wrothgar#solo-trial)（1 技能点）
+
+## 无法获得的技能
+
+上面列出的 3 个技能点是无法获得的，具体取决于您拥有的内容和您在游戏中所做的选择。
+
+- 2 技能点 - 如果你决定不接受[法师公会](/faction/mages-guild)任务的未知之叶，则永久无法获得。
+- 1 技能点 - 如果你在晨风之前创建的角色，则永久无法获得（因为无法完成教程任务）。
+`;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta title={`技能 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="p-6 md:col-span-3">
+        <div class="markdown-body">
+          <h1>
+            技能
+            <small class="text-gray-500">Skill</small>
+          </h1>
+          <Fragment set:html={md2html(content)} />
+
+          {data.map((x: any) => <div>{x.attributes.name}</div>)}
+        </div>
+      </article>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>
