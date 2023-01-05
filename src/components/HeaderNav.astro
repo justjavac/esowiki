@@ -40,6 +40,17 @@ const menus = [
     title: "关于",
   },
 ];
+
+const moreMenus = [
+  {
+    href: "/dlc",
+    title: "DLC",
+  },
+  {
+    href: "/chapter",
+    title: "章节",
+  },
+];
 ---
 
 <header
@@ -69,31 +80,75 @@ const menus = [
     >
       {
         menus.map(({ href, title }) => (
-          <li>
+          <li class="ml-12">
             <HeaderLink href={href}>{title}</HeaderLink>
           </li>
         ))
       }
+      <li class="relative ml-12">
+        <button
+          id="more-menu"
+          type="button"
+          class="text-gray-500 group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none"
+          aria-expanded="false"
+        >
+          <span>更多</span>
+          <svg
+            class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <div
+          class="hidden absolute z-10 mt-1 transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
+        >
+          <div
+            class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+          >
+            <div class="grid gap-1 bg-white py-4 px-8 sm:gap-4">
+              {
+                moreMenus.map(({ href, title }) => (
+                  <HeaderLink href={href}>{title}</HeaderLink>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </li>
     </ul>
   </nav>
-</header>
 
-<script is:inline>
-  window.onload = function () {
-    const menuIcon = document.querySelector("#toggle-menu");
-    menuIcon.addEventListener("click", () => {
-      menuIcon.classList.toggle("expanded");
-      document.body.classList.toggle("overflow-hidden");
-      document.getElementById("page-top")?.classList.toggle("h-screen");
-      document.querySelector("#page-top nav")?.classList.toggle("hidden");
-      document.querySelector("#area-list")?.classList.toggle("hidden");
-      document.querySelector("astro-island")?.classList.toggle("hidden");
-      const matches = document.querySelectorAll("astro-island");
-      if (matches && matches.length) {
-        matches.forEach((elem) => {
-          elem?.classList.toggle("hidden");
-        });
-      }
-    });
-  };
-</script>
+  <script is:inline>
+    window.onload = function () {
+      const menuIcon = document.querySelector("#toggle-menu");
+      menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("expanded");
+        document.body.classList.toggle("overflow-hidden");
+        document.getElementById("page-top")?.classList.toggle("h-screen");
+        document.querySelector("#page-top nav")?.classList.toggle("hidden");
+        document.querySelector("#area-list")?.classList.toggle("hidden");
+        document.querySelector("astro-island")?.classList.toggle("hidden");
+        const matches = document.querySelectorAll("astro-island");
+        if (matches && matches.length) {
+          matches.forEach((elem) => {
+            elem?.classList.toggle("hidden");
+          });
+        }
+      });
+
+      const moreMenu = document.querySelector("#more-menu");
+      moreMenu.addEventListener("click", () => {
+        moreMenu.classList.toggle("expanded");
+        document.querySelector("#more-menu + div")?.classList.toggle("hidden");
+      });
+    };
+  </script>
+</header>
