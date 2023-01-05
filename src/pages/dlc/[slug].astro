@@ -1,0 +1,78 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Meta from "@/components/Meta.astro";
+import { md2html } from "@/utils";
+
+const { slug } = Astro.params;
+
+/** DLC */
+async function getDLC(slug: string) {
+  const query = new URLSearchParams();
+  query.set("pagination[pageSize]", "1");
+  query.set("pagination[page]", "1");
+  query.set("filters[slug][$eq]", slug!);
+  query.set("populate[builds][populate]", "*");
+
+  const response = await fetch(`${ESO_API_URL}/api/dlcs?${query}`);
+  const result = await response.json();
+  return result?.data[0];
+}
+
+const data = await getDLC(slug!);
+
+if (data == null) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const meta = [
+  { name: "名称", content: data.attributes.name },
+  { name: "英文", content: data.attributes.nameEn },
+  { name: "上线时间", content: data.attributes.releaseDate },
+  {
+    name: "",
+    content: `<img class="float-left mr-2" src="${data.attributes.thumb}?imageView2/2/w/64/q/200" width="200" alt="" />`,
+  },
+];
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`${data.attributes.name} - DLC - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="markdown-body p-6 md:col-span-3">
+        <h1>
+          {data.attributes.name}
+          <small class="text-gray-500">{data.attributes.nameEn}</small>
+        </h1>
+        <p>
+          {data.attributes.name}是上古卷轴OL的一个<a href="/dlc">DLC</a>，发行于 {
+            data.attributes.releaseDate
+          }。
+        </p>
+        <blockquote set:html={md2html(data.attributes.description)} />
+        <Fragment set:html={md2html(data.attributes.content)} />
+      </article>
+
+      <aside class="py-6 md:col-span-1">
+        <Meta title="DLC" meta={meta} />
+      </aside>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>
