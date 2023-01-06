@@ -115,7 +115,7 @@ async function getQuest(quest: string) {
     .process(html);
 }
 
-const NAME = "The Benefactor";
+const NAME = "Currency";
 
 if (import.meta.main) {
   const vfile = await getQuest(NAME);

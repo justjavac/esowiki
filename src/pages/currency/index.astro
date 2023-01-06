@@ -1,0 +1,175 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import { md2html } from "@/utils";
+
+/** 货币 */
+async function getCurrencies() {
+  const query = new URLSearchParams();
+  query.set("pagination[pageSize]", "50");
+  query.set("pagination[page]", "1");
+  query.set("sort[0]", "id:asc");
+  query.set("populate", "*");
+
+  const response = await fetch(`${ESO_API_URL}/api/currencies?${query}`);
+  return await response.json();
+}
+
+const { data: currencies } = await getCurrencies();
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta title={`货币 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto">
+      <article class="p-6">
+        <div class="markdown-body">
+          <h1>
+            货币
+            <small class="text-gray-500">Currency</small>
+          </h1>
+
+          <p>
+            上古卷轴OL有多种类型的<strong>货币</strong>，分别用在不同的场景。
+          </p>
+
+          <h2>不受限货币</h2>
+          <p>
+            以下货币可以自由提取或存入<a href="/bank">银行</a
+            >。它们不占用库存空间。
+          </p>
+          <ul>
+            {
+              currencies
+                .filter((x: any) => !x.attributes.restricted)
+                .map((x: any) => (
+                  <li
+                    set:html={md2html(
+                      `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.slug}) - ${x.attributes.description}`
+                    )}
+                  />
+                ))
+            }
+          </ul>
+
+          <h2>受限货币</h2>
+          <p>
+            以下货币被锁定在整个帐户范围内。它们不占用库存空间。它们不能从<a
+              href="/bank">银行</a
+            >存取。使用王冠购买的大多数物品都可以赠送给其他玩家，但王冠不能直接赠送。
+          </p>
+          <ul>
+            {
+              currencies
+                .filter((x: any) => x.attributes.restricted)
+                .map((x: any) => (
+                  <li
+                    set:html={md2html(
+                      `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.slug}) - ${x.attributes.description}`
+                    )}
+                  />
+                ))
+            }
+          </ul>
+
+          <h2>服务代币</h2>
+          <p>
+            服务代币仅在玩家选择屏幕上可见，并且只能从那里使用。它们通常从<a
+              href="/crown-store">王冠商店</a
+            >购买。
+          </p>
+          <ul>
+            <li>
+              <p>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/a/a0/ON-icon-store-Alliance_Change_Token.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+                盟友更改代币 - 用于更改角色所属联盟的代币。价格：<code
+                  >2,500</code
+                >
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </p>
+            </li>
+            <li>
+              <p>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/3/3d/ON-icon-store-Appearance_Change_Token.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+                外观更改代币 - 用于更改角色外观的令牌。价格：<code>1,000</code>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </p>
+            </li>
+            <li>
+              <p>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/7/70/ON-icon-store-Name_Change_Token.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+                姓名更改代币 - 用于更改角色名称的令牌。价格：<code>2,500</code>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </p>
+            </li>
+            <li>
+              <p>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/f/f7/ON-icon-store-Race_Change_Token.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+                种族更改代币 - 用于改变角色种族的代币。价格：<code>3,000</code>
+                <img
+                  class="inline"
+                  src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png"
+                  width="16"
+                  height="16"
+                  alt=""
+                />
+              </p>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>

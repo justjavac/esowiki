@@ -19,5 +19,6 @@ pnpm-debug.log*
 .DS_Store
 
 # eso files
-gamedata
-.cache
+gamedata/
+.cache/
+drafts/
