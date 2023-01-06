@@ -1,0 +1,71 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Pagination from "@/components/Pagination.astro";
+
+let page = Astro.url.searchParams.get("page") || 1;
+
+if (!/^\d+$/.test(page as string)) {
+  page = 1;
+}
+
+/** 文章 */
+async function getArticles() {
+  const query = new URLSearchParams();
+  query.set("pagination[pageSize]", "20");
+  query.set("pagination[page]", page as string);
+  query.set("filters[type][id][$null]", "1");
+  query.set("filters[id][$ne]", "1");
+  query.set("populate", "*");
+  //   query.set("sort[0]", "id:desc");
+
+  const response = await fetch(`${ESO_API_URL}/api/articles?${query}`);
+  return await response.json();
+}
+
+const {
+  data: articles,
+  meta: { pagination },
+} = await getArticles();
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`未分类文章 - ${SITE_TITLE}`}
+      description={SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto">
+      <article class="p-6">
+        <div class="markdown-body">
+          <h1>
+            未分类文章
+            <small class="text-gray-500">Uncategorized Article</small>
+          </h1>
+
+          <ul>
+            {
+              articles.map((article: any) => (
+                <li>
+                  <a href={`/${article.attributes.slug}`}>
+                    {article.attributes.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <!-- <hr class="mt-8" />
+        <Pagination {...pagination} /> -->
+      </article>
+    </main>
+  </body>
+</html>
