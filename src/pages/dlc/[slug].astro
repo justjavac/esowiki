@@ -47,10 +47,6 @@ const meta = [
   },
   { name: "捆绑包", content: bundle },
   { name: "上线时间", content: data.attributes.releaseDate },
-  {
-    name: "",
-    content: `<img class="float-left mr-2" src="${data.attributes.thumb}" alt="" />`,
-  },
 ];
 ---
 
@@ -71,6 +67,13 @@ const meta = [
           {data.attributes.name}
           <small class="text-gray-500">{data.attributes.nameEn}</small>
         </h1>
+        <img
+          class="float-right ml-4"
+          src={data.attributes.thumb}
+          alt=""
+          width="64"
+          height="64"
+        />
         <p>
           {data.attributes.name}是上古卷轴OL的一个<a href="/dlc">DLC</a
           >，发行于{formatDate(data.attributes.releaseDate)}。
