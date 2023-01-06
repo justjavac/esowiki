@@ -115,10 +115,15 @@ async function getQuest(quest: string) {
     .process(html);
 }
 
-const NAME = "Currency";
-
 if (import.meta.main) {
-  const vfile = await getQuest(NAME);
+  const name = Deno.args[0];
+
+  if (name == null) {
+    console.log("请输入参数: `deno task uesp <名称>`");
+    Deno.exit(1);
+  }
+
+  const vfile = await getQuest(name);
   await Deno.writeTextFile(
     vfile.path,
     vfile.toString(),

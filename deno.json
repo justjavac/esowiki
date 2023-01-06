@@ -2,7 +2,7 @@
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
     "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts && deno fmt src/pages/news/",
-    "quest": "deno run --allow-net --allow-read --allow-write ./scripts/quest.ts && deno fmt src/pages/quest",
+    "uesp": "deno run --allow-net --allow-read --allow-write ./scripts/uesp.ts",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
     "esoitem": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
     "skill": "deno run --allow-net --allow-read  --allow-env ./scripts/skill.ts",

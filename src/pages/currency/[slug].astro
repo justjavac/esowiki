@@ -65,7 +65,7 @@ const meta = [
           </h1>
           <Fragment
             set:html={md2html(
-              `<img class="inline" src="${data.attributes.icon}" width="20" height="20" alt="" />${data.attributes.name}是上古卷轴OL的一种[货币](/currency)。${data.attributes.description}`
+              `<img class="inline" src="${data.attributes.icon}" width="16" height="16" alt="" /> **${data.attributes.name}**是上古卷轴OL的一种[货币](/currency)。${data.attributes.description}`
             )}
           />
           <Fragment set:html={md2html(data.attributes.content)} />

@@ -213,7 +213,7 @@ export const fixWikiLink: Plugin<[], Root> = () => (tree) => {
     if (isElement(node, "a")) {
       const href = node.properties!.href as string;
 
-      if (href.startsWith("/wiki/Lore:")) {
+      if (href?.startsWith("/wiki/Lore:")) {
         parent!.children.splice(index!, 1, ...node.children);
         return [SKIP, index];
       }
