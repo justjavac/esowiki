@@ -43,14 +43,49 @@ const menus = [
 
 const moreMenus = [
   {
+    href: "/chapter",
+    title: "章节",
+  },
+  {
     href: "/dlc",
     title: "DLC",
   },
   {
-    href: "/chapter",
-    title: "章节",
+    href: "/skill",
+    title: "技能",
+  },
+  {
+    href: "/faction",
+    title: "阵营",
+  },
+  {
+    href: "/race",
+    title: "种族",
+  },
+  {
+    href: "/class",
+    title: "职业",
+  },
+  {
+    href: "/mundus-stone",
+    title: "梦达思之石",
+  },
+  {
+    href: "/worldevent",
+    title: "世界事件",
+  },
+  {
+    href: "/attribute",
+    title: "属性",
+  },
+  {
+    href: "/role",
+    title: "角色",
   },
 ];
+
+const { pathname } = Astro.url;
+const isActive = moreMenus.some((menu) => pathname.startsWith(menu.href));
 ---
 
 <header
@@ -89,12 +124,17 @@ const moreMenus = [
         <button
           id="more-menu"
           type="button"
-          class="text-gray-500 group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none"
+          class:list={[
+            {
+              "font-bold": isActive,
+            },
+            "inline-flex leading-5 opacity-60 text-black text-no-underline hover:underline focus:underline whitespace-nowrap",
+          ]}
           aria-expanded="false"
         >
           <span>更多</span>
           <svg
-            class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500"
+            class="text-gray-400 h-5 w-5 group-hover:text-gray-500"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
@@ -108,18 +148,21 @@ const moreMenus = [
         </button>
 
         <div
-          class="hidden absolute z-10 mt-1 transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
+          class="hidden absolute z-10 mt-1 bg-white transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2"
         >
           <div
-            class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
+            class="overflow-hidden rounded-lg shadow-lg ring-1 py-1 ring-black ring-opacity-5"
           >
-            <div class="grid gap-1 bg-white py-4 px-8 sm:gap-4">
-              {
-                moreMenus.map(({ href, title }) => (
-                  <HeaderLink href={href}>{title}</HeaderLink>
-                ))
-              }
-            </div>
+            {
+              moreMenus.map(({ href, title }) => (
+                <HeaderLink
+                  href={href}
+                  class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900 hover:no-underline"
+                >
+                  {title}
+                </HeaderLink>
+              ))
+            }
           </div>
         </div>
       </li>
@@ -145,9 +188,13 @@ const moreMenus = [
       });
 
       const moreMenu = document.querySelector("#more-menu");
-      moreMenu.addEventListener("click", () => {
-        moreMenu.classList.toggle("expanded");
+      moreMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
         document.querySelector("#more-menu + div")?.classList.toggle("hidden");
+      });
+
+      window.addEventListener("click", (e) => {
+        document.querySelector("#more-menu + div")?.classList.add("hidden");
       });
     };
   </script>
