@@ -30,7 +30,12 @@ const uespWiki: Plugin<[], Root> = () => {
     file.data.title = toString(title);
 
     const category = select("#contentSub .subpages > a:nth-child(2)", tree) as Element;
-    file.data.category = toString(category);
+
+    try {
+      file.data.category = toString(category);
+    } catch (error) {
+      file.data.category = "unknown";
+    }
 
     const root = h(null, select("#mw-content-text", tree));
     const hTitle = h("title", title);
