@@ -15,7 +15,7 @@ async function getDLC(slug: string) {
   query.set("pagination[pageSize]", "1");
   query.set("pagination[page]", "1");
   query.set("filters[slug][$eq]", slug!);
-  query.set("populate[builds][populate]", "*");
+  query.set("populate", "*");
 
   const response = await fetch(`${ESO_API_URL}/api/dlcs?${query}`);
   const result = await response.json();
@@ -31,6 +31,10 @@ if (data == null) {
   });
 }
 
+const bundle = data.attributes.bundle.data
+  ? `<a href="/dlc/bundle#${data.attributes.bundle.data.attributes.slug}">${data.attributes.bundle.data.attributes.name}</a>`
+  : "无";
+
 const meta = [
   { name: "名称", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
@@ -41,6 +45,7 @@ const meta = [
         ? `<span class="text-red-600">无法购买</span>`
         : `${data.attributes.crowns} <img class="inline" src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png" width="16" height="16" title="王冠" alt="">`,
   },
+  { name: "捆绑包", content: bundle },
   { name: "上线时间", content: data.attributes.releaseDate },
   {
     name: "",

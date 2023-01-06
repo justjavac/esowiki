@@ -45,7 +45,7 @@ const {
           {
             data.map((x: any) => (
               <>
-                <h2>{x.attributes.name}</h2>
+                <h2 id={x.attributes.slug}>{x.attributes.name}</h2>
                 <p>
                   发行于{formatDate(x.attributes.releaseDate)}，售价
                   <code>{x.attributes.crowns}</code>{" "}
