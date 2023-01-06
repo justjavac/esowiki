@@ -34,10 +34,17 @@ if (data == null) {
 const meta = [
   { name: "名称", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
+  {
+    name: "价格",
+    content:
+      data.attributes.crowns === 0
+        ? "免费"
+        : `${data.attributes.crowns} <img class="inline" src="https://eso-cdn.denohub.com/thumb/8/8e/ON-icon-store-Crowns.png" width="16" height="16" title="王冠" alt="">`,
+  },
   { name: "上线时间", content: data.attributes.releaseDate },
   {
     name: "",
-    content: `<img class="float-left mr-2" src="${data.attributes.thumb}?imageView2/2/w/64/q/200" width="200" alt="" />`,
+    content: `<img class="float-left mr-2" src="${data.attributes.thumb}" alt="" />`,
   },
 ];
 ---

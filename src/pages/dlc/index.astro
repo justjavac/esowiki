@@ -66,14 +66,12 @@ const {
             上古卷轴OL目前一共有 {pagination.total} 个 DLC (按发布时间倒序排列):
           </p>
 
-          <p>TODO</p>
-
           <dl>
             {
               data.map((x: any) => (
                 <>
                   <dt>
-                    <a href={`/chapter/${x.attributes.slug}`}>
+                    <a href={`/dlc/${x.attributes.slug}`}>
                       {x.attributes.name}
                     </a>
                     <small class="text-gray-500">
