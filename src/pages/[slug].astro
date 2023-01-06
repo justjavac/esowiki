@@ -25,8 +25,6 @@ async function getArticle(slug: string) {
 
 const data = await getArticle(slug!);
 
-console.log(data.attributes);
-
 if (data == null) {
   return new Response(null, {
     status: 404,
