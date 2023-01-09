@@ -38,8 +38,7 @@ export function Set({ data }: SetProps) {
         marginBottom: 5,
         width: 394,
         height: 280,
-        backgroundImage:
-          "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
+        backgroundImage: "url(https://esoitem.uesp.net/resources/eso_item_border.png)",
         backgroundRepeat: "repeat-y",
       }}
     >
