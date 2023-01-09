@@ -179,7 +179,7 @@ allLinks.forEach((link) => {
           <defs>
             <filter id="blur"><feGaussianBlur stdDeviation="0.5" /></filter>
           </defs>
-          <image href="${data.file}" width="${data.size}" />
+          <image href="${data.file}?imageView2/2/w/350/q/85" width="${data.size}" />
           <image
             class="poi cursor-default hover:drop-shadow-[0_0_4px_#e0af70]"
             href="${data.poi_icon}"
