@@ -21,4 +21,4 @@
 
 ## 手机版
 
-感谢 [@cgqaq](https://github.com/cgqaq) 开发了手机版 <https://github.com/cgqaq/esomap_mobile>
+感谢 [@cgqaq](https://github.com/cgqaq) 开发了客户端版 <https://github.com/CGQAQ/esomap_flutter>
