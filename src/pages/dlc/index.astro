@@ -48,8 +48,8 @@ const {
             DLC。如果您在未购买 DLC 的情况下取消 ESO Plus，则不会丢失进度，并且获得的所有物品和技能都将保持可用状态。
           </p>
 
-          <p>
-            <span class="py-1 bg-slate-300">
+          <blockquote>
+            <p class="absent">
               <svg
                 class="inline-block align-text-top font-bold text-indigo-600"
                 width="20"
@@ -63,11 +63,13 @@ const {
                   fill="currentColor"
                 >
                 </path>
-              </svg><strong>小提示</strong>: 为了更优惠的购买，可以选择购买 <a
-                href="/dlc/bundle">DLC 捆绑包</a
+              </svg><strong>小提示</strong>
+            </p>
+            <p>
+              为了更优惠的购买，可以选择购买 <a href="/dlc/bundle">DLC 捆绑包</a
               >。
-            </span>
-          </p>
+            </p>
+          </blockquote>
 
           <p>
             <a href="/chapter/high-isle">高岛</a>被认为是一个<a href="/chapter"
@@ -84,7 +86,7 @@ const {
           </p>
 
           <p>
-            上古卷轴OL目前一共有 {pagination.total} 个 DLC (按发布时间倒序排列):
+            上古卷轴OL目前一共有 <code>{pagination.total}</code> 个 DLC (按发布时间倒序排列):
           </p>
 
           <dl>
