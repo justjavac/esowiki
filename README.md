@@ -1,6 +1,7 @@
 # 上古卷轴 OL 攻略
 
-上古卷轴 OL(简称 eso)游戏攻略，包括[职业](https://eso.denohub.com/class)、[装备](https://eso.denohub.com/set)、技能、地牢、任务、[地图](https://eso.denohub.com/map/27)、资料片等内容。
+上古卷轴 OL(简称
+eso)游戏攻略，包括[职业](https://eso.denohub.com/class)、[装备](https://eso.denohub.com/set)、技能、地牢、任务、[地图](https://eso.denohub.com/map/27)、资料片等内容。
 
 ## 缘起
 
@@ -21,4 +22,4 @@
 
 ## 手机版
 
-感谢 [@cgqaq](https://github.com/cgqaq) 开发了手机版 <https://github.com/cgqaq/esomap_mobile>
+感谢 [@cgqaq](https://github.com/cgqaq) 开发了客户端版 <https://github.com/CGQAQ/esomap_flutter>
