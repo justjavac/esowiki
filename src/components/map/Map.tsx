@@ -1,5 +1,5 @@
 import type { ComponentChild } from "preact";
-import { Link, RoutableProps } from "preact-router";
+import { Link, RoutableProps, useRouter } from "preact-router";
 import type { PathData, PoiData } from "@/types";
 import { CDN_URL, MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { usePanZoom } from "@/hooks";
@@ -7,7 +7,9 @@ import { mapData, poisOnMap } from "@/store";
 
 export function Map(props: RoutableProps) {
   const mapRef = usePanZoom();
+  const [{ matches }] = useRouter();
   if (mapData.value == null) return null;
+  const poi = mapData.value.pois.find((poi) => poi.id === matches?.poi);
 
   return (
     <div class="relative w-[80vh] h-[80vh] mx-auto border-slate-600 touch-none">
@@ -15,6 +17,11 @@ export function Map(props: RoutableProps) {
         {mapData.value.name}
       </h1>
       <svg ref={mapRef} viewBox={`0 0 ${MAP_SIZE} ${MAP_SIZE}`}>
+        <defs>
+          <filter id="blur">
+            <feGaussianBlur stdDeviation="0.5" />
+          </filter>
+        </defs>
         <image
           href={`${CDN_URL}${mapData.value.file}?imageMogr2/format/webp`}
           width={MAP_SIZE}
@@ -30,7 +37,9 @@ export function Map(props: RoutableProps) {
           />
         )}
         {mapData.value.paths.map((path) =>
-          path.svg_path ? <Path key={path.id} {...path} showName={mapData.value?.id === 27} /> : (
+          path.svg_path ? (
+            <Path key={path.id} {...path} showName={mapData.value?.id === 27} />
+          ) : (
             <Circle
               key={path.id}
               {...path}
@@ -38,7 +47,13 @@ export function Map(props: RoutableProps) {
             />
           )
         )}
-        {poisOnMap.value.map((poi) => <Poi key={poi.id} {...poi} />)}
+        {poisOnMap.value.map((poi) => (
+          <Poi key={poi.id} {...poi} />
+        ))}
+        {poi && <Ping x={poi.x} y={poi.y} />}
+        {poi && !poisOnMap.value.find((x) => x.id === poi.id) && (
+          <Poi {...poi} />
+        )}
       </svg>
     </div>
   );
@@ -47,7 +62,11 @@ export function Map(props: RoutableProps) {
 function Poi(props: PoiData) {
   return (
     <Link
-      href={props.sub_zone_map_ids.length >= 1 ? `/map/${props.sub_zone_map_ids[0]}` : undefined}
+      href={
+        props.sub_zone_map_ids.length >= 1
+          ? `/map/${props.sub_zone_map_ids[0]}`
+          : undefined
+      }
       aria-label={props.name}
     >
       <image
@@ -100,14 +119,12 @@ function Path(props: PathProps) {
   );
 }
 
-type CircleProps =
-  & Pick<
-    PathData,
-    "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
-  >
-  & {
-    showName: boolean;
-  };
+type CircleProps = Pick<
+  PathData,
+  "map_id" | "name" | "circle_r" | "circle_x" | "circle_y"
+> & {
+  showName: boolean;
+};
 
 function Circle(props: CircleProps) {
   return (
@@ -145,5 +162,46 @@ function Text(props: TextProps) {
     >
       {props.children}
     </text>
+  );
+}
+
+interface PingProps {
+  x: number;
+  y: number;
+}
+
+function Ping(props: PingProps) {
+  return (
+    <>
+      {Array(3)
+        .fill(0)
+        .map((_, i) => (
+          <circle
+            cx={props.x * MAP_SIZE}
+            cy={props.y * MAP_SIZE}
+            r="0"
+            stroke="#5990D3"
+            stroke-width="6"
+            fill="transparent"
+            shape-rendering="optimizeSpeed"
+            filter="url(#blur)"
+          >
+            <animate
+              attributeName="r"
+              begin={`${i}s`}
+              values="0; 50; 90; 130; 160"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="opacity"
+              begin={`${i}s`}
+              values="0.5;.8;.8;.8;0"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+          </circle>
+        ))}
+    </>
   );
 }

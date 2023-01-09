@@ -67,21 +67,21 @@ export function usePanZoom() {
     panzoom.value?.reset({ animate: false });
   }, [matches?.id]);
 
-  // 根据 poi 参数，聚焦 poi 元素
-  useEffect(() => {
-    if (panzoom.value == null) return;
-    if (mapData.value == null) return;
-    if (mapRef.current == null) return;
+  // // 根据 poi 参数，聚焦 poi 元素
+  // useEffect(() => {
+  //   if (panzoom.value == null) return;
+  //   if (mapData.value == null) return;
+  //   if (mapRef.current == null) return;
 
-    const poi = mapData.value.pois.find((poi) => poi.id === matches?.poi);
-    if (poi == null) return;
+  //   const poi = mapData.value.pois.find((poi) => poi.id === matches?.poi);
+  //   if (poi == null) return;
 
-    togglePoiTypeOn(poi.type);
-    const { x, y } = calcPoiPosition(poi, mapRef.current);
+  //   togglePoiTypeOn(poi.type);
+  //   const { x, y } = calcPoiPosition(poi, mapRef.current);
 
-    panzoom.value.zoom(5);
-    requestAnimationFrame(() => panzoom.value!.pan(x, y, { animate: true }));
-  }, [matches?.poi]);
+  //   panzoom.value.zoom(5);
+  //   requestAnimationFrame(() => panzoom.value!.pan(x, y, { animate: true }));
+  // }, [matches?.poi]);
 
   return mapRef;
 }
