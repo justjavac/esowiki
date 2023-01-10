@@ -1,10 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 /** 阵营 */
 async function getFactions() {
@@ -20,56 +17,40 @@ async function getFactions() {
 const data = await getFactions();
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`阵营 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout
+  name="阵营"
+  nameEn="Faction"
+  description="阵营是争夺泰姆瑞尔控制权、金钱、权力或实现任何其他目标的组织。许多阵营都是可以加入的，这样做有很多好处。您可以同时成为多个阵营的成员。"
+>
+  <p>
+    阵营是争夺泰姆瑞尔控制权、金钱、权力或实现任何其他目标的组织。许多阵营都是可以加入的，这样做有很多好处。您可以同时成为多个阵营的成员。
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            阵营
-            <small class="text-gray-500">Faction</small>
-          </h1>
-          <p>
-            阵营是争夺泰姆瑞尔控制权、金钱、权力或实现任何其他目标的组织。许多阵营都是可以加入的，这样做有很多好处。您可以同时成为多个阵营的成员。
-          </p>
-
-          {
-            data.map((type: any) => (
-              <>
-                <h2 id={type.attributes.slug}>
-                  {type.attributes.name}
-                  <small class="text-gray-500">{type.attributes.nameEn}</small>
-                </h2>
-                <Fragment set:html={md2html(type.attributes.description)} />
-                <ul>
-                  {type.attributes.factions.data?.map((x: any) => (
-                    <li>
-                      <Fragment
-                        set:html={md2html(
-                          `[${x.attributes.name}](/faction/${x.attributes.slug})
-                          - ${x.attributes.description}${
-                            x.attributes.icon && type.attributes.name === "公会"
-                              ? `<img class="inline-flex" src="${x.attributes.icon}" width="16" height="16" alt="" />`
-                              : ""
-                          }`
-                        )}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ))
-          }
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  {
+    data.map((type: any) => (
+      <>
+        <h2 id={type.attributes.slug}>
+          {type.attributes.name}
+          <small class="text-gray-500">{type.attributes.nameEn}</small>
+        </h2>
+        <Fragment set:html={md2html(type.attributes.description)} />
+        <ul>
+          {type.attributes.factions.data?.map((x: any) => (
+            <li>
+              <Fragment
+                set:html={md2html(
+                  `[${x.attributes.name}](/faction/${x.attributes.slug})
+                - ${x.attributes.description}${
+                    x.attributes.icon && type.attributes.name === "公会"
+                      ? `<img class="inline-flex" src="${x.attributes.icon}" width="16" height="16" alt="" />`
+                      : ""
+                  }`
+                )}
+              />
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+</ListLayout>

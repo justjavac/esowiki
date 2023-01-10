@@ -1,9 +1,6 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "id:asc");
@@ -14,69 +11,48 @@ const result = await response.json();
 const data = result?.data;
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`梦达思之石 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout
+  name="梦达思之石"
+  nameEn="Mundus Stone"
+  description="梦达思之石是献给星座的立石，这些梦达思之石可以在联盟和希罗迪尔的地图上找到。激活之后会给你一个永久的赐福，但是一次只能有激活 1 个。"
+>
+  <img
+    class="float-left mr-1"
+    src="https://eso-cdn.denohub.com/thumb/a/a5/ON-mapicon-MundusStone.png"
+    height="64"
+    width="64"
+    alt="梦达思之石"
+  />
+  <p>
+    梦达思之石是献给星座的立石，上古卷轴OL一共有 {data.length} 块梦达思之石，这些梦达思之石可以在联盟和希罗迪尔的地图上找到。激活之后会给你一个永久的赐福，但是一次只能有激活
+    1 个。当玩家使用<a href="/set/twice-born-star">再生之星</a
+    >套装时，允许角色同时拥有 2 个赐福。
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            梦达思之石
-            <small class="text-gray-500">Mundus Stone</small>
-          </h1>
-          <img
-            class="float-left mr-1"
-            src="https://eso-cdn.denohub.com/thumb/a/a5/ON-mapicon-MundusStone.png"
-            height="64"
-            width="64"
-            alt="梦达思之石"
-          />
-          <p>
-            梦达思之石是献给星座的立石，上古卷轴OL一共有 {data.length} 块梦达思之石，这些梦达思之石可以在联盟和希罗迪尔的地图上找到。激活之后会给你一个永久的赐福，但是一次只能有激活
-            1 个。当玩家使用<a href="/set/twice-born-star">再生之星</a
-            >套装时，允许角色同时拥有 2 个赐福。
-          </p>
+  <h2 class="clear-both">赐福效果</h2>
+  <ul>
+    {
+      data.map((x: any) => (
+        <li>
+          <a href={`/mundus-stone/${x.attributes.slug}`}>{x.attributes.name}</a>
+          - {x.attributes.effect}
+        </li>
+      ))
+    }
+  </ul>
 
-          <h2 class="clear-both">赐福效果</h2>
-          <ul>
-            {
-              data.map((x: any) => (
-                <li>
-                  <a href={`/mundus-stone/${x.attributes.slug}`}>
-                    {x.attributes.name}
-                  </a>
-                  - {x.attributes.effect}
-                </li>
-              ))
-            }
-          </ul>
-
-          <h2>你知道吗？</h2>
-          <ul>
-            <li>
-              <a href="/mundus-stone/lord">君主</a>之石是唯一一个无法在<a
-                href="/location/cyrodiil">西罗帝尔</a
-              >找到的梦达思之石。
-            </li>
-            <li>
-              在<a href="/location/craglorn">荒崖</a>有 3
-              块没有标记的破碎梦达思之石，分别是君主，淑女和天马。它们与任务 <a
-                href="/quest/the-corrupted-stone">The Corrupted Stone</a
-              > 有关，不能用于改变赐福。
-            </li>
-          </ul>
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  <h2>你知道吗？</h2>
+  <ul>
+    <li>
+      <a href="/mundus-stone/lord">君主</a>之石是唯一一个无法在<a
+        href="/location/cyrodiil">西罗帝尔</a
+      >找到的梦达思之石。
+    </li>
+    <li>
+      在<a href="/location/craglorn">荒崖</a>有 3
+      块没有标记的破碎梦达思之石，分别是君主，淑女和天马。它们与任务 <a
+        href="/quest/the-corrupted-stone">The Corrupted Stone</a
+      > 有关，不能用于改变赐福。
+    </li>
+  </ul>
+</ListLayout>

@@ -1,10 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "releaseDate:desc");
@@ -18,56 +15,36 @@ const {
 } = result;
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`章节 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout
+  name="章节"
+  nameEn="Chapter"
+  description="章节是上古卷轴OL的大型扩展。新发布的章节不能在王冠商城中购买，也不包含在 ESO Plus 订阅。每个章节中始终包含一个大区域。"
+>
+  <p>
+    章节是上古卷轴OL的大型扩展。新发布的章节不能在<a href="/game/crown-store"
+      >王冠商城</a
+    >中购买，也不包含在 <a href="/game/eso-plus">ESO Plus</a> 订阅中，想要在 steam
+    上单独购买。新章节包括以前的章节，而升级版本则不包括。旧章节的部分通常在初始发布一年后通过
+    ESO Plus 和<a href="/game/crown-store">王冠商城</a>作为 <a href="/dlc"
+      >DLC</a
+    >
+    提供。每个章节中始终包含一个大区域。
+  </p>
+  <p>
+    上古卷轴OL目前一共有 {pagination.total} 个章节 (按发布时间倒序排列):
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            章节
-            <small class="text-gray-500">Chapter</small>
-          </h1>
-          <p>
-            章节是上古卷轴OL的大型扩展。新发布的章节不能在<a
-              href="/game/crown-store">王冠商城</a
-            >中购买，也不包含在 <a href="/game/eso-plus">ESO Plus</a> 订阅中，想要在
-            steam 上单独购买。新章节包括以前的章节，而升级版本则不包括。旧章节的部分通常在初始发布一年后通过
-            ESO Plus 和<a href="/game/crown-store">王冠商城</a>作为 <a
-              href="/dlc">DLC</a
-            >
-            提供。每个章节中始终包含一个大区域。
-          </p>
-          <p>
-            上古卷轴OL目前一共有 {pagination.total} 个章节 (按发布时间倒序排列):
-          </p>
-
-          <dl>
-            {
-              data.map((x: any) => (
-                <>
-                  <dt>
-                    <a href={`/chapter/${x.attributes.slug}`}>
-                      {x.attributes.name}
-                    </a>
-                    <small class="text-gray-500">
-                      {x.attributes.releaseDate}
-                    </small>
-                  </dt>
-                  <dd set:html={md2html(x.attributes.description)} />
-                </>
-              ))
-            }
-          </dl>
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  <dl>
+    {
+      data.map((x: any) => (
+        <>
+          <dt>
+            <a href={`/chapter/${x.attributes.slug}`}>{x.attributes.name}</a>
+            <small class="text-gray-500">{x.attributes.releaseDate}</small>
+          </dt>
+          <dd set:html={md2html(x.attributes.description)} />
+        </>
+      ))
+    }
+  </dl>
+</ListLayout>

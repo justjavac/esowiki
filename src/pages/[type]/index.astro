@@ -5,6 +5,7 @@ import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
 import Footer from "@/components/Footer.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Pagination from "@/components/Pagination.astro";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const { type } = Astro.params;
 
@@ -55,43 +56,21 @@ const {
 } = await getArticles(typeData.id);
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${typeData.attributes.name} - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto">
-      <article class="p-6">
-        <div class="markdown-body">
-          <h1>
-            {typeData.attributes.name}
-            <small class="text-gray-500">{typeData.attributes.nameEn}</small>
-          </h1>
-          <p>{typeData.attributes.description}</p>
-
-          <ul>
-            {
-              articles.map((article: any) => (
-                <li>
-                  <a
-                    href={`/${typeData.attributes.slug}/${article.attributes.slug}`}
-                  >
-                    {article.attributes.title}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <!-- <hr class="mt-8" />
-        <Pagination {...pagination} /> -->
-      </article>
-    </main>
-  </body>
-</html>
+<ListLayout
+  name={typeData.attributes.name}
+  nameEn={typeData.attributes.nameEn}
+  description={SITE_DESCRIPTION}
+>
+  <p>{typeData.attributes.description}</p>
+  <ul>
+    {
+      articles.map((article: any) => (
+        <li>
+          <a href={`/${typeData.attributes.slug}/${article.attributes.slug}`}>
+            {article.attributes.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</ListLayout>

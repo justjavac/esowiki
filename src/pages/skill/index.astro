@@ -1,10 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "id:asc");
@@ -43,26 +40,10 @@ const content = `
 `;
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`技能 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            技能
-            <small class="text-gray-500">Skill</small>
-          </h1>
-          <Fragment set:html={md2html(content)} />
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ListLayout
+  name="技能"
+  nameEn="Skill"
+  description="在上古卷轴OL中具有不同技能线。玩家只需要把技能放入操作栏里面，就可以升级该技能。有 3 种类型的技能：被动技能、主动技能和终极技能。"
+>
+  <Fragment set:html={md2html(content)} />
+</ListLayout>

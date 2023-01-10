@@ -1,10 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { SITE_DESCRIPTION, ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "id:asc");
@@ -15,68 +12,48 @@ const result = await response.json();
 const data = result?.data;
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`属性 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout name="属性" nameEn="Attribute" description={SITE_DESCRIPTION}>
+  <p>
+    在上古卷轴OL中，玩家只有 <code>3</code>
+    个主要属性。每个都由一个彩色条表示，每当属性小于 <code>100%</code> 时，该颜色条就会显示在屏幕底部。
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            属性
-            <small class="text-gray-500">Attribute</small>
-          </h1>
-
-          <p>
-            在上古卷轴OL中，玩家只有 <code>3</code>
-            个主要属性。每个都由一个彩色条表示，每当属性小于 <code>100%</code> 时，该颜色条就会显示在屏幕底部。
-          </p>
-
-          <dl>
-            {
-              data.map((x: any) => (
-                <>
-                  <dt>
-                    <a
-                      href={`/attribute/${x.attributes.slug}`}
-                      style={`color:${x.attributes.color}`}
-                    >
-                      {x.attributes.name}
-                    </a>
-                  </dt>
-                  <dd set:html={md2html(x.attributes.description)} />
-                </>
-              ))
-            }
-          </dl>
-
-          <p>
-            在等级 50 之前，<strong>每次升级时</strong>所有 3
-            个属性的上限值减少大约 <code>120</code> 点，所有 3 个属性的恢复速度减少大约
-            <code>5</code>
-            点。此外，玩家将会获得一个或多个属性点，可以选择将一个属性增加 <code
-              >111</code
+  <dl>
+    {
+      data.map((x: any) => (
+        <>
+          <dt>
+            <a
+              href={`/attribute/${x.attributes.slug}`}
+              style={`color:${x.attributes.color}`}
             >
-            点（生命值为 <code>122</code> 点），也可以稍后再增加属性。
-          </p>
+              {x.attributes.name}
+            </a>
+          </dt>
+          <dd set:html={md2html(x.attributes.description)} />
+        </>
+      ))
+    }
+  </dl>
 
-          <p>
-            某些类型的盔甲、武器和饰品只要玩家戴上它们，就会增加你的属性上限或属性恢复。食物和一些药水会增加你的属性上限，饮料会在一段时间内增加你的属性恢复能力。一次只能激活一种食物、饮料或药水效果。
-          </p>
+  <p>
+    在等级 50 之前，<strong>每次升级时</strong>所有 3 个属性的上限值减少大约 <code
+      >120</code
+    > 点，所有 3 个属性的恢复速度减少大约
+    <code>5</code>
+    点。此外，玩家将会获得一个或多个属性点，可以选择将一个属性增加 <code
+      >111</code
+    >
+    点（生命值为 <code>122</code> 点），也可以稍后再增加属性。
+  </p>
 
-          <p>
-            属性点分配可以稍后花费（少量）金币在神龛进行更改，也可以使用王冠商店的<a
-              href="/item/attribute-respecification-scroll">属性重新配置卷轴</a
-            >进行更改。
-          </p>
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  <p>
+    某些类型的盔甲、武器和饰品只要玩家戴上它们，就会增加你的属性上限或属性恢复。食物和一些药水会增加你的属性上限，饮料会在一段时间内增加你的属性恢复能力。一次只能激活一种食物、饮料或药水效果。
+  </p>
+
+  <p>
+    属性点分配可以稍后花费（少量）金币在神龛进行更改，也可以使用王冠商店的<a
+      href="/item/attribute-respecification-scroll">属性重新配置卷轴</a
+    >进行更改。
+  </p>
+</ListLayout>

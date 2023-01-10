@@ -1,9 +1,6 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "id:asc");
@@ -16,63 +13,37 @@ const data = result?.data;
 const factions = ["先祖神州", "匕落同盟", "黑檀心公约联合"];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`种族 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout
+  name="种族"
+  nameEn="Race"
+  description="上古卷轴OL一共有 10 个种族。每个种族都有自己的特点，比如种族技能、种族特性、种族特征等。"
+>
+  <p>
+    上古卷轴OL一共有 10
+    个种族。每个种族都有自己的特点，比如种族技能、种族特性、种族特征等。下面按联盟阵营列出了
+    ESO 的可玩种族：
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            种族
-            <small class="text-gray-500">Race</small>
-          </h1>
-          <p>上古卷轴OL一共有 10 个种族。</p>
-          <ul>
-            <li>
-              每个种族都有自己的特点，比如种族技能、种族特性、种族特征等。
-            </li>
-            <li>每个种族都有自己的阵营，阵营决定了玩家可以选择的职业。</li>
-            <li>每个种族都有自己的起源，起源决定了玩家的初始属性。</li>
-            <li>每个种族都有自己的外观，外观决定了玩家的初始外观。</li>
-            <li>每个种族都有自己的声音，声音决定了玩家的初始声音。</li>
-          </ul>
-
-          {
-            factions.map((factionName) => (
-              <>
-                <h3>{factionName}</h3>
-                <ul>
-                  {data
-                    .filter((x: any) => {
-                      const faction = x.attributes.faction.data;
-                      if (!faction) return false;
-                      return faction.attributes.name === factionName;
-                    })
-                    .map((x: any) => (
-                      <li>
-                        <p>
-                          <a href={`/race/${x.attributes.slug}`}>
-                            {x.attributes.name}
-                          </a>
-                        </p>
-                      </li>
-                    ))}
-                </ul>
-              </>
-            ))
-          }
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  {
+    factions.map((factionName) => (
+      <>
+        <h3>{factionName}</h3>
+        <ul>
+          {data
+            .filter((x: any) => {
+              const faction = x.attributes.faction.data;
+              if (!faction) return false;
+              return faction.attributes.name === factionName;
+            })
+            .map((x: any) => (
+              <li>
+                <p>
+                  <a href={`/race/${x.attributes.slug}`}>{x.attributes.name}</a>
+                </p>
+              </li>
+            ))}
+        </ul>
+      </>
+    ))
+  }
+</ListLayout>

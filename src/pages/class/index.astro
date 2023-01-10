@@ -1,9 +1,6 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import { ESO_API_URL } from "@/consts";
+import ListLayout from "@/layouts/ListLayout.astro";
 
 const query = new URLSearchParams();
 query.set("sort[0]", "id:asc");
@@ -14,56 +11,38 @@ const result = await response.json();
 const data = result?.data;
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`职业 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ListLayout
+  name="职业"
+  nameEn="Class"
+  description="在上古卷轴OL中，玩家必须在游戏开始时选择一个职业。所有的 6 个职业都可以自定义，但是有些职业可能更适合某些角色。无论你选择什么职业或种族，所有武器和盔甲都可用。每个职业都有 3 个独特的技能线。"
+>
+  <p>
+    在上古卷轴OL中，玩家必须在游戏开始时选择一个职业。所有的 6
+    个职业都可以自定义，但是有些职业可能更适合某些角色。无论你选择什么<a
+      href="/class">职业</a
+    >或<a href="/race">种族</a>，所有武器和盔甲都可用。每个职业都有 3
+    个独特的技能线。
+  </p>
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            职业
-            <small class="text-gray-500">Class</small>
-          </h1>
-          <p>
-            在上古卷轴OL中，玩家必须在游戏开始时选择一个职业。所有的 6
-            个职业都可以自定义，但是有些职业可能更适合某些角色。无论你选择什么<a
-              href="/class">职业</a
-            >或<a href="/race">种族</a>，所有武器和盔甲都可用。每个职业都有 3
-            个独特的技能线。
-          </p>
+  <h2 class="clear-both">玩家职业</h2>
 
-          <h2 class="clear-both">玩家职业</h2>
-
-          <dl>
-            {
-              data.map((x: any) => (
-                <>
-                  <dt>
-                    <img
-                      class="inline-flex"
-                      src={x.attributes.thumb}
-                      height="64"
-                      width="64"
-                      alt=""
-                    />
-                    <a href={`/class/${x.attributes.slug}`}>
-                      {x.attributes.name}
-                    </a>
-                  </dt>
-                  <dd>{x.attributes.description}</dd>
-                </>
-              ))
-            }
-          </dl>
-        </div>
-      </article>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  <dl>
+    {
+      data.map((x: any) => (
+        <>
+          <dt>
+            <img
+              class="inline-flex"
+              src={x.attributes.thumb}
+              height="64"
+              width="64"
+              alt=""
+            />
+            <a href={`/class/${x.attributes.slug}`}>{x.attributes.name}</a>
+          </dt>
+          <dd>{x.attributes.description}</dd>
+        </>
+      ))
+    }
+  </dl>
+</ListLayout>

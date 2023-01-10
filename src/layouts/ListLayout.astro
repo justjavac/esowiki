@@ -1,0 +1,47 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, CDN_URL, SITE_DESCRIPTION } from "@/consts";
+
+export interface Props {
+  name?: string;
+  nameEn?: string;
+  description?: string;
+  pagination?: any;
+}
+
+const { name, nameEn, description, pagination } = Astro.props;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`${name} - ${SITE_TITLE}`}
+      description={description ?? SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto">
+      <article class="p-6">
+        <div class="markdown-body">
+          {
+            name && (
+              <h1>
+                {name}
+                <small class="text-gray-500">{nameEn}</small>
+              </h1>
+            )
+          }
+          <slot />
+        </div>
+        <!-- <hr class="mt-8" />
+        <Pagination {...pagination} /> -->
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,38 +1,19 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
+import ListLayout from "@/layouts/ListLayout.astro";
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`工具 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto">
-      <article class="p-6">
-        <div class="markdown-body">
-          <h1>工具 <small class="text-gray-500">Tool</small></h1>
-          <p>本页面提供一些有用的上古卷轴 OL 工具。</p>
-          <ul>
-            <li>
-              <a href="/tool/minion">Minion 汉化版</a> - Minion 是一个用于管理、下载、更新上古卷轴
-              OL 插件的工具。
-            </li>
-            <li>
-              <a href="/map">地图</a> - 用于上古卷轴 OL 的在线可交互地图。
-            </li>
-            <li>
-              <a href="/serverstatus">服务器状态</a> - 上古卷轴 OL 当前服务器状态
-            </li>
-          </ul>
-        </div>
-      </article>
-    </main>
-  </body>
-</html>
+<ListLayout name="工具" nameEn="Tool">
+  <p>本页面提供一些有用的上古卷轴 OL 工具。</p>
+  <ul>
+    <li>
+      <a href="/tool/minion">Minion 汉化版</a> - Minion 是一个用于管理、下载、更新上古卷轴
+      OL 插件的工具。
+    </li>
+    <li>
+      <a href="/map">地图</a> - 用于上古卷轴 OL 的在线可交互地图。
+    </li>
+    <li>
+      <a href="/serverstatus">服务器状态</a> - 上古卷轴 OL 当前服务器状态
+    </li>
+  </ul>
+</ListLayout>
