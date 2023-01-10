@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import Meta from "@/components/Meta.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL, CDN_URL } from "@/consts";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -147,128 +148,53 @@ const items = [
 const meta = [
   { name: "名称", content: attributes.name },
   { name: "英文", content: attributes.nameEn },
+  { name: "类型", content: `<a href="/set?type=制造">${attributes.type}</a>` },
+  { name: "部件数量", content: attributes.itemCount },
+  { name: "地点", content: attributes.location },
+  { name: "套装部位", content: attributes.itemSlots },
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${attributes.name} - 套装 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div
-          class="overflow-hidden border border-gray-300/50 shadow sm:rounded-lg shadow-gray-100"
-        >
-          <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">
-              {attributes.name}
-            </h3>
-            <p class="mt-1 max-w-2xl text-gray-500">
-              {attributes.nameEn}
-            </p>
-          </div>
-          <div class="border-t border-gray-200">
-            <dl>
-              <div
-                class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">套装图标</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  <img width="32" height="32" alt="" src={attributes.icon} />
-                </dd>
-              </div>
-              <div
-                class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">套装类型</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  <a
-                    href="http://127.0.0.1:3000/set?q=&type=%E5%88%B6%E9%80%A0&slot="
-                    class="text-indigo-600 hover:underline"
-                  >
-                    {attributes.type}
-                  </a>
-                </dd>
-              </div>
-              <div
-                class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">部件数量</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {attributes.itemCount}
-                </dd>
-              </div>
-              <div
-                class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">地点</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {attributes.location}
-                </dd>
-              </div>
-              <div
-                class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">套装部位</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {attributes.itemSlots}
-                </dd>
-              </div>
-              <div
-                class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">套装效果</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {
-                    Array(7)
-                      .fill(0)
-                      .map((_, i) => attributes[`setBonusDesc${i + 1}`])
-                      .filter(Boolean)
-                      .map((x) => <p>{x}</p>)
-                  }
-                </dd>
-              </div>
-              <div class="bg-white px-4 py-5 sm:px-6">
-                {attributes.name}（{attributes.nameEn}）是上古卷轴 OL 的一套
-                <a
-                  href="http://127.0.0.1:3000/set?q=&type=%E5%88%B6%E9%80%A0&slot="
-                  class="text-indigo-600 hover:underline"
-                >
-                  {attributes.type}
-                </a>
-                套装，由 {attributes.itemCount} 件装备组成，可以在 {
-                  attributes.location ?? "?"
-                } 区域获得，套装部件包括：
-                <div class="flex gap-1 flex-wrap mt-5">
-                  {
-                    items.map((x) => (
-                      <img
-                        class="hover:shadow-lg transition-shadow duration-450 ease-in-out "
-                        width="64"
-                        height="64"
-                        alt={x.name}
-                        title={x.name}
-                        src={`${CDN_URL}/esoui/art/icons/${x.icon}`}
-                      />
-                    ))
-                  }
-                </div>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </article>
-      <aside class="py-6 md:col-span-1">
-        <Meta title="套装" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ArticleLayout
+  name={attributes.name}
+  nameEn={attributes.nameEn}
+  type="套装"
+  meta={meta}
+>
+  <p>
+    <abbr title={attributes.nameEn}>{attributes.name}</abbr>是上古卷轴 OL 的一套<a
+      href={`/set?type=制造`}>{attributes.type}</a
+    >套装，由 <code>{attributes.itemCount}</code> 件装备组成，可以在 {
+      attributes.location ?? "?"
+    } 区域获得。
+  </p>
+  <p>
+    <strong>套装效果</strong>:
+  </p>
+  <ul>
+    {
+      Array(7)
+        .fill(0)
+        .map((_, i) => attributes[`setBonusDesc${i + 1}`])
+        .filter(Boolean)
+        .map((x) => <li>{x}</li>)
+    }
+  </ul>
+  <p>
+    {attributes.name}套装部件包括：
+    <div class="flex gap-1 flex-wrap mt-5">
+      {
+        items.map((x) => (
+          <img
+            class="hover:shadow-lg transition-shadow duration-450 ease-in-out "
+            width="64"
+            height="64"
+            alt={x.name}
+            title={x.name}
+            src={`${CDN_URL}/esoui/art/icons/${x.icon}`}
+          />
+        ))
+      }
+    </div>
+  </p>
+</ArticleLayout>

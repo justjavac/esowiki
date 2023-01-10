@@ -1,11 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -37,39 +33,12 @@ const meta = [
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`攻略 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <h1 class="text-4xl text-gray-900 font-bold">
-          {data.attributes.title}
-        </h1>
-        {
-          data.attributes.image && (
-            <img
-              class="my-4 shadow-gray-300"
-              src={data.attributes.image}
-              alt=""
-            />
-          )
-        }
-        <div class="markdown-body">
-          <p class="text-gray-500">{data.attributes.description}</p>
-          <div set:html={md2html(data.attributes.content)} />
-        </div>
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="构建" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ArticleLayout name={data.attributes.title} type="构建" meta={meta}>
+  {
+    data.attributes.image && (
+      <img class="my-4 shadow-gray-300" src={data.attributes.image} alt="" />
+    )
+  }
+  <p class="text-gray-500">{data.attributes.description}</p>
+  <Fragment set:html={md2html(data.attributes.content)} />
+</ArticleLayout>

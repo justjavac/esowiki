@@ -1,0 +1,48 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, CDN_URL, SITE_DESCRIPTION } from "@/consts";
+import Meta, { type Meta as MetaProps } from "@/components/Meta.astro";
+
+export interface Props {
+  name: string;
+  type: string;
+  nameEn?: string;
+  description?: string;
+  meta: MetaProps[];
+}
+
+const { name, nameEn, type, description, meta } = Astro.props;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta
+      title={`${name} - ${type} - ${SITE_TITLE}`}
+      description={description ?? SITE_DESCRIPTION}
+    />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <article class="p-6 md:col-span-3">
+        <div class="markdown-body">
+          <h1>
+            {name}
+            <small class="text-gray-500">{nameEn}</small>
+          </h1>
+          <slot />
+        </div>
+      </article>
+      <aside class="py-6 md:col-span-1">
+        <Meta title={type} meta={meta} />
+      </aside>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>

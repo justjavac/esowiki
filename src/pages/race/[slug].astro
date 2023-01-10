@@ -1,11 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -55,70 +51,49 @@ const meta = [
   { name: "姓名", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
   { name: "阵营", content: faction },
+  {
+    name: "",
+    content: `<img src="${data.attributes.thumb}" width="200" alt="" />`,
+  },
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${data.attributes.name} - 上古卷轴OL种族 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="种族"
+  meta={meta}
+>
+  <Fragment set:html={md2html(data.attributes.description)} />
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            {data.attributes.name}
-            <small class="text-gray-500">{data.attributes.nameEn}</small>
-          </h1>
-          <Fragment set:html={md2html(data.attributes.description)} />
+  {
+    skills.length > 0 && (
+      <>
+        <h2>种族技能</h2>
+        <ol>
+          {skills.map((skill: any) => (
+            <li>
+              <p>
+                <a href={`/skill/${skill.attributes.slug}`}>
+                  <img
+                    class="inline-flex"
+                    src={skill.attributes.icon}
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  {skill.attributes.name}
+                </a>
+              </p>
+              <p
+                set:html={skill.attributes.description.replace("\n", "<br />")}
+              />
+            </li>
+          ))}
+        </ol>
+      </>
+    )
+  }
 
-          {
-            skills.length > 0 && (
-              <>
-                <h2>种族技能</h2>
-                <ol>
-                  {skills.map((skill: any) => (
-                    <li>
-                      <p>
-                        <a href={`/skill/${skill.attributes.slug}`}>
-                          <img
-                            class="inline-flex"
-                            src={skill.attributes.icon}
-                            width="24"
-                            height="24"
-                            alt=""
-                          />
-                          {skill.attributes.name}
-                        </a>
-                      </p>
-                      <p
-                        set:html={skill.attributes.description.replace(
-                          "\n",
-                          "<br />"
-                        )}
-                      />
-                    </li>
-                  ))}
-                </ol>
-              </>
-            )
-          }
-
-          <Fragment set:html={md2html(data.attributes.content)} />
-        </div>
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="种族" meta={meta} icon={data.attributes.thumb} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  <Fragment set:html={md2html(data.attributes.content)} />
+</ArticleLayout>

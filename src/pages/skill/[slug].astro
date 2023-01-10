@@ -1,10 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Footer from "@/components/Footer.astro";
-import Meta from "@/components/Meta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL, CDN_URL } from "@/consts";
+import { ESO_API_URL } from "@/consts";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { md2html } from "@/utils";
 
 const { slug } = Astro.params;
 
@@ -66,68 +63,24 @@ const { attributes } = data[0];
 const meta = [
   { name: "名称", content: attributes.name },
   { name: "英文", content: attributes.nameEn },
+  { name: "类型", content: attributes.skillType },
+  { name: "技能线", content: attributes.skillLine },
+  {
+    name: "图标",
+    content: `<img width="32" height="32" alt="" src=${attributes.icon} />`,
+  },
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${attributes.name} - 技能 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div
-          class="overflow-hidden border border-gray-300/50 shadow sm:rounded-lg shadow-gray-100"
-        >
-          <div class="px-4 py-5 sm:px-6">
-            <h3 class="text-lg font-medium leading-6 text-gray-900">
-              {attributes.name}
-            </h3>
-            <p class="mt-1 max-w-2xl text-gray-500">
-              {attributes.nameEn}
-            </p>
-          </div>
-          <div class="border-t border-gray-200">
-            <dl>
-              <div
-                class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">技能图标</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  <img width="32" height="32" alt="" src={attributes.icon} />
-                </dd>
-              </div>
-              <div
-                class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">技能类型</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {attributes.skillType}
-                </dd>
-              </div>
-              <div
-                class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
-              >
-                <dt class="font-medium text-gray-500">技能线</dt>
-                <dd class="mt-1 text-gray-900 sm:col-span-2 sm:mt-0">
-                  {attributes.skillLine}
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="技能" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ArticleLayout
+  name={attributes.name}
+  nameEn={attributes.nameEn}
+  type="技能"
+  meta={meta}
+>
+  <p>
+    {attributes.name}是上古卷轴 OL 的一个<a href="/skill">技能</a>。
+  </p>
+  <Fragment set:html={md2html(attributes.description)} />
+  <Fragment set:html={md2html(attributes.content)} />
+</ArticleLayout>

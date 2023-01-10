@@ -1,12 +1,8 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { CDN_URL, ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
 import type { MapData, PoiData } from "@/types";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -90,7 +86,7 @@ meta.push({
 });
 ---
 
-<style is:global>
+<style is:inline>
   .markdown-body img.thumb + p:after {
     content: "";
     display: block;
@@ -98,98 +94,71 @@ meta.push({
   }
 </style>
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${name} - 地点 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ArticleLayout name={name} nameEn={nameEn} type="区域" meta={meta}>
+  {
+    data.attributes.thumb && (
+      <img
+        class="thumb float-left w-5/12 mr-4"
+        src={`${data.attributes.thumb}?imageView2/2/w/400/q/85`}
+        width="400"
+        alt=""
+      />
+    )
+  }
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            {name}
-            <small class="text-gray-500">{nameEn}</small>
-          </h1>
+  <Fragment set:html={md2html(data.attributes.description)} />
+  <Fragment set:html={md2html(data.attributes.content)} />
 
-          {
-            data.attributes.thumb && (
-              <img
-                class="thumb float-left w-5/12 mr-4"
-                src={`${data.attributes.thumb}?imageView2/2/w/400/q/85`}
-                width="400"
-                alt={data.attributes.name}
-              />
-            )
-          }
+  {
+    paths.length > 0 && (
+      <>
+        <h2>
+          地点 <small class="text-gray-500">Places</small>
+        </h2>
+        <ul>
+          {paths.map((x: any) => (
+            <li>
+              <a href={`/map/${x.map_id}`}>
+                <img
+                  class="inline-flex"
+                  src={`${CDN_URL}/esoui/art/icons/poi/poi_city_complete.png`}
+                  width="18"
+                  height="18"
+                  alt=""
+                />
+                {x.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 
-          <Fragment set:html={md2html(data.attributes.description)} />
-          <Fragment set:html={md2html(data.attributes.content)} />
-
-          {
-            paths.length > 0 && (
-              <>
-                <h2>
-                  地点 <small class="text-gray-500">Places</small>
-                </h2>
-                <ul>
-                  {paths.map((x: any) => (
-                    <li>
-                      <a href={`/map/${x.map_id}`}>
-                        <img
-                          class="inline-flex"
-                          src={`${CDN_URL}/esoui/art/icons/poi/poi_city_complete.png`}
-                          width="18"
-                          height="18"
-                          alt=""
-                        />
-                        {x.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            )
-          }
-
-          {
-            POIs.map(
-              ([zh, en, pois]) =>
-                pois.length > 0 && (
-                  <>
-                    <h2 id={slugId(en)}>
-                      {zh} <small class="text-gray-500">{en}</small>
-                    </h2>
-                    <ul>
-                      {pois.map((x) => (
-                        <li>
-                          <img
-                            class="inline-flex"
-                            src={`${CDN_URL}${x.icon}`}
-                            width="18"
-                            height="18"
-                            alt=""
-                          />
-                          <a href={`/map/${x.map_id}?poi=${x.id}`}>{x.name}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </>
-                )
-            )
-          }
-        </div>
-      </article>
-      <aside class="py-6 md:col-span-1">
-        <Meta title="区域" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  {
+    POIs.map(
+      ([zh, en, pois]) =>
+        pois.length > 0 && (
+          <>
+            <h2 id={slugId(en)}>
+              {zh} <small class="text-gray-500">{en}</small>
+            </h2>
+            <ul>
+              {pois.map((x) => (
+                <li>
+                  <img
+                    class="inline-flex"
+                    src={`${CDN_URL}${x.icon}`}
+                    width="18"
+                    height="18"
+                    alt=""
+                  />
+                  <a href={`/map/${x.map_id}?poi=${x.id}`}>{x.name}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+    )
+  }
+</ArticleLayout>

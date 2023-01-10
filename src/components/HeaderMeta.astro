@@ -10,15 +10,11 @@ export interface Props {
 const { title, description } = Astro.props;
 ---
 
-<!-- Global Metadata -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
 <link rel="shortcut icon" type="image/x-icon" href={`${CDN_URL}/ico/eso.ico`} />
 <meta name="generator" content={Astro.generator} />
-
-<!-- Primary Meta Tags -->
 <title>{title}</title>
-<meta name="title" content={title} />
 <meta name="description" content={description} />
 
 <script>

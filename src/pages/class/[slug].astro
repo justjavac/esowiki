@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Meta from "@/components/Meta.astro";
 import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -58,102 +59,81 @@ const meta = [
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${data.attributes.name} - 职业 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="职业"
+  meta={meta}
+>
+  <img
+    class="float-left mr-2"
+    src={`${data.attributes.thumb}?imageView2/2/w/64/q/85`}
+    width="64"
+    height="64"
+    alt=""
+  />
+  <Fragment set:html={md2html(data.attributes.description)} />
+  <Fragment set:html={md2html(data.attributes.content)} />
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="markdown-body p-6 md:col-span-3">
-        <h1>
-          {data.attributes.name}
-          <small class="text-gray-500">{data.attributes.nameEn}</small>
-        </h1>
-        <img
-          class="float-left mr-2"
-          src={`${data.attributes.thumb}?imageView2/2/w/64/q/85`}
-          width="64"
-          height="64"
-          alt=""
-        />
-        <Fragment set:html={md2html(data.attributes.description)} />
-        <Fragment set:html={md2html(data.attributes.content)} />
+  <h2 id="builds">构建</h2>
 
-        <h2 id="builds">构建</h2>
+  <ul>
+    {
+      data.attributes.builds.data.map((build: any) => (
+        <li>
+          <div class="inline-flex items-center">
+            <a href={`/build/${build.attributes.slug}`}>
+              {build.attributes.title}
+            </a>
+            <img
+              class="ml-2"
+              title={build.attributes.role.data.attributes.name}
+              src={build.attributes.role.data.attributes.thumb}
+              height="32"
+              width="32"
+              alt=""
+            />
+            <span
+              style={`color:${build.attributes.attribute.data.attributes.color}`}
+            >
+              {build.attributes.attribute.data.attributes.name}
+            </span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 
+  {skills.length > 0 && <h2>职业技能</h2>}
+
+  {
+    skillsWithType.map(([name, skills]) => (
+      <>
+        <h3>{name}</h3>
         <ul>
-          {
-            data.attributes.builds.data.map((build: any) => (
-              <li>
-                <div class="inline-flex items-center">
-                  <a href={`/build/${build.attributes.slug}`}>
-                    {build.attributes.title}
-                  </a>
+          {skills.map((skill: any) => (
+            <li
+              class={`${
+                skill.attributes.name !== skill.attributes.baseName && "ml-6"
+              }`}
+            >
+              <p>
+                <a href={`/skill/${skill.attributes.slug}`}>
                   <img
-                    class="ml-2"
-                    title={build.attributes.role.data.attributes.name}
-                    src={build.attributes.role.data.attributes.thumb}
-                    height="32"
-                    width="32"
+                    class="inline-flex"
+                    src={skill.attributes.icon}
+                    width="24"
+                    height="24"
                     alt=""
                   />
-                  <span
-                    style={`color:${build.attributes.attribute.data.attributes.color}`}
-                  >
-                    {build.attributes.attribute.data.attributes.name}
-                  </span>
-                </div>
-              </li>
-            ))
-          }
+                  {skill.attributes.name}
+                </a>
+                {skill.attributes.description}
+              </p>
+            </li>
+          ))}
         </ul>
-
-        {skills.length > 0 && <h2>职业技能</h2>}
-
-        {
-          skillsWithType.map(([name, skills]) => (
-            <>
-              <h3>{name}</h3>
-              <ul>
-                {skills.map((skill: any) => (
-                  <li
-                    class={`${
-                      skill.attributes.name !== skill.attributes.baseName &&
-                      "ml-6"
-                    }`}
-                  >
-                    <p>
-                      <a href={`/skill/${skill.attributes.slug}`}>
-                        <img
-                          class="inline-flex"
-                          src={skill.attributes.icon}
-                          width="24"
-                          height="24"
-                          alt=""
-                        />
-                        {skill.attributes.name}
-                      </a>
-                      {skill.attributes.description}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </>
-          ))
-        }
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="职业" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+      </>
+    ))
+  }
+</ArticleLayout>

@@ -1,11 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html, formatDate } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -50,43 +46,24 @@ const meta = [
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${data.attributes.name} - DLC - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="markdown-body p-6 md:col-span-3">
-        <h1>
-          {data.attributes.name}
-          <small class="text-gray-500">{data.attributes.nameEn}</small>
-        </h1>
-        <img
-          class="float-right ml-4"
-          src={data.attributes.thumb}
-          alt=""
-          width="64"
-          height="64"
-        />
-        <p>
-          {data.attributes.name}是上古卷轴OL的一个<a href="/dlc">DLC</a
-          >，发行于{formatDate(data.attributes.releaseDate)}。
-        </p>
-        <blockquote set:html={md2html(data.attributes.description)} />
-        <Fragment set:html={md2html(data.attributes.content)} />
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="DLC" meta={meta} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="DLC"
+  meta={meta}
+>
+  <img
+    class="float-right ml-4"
+    src={data.attributes.thumb}
+    alt=""
+    width="64"
+    height="64"
+  />
+  <p>
+    {data.attributes.name}是上古卷轴OL的一个<a href="/dlc">DLC</a>，发行于{
+      formatDate(data.attributes.releaseDate)
+    }。
+  </p>
+  <blockquote set:html={md2html(data.attributes.description)} />
+  <Fragment set:html={md2html(data.attributes.content)} />
+</ArticleLayout>

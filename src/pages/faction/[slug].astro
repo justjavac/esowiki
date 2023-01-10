@@ -1,11 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -70,71 +66,49 @@ const meta = [
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${data.attributes.name} - 上古卷轴OL阵营 - ${SITE_TITLE}`}
-      description={data.attributes.description || SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="阵营"
+  meta={meta}
+>
+  <Fragment
+    set:html={md2html(
+      `**${data.attributes.name}**是上古卷轴OL的一个[阵营](/faction)。${data.attributes.description}`
+    )}
+  />
+  <Fragment set:html={md2html(data.attributes.content)} />
 
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            {data.attributes.name}
-            <small class="text-gray-500">{data.attributes.nameEn}</small>
-          </h1>
-          <Fragment
-            set:html={md2html(
-              `**${data.attributes.name}**是上古卷轴OL的一个[阵营](/faction)。${data.attributes.description}`
-            )}
-          />
-          <Fragment set:html={md2html(data.attributes.content)} />
+  {skills.length > 0 && <h2>公会技能</h2>}
 
-          {skills.length > 0 && <h2>公会技能</h2>}
-
-          {
-            skillsWithType.map(([name, skills]) => (
-              <>
-                <h3>{name}</h3>
-                <ul>
-                  {skills.map((skill: any) => (
-                    <li
-                      class={`${
-                        skill.attributes.name !== skill.attributes.baseName &&
-                        "ml-6"
-                      }`}
-                    >
-                      <p>
-                        <a href={`/skill/${skill.attributes.slug}`}>
-                          <img
-                            class="inline-flex"
-                            src={skill.attributes.icon}
-                            width="24"
-                            height="24"
-                            alt=""
-                          />
-                          {skill.attributes.name}
-                        </a>
-                        {skill.attributes.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ))
-          }
-        </div>
-      </article>
-      <aside class="py-6 md:col-span-1">
-        <Meta title="阵营" meta={meta} icon={data.attributes.icon} />
-      </aside>
-    </main>
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+  {
+    skillsWithType.map(([name, skills]) => (
+      <>
+        <h3>{name}</h3>
+        <ul>
+          {skills.map((skill: any) => (
+            <li
+              class={`${
+                skill.attributes.name !== skill.attributes.baseName && "ml-6"
+              }`}
+            >
+              <p>
+                <a href={`/skill/${skill.attributes.slug}`}>
+                  <img
+                    class="inline-flex"
+                    src={skill.attributes.icon}
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  {skill.attributes.name}
+                </a>
+                {skill.attributes.description}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+</ArticleLayout>

@@ -1,11 +1,7 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
+import { ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
 
@@ -39,49 +35,25 @@ const meta = [
 ];
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta
-      title={`${data.attributes.name} - 梦达思之石 - ${SITE_TITLE}`}
-      description={SITE_DESCRIPTION}
-    />
-    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
-  </head>
-
-  <body>
-    <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            {data.attributes.name}
-            <small class="text-gray-500">{data.attributes.nameEn}</small>
-          </h1>
-          <img
-            class="float-left mr-4"
-            src={data.attributes.thumb}
-            width="64"
-            height="64"
-            alt={data.attributes.name}
-          />
-          <p>
-            {data.attributes.name}是上古卷轴 OL 的一块<a href="/mundus-stone"
-              >梦达思之石</a
-            >。激活这块石头会给你<strong>{data.attributes.effect}</strong
-            >的永久赐福。这将一直持续到您激活另一块<a href="/mundus-stone"
-              >梦达思之石</a
-            >。
-          </p>
-          <Fragment set:html={md2html(data.attributes.content)} />
-        </div>
-      </article>
-
-      <aside class="py-6 md:col-span-1">
-        <Meta title="梦达思之石" meta={meta} />
-      </aside>
-    </main>
-
-    <Footer />
-    <ScrollToTop />
-  </body>
-</html>
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="梦达思之石"
+  meta={meta}
+>
+  <img
+    class="float-left mr-4"
+    src={data.attributes.thumb}
+    width="64"
+    height="64"
+    alt={data.attributes.name}
+  />
+  <p>
+    {data.attributes.name}是上古卷轴 OL 的一块<a href="/mundus-stone"
+      >梦达思之石</a
+    >。激活这块石头会给你<strong>{data.attributes.effect}</strong
+    >的永久赐福。这将一直持续到您激活另一块<a href="/mundus-stone">梦达思之石</a
+    >。
+  </p>
+  <Fragment set:html={md2html(data.attributes.content)} />
+</ArticleLayout>
