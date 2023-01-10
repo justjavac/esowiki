@@ -59,7 +59,7 @@ const meta = [
 <html lang="zh-CN">
   <head>
     <HeaderMeta
-      title={`${data.attributes.title} - 文章 - ${SITE_TITLE}`}
+      title={`${data.attributes.title} - ${data.attributes.type.data.attributes.name} - ${SITE_TITLE}`}
       description={SITE_DESCRIPTION}
     />
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
