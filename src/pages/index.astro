@@ -19,12 +19,12 @@ const { data } = await response.json();
   <body>
     <HeaderNav />
 
-    <main class="flex flex-col items-center h-full">
-      <div class="max-w-6xl w-full">
+    <main class="max-w-screen-xl mx-auto">
+      <article class="p-4">
         <div class="mt-4 markdown-body">
           <Fragment set:html={md2html(data.attributes.content)} />
         </div>
-      </div>
+      </article>
     </main>
     <Footer />
     <ScrollToTop />

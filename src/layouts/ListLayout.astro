@@ -26,19 +26,17 @@ const { name, nameEn, description, pagination } = Astro.props;
 
   <body>
     <HeaderNav />
-    <main class="max-w-screen-xl mx-auto">
-      <article class="p-6">
-        <div class="markdown-body">
-          {
-            name && (
-              <h1>
-                {name}
-                <small class="text-gray-500">{nameEn}</small>
-              </h1>
-            )
-          }
-          <slot />
-        </div>
+    <main class="max-w-screen-xl mx-auto p-4">
+      <article class="markdown-body">
+        {
+          name && (
+            <h1>
+              {name}
+              <small class="text-gray-500">{nameEn}</small>
+            </h1>
+          )
+        }
+        <slot />
         <!-- <hr class="mt-8" />
         <Pagination {...pagination} /> -->
       </article>

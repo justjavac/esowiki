@@ -28,17 +28,17 @@ const { name, nameEn, type, description, meta } = Astro.props;
 
   <body>
     <HeaderNav />
-    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
-      <article class="p-6 md:col-span-3">
-        <div class="markdown-body">
-          <h1>
-            {name}
-            <small class="text-gray-500">{nameEn}</small>
-          </h1>
-          <slot />
-        </div>
+    <main
+      class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 py-4"
+    >
+      <article class="md:col-span-3 markdown-body p-4">
+        <h1>
+          {name}
+          <small class="text-gray-500">{nameEn}</small>
+        </h1>
+        <slot />
       </article>
-      <aside class="py-6 md:col-span-1">
+      <aside class="px-4 md:col-span-1 md:px-0">
         <Meta title={type} meta={meta} />
       </aside>
     </main>
