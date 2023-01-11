@@ -80,10 +80,16 @@ for (let poi of POIs) {
   });
 }
 
-meta.push({
-  name: "",
-  content: `<a href="/map/${data.attributes.mapId}" target="_blank"><img src="${CDN_URL}/${file}?imageView2/2/w/200/q/85" width="200" alt="" /></a>`,
-});
+if (file != null) {
+  meta.push({
+    name: "地图",
+    content: `<a href="/map/${data.attributes.mapId}" target="_blank">查看</a>`,
+  });
+  meta.push({
+    name: "",
+    content: `<img src="${CDN_URL}/${file}?imageView2/2/w/200/q/85" width="200" alt="" />`,
+  });
+}
 ---
 
 <style is:inline>
