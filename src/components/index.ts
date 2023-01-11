@@ -5,6 +5,5 @@ export * from "./map/Filters";
 export * from "./map/Housing";
 export * from "./map/Map";
 export * from "./map/Sidebar";
-export * from "./Set";
 export * from "./map/Search";
 export * from "./ServerStatus";
