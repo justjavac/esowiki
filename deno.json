@@ -5,6 +5,7 @@
     "uesp": "deno run --allow-net --allow-read --allow-write ./scripts/uesp.ts",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
     "esoitem": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
+    "esohub": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esohub.ts",
     "skill": "deno run --allow-net --allow-read  --allow-env ./scripts/skill.ts",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
