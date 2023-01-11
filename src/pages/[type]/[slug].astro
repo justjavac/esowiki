@@ -1,7 +1,7 @@
 ---
 import { ESO_API_URL } from "@/consts";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
-import { md2html, formatDateTime } from "@/utils";
+import { md2html, formatDateTime, formatDate } from "@/utils";
 
 const { type, slug } = Astro.params;
 
@@ -31,7 +31,9 @@ if (data == null) {
 
 function createTime(datatime: any) {
   const formated = formatDateTime(datatime);
-  return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${datatime}">${formated}</time>`;
+  return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${formatDateTime(
+    datatime
+  )}">${formatDate(datatime)}</time>`;
 }
 
 const meta = [
