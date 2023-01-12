@@ -20,7 +20,7 @@ const factions = ["先祖神州", "匕落同盟", "黑檀心公约联合"];
 >
   <p>
     上古卷轴OL一共有 10
-    个种族。每个种族都有自己的特点，比如种族技能、种族特性、种族特征等。下面按联盟阵营列出了
+    个可玩种族。每个种族都有自己的特点，比如种族技能、种族特性、种族外貌等。下面按[联盟阵营](/faction#alliances)列出了
     ESO 的可玩种族：
   </p>
 
@@ -46,4 +46,20 @@ const factions = ["先祖神州", "匕落同盟", "黑檀心公约联合"];
       </>
     ))
   }
+
+  <h3>其他种族</h3>
+  <p>除此之外，上古卷轴OL还有一些其他种族：</p>
+  <ul>
+    {
+      data
+        .filter((x: any) => x.attributes.faction.data === null)
+        .map((x: any) => (
+          <li>
+            <p>
+              <a href={`/race/${x.attributes.slug}`}>{x.attributes.name}</a>
+            </p>
+          </li>
+        ))
+    }
+  </ul>
 </ListLayout>
