@@ -9,10 +9,10 @@ import ListLayout from "@/layouts/ListLayout.astro";
 
 const { type } = Astro.params;
 
-let page = Astro.url.searchParams.get("page") || 1;
+let page = Astro.url.searchParams.get("page") || "1";
 
-if (!/^\d+$/.test(page as string)) {
-  page = 1;
+if (!/^\d+$/.test(page)) {
+  page = "1";
 }
 
 /** 分类 */

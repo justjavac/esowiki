@@ -23,7 +23,9 @@ const { data: npc } = await fetch(`${ESO_API_URL}/api/articles/10`).then((x) =>
   description={npc.attributes.description}
 >
   <p>
-    上古卷轴OL目前一共有 <strong>{result.meta.pagination.total}</strong>
+    上古卷轴OL目前一共有 <a href="/npc/list"
+      ><strong>{result.meta.pagination.total}</strong>
+    </a>
     个 NPC。
   </p>
   <Fragment set:html={md2html(npc.attributes.content)} />

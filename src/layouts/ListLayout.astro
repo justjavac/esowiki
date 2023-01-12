@@ -3,6 +3,7 @@ import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
+import Pagination from "@/components/Pagination.astro";
 import { SITE_TITLE, CDN_URL, SITE_DESCRIPTION } from "@/consts";
 
 export interface Props {
@@ -36,9 +37,9 @@ const { name, nameEn, description, pagination } = Astro.props;
             </h1>
           )
         }
+        {pagination && <Pagination {...pagination} />}
         <slot />
-        <!-- <hr class="mt-8" />
-        <Pagination {...pagination} /> -->
+        {pagination && <Pagination {...pagination} />}
       </article>
     </main>
   </body>
