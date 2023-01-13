@@ -294,8 +294,12 @@ async function getRemoteFromCache(name: string, start: number) {
 /** 解析内容 */
 async function parseContent<K extends keyof typeof schemaMap>(
   name: K,
-  start = 105500,
+  start = 200 * 500,
 ): Promise<InferType<typeof schemaMap[K]>[]> {
+  if (start === 300 * 500) {
+    return [];
+  }
+
   const file = await getRemoteFromCache(name, start);
 
   const node = unified().use(rehypeParse).parse(file);
@@ -379,4 +383,5 @@ if (import.meta.main) {
   }
 
   Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(failed, null, 2));
+  console.log(`成功导入 ${result.length - failed.length} 条数据，失败 ${failed.length} 条`);
 }

@@ -12,8 +12,8 @@ type LangItem = {
 const columns = ["ID", "Unknown", "Index", "Offset", "Text"];
 
 // 构建官方英文到中文的映射
-const en2zh = new Map<string, string>();
-const enLines: string[] = [];
+export const en2zh = new Map<string, string>();
+export const enLines: string[] = [];
 
 en2zh.set("second", "秒");
 en2zh.set("seconds", "秒");
