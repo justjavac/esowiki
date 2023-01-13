@@ -99,21 +99,37 @@ document.body.appendChild(style);
 const allLinks = document.querySelectorAll("a");
 
 allLinks.forEach((link) => {
-  link.addEventListener("mouseout", () => tooltip.style.display = "none");
+  link.addEventListener("mouseout", () => {
+    link.dataset.state = "out";
+    tooltip.style.display = "none";
+  });
 
   link.addEventListener("mouseover", async (e) => {
+    link.dataset.state = "over";
     const target = e.currentTarget as HTMLAnchorElement;
+    const type = tooltipType(target);
 
-    switch (tooltipType(target)) {
+    if (type == null) return;
+
+    const data = await getData(target.href);
+    if (link.dataset.state === "out") return;
+
+    switch (type) {
       case "item": {
-        const data = await getData(target.href);
         tooltip.innerHTML = `
-  
+        <div class="eso-tooltip-header">
+          <b class="eso-tooltip-type">${data.type}</b>
+        </div>
+        <img width="64" height="64" class="eso-tooltip-icon" src="${data.icon}" alt="" />
+        <div class="eso-tooltip-name">${data.name}</div>
+        <div class="eso-tooltip-nameEn">${data.nameEn}</div>
+        <div class="eso-tooltip-description">
+          ${data.description}
+        </div>
         `;
         break;
       }
       case "set": {
-        const data = await getData(target.href);
         tooltip.innerHTML = `
         <div class="eso-tooltip-header">
           <b class="eso-tooltip-type">${data.type}</b>
@@ -128,7 +144,6 @@ allLinks.forEach((link) => {
         break;
       }
       case "skill": {
-        const data = await getData(target.href);
         tooltip.innerHTML = `
         <div class="eso-tooltip-header">
           <b>${data.skillTypeName}</b>
@@ -173,7 +188,6 @@ allLinks.forEach((link) => {
         break;
       }
       case "map": {
-        const data = await getData(target.href);
         tooltip.innerHTML = `
         <svg viewBox="0 0 ${data.size} ${data.size}">
           <defs>
@@ -255,3 +269,5 @@ allLinks.forEach((link) => {
     tooltip.style.left = `${e.pageX + 10}px`;
   });
 });
+
+export {};

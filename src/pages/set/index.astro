@@ -125,7 +125,9 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
                     />
                   </td>
                   <td class="text-center">
-                    <a href={`/set/${attributes.slug}`}>{attributes.name}</a>
+                    <a class="no-tooltip" href={`/set/${attributes.slug}`}>
+                      {attributes.name}
+                    </a>
                     <div class="text-xs">{attributes.nameEn}</div>
                   </td>
                   <td class="text-center">{attributes.type}</td>

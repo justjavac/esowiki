@@ -16,6 +16,31 @@ async function getItem() {
 
 const { data } = await getItem();
 
+// 当请求 tooltip 的时候，返回 json 数据
+if (Astro.request.headers.get("x-request-for") === "tooltip") {
+  if (data == null) {
+    return new Response(JSON.stringify({}), {
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  }
+
+  const result = {
+    name: data.attributes.name,
+    nameEn: data.attributes.nameEn,
+    icon: data.attributes.icon,
+    type: data.attributes.type,
+    description: data.attributes.description,
+  };
+
+  return new Response(JSON.stringify(result), {
+    headers: {
+      "content-type": "application/json",
+    },
+  });
+}
+
 if (data == null) {
   return new Response(null, {
     status: 404,
