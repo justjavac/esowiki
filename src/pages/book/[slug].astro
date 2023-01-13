@@ -54,8 +54,8 @@ const meta = [
     )
   }
   <p>
-    <strong>《{data.attributes.title}》</strong>是上古卷轴OL的一本<a
-      href="/book">书籍</a
+    <strong>{data.attributes.title}</strong>是上古卷轴OL的一本<a href="/book"
+      >书籍</a
     >。书中写道：
   </p>
   <blockquote set:html={md2html(data.attributes.body)} />
