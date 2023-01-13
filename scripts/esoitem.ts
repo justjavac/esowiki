@@ -107,7 +107,8 @@ const bookSchema = object({
 });
 
 const minedItemSummarySchema = object({
-  name: string().required(),
+  id: ref("itemId"),
+  name: string().required().transform(toZh),
   description: string().required().transform(toZh),
   style: string().required().transform(toZh),
   trait: string().required().transform(toZh),
@@ -123,6 +124,16 @@ const minedItemSummarySchema = object({
   traitDesc: string().required().transform(toZh),
   traitAbilityDesc: string().required().transform(toZh),
   materialLevelDesc: string().required().transform(toZh),
+  isUnique: boolean().transform((x) => x === "Yes"),
+  isUniqueEquipped: boolean().transform((x) => x === "Yes"),
+  isVendorTrash: boolean().transform((x) => x === "Yes"),
+  isArmorDecay: boolean().transform((x) => x === "Yes"),
+  isConsumable: boolean().transform((x) => x === "Yes"),
+  bindType: number().required().integer().positive(),
+  recipeIndex: number().required().integer(),
+  recipeListIndex: number().required().integer(),
+  itemId: number().required().integer().positive(),
+  icon: string().required().transform((x) => x.replace("//esoicons.uesp.net", "https://eso-cdn.denohub.com")),
 });
 
 const minedSkillLinesSchema = object({
@@ -283,7 +294,7 @@ async function getRemoteFromCache(name: string, start: number) {
 /** 解析内容 */
 async function parseContent<K extends keyof typeof schemaMap>(
   name: K,
-  start = 0,
+  start = 105500,
 ): Promise<InferType<typeof schemaMap[K]>[]> {
   const file = await getRemoteFromCache(name, start);
 
@@ -298,6 +309,8 @@ async function parseContent<K extends keyof typeof schemaMap>(
     (x) => toString(x) === "Next",
   );
 
+  await new Promise((resolve) => setTimeout(resolve, 100));
+
   return selectAll("tr", table)
     .slice(1)
     .map((node) => {
@@ -306,9 +319,8 @@ async function parseContent<K extends keyof typeof schemaMap>(
         .slice(1, -1);
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
       const obj = Object.fromEntries(pairs);
-      obj.zoneNameEn = obj.zoneName;
-      obj.subZoneNameEn = obj.subZoneName;
-      obj.slug = obj.subZoneName ? paramCase(obj.subZoneName) : paramCase(obj.zoneName);
+      obj.nameEn = obj.name;
+      // obj.slug = paramCase(obj.nameEn);
       return schemaMap[name].cast(obj) as InferType<typeof schemaMap[K]>;
     })
     .concat(nextPage ? await parseContent(name, start + 500) : []);
@@ -319,7 +331,13 @@ function isSupportedRecord(record: string): record is keyof typeof schemaMap {
 }
 
 async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
-  const response = await fetch(`https://esoapi.denohub.com/api/zone`, {
+  const token = Deno.env.get("STRAPI_TOKEN");
+
+  if (token == null) {
+    throw new Error("没有设置 STRAPI_TOKEN 环境变量");
+  }
+
+  const response = await fetch(`https://esoapi.denohub.com/api/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -329,8 +347,8 @@ async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
   });
 
   if (!response.ok) {
-    console.error(await response.text());
-    console.error(data);
+    const message = await response.text();
+    throw new Error(message);
   }
 }
 
@@ -351,9 +369,14 @@ if (import.meta.main) {
 
   const result = await parseContent(name);
 
-  // for (const item of result) {
-  //   await saveToStrapi(item);
-  // }
+  const failed = [];
+  for (const item of result) {
+    try {
+      await saveToStrapi(item);
+    } catch (e) {
+      failed.push({ ...item, reason: e.message });
+    }
+  }
 
-  Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(result, null, 2));
+  Deno.writeTextFile(`gamedata/${name}.json`, JSON.stringify(failed, null, 2));
 }
