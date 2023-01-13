@@ -266,19 +266,17 @@ const langMap: Record<Key | string, number[] | undefined> = {
 };
 
 /** 从网络或者缓存里获取任务详情 */
-async function getRemoteFromCache(record: string, start: number) {
-  const cachePath = `.cache/${record}_${start}.html`;
+async function getRemoteFromCache(name: string, start: number) {
+  const path = `.cache/${name}_${start}.html`;
 
   try {
-    const html = await Deno.readTextFile(cachePath);
-    return html;
+    return await Deno.readTextFile(path);
   } catch {
-    const response = await fetch(
-      `https://esoitem.uesp.net/viewlog.php?record=${record}&start=${start}`,
-    );
-    const html = await response.text();
-    await Deno.writeTextFile(cachePath, html);
-    return html;
+    const input = `https://esoitem.uesp.net/viewlog.php?record=${name}&start=${start}`;
+    const response = await fetch(input);
+    const data = await response.text();
+    await Deno.writeTextFile(path, data);
+    return data;
   }
 }
 
@@ -287,16 +285,16 @@ async function parseContent<K extends keyof typeof schemaMap>(
   name: K,
   start = 0,
 ): Promise<InferType<typeof schemaMap[K]>[]> {
-  const html = await getRemoteFromCache(name, start);
+  const file = await getRemoteFromCache(name, start);
 
-  const root = unified().use(rehypeParse).parse(html);
+  const node = unified().use(rehypeParse).parse(file);
 
-  const table = select("table", root) as Element;
+  const table = select("table", node) as Element;
   const headers = (selectAll("th", table) as Element[])
     .map((node) => toString(node))
     .slice(1, -1);
 
-  const nextPage = (selectAll("a", root) as Element[]).find(
+  const nextPage = (selectAll("a", node) as Element[]).find(
     (x) => toString(x) === "Next",
   );
 
