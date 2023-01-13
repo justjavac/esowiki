@@ -30,7 +30,7 @@ if (data == null) {
 const meta = [
   { name: "名称", content: data.attributes.title },
   { name: "英文", content: data.attributes.titleEn },
-  { name: "isLore", content: data.attributes.isLore },
+  { name: "传说书籍", content: data.attributes.isLore ? "是" : "否" },
   { name: "技能", content: data.attributes.skill },
   { name: "封面", content: data.attributes.mediumIndex },
 ].filter((item) => item.content != null && item.content !== "");
