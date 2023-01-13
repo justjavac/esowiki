@@ -58,5 +58,6 @@ const meta = [
       >书籍</a
     >。书中写道：
   </p>
-  <blockquote set:html={md2html(data.attributes.body)} />
+  <hr />
+  <Fragment set:html={md2html(data.attributes.body)} />
 </ArticleLayout>
