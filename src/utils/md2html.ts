@@ -1,5 +1,5 @@
 import { micromark } from "micromark";
-import type { HtmlExtension } from "micromark-util-types";
+import type { Extension, HtmlExtension } from "micromark-util-types";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
 
 export function md2html(md?: string, isBook = false): string {
@@ -11,20 +11,28 @@ export function md2html(md?: string, isBook = false): string {
 
   return micromark(md, {
     allowDangerousHtml: true,
-    extensions: [gfm()],
+    extensions: [gfm(), externalLinks()],
     htmlExtensions: [
       gfmHtml({
         clobberPrefix: "eso-",
         label: "脚注",
         backLabel: "回到内容区域",
       }),
-      externalLinks(),
+      externalLinksHtml(),
     ],
   });
 }
 
 /** TODO: */
-function externalLinks(): HtmlExtension {
+function externalLinks(): Extension {
+  return {
+    enter: {},
+    exit: {},
+  };
+}
+
+/** TODO: */
+function externalLinksHtml(): HtmlExtension {
   return {
     enter: {},
     exit: {},
