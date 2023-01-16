@@ -1,4 +1,7 @@
-function tooltipType(el: HTMLAnchorElement) {
+type Item = "item" | "set" | "skill" | "map";
+const types: Item[] = ["item", "set", "skill", "map"];
+
+function tooltipType(el: HTMLAnchorElement): Item | undefined {
   if (el.classList.contains("no-tooltip") || !el.href) {
     return undefined;
   }
@@ -6,8 +9,9 @@ function tooltipType(el: HTMLAnchorElement) {
   const parts = el.pathname.split("/");
   if (parts.length <= 2) return undefined;
   if (parts[1] === "map" && !el.search) return undefined;
+  if (!types.includes(parts[1] as any)) return undefined;
 
-  return parts[1];
+  return parts[1] as Item;
 }
 
 async function getData(url: string) {
