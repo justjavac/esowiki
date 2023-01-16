@@ -56,9 +56,9 @@ switch (data.attributes.type) {
     data.attributes.style && content.push(`${data.attributes.style}风格的`);
     content.push(`${data.attributes.weaponType}武器，`);
 
-    if (data.attributes.setName) {
+    if (data.attributes.set.data) {
       content.push(
-        `它是${data.attributes.setName}套装的一部分，可以在[套装](/set)页面查看。`
+        `它是<a href="/set/${data.attributes.set.data.attributes.slug}">${data.attributes.set.data.attributes.name}</a>套装的一部分。`
       );
     }
 
@@ -75,9 +75,9 @@ switch (data.attributes.type) {
       );
     }
 
-    if (data.attributes.setName) {
+    if (data.attributes.set.data) {
       content.push(
-        `它是${data.attributes.setName}套装的一部分，可以在[套装](/set)页面查看。`
+        `它是<a href="/set/${data.attributes.set.data.attributes.slug}">${data.attributes.set.data.attributes.name}</a>套装的一部分。`
       );
     }
 
