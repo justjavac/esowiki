@@ -20,6 +20,6 @@ eso)游戏攻略，包括[职业](https://eso.denohub.com/class)、[装备](http
 - [Deno](https://deno.land)
 - [strapi](https://strapi.io)
 
-## 手机版
+## 客户端版
 
-感谢 [@cgqaq](https://github.com/cgqaq) 开发了客户端版 <https://github.com/CGQAQ/esomap_flutter>
+感谢 [@cgqaq](https://github.com/cgqaq) 开发了客户端版 <https://github.com/CGQAQ/esowiki_flutter>
