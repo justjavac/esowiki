@@ -1,0 +1,91 @@
+---
+import { SITE_DESCRIPTION, ESO_API_URL } from "@/consts";
+import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
+
+const query = new URLSearchParams();
+query.set("sort[0]", "id:asc");
+query.set("populate", "*");
+
+const response = await fetch(`${ESO_API_URL}/api/traits?${query}`);
+const result = await response.json();
+const data = result?.data;
+
+const TYPES = [
+  ["武器", "Weapon"],
+  ["护甲", "Armor"],
+  ["珠宝", "Jewelry"],
+  ["通用", "Common"],
+];
+---
+
+<ListLayout name="特质" nameEn="Trait" description={SITE_DESCRIPTION}>
+  <p>
+    特质是一种特殊属性，可以出现在所有武器和盔甲上。每个物品只能具有 1
+    个特质，还有一些物品没有任何特质。
+  </p>
+  <p>可以研究特质，以便制作具有相应属性的自定义物品。</p>
+  <p>
+    构建具有特定特质的物品需要特殊的材料。这些成分可以通过解构具有特质的物品或精炼原矿、木材、皮革或纤维来获取。为铁匠、服装和木工制作雇佣工，通常也会发送所有类型的特质材料。
+  </p>
+  <p>每个特质的大小取决于物品的质量。</p>
+
+  {
+    TYPES.map(([zh, en]) => (
+      <>
+        <h2 id={en.toLowerCase() + "-traits"}>
+          {zh}特质
+          <small class="text-gray-500">{en} Traits</small>
+        </h2>
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">特质</th>
+              <th rowspan="2">材料</th>
+              <th rowspan="2">效果</th>
+              <th colspan="5">品质</th>
+            </tr>
+            <tr>
+              <th class="text-normal">普通</th>
+              <th class="text-fine">优良</th>
+              <th class="text-superior">上乘</th>
+              <th class="text-epic">史诗</th>
+              <th class="text-legendary">传说</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data
+              .filter((x: any) => x.attributes.type === zh)
+              .map((x: any) => (
+                <tr>
+                  <td>
+                    <a
+                      href={`/trait/${en}-${x.attributes.nameEn}`.toLowerCase()}
+                    >
+                      {x.attributes.name}
+                    </a>
+                  </td>
+                  <td
+                    set:html={
+                      x.attributes.material.data
+                        ? `<a href="/item/${x.attributes.material.data.id}">
+                          <img class="inline" src="${x.attributes.material.data.attributes.icon}" width="32" height="32" alt="" />
+                            ${x.attributes.material.data.attributes.name}
+                          </a>`
+                        : "-"
+                    }
+                  />
+                  <td>{x.attributes.effect}</td>
+                  <td class="text-normal">{x.attributes.a1}</td>
+                  <td class="text-fine">{x.attributes.a2}</td>
+                  <td class="text-superior">{x.attributes.a3}</td>
+                  <td class="text-epic">{x.attributes.a4}</td>
+                  <td class="text-legendary">{x.attributes.a5}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </>
+    ))
+  }
+</ListLayout>

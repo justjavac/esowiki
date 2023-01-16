@@ -1,0 +1,129 @@
+---
+import { ESO_API_URL } from "@/consts";
+import { md2html } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+const { type, slug } = Astro.params;
+
+const TYPES: Record<string, string> = {
+  weapon: "武器",
+  armor: "护甲",
+  jewelry: "珠宝",
+  common: "通用",
+};
+
+if (TYPES[type!] == null) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+/** 特质 */
+async function getTrait() {
+  const query = new URLSearchParams();
+  query.set("pagination[pageSize]", "1");
+  query.set("pagination[page]", "1");
+  query.set("filters[type][$eq]", TYPES[type!]);
+  query.set("filters[nameEn][$eq]", slug!);
+  query.set("populate", "*");
+
+  const response = await fetch(`${ESO_API_URL}/api/traits?${query}`);
+  const result = await response.json();
+  const data = result?.data[0];
+
+  return data;
+}
+
+const data = await getTrait();
+
+if (data == null) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+function getEffect(a: number, b: number) {
+  const effect = data.attributes.effect.replace("<<1>>", a).replace("<<2>>", b);
+  return md2html(effect);
+}
+
+const meta = [
+  {
+    name: "名称",
+    content: `<span style="color:${data.attributes.color}">${data.attributes.name}</span>`,
+  },
+  {
+    name: "英文",
+    content: `<span style="color:${data.attributes.color}">${data.attributes.nameEn}</span>`,
+  },
+  {
+    name: "类型",
+    content: data.attributes.type,
+  },
+  {
+    name: "材料",
+    content:
+      data.attributes.material.data &&
+      `<a href="/item/${data.attributes.material.data.id}"><img class="inline" src="${data.attributes.material.data.attributes.icon}" width="20" height="20" alt="" />${data.attributes.material.data.attributes.name}</a>`,
+  },
+];
+---
+
+<ArticleLayout
+  name={data.attributes.name}
+  nameEn={data.attributes.nameEn}
+  type="特质"
+  meta={meta}
+>
+  <p>
+    <strong>{data.attributes.name}</strong>是上古卷轴OL的一个重要<a
+      href="/trait">特质</a
+    >。
+    {
+      data.attributes.material.data && (
+        <Fragment>
+          一旦你研究了给定物品类型的特质，你就可以使用
+          <a href={`/item/${data.attributes.material.data.id}`}>
+            <img
+              class="inline"
+              src={data.attributes.material.data.attributes.icon}
+              width="20"
+              height="20"
+              alt=""
+            />
+            {data.attributes.material.data.attributes.name}
+          </a>
+          在制造台生成或者在转换台进行特质转化。
+        </Fragment>
+      )
+    }
+  </p>
+  <Fragment set:html={md2html(data.attributes.description)} />
+  <Fragment set:html={md2html(data.attributes.content)} />
+  <h2>效果</h2>
+
+  <ul>
+    <li
+      class="text-normal"
+      set:html={getEffect(data.attributes.a1, data.attributes.b1)}
+    />
+    <li
+      class="text-fine"
+      set:html={getEffect(data.attributes.a2, data.attributes.b2)}
+    />
+    <li
+      class="text-superior"
+      set:html={getEffect(data.attributes.a3, data.attributes.b3)}
+    />
+    <li
+      class="text-epic"
+      set:html={getEffect(data.attributes.a4, data.attributes.b4)}
+    />
+    <li
+      class="text-legendary"
+      set:html={getEffect(data.attributes.a5, data.attributes.b5)}
+    />
+  </ul>
+</ArticleLayout>
