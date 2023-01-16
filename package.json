@@ -31,6 +31,7 @@
     "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "please-use-yarn": "^1.2.2",
     "rehype-external-links": "^2.0.1"
   }
