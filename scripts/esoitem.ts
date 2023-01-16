@@ -294,12 +294,8 @@ async function getRemoteFromCache(name: string, start: number) {
 /** 解析内容 */
 async function parseContent<K extends keyof typeof schemaMap>(
   name: K,
-  start = 200 * 500,
+  start = 0,
 ): Promise<InferType<typeof schemaMap[K]>[]> {
-  if (start === 300 * 500) {
-    return [];
-  }
-
   const file = await getRemoteFromCache(name, start);
 
   const node = unified().use(rehypeParse).parse(file);
