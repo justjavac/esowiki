@@ -8,7 +8,10 @@ import { toString } from "nlcst-to-string";
 const esoNews: Plugin<[], Root> = () => (tree) => {
   const title = toString(select("#post-title h1", tree));
   const pubDate = toString(select("#post-title .date", tree));
-  const image = select("#blog-body .lead-img", tree)?.properties?.src as string;
+  const image = (select("#blog-body .lead-img", tree)?.properties?.src as string)?.replace(
+    "esosslfiles-a.akamaihd.net",
+    "eso-cdn.denohub.com",
+  );
   const description = toString(select("#blog-body p", tree));
   const tags = selectAll("#blog-body .tags a", tree).map((tag) => toString(tag));
 
