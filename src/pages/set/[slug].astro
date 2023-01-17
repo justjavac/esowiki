@@ -56,7 +56,10 @@ const items = _.uniqBy(attributes.items.data, "attributes.name");
 const meta = [
   { name: "名称", content: attributes.name },
   { name: "英文", content: attributes.nameEn },
-  { name: "类型", content: `<a href="/set?type=${attributes.type}">${attributes.type}</a>` },
+  {
+    name: "类型",
+    content: `<a href="/set?type=${attributes.type}">${attributes.type}</a>`,
+  },
   { name: "部件数量", content: items.length },
   { name: "地点", content: attributes.location },
   { name: "套装部位", content: attributes.itemSlots },
@@ -71,7 +74,7 @@ const meta = [
 >
   <p>
     <abbr title={attributes.nameEn}>{attributes.name}</abbr>是上古卷轴 OL 的一套<a
-      href={`/set?type=制造`}>{attributes.type}</a
+      href={`/set?type=${attributes.type}`}>{attributes.type}</a
     >套装，可以在 {attributes.location ?? "?"} 区域获得。
   </p>
   <p>
