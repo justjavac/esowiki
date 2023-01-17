@@ -237,31 +237,39 @@ async function saveToStrapi(data: Record<string, unknown>) {
 }
 
 if (import.meta.main) {
-  await download();
-  await lua2js("ItemLookUpTable_ZH.lua", "ItemLookUpTable");
-  await lua2js("PriceTableNA.lua", "PriceTable");
-
-  const prices = ITEM.map(async (item) => {
-    const x: any = await getPrice(item[0]);
-    return ({ ...x, itemId: item[1] });
-  });
-
-  const failed = [];
-  for await (const item of prices) {
+  while (true) {
     try {
-      const data: Record<string, number> = {};
-      data.avg = item.Avg || undefined;
-      data.max = item.Max || undefined;
-      data.min = item.Min || undefined;
-      data.suggested = item.SuggestedPrice || undefined;
-      data.entryCount = item.EntryCount || undefined;
-      data.amountCount = item.AmountCount || undefined;
-      data.item = item.itemId || undefined;
-      await saveToStrapi(data);
-    } catch (e) {
-      failed.push({ ...item, reason: e.message });
+      await download();
+      await lua2js("ItemLookUpTable_ZH.lua", "ItemLookUpTable");
+      await lua2js("PriceTableNA.lua", "PriceTable");
+
+      const prices = ITEM.map(async (item) => {
+        const x: any = await getPrice(item[0]);
+        return ({ ...x, itemId: item[1] });
+      });
+
+      const failed = [];
+      for await (const item of prices) {
+        try {
+          const data: Record<string, number> = {};
+          data.avg = item.Avg || undefined;
+          data.max = item.Max || undefined;
+          data.min = item.Min || undefined;
+          data.suggested = item.SuggestedPrice || undefined;
+          data.entryCount = item.EntryCount || undefined;
+          data.amountCount = item.AmountCount || undefined;
+          data.item = item.itemId || undefined;
+          await saveToStrapi(data);
+        } catch (e) {
+          failed.push({ ...item, reason: e.message });
+        }
+      }
+
+      console.log(`失败 ${failed.length} 条`);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      await new Promise((resolve) => setTimeout(resolve, 1000 * 60 * 60 * 24));
     }
   }
-
-  console.log(`失败 ${failed.length} 条`);
 }
