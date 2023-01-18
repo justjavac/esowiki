@@ -125,18 +125,36 @@ const isActive = moreMenus.some((menu) => pathname.startsWith(menu.href));
       </svg>
     </label>
   </div>
-  <nav class="items-center hidden md:flex">
+  <nav
+    class="items-center hidden md:flex max-h-[calc(100vh-52px)] overflow-auto md:overflow-visible"
+  >
     <ul
       class="flex flex-col md:flex-row md:self-center w-full text-xl md:text-base"
     >
       {
         menus.map(({ href, title }) => (
-          <li class="ml-12">
+          <li
+            class:list={[
+              "md:ml-12",
+              "py-1",
+              "md:py-0",
+              "md:list-item",
+              "text-center",
+              { hidden: href === "/map" },
+            ]}
+          >
             <HeaderLink href={href}>{title}</HeaderLink>
           </li>
         ))
       }
-      <li class="relative ml-12">
+      {
+        moreMenus.map(({ href, title }) => (
+          <li class="py-1 md:py-0 md:hidden text-center">
+            <HeaderLink href={href}>{title}</HeaderLink>
+          </li>
+        ))
+      }
+      <li class="relative ml-12 hidden md:list-item">
         <button
           id="more-menu"
           type="button"
