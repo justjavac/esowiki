@@ -1,11 +1,6 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
-import Footer from "@/components/Footer.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Meta from "@/components/Meta.astro";
-import { md2html } from "@/utils";
+import { ESO_API_URL } from "@/consts";
+import { md2html, md2text } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
@@ -62,6 +57,7 @@ const meta = [
 <ArticleLayout
   name={data.attributes.name}
   nameEn={data.attributes.nameEn}
+  description={md2text(data.attributes.description)}
   type="职业"
   meta={meta}
 >

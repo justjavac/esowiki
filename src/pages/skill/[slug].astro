@@ -1,7 +1,7 @@
 ---
 import { ESO_API_URL } from "@/consts";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
-import { md2html } from "@/utils";
+import { md2html, md2text } from "@/utils";
 
 const { slug } = Astro.params;
 
@@ -75,6 +75,7 @@ const meta = [
 <ArticleLayout
   name={attributes.name}
   nameEn={attributes.nameEn}
+  description={md2text(data.attributes.description)}
   type="技能"
   meta={meta}
 >

@@ -1,6 +1,6 @@
 ---
 import { ESO_API_URL } from "@/consts";
-import { md2html, formatDate } from "@/utils";
+import { md2html, md2text } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import { Price } from "@/components/Price";
 
@@ -124,6 +124,7 @@ const meta = [
 <ArticleLayout
   name={data.attributes.name}
   nameEn={data.attributes.nameEn}
+  description={md2text(data.attributes.description)}
   type="物品"
   meta={meta}
 >

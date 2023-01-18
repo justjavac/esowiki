@@ -1,6 +1,6 @@
 ---
 import { CDN_URL, ESO_API_URL } from "@/consts";
-import { md2html } from "@/utils";
+import { md2html, md2text } from "@/utils";
 import type { MapData, PoiData } from "@/types";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
@@ -100,7 +100,13 @@ if (file != null) {
   }
 </style>
 
-<ArticleLayout name={name} nameEn={nameEn} type="区域" meta={meta}>
+<ArticleLayout
+  name={name}
+  nameEn={nameEn}
+  description={md2text(data.attributes.description)}
+  type="区域"
+  meta={meta}
+>
   {
     data.attributes.thumb && (
       <img

@@ -1,6 +1,6 @@
 ---
 import { ESO_API_URL } from "@/consts";
-import { md2html } from "@/utils";
+import { md2html, md2text } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { type, slug } = Astro.params;
@@ -45,8 +45,7 @@ if (data == null) {
 }
 
 function getEffect(a: number, b: number) {
-  const effect = data.attributes.effect.replace("<<1>>", a).replace("<<2>>", b);
-  return md2html(effect);
+  return data.attributes.effect.replace("<<1>>", a).replace("<<2>>", b);
 }
 
 const meta = [
@@ -74,6 +73,11 @@ const meta = [
 <ArticleLayout
   name={data.attributes.name}
   nameEn={data.attributes.nameEn}
+  description={`${
+    data.attributes.name
+  }是上古卷轴OL的一个特质，它的效果是: ${md2text(
+    getEffect(data.attributes.a5, data.attributes.b5)
+  )}`}
   type="特质"
   meta={meta}
 >
@@ -107,23 +111,23 @@ const meta = [
   <ul>
     <li
       class="text-normal"
-      set:html={getEffect(data.attributes.a1, data.attributes.b1)}
+      set:html={md2html(getEffect(data.attributes.a1, data.attributes.b1))}
     />
     <li
       class="text-fine"
-      set:html={getEffect(data.attributes.a2, data.attributes.b2)}
+      set:html={md2html(getEffect(data.attributes.a2, data.attributes.b2))}
     />
     <li
       class="text-superior"
-      set:html={getEffect(data.attributes.a3, data.attributes.b3)}
+      set:html={md2html(getEffect(data.attributes.a3, data.attributes.b3))}
     />
     <li
       class="text-epic"
-      set:html={getEffect(data.attributes.a4, data.attributes.b4)}
+      set:html={md2html(getEffect(data.attributes.a4, data.attributes.b4))}
     />
     <li
       class="text-legendary"
-      set:html={getEffect(data.attributes.a5, data.attributes.b5)}
+      set:html={md2html(getEffect(data.attributes.a5, data.attributes.b5))}
     />
   </ul>
 </ArticleLayout>

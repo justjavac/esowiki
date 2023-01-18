@@ -1,6 +1,8 @@
 import { micromark } from "micromark";
 import type { Extension, HtmlExtension } from "micromark-util-types";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
+import { fromMarkdown } from "mdast-util-from-markdown";
+import { toString } from "mdast-util-to-string";
 
 export function md2html(md?: string, isBook = false): string {
   if (md == null) return "";
@@ -21,6 +23,12 @@ export function md2html(md?: string, isBook = false): string {
       externalLinksHtml(),
     ],
   });
+}
+
+export function md2text(md?: string): string {
+  if (md == null) return "";
+  const tree = fromMarkdown(md);
+  return toString(tree);
 }
 
 /** TODO: */

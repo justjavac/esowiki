@@ -1,6 +1,6 @@
 ---
 import { ESO_API_URL } from "@/consts";
-import { md2html } from "@/utils";
+import { md2html, md2text } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
@@ -38,6 +38,7 @@ const meta = [
 <ArticleLayout
   name={data.attributes.name}
   nameEn={data.attributes.nameEn}
+  description={md2text(data.attributes.description)}
   type="世界事件"
   meta={meta}
 >

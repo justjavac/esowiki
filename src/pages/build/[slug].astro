@@ -1,6 +1,6 @@
 ---
 import { ESO_API_URL } from "@/consts";
-import { md2html } from "@/utils";
+import { md2html, md2text } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
 const { slug } = Astro.params;
@@ -33,7 +33,12 @@ const meta = [
 ];
 ---
 
-<ArticleLayout name={data.attributes.title} type="构建" meta={meta}>
+<ArticleLayout
+  name={data.attributes.title}
+  description={md2text(data.attributes.description)}
+  type="构建"
+  meta={meta}
+>
   {
     data.attributes.image && (
       <img class="my-4 shadow-gray-300" src={data.attributes.image} alt="" />

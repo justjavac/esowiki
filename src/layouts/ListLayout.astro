@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import Pagination from "@/components/Pagination.astro";
 import { SITE_TITLE, CDN_URL, SITE_DESCRIPTION } from "@/consts";
+import { md2text } from "@/utils";
 
 export interface Props {
   name?: string;
@@ -20,7 +21,7 @@ const { name, nameEn, description, pagination } = Astro.props;
   <head>
     <HeaderMeta
       title={`${name} - ${SITE_TITLE}`}
-      description={description ?? SITE_DESCRIPTION}
+      description={md2text(description) ?? SITE_DESCRIPTION}
     />
     <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
   </head>
