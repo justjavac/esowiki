@@ -31,10 +31,6 @@ const menus = [
     href: "/tool",
     title: "工具",
   },
-  {
-    href: "/about",
-    title: "关于",
-  },
 ];
 
 const moreMenus = [
@@ -135,7 +131,7 @@ const isActive = moreMenus.some((menu) => pathname.startsWith(menu.href));
         menus.map(({ href, title }) => (
           <li
             class:list={[
-              "md:ml-12",
+              "md:ml-10",
               "py-1",
               "md:py-0",
               "md:list-item",
@@ -154,7 +150,7 @@ const isActive = moreMenus.some((menu) => pathname.startsWith(menu.href));
           </li>
         ))
       }
-      <li class="relative ml-12 hidden md:list-item">
+      <li class="relative ml-10 hidden md:list-item">
         <button
           id="more-menu"
           type="button"
