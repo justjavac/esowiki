@@ -3,11 +3,22 @@ import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
+import Meta, { type Meta as MetaProps } from "@/components/Meta.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
 import { md2html } from "@/utils";
 
 const response = await fetch(`${ESO_API_URL}/api/articles/1`);
 const { data } = await response.json();
+
+const meta = [
+  { name: "名称", content: "上古卷轴OL" },
+  { name: "英文", content: "The Elder Scrolls Online" },
+  { name: "发行日期", content: "2014 年 4 月 4 日" },
+  { name: "游戏类型", content: "MMORPG" },
+  { name: "评价", content: "特别好评" },
+  { name: "开发商", content: "Zenimax Online Studios" },
+  { name: "发行商", content: "Bethesda Softworks" },
+];
 ---
 
 <html lang="zh-CN">
@@ -21,6 +32,9 @@ const { data } = await response.json();
 
     <main class="max-w-screen-xl mx-auto">
       <article class="p-4">
+        <div class="w-64 ml-4 my-4 float-right">
+          <Meta title="游戏" meta={meta} />
+        </div>
         <div class="mt-4 markdown-body">
           <Fragment set:html={md2html(data.attributes.content)} />
         </div>
