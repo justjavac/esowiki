@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { Announce } from ".";
 
 interface ServerStatus {
   slug: string;
@@ -41,14 +42,17 @@ export function ServerStatus(props: ServerStatusProps) {
   const localTime = intl.format(new Date(data.updatedAt));
 
   return (
-    <>
-      <div class="flex justify-between mt-10 p-3 w-full rounded-md border border-gray-200 text-gray-500 text-sm">
+    <div class="mx-4 md:mx-0">
+      <div class="mt-10 p-4 w-full flex justify-between rounded-md border border-gray-200 text-gray-500 text-sm">
         <strong>最后更新时间:</strong>
         <div class="inline-flex">
           {loading && <Spin />}
           <time dateTime={data.updatedAt}>{localTime}</time>
         </div>
       </div>
+
+      {data.message && <Announce class="my-4" message={data.message} />}
+
       <ul
         role="list"
         class="mt-10 w-full divide-y divide-gray-200 rounded-md border border-gray-200"
@@ -68,11 +72,9 @@ export function ServerStatus(props: ServerStatusProps) {
                 </div>
                 <div class="ml-4 flex-shrink-0">
                   <span
-                    class={`font-medium inline-block px-2.5 py-1 rounded-full leading-none ${
-                      getStatusColor(
-                        x.status,
-                      )
-                    }`}
+                    class={`font-medium inline-block px-2.5 py-1 rounded-full leading-none ${getStatusColor(
+                      x.status
+                    )}`}
                   >
                     {getStatusName(x.status)}
                   </span>
@@ -81,7 +83,7 @@ export function ServerStatus(props: ServerStatusProps) {
             );
           })}
       </ul>
-    </>
+    </div>
   );
 }
 
@@ -100,14 +102,12 @@ function Spin() {
         r="10"
         stroke="currentColor"
         stroke-width="4"
-      >
-      </circle>
+      ></circle>
       <path
         class="opacity-75"
         fill="currentColor"
         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-      >
-      </path>
+      ></path>
     </svg>
   );
 }
