@@ -26,9 +26,18 @@ export function ServerStatus(props: ServerStatusProps) {
       setLoading(true);
       fetch("", { headers })
         .then((response) => response.json())
+        .then((result) => {
+          if (isOnline(data.servers) && !isOnline(result.servers)) {
+            console.log("服务器正在维护中");
+          } else if (!isOnline(data.servers) && isOnline(result.servers)) {
+            console.log("服务器已恢复正常");
+          }
+
+          return result;
+        })
         .then(setData)
         .finally(() => setLoading(false));
-    }, 1000 * 60);
+    }, 1000 * 30);
     return () => {
       clearInterval(timmer);
     };
@@ -144,4 +153,8 @@ function getStatusName(online: boolean) {
 
 function getStatusColor(online: boolean) {
   return online ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800";
+}
+
+function isOnline(servers: ServerStatus[]) {
+  return servers.every((x) => x.status);
 }
