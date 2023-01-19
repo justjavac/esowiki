@@ -263,14 +263,23 @@ allLinks.forEach((link) => {
 
     tooltip.style.display = "block";
     tooltip.style.top = `${e.pageY - 30}px`;
-    tooltip.style.left = `${e.pageX + 10}px`;
+    if (e.pageX + 10 + tooltip.offsetWidth > window.innerWidth) {
+      tooltip.style.left = `${e.pageX - 10 - tooltip.offsetWidth}px`;
+    } else {
+      tooltip.style.left = `${e.pageX + 10}px`;
+    }
   });
 
   link.addEventListener("mousemove", (e) => {
     const target = e.currentTarget as HTMLAnchorElement;
     if (tooltipType(target) == null) return;
     tooltip.style.top = `${e.pageY - 30}px`;
-    tooltip.style.left = `${e.pageX + 10}px`;
+
+    if (e.pageX + 10 + tooltip.offsetWidth > window.innerWidth) {
+      tooltip.style.left = `${e.pageX - 10 - tooltip.offsetWidth}px`;
+    } else {
+      tooltip.style.left = `${e.pageX + 10}px`;
+    }
   });
 });
 
