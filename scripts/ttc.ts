@@ -180,19 +180,18 @@ async function lua2js(filename: string, exportName: string) {
     .replaceAll("]", "")
     .replaceAll("=", ":")
     .replaceAll("-1", '"-1"')
-    .replaceAll(`self.${exportName}:`, `export const ${exportName} = `)
+    .replaceAll(`self.${exportName}:`, ``)
     .replace("end\r\n", "");
-  await Deno.writeTextFile(`scripts/tmp/${exportName}.js`, data);
+  return eval(`(${data})`);
 }
 
-async function getItemId(name: string) {
-  const { ItemLookUpTable } = await import("./tmp/ItemLookUpTable.js");
+function getItemId(name: string, ItemLookUpTable: Record<string, unknown>) {
   for (const [key, value] of Object.entries(ItemLookUpTable)) {
     if (key !== name) {
       continue;
     }
 
-    const values = Object.values(value);
+    const values = Object.values(value as Record<string, unknown>);
     if (values.length > 1) {
       console.error(key);
     }
@@ -201,10 +200,12 @@ async function getItemId(name: string) {
   }
 }
 
-async function getPrice(name: string) {
-  const { PriceTable } = await import("./tmp/PriceTable.js");
-
-  const id = await getItemId(name);
+function getPrice(
+  name: string,
+  ItemLookUpTable: Record<string, unknown>,
+  PriceTable: { Data: Record<string, Record<string, Record<string, unknown>[]>> },
+) {
+  const id = getItemId(name, ItemLookUpTable);
 
   for (const [key, value] of Object.entries(PriceTable.Data)) {
     if (key !== String(id)) continue;
@@ -240,16 +241,16 @@ if (import.meta.main) {
   while (true) {
     try {
       await download();
-      await lua2js("ItemLookUpTable_ZH.lua", "ItemLookUpTable");
-      await lua2js("PriceTableNA.lua", "PriceTable");
+      const itemLookUpTable = await lua2js("ItemLookUpTable_ZH.lua", "ItemLookUpTable");
+      const priceTable = await lua2js("PriceTableNA.lua", "PriceTable");
 
-      const prices = ITEM.map(async (item) => {
-        const x: any = await getPrice(item[0]);
+      const prices = ITEM.map((item) => {
+        const x: any = getPrice(item[0], itemLookUpTable, priceTable);
         return ({ ...x, itemId: item[1] });
       });
 
       const failed = [];
-      for await (const item of prices) {
+      for (const item of prices) {
         try {
           const data: Record<string, number> = {};
           data.avg = item.Avg || undefined;
