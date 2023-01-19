@@ -37,7 +37,7 @@ export function ServerStatus(props: ServerStatusProps) {
         })
         .then(setData)
         .finally(() => setLoading(false));
-    }, 1000 * 30);
+    }, 1000 * 60);
     return () => {
       clearInterval(timmer);
     };
