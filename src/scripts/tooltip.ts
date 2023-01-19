@@ -128,7 +128,9 @@ allLinks.forEach((link) => {
         <div class="eso-tooltip-name">${data.name}</div>
         <div class="eso-tooltip-nameEn">${data.nameEn}</div>
         <div class="eso-tooltip-description">
-          ${data.description}
+          ${data.enchantName ? `<p>${data.enchantName}<br/>${data.enchantDesc}</p>` : ""}
+          ${data.trait ? `<p>${data.trait}<br/>${data.traitDesc}</p>` : ""}
+          <p>${data.description}</p>
         </div>
         `;
         break;
