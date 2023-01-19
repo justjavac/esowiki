@@ -255,6 +255,72 @@ const poiSchema = object({
   count: number().required().integer().positive(),
 });
 
+const uniqueQuestSchema = object({
+  id: number().required().integer().positive(),
+  internalId: number().required().integer().positive(),
+  zone: string().required().transform(toZh),
+  locationZone: string().required().transform(toZh),
+  name: string().required().transform(toZh),
+  level: number().required().integer().positive(),
+  type: string().required().transform(toZh),
+  displayType: number().required().integer().positive(),
+  backgroundText: string().required().transform(toZh),
+  objective: string().required().transform(toZh),
+  poiIndex: number().required().integer().positive(),
+  goalText: string().required().transform(toZh),
+  confirmText: string().required().transform(toZh),
+  declineText: string().required().transform(toZh),
+  endDialogText: string().required().transform(toZh),
+  endJournalText: string().required().transform(toZh),
+  endBackgroundText: string().required().transform(toZh),
+  isShareable: number().required().integer().positive(),
+  numTools: number().required().integer().positive(),
+  hasTimer: number().required().integer().positive(),
+  timerCaption: string().required().transform(toZh),
+  timerDuration: number().required().integer().positive(),
+  numSteps: number().required().integer().positive(),
+  numRewards: number().required().integer().positive(),
+  count: number().required().integer().positive(),
+  uniqueId: number().required().integer().positive(),
+});
+
+const questRewardSchema = object({
+  id: number().required().integer().positive(),
+  logId: number().required().integer().positive(),
+  questId: number().required().integer().positive(),
+  uniqueId: number().required().integer().positive(),
+  quantity: number().required().integer().positive(),
+  itemId: number().required().integer().positive(),
+  collectId: number().required().integer().positive(),
+  count: number().required().integer().positive(),
+  name: string().required().transform((x) => toZh(x, true)),
+  quality: string().required().transform(toZh),
+  type: string().required().transform(toZh),
+  icon: string().required().transform((x: string) => `https://eso-cdn.denohub.com/${x.replace(".dds", ".png")}`),
+});
+
+const questStepSchema = object({
+  id: number().required().integer().positive(),
+  x: number().required().positive(),
+  y: number().required().positive(),
+  questId: number().required().integer().positive(),
+  uniqueId: number().required().integer().positive(),
+  stageIndex: number().required().integer().positive(),
+  stepIndex: number().required().integer().positive(),
+  text: string().required().transform(toZh),
+  overrideText: string().required().transform(toZh),
+  numConditions: number().required().integer().positive(),
+  count: number().required().integer().positive(),
+});
+
+const collectiblesSchema = object({
+  id: number().required().integer().positive(),
+  name: string().required().transform(toZh),
+  nickname: string().required().transform(toZh),
+  description: string().required().transform(toZh),
+  // TODO
+});
+
 const schemaMap = {
   achievementCategories: achievementCategoriesSchema,
   achievementCriteria: achievementCriteriaSchema,
@@ -266,7 +332,11 @@ const schemaMap = {
   minedSkillLines: minedSkillLinesSchema,
   minedItemSummary: minedItemSummarySchema,
   npc: npcSchema,
+  uniqueQuest: uniqueQuestSchema,
+  questReward: questRewardSchema,
+  questStep: questStepSchema,
   zonePois: poiSchema,
+  collectibles: collectiblesSchema,
 };
 
 type Key = keyof typeof schemaMap;
@@ -283,12 +353,22 @@ async function getRemoteFromCache(name: string, start: number) {
   try {
     return await Deno.readTextFile(path);
   } catch {
+    await new Promise((resolve) => setTimeout(resolve, 10));
     const input = `https://esoitem.uesp.net/viewlog.php?record=${name}&start=${start}`;
     const response = await fetch(input);
     const data = await response.text();
     await Deno.writeTextFile(path, data);
     return data;
   }
+}
+
+async function getTotal<K extends keyof typeof schemaMap>(name: K) {
+  const file = await getRemoteFromCache(name, 0);
+  return Number(
+    file.match(
+      /Displaying \d+ of (\d+) records from \d+ to \d+\./,
+    )?.[1] ?? 0,
+  );
 }
 
 /** 解析内容 */
@@ -305,12 +385,6 @@ async function parseContent<K extends keyof typeof schemaMap>(
     .map((node) => toString(node))
     .slice(1, -1);
 
-  const nextPage = (selectAll("a", node) as Element[]).find(
-    (x) => toString(x) === "Next",
-  );
-
-  await new Promise((resolve) => setTimeout(resolve, 100));
-
   return selectAll("tr", table)
     .slice(1)
     .map((node) => {
@@ -320,31 +394,37 @@ async function parseContent<K extends keyof typeof schemaMap>(
       const pairs = headers.map((x, i) => [x, cells[i].trim()]);
       const obj = Object.fromEntries(pairs);
       obj.nameEn = obj.name;
-      // obj.slug = paramCase(obj.nameEn);
       return schemaMap[name].cast(obj) as InferType<typeof schemaMap[K]>;
-    })
-    .concat(nextPage ? await parseContent(name, start + 500) : []);
+    });
 }
 
 function isSupportedRecord(record: string): record is keyof typeof schemaMap {
   return record in schemaMap;
 }
 
-async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
+async function saveToStrapi(data: InferType<typeof schemaMap[Key]>, local: boolean) {
   const token = Deno.env.get("STRAPI_TOKEN");
 
-  if (token == null) {
+  if (!local && token == null) {
     throw new Error("没有设置 STRAPI_TOKEN 环境变量");
   }
 
-  const response = await fetch(`https://esoapi.denohub.com/api/items`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Bearer ${Deno.env.get("STRAPI_TOKEN")}`,
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
+
+  if (!local) {
+    headers["Authorization"] = `Bearer ${Deno.env.get("STRAPI_TOKEN")}`;
+  }
+
+  const response = await fetch(
+    `${local ? "http://localhost:1337/api/" : "https://esoapi.denohub.com/api/"}quest-steps`,
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify({ data }),
     },
-    body: JSON.stringify({ data }),
-  });
+  );
 
   if (!response.ok) {
     const message = await response.text();
@@ -354,6 +434,7 @@ async function saveToStrapi(data: InferType<typeof schemaMap[Key]>) {
 
 if (import.meta.main) {
   const name = Deno.args[0];
+  const local = Deno.args[1] === "local";
 
   if (!isSupportedRecord(name)) {
     console.warn("暂不支持 %s 的解析", name);
@@ -367,14 +448,21 @@ if (import.meta.main) {
   }
   initLang(langMap[name]);
 
-  const result = await parseContent(name);
+  const total = await getTotal(name);
+  console.log(`共有 ${total} 条数据`);
+
+  const result: any[] = [];
+  for (let i = 0; i < 1; i += 500) {
+    console.log(`正在解析第 ${i + 1} 到 ${Math.min(i + 500, total)} 条数据`);
+    result.push(...await parseContent(name, i));
+  }
 
   const failed = [];
-  for (const item of result) {
+  for (const data of result) {
     try {
-      await saveToStrapi(item);
+      await saveToStrapi(data, local);
     } catch (e) {
-      failed.push({ ...item, reason: e.message });
+      failed.push({ ...data, reason: e.message });
     }
   }
 

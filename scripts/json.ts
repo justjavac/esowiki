@@ -5,7 +5,7 @@ async function saveToStrapi(data: Record<string, unknown>) {
     throw new Error("没有设置 STRAPI_TOKEN 环境变量");
   }
 
-  const response = await fetch(`https://esoapi.denohub.com/api/books`, {
+  const response = await fetch(`https://esoapi.denohub.com/api/quests`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,15 +23,12 @@ async function saveToStrapi(data: Record<string, unknown>) {
 if (import.meta.main) {
   const file = Deno.args[0];
 
-  const data = JSON.parse(await Deno.readTextFile(file)) as Record<string, unknown>[];
+  const data = JSON.parse(await Deno.readTextFile(file)) as Record<string, any>[];
 
   const failed = [];
   for (const item of data) {
     try {
-      item.categoryIndex = item.categoryIndex || undefined;
-      item.collectionIndex = item.collectionIndex || undefined;
-      item.bookIndex = item.bookIndex || undefined;
-      item.guildIndex = item.guildIndex || undefined;
+      item.slug = `${item.slug}-${item.locationZoneEn}`.replaceAll(" ", "-").toLowerCase();
       await saveToStrapi(item);
     } catch (e) {
       failed.push({ ...item, reason: e.message });
