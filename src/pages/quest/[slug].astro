@@ -85,7 +85,8 @@ const meta = [
   <ol>
     {
       data.attributes.steps.data.map(
-        (x) => x.attributes.text && <li set:html={md2html(x.attributes.text)} />
+        (x: any) =>
+          x.attributes.text && <li set:html={md2html(x.attributes.text)} />
       )
     }
   </ol>
