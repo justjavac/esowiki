@@ -36,7 +36,12 @@ if (data == null) {
 
 const rewards = data.attributes.rewards.data
   .map((reward: any) => {
+    if (reward.attributes.type === "金币") {
+      return `${reward.attributes.quantity} <a href="/currency/gold">金币</a>`;
+    }
+
     const item = reward.attributes.item?.data;
+
     const name = item
       ? `<a href="/item/${item.id}">${item.attributes.name}</a>`
       : reward.attributes.name;
@@ -47,7 +52,7 @@ const rewards = data.attributes.rewards.data
   .join("<br/>");
 
 const meta = [
-  { name: "任务名", content: data.attributes.name },
+  { name: "任务", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
   { name: "类型", content: data.attributes.type },
   { name: "目标", content: md2text(data.attributes.goalText) },
