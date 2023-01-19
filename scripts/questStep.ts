@@ -90,7 +90,7 @@ if (import.meta.main) {
 
   for (let i = 0; i < 4000; i++) {
     const quest = await fetch(
-      "https://esoapi.denohub.com/api/quests?fields[0]=id&pagination[pageSize]=500&populate[0]=rewards&filters[rewards][id][$null]=true",
+      "https://esoapi.denohub.com/api/quests?fields[0]=id&pagination[pageSize]=500&filters[steps][id][$null]=true",
     ).then((x) => x.json());
 
     const questIds = quest.data.map((x: any) => x.id);

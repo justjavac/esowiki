@@ -48,17 +48,28 @@ layout: ../../layouts/QuestLayout.astro
 
 ## QuickWalkthrough
 
+1. 请与[诺里安维](/npc/norianwe)交谈，以获取有关您抵达该岛的信息。
+1. 离开牢房，与诺里安维交谈。
+1. 拿起你选择的武器。
+1. 使用活铠甲练习您的战斗技巧。
+1. 与诺里安维交谈，然后前往废墟外。
+1. 前往锁匠画廊。
+1. 找到一个天空碎片来解锁画廊内的大门。
+1. 进入前厅，打败一只危险的魔族野兽[行者施亚泽尔](/npc/shyazzel-the-traveler)。
+1. 深入画廊。
+1. 和诺里安维谈谈你的发现。
+
 1. 交谈 to[诺里安维](/npc/norianwe "诺里安维 (Norianwe)") for information about your arrival to the isle.
-2. Exit the cell and talk to Norianwe.
-3. Pick up a weapon of your choice.
-4. Practice your fighting skills with the Animated Armor.
-5. Talk to Norianwe and head outside the ruins.
-6. Make your way to the Keywright's Gallery.
-7. Find a skyshard to unlock the gate inside the gallery.
-8. Enter the antechamber and defeat a dangerous
+1. Exit the cell and talk to Norianwe.
+1. Pick up a weapon of your choice.
+1. Practice your fighting skills with the Animated Armor.
+1. Talk to Norianwe and head outside the ruins.
+1. Make your way to the Keywright's Gallery.
+1. Find a skyshard to unlock the gate inside the gallery.
+1. Enter the antechamber and defeat a dangerous
    [魔族野兽](/wiki/Online:Shyazzel_the_Traveler "行者施亚泽尔 (Shyazzel the Traveler)")。
-9. Proceed deeper into the gallery.
-10. Speak to Norianwe about your discovery.
+1. Proceed deeper into the gallery.
+1. Speak to Norianwe about your discovery.
 
 ## DetailedWalkthrough
 
@@ -69,22 +80,20 @@ _(walkthroughmissing)_
 After completing the quest, Norianwe encourages you to enter one of the portals. These are all one-way trips, there is
 no way to return to the ruins. Select each portal and Norianwe will give you a short summary of what you can find there.
 
-- Players who only own the base game (which includes [晨风](/wiki/Online:Morrowind "晨风 (Morrowind)")) have four
-  choices：
+如果玩家只有基础游戏（包含[晨风](/dlc/morrowind)），那么你有 4 个选择：
 
-  - [斯特罗斯·迈凯](/location/stros_m_27_kai "斯特罗斯·迈凯 (Stros M'Kai)")
-  - [柯娜西的居所](/location/khenarthi_27s_roost "柯娜西的居所 (Khenarthi's Roost)")
-  - [荒岩岛](/location/bleakrock_isle "荒岩岛 (Bleakrock Isle)")
-  - [瓦登费尔](/location/vvardenfell "瓦登费尔 (Vvardenfell)")
+- [斯特罗斯·迈凯](/location/stros_m_kai)
+- [柯娜西的居所](/location/khenarthi_s_roost)
+- [荒岩岛](/location/bleakrock_isle")
+- [瓦登费尔](/location/vvardenfell)
 
-- Players who have bought the relevant chapter or are [ESO Plus](/wiki/Online:ESO_Plus "ESO Plus") subscribers can also
-  choose：
+如果玩家购买了对应的章节，或者是 [ESO Plus](/wiki/Online:ESO_Plus "ESO Plus") 会员，那么你有额外的 5 个选择：
 
-  - [夏暮岛](/wiki/Online:Summerset_Isle "夏暮岛 (Summerset Isle)")
-  - [艾斯维尔](/wiki/Online:Elsweyr "艾斯维尔 (Elsweyr)")
-  - [灰沼](/wiki/Online:Greymoor "灰沼 (Greymoor)")
-  - [黑木](/location/blackwood "黑木 (Blackwood)")
-  - [高岛](/location/high_isle "高岛 (High Isle)")
+- [夏暮岛](/location/summerset_isle)
+- [艾斯维尔](/dlc/elsweyr)
+- [灰沼](/dlc/greymoor")
+- [黑木](/location/blackwood)
+- [高岛](/location/high_isle)
 
 ## 笔记
 
@@ -100,18 +109,18 @@ no way to return to the ruins. Select each portal and Norianwe will give you a s
 | FinishesQuest                                            | 日志 Entry                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |                                                          | 我听到了一个声音。现在去看看谁在说话吧。_Objective_：查看 Around                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|                                                          | 我在牢房的另一边发现了一位精灵。现在跟她谈谈吧。_Objective_: 和诺里安维交谈_隐藏 Objective_: 前往牢房_隐藏 Objective_：巨斧_隐藏 Objective_：弓_隐藏 Objective_：火焰法杖_隐藏 Objective_：治疗法杖_隐藏 Objective_：匕首_隐藏 Objective_：剑_隐藏 Objective_：护盾_隐藏 Objective_：匕首_隐藏 Objective_: 装备一个副手物品_隐藏 Objective_：冲刺_隐藏 Objective_：潜行_隐藏 Objective_：潜行攻击_隐藏 Objective_：梯级_隐藏 Objective_：提示箱子_隐藏 Objective_：提示地图_隐藏 Objective_: 提示镜头角度_隐藏 Objective_：提示陷阱_隐藏 Objective_：寻找天空裂片_隐藏 Objective_: 击杀天空裂片守护者_隐藏 Objective_：寻找画廊 |
+|                                                          | 我在牢房的另一边发现了一位精灵。现在跟她谈谈吧。_Objective_: 和诺里安维交谈*隐藏 Objective*: 前往牢房*隐藏 Objective*：巨斧*隐藏 Objective*：弓*隐藏 Objective*：火焰法杖*隐藏 Objective*：治疗法杖*隐藏 Objective*：匕首*隐藏 Objective*：剑*隐藏 Objective*：护盾*隐藏 Objective*：匕首*隐藏 Objective*: 装备一个副手物品*隐藏 Objective*：冲刺*隐藏 Objective*：潜行*隐藏 Objective*：潜行攻击*隐藏 Objective*：梯级*隐藏 Objective*：提示箱子*隐藏 Objective*：提示地图*隐藏 Objective*: 提示镜头角度*隐藏 Objective*：提示陷阱*隐藏 Objective*：寻找天空裂片*隐藏 Objective*: 击杀天空裂片守护者*隐藏 Objective*：寻找画廊 |
 |                                                          | 我得等诺里安维打开牢房的门。_Objective_: 等待诺里安维打开门                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |                                                          | 诺里安维打开了门，现在我可以离开牢房了。_Objective_：出口牢房                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |                                                          | 我成功逃离了牢房，现在得跟上我的救星诺里安维。_Objective_：跟随诺里安维                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |                                                          | 诺里安维想在开展行动前先跟我聊聊。听听看她有什么事吧。_Objective_: 和诺里安维交谈                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 |                                                          | 诺里安维想确保我有自卫能力。现在捡起一把武器吧。_Objective_: 拿起武器                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|                                                          | 我获得了一把武器，现在把它装备起来吧。_Objective_: 装备武器_OptionalStep_：_装备一个副手物品_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|                                                          | 我获得了一把武器，现在把它装备起来吧。_Objective_: 装备武器*OptionalStep*：_装备一个副手物品_                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 |                                                          | With my weapon equipped, I'm ready to fight. I should follow Norianwe to the next room._Objective_：跟随诺里安维                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |                                                          | I should defeat the magical construct that Norianwe summoned._Objective_：Practice 战斗                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |                                                          | Now that I defeated her magical construct, I should talk to Norianwe about what to do next._Objective_: 和诺里安维交谈                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |                                                          | I should make my way to the surface and meet Norianwe outside._Objective_: Lead Norianwe Outside                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Finishesquest![☑](//images.uesp.net/4/4d/Green_Tick.svg) | _隐藏 Objective_：冲刺_隐藏 Objective_：潜行_隐藏 Objective_：潜行攻击_隐藏 Objective_：梯级_隐藏 Objective_：寻找外部_隐藏 Objective_：寻找塔                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Finishesquest![☑](//images.uesp.net/4/4d/Green_Tick.svg) | _隐藏 Objective_：冲刺*隐藏 Objective*：潜行*隐藏 Objective*：潜行攻击*隐藏 Objective*：梯级*隐藏 Objective*：寻找外部*隐藏 Objective*：寻找塔                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |                                                          | 诺里安维似乎确信，这次入侵的源头是一个叫 "锁匠画廊 "的神秘保险库。我们得去往那里。_Objective_: 寻找锁匠画廊                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |                                                          | A locked gate blocks our progress. I should talk to Norianwe about what to do next._Objective_: 和诺里安维交谈                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |                                                          | 诺里安维说我们要找到一块天空裂片来打开大门。现在去附近的宝库里找一块天空裂片，修复大门的机械装置吧。_Objective_: 获得天空裂片                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
