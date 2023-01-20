@@ -59,7 +59,7 @@ const meta = [
   { name: "区域", content: md2text(data.attributes.zone) },
   { name: "地点", content: md2text(data.attributes.locationZone) },
   { name: "奖励", content: rewards },
-].filter((item) => item.content != null);
+].filter((item) => item.content != null && item.content !== "");
 ---
 
 <ArticleLayout
@@ -82,7 +82,7 @@ const meta = [
   <Fragment set:html={md2html(data.attributes.content)} />
 
   {
-    data.attributes.steps && (
+    data.attributes.steps.data.length > 0 && (
       <>
         <h2 id="steps">任务步骤</h2>
         <ol>
