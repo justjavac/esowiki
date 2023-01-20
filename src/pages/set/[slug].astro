@@ -78,9 +78,7 @@ const meta = [
       href={`/set?type=${attributes.type}`}>{attributes.type}</a
     >套装，可以在 {attributes.location ?? "?"} 区域获得。
   </p>
-  <p>
-    <strong>套装效果</strong>:
-  </p>
+  <h3>套装效果</h3>
   <ul>
     {
       Array(7)
@@ -90,6 +88,19 @@ const meta = [
         .map((x) => <li>{x}</li>)
     }
   </ul>
+
+  {
+    attributes.type === "地图1" && (
+      <>
+        <h3>掉落机制</h3>
+        <ul>
+          <li>xxx</li>
+        </ul>
+      </>
+    )
+  }
+
+  <h3>套装部件</h3>
   <p>
     {attributes.name}套装共包含 <code>{items.length}</code> 个部件：
     <div class="flex gap-1 flex-wrap mt-5">
