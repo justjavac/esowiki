@@ -28,7 +28,9 @@ const { data: article } = await fetch(`${ESO_API_URL}/api/articles/12`).then(
     上古卷轴OL目前一共有 <a href="/quest/list"
       ><strong>{meta.pagination.total}</strong>
     </a>
-    个任务。
+    个任务。这个有一个列表，包含了所有<a href="/quest/skill-point"
+      >能够获得技能点的任务</a
+    >。
   </p>
   <Fragment set:html={md2html(article.attributes.content)} />
 </ListLayout>

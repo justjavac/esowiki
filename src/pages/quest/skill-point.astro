@@ -3,15 +3,10 @@ import { ESO_API_URL } from "@/consts";
 import ListLayout from "@/layouts/ListLayout.astro";
 import { md2html } from "@/utils";
 
-let page = Astro.url.searchParams.get("page") || "1";
-
-if (!/^\d+$/.test(page)) {
-  page = "1";
-}
-
 const query = new URLSearchParams();
-query.set("pagination[pageSize]", "100");
-query.set("pagination[page]", page);
+query.set("pagination[pageSize]", "500");
+query.set("pagination[page]", "1");
+query.set("filters[rewards][type][$eq]", "技能点");
 query.set("sort[0]", "slug:asc");
 // query.set("populate", "*");
 
@@ -20,13 +15,14 @@ const { data, meta } = await response.json();
 ---
 
 <ListLayout
-  name="任务列表"
+  name="奖励技能点的任务列表"
   nameEn="Quests"
-  description={`上古卷轴OL目前一共有 ${meta.pagination.total} 个任务。`}
-  pagination={meta.pagination}
+  description={`上古卷轴OL目前一共有 ${meta.pagination.total} 个具有技能点奖励的任务。`}
 >
   <p>
-    上古卷轴OL目前一共有 {meta.pagination.total} 个<a href="/quest">任务</a>。
+    上古卷轴OL目前一共有 {meta.pagination.total} 个具有技能点奖励的<a
+      href="/quest">任务</a
+    >。
   </p>
   <ul>
     {

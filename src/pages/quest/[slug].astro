@@ -41,6 +41,10 @@ const rewards = data.attributes.rewards.data
       return `${reward.attributes.quantity} <a href="/currency/gold">金币</a>`;
     }
 
+    if (reward.attributes.type === "技能点") {
+      return `${reward.attributes.quantity} <a href="/skill">技能点</a>`;
+    }
+
     let name = reward.attributes.name;
     const item = reward.attributes.item?.data;
     const skillLine = reward.attributes.skillLine?.data;
