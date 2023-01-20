@@ -25,6 +25,7 @@ async function getQuests(zoneName: string, subZoneName: string) {
   query.set("pagination[pageSize]", "500");
   query.set("pagination[page]", "1");
   query.set("filters[zoneName][$eq]", zoneName);
+  query.set("filters[type][$eq]", "地区剧情任务");
   query.set("sort[0]", "id:desc");
 
   if (subZoneName) {
@@ -88,8 +89,8 @@ const meta = [
 
 if (quests.length > 0) {
   meta.push({
-    name: "任务",
-    content: `<a href="#quests">${quests.length}</a>`,
+    name: "地区剧情任务",
+    content: `<a href="#zone-stories">${quests.length}</a>`,
   });
 }
 
@@ -155,8 +156,8 @@ if (file != null) {
   {
     quests.length > 0 && (
       <>
-        <h2 id="quests">
-          任务 <small class="text-gray-500">Quests</small>
+        <h2 id="zone-stories">
+          地区剧情任务 <small class="text-gray-500">Zone Stories</small>
         </h2>
         <ul>
           {quests.map((x: any) => (
