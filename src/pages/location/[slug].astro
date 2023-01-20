@@ -84,8 +84,21 @@ const POIs = [
 const meta = [
   { name: "名称", content: name },
   { name: "英文", content: nameEn },
-  { name: "地区剧情任务", content: "-" },
 ];
+
+if (quests.length > 0) {
+  meta.push({
+    name: "任务",
+    content: `<a href="#quests">${quests.length}</a>`,
+  });
+}
+
+if (paths.length > 0) {
+  meta.push({
+    name: "地点",
+    content: `<a href="#places">${paths.length}</a>`,
+  });
+}
 
 function slugId(en: string) {
   return en.toLowerCase().replaceAll(" ", "-");
@@ -95,13 +108,6 @@ for (let poi of POIs) {
   meta.push({
     name: poi[0],
     content: `<a href="#${slugId(poi[1])}">${poi[2].length}</a>`,
-  });
-}
-
-if (quests.length > 0) {
-  meta.push({
-    name: "任务",
-    content: `<a href="#quests">${quests.length}</a>`,
   });
 }
 
@@ -147,9 +153,26 @@ if (file != null) {
   <Fragment set:html={md2html(data.attributes.content)} />
 
   {
+    quests.length > 0 && (
+      <>
+        <h2 id="quests">
+          任务 <small class="text-gray-500">Quests</small>
+        </h2>
+        <ul>
+          {quests.map((x: any) => (
+            <li>
+              <a href={`/quest/${x.attributes.slug}`}>{x.attributes.name}</a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  {
     paths.length > 0 && (
       <>
-        <h2>
+        <h2 id="places">
           地点 <small class="text-gray-500">Places</small>
         </h2>
         <ul>
@@ -196,23 +219,6 @@ if (file != null) {
             </ul>
           </>
         )
-    )
-  }
-
-  {
-    quests.length > 0 && (
-      <>
-        <h2 id="quests">
-          任务 <small class="text-gray-500">Quests</small>
-        </h2>
-        <ul>
-          {quests.map((x: any) => (
-            <li>
-              <a href={`/quest/${x.attributes.slug}`}>{x.attributes.name}</a>
-            </li>
-          ))}
-        </ul>
-      </>
     )
   }
 </ArticleLayout>
