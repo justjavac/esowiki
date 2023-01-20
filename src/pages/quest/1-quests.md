@@ -95,7 +95,7 @@ layout: ../../layouts/QuestLayout.astro
   [![Greymoor](//images.uesp.net/thumb/0/02/ON-icon-alliance-Solitude.png)](/wiki/Online:Greymoor "灰沼 (Greymoor)") —
   All quests in Blackreach: 灰沼洞穴
 - [黑木](/wiki/Online:Blackwood#Quests "黑木 (Blackwood)")
-  [![Blackwood](//images.uesp.net/thumb/e/ec/ON-icon-Blackwood_02.png)](</wiki/Online:Blackwood_(Chapter)> "黑木 (Blackwood)")
+  [![Blackwood](//images.uesp.net/thumb/e/ec/ON-icon-Blackwood_02.png)](/wiki/Online:Blackwood_(Chapter) "黑木 (Blackwood)")
   — All quests in Blackwood
 - [高岛](/wiki/Online:High_Isle#Quests "高岛 (High Isle)")
   [![High Isle](//images.uesp.net/thumb/e/e7/ON-icon-Zone_DLC.png)](/location/high-isle "高岛 (High Isle)") — All quests
@@ -104,7 +104,7 @@ layout: ../../layouts/QuestLayout.astro
   [![Elsweyr](//images.uesp.net/thumb/9/98/ON-icon-alliance-Elsweyr.png)](/wiki/Online:Elsweyr "艾斯维尔 (Elsweyr)") —
   All quests in Northern Elsweyr
 - [夏暮岛](/wiki/Online:Summerset#Quests "夏暮岛 (Summerset)")
-  [![Summerset](//images.uesp.net/thumb/8/8c/ON-icon-alliance-Alinor.png)](</wiki/Online:Summerset_(Chapter)> "夏暮岛 (Summerset)")
+  [![Summerset](//images.uesp.net/thumb/8/8c/ON-icon-alliance-Alinor.png)](/wiki/Online:Summerset_(Chapter) "夏暮岛 (Summerset)")
   — All quests in Summerset and Artaeum
 - [瓦登费尔](/wiki/Online:Vvardenfell#Quests "瓦登费尔 (Vvardenfell)")
   [![Morrowind](//images.uesp.net/thumb/3/3e/ON-icon-alliance-Vivec.png)](/wiki/Online:Morrowind "晨风 (Morrowind)") —
@@ -116,22 +116,22 @@ layout: ../../layouts/QuestLayout.astro
 ### DLC 区域
 
 - [黑降：阿克赞德洞穴](/wiki/Online:Blackreach:_Arkthzand_Cavern#Quests "黑降：阿克赞德洞穴 (Blackreach: Arkthzand Cavern)")
-  [![Markarth](//images.uesp.net/thumb/d/d3/ON-icon-Markarth_02.png)](</wiki/Online:Markarth_(DLC)> "马卡斯城 (Markarth)")
+  [![Markarth](//images.uesp.net/thumb/d/d3/ON-icon-Markarth_02.png)](/wiki/Online:Markarth_(DLC) "马卡斯城 (Markarth)")
   — All quests in Blackreach: 阿克赞德洞穴
 - [发条城](/wiki/Online:Clockwork_City#Quests "发条城 (Clockwork City)")
-  [![Clockwork City](//images.uesp.net/thumb/8/8a/ON-icon-Sotha_Sil.png)](</wiki/Online:Clockwork_City_(DLC)> "发条城 (Clockwork City)")
+  [![Clockwork City](//images.uesp.net/thumb/8/8a/ON-icon-Sotha_Sil.png)](/wiki/Online:Clockwork_City_(DLC) "发条城 (Clockwork City)")
   — All quests in the Clockwork City
 - [黄金海岸](/wiki/Online:Gold_Coast#Quests "黄金海岸 (Gold Coast)")
-  [![Dark Brotherhood](//images.uesp.net/thumb/f/f2/ON-mapicon-Dark_Brotherhood.png)](</wiki/Online:Dark_Brotherhood_(DLC)> "黑暗兄弟会 (Dark Brotherhood)")
+  [![Dark Brotherhood](//images.uesp.net/thumb/f/f2/ON-mapicon-Dark_Brotherhood.png)](/wiki/Online:Dark_Brotherhood_(DLC) "黑暗兄弟会 (Dark Brotherhood)")
   — All quests in the Gold Coast
 - [修之克星](/wiki/Online:Hew%27s_Bane#Quests "修之克星 (Hew's Bane)")
-  [![Thieves Guild](//images.uesp.net/thumb/5/52/ON-icon-ThievesGuild.png)](</wiki/Online:Thieves_Guild_(DLC)> "盗贼公会 (Thieves Guild)")
+  [![Thieves Guild](//images.uesp.net/thumb/5/52/ON-icon-ThievesGuild.png)](/wiki/Online:Thieves_Guild_(DLC) "盗贼公会 (Thieves Guild)")
   — All quests in Hew's Bane
 - [帝都](/wiki/Online:Imperial_City#Quests "帝都 (Imperial City)")
-  [![Imperial City](//images.uesp.net/thumb/4/45/ON-mapicon-ImperialCity.png)](</wiki/Online:Imperial_City_(DLC)> "帝都 (Imperial City)")
+  [![Imperial City](//images.uesp.net/thumb/4/45/ON-mapicon-ImperialCity.png)](/wiki/Online:Imperial_City_(DLC) "帝都 (Imperial City)")
   — All quests in the Imperial City
 - [幽暗沼泽](/wiki/Online:Murkmire#Quests "幽暗沼泽 (Murkmire)")
-  [![Murkmire](//images.uesp.net/thumb/b/b7/ON-icon-Murkmire_02.png)](</wiki/Online:Murkmire_(DLC)> "幽暗沼泽 (Murkmire)")
+  [![Murkmire](//images.uesp.net/thumb/b/b7/ON-icon-Murkmire_02.png)](/wiki/Online:Murkmire_(DLC) "幽暗沼泽 (Murkmire)")
   — All quests in Murkmire
 - [南艾斯维尔](/wiki/Online:Southern_Elsweyr#Quests "南艾斯维尔 (Southern Elsweyr)")
   [![Dragonhold](//images.uesp.net/thumb/8/83/ON-icon-Dragonhold_02.png)](/wiki/Online:Dragonhold "龙之要塞 (Dragonhold)")
@@ -140,10 +140,10 @@ layout: ../../layouts/QuestLayout.astro
   [![Deadlands](//images.uesp.net/thumb/e/e7/ON-icon-Zone_DLC.png)](/wiki/Online:Deadlands "死地 (Deadlands)") — All
   quests in Fargrave and the Deadlands
 - [瑞驰](/wiki/Online:The_Reach#Quests "瑞驰 (The Reach)")
-  [![Markarth](//images.uesp.net/thumb/d/d3/ON-icon-Markarth_02.png)](</wiki/Online:Markarth_(DLC)> "马卡斯城 (Markarth)")
+  [![Markarth](//images.uesp.net/thumb/d/d3/ON-icon-Markarth_02.png)](/wiki/Online:Markarth_(DLC) "马卡斯城 (Markarth)")
   — All quests in the Reach
 - [沃斯加](/wiki/Online:Wrothgar#Quests "沃斯加 (Wrothgar)")
-  [![Orsinium](//images.uesp.net/thumb/c/c4/ON-icon-Wrothgar.png)](</wiki/Online:Orsinium_(DLC)> "奥辛纽姆 (Orsinium)") —
+  [![Orsinium](//images.uesp.net/thumb/c/c4/ON-icon-Wrothgar.png)](/wiki/Online:Orsinium_(DLC) "奥辛纽姆 (Orsinium)") —
   All quests in Wrothgar
 
 ## 任务列表
