@@ -18,8 +18,8 @@ query.set("sort[0]", "id:asc");
 const response = await fetch(`${ESO_API_URL}/api/books?${query}`);
 const { data, meta } = await response.json();
 
-const { data: book } = await fetch(`${ESO_API_URL}/api/articles/11`).then((x) =>
-  x.json()
+const { data: article } = await fetch(`${ESO_API_URL}/api/articles/11`).then(
+  (x) => x.json()
 );
 ---
 
@@ -30,5 +30,5 @@ const { data: book } = await fetch(`${ESO_API_URL}/api/articles/11`).then((x) =>
     </a>
     本书籍。
   </p>
-  <Fragment set:html={md2html(book.attributes.content)} />
+  <Fragment set:html={md2html(article.attributes.content)} />
 </ListLayout>

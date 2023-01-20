@@ -1,29 +1,34 @@
 ---
-import HeaderNav from "@/components/HeaderNav.astro";
-import HeaderMeta from "@/components/HeaderMeta.astro";
-import ScrollToTop from "@/components/ScrollToTop.astro";
-import Footer from "@/components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL } from "@/consts";
+import { ESO_API_URL } from "@/consts";
+import ListLayout from "@/layouts/ListLayout.astro";
+import { md2html } from "@/utils";
+
+let page = Astro.url.searchParams.get("page") || "1";
+
+if (!/^\d+$/.test(page)) {
+  page = "1";
+}
+
+const query = new URLSearchParams();
+query.set("pagination[pageSize]", "100");
+query.set("pagination[page]", page);
+query.set("sort[0]", "id:asc");
+// query.set("populate", "*");
+
+const response = await fetch(`${ESO_API_URL}/api/quests?${query}`);
+const { data, meta } = await response.json();
+
+const { data: article } = await fetch(`${ESO_API_URL}/api/articles/12`).then(
+  (x) => x.json()
+);
 ---
 
-<html lang="zh-CN">
-  <head>
-    <HeaderMeta title={`任务 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
-  </head>
-
-  <body>
-    <HeaderNav />
-
-    <main class="flex flex-col items-center h-full">
-      <div class="max-w-3xl w-full">
-        <div class="rounded-lg shadow-lg p-4">
-          <h1 class="text-2xl font-bold">任务</h1>
-          <div class="mt-4">
-            <p class="text-gray-500">正在开发中。。。</p>
-          </div>
-        </div>
-      </div>
-    </main>
-    <ScrollToTop />
-  </body>
-</html>
+<ListLayout name="任务" nameEn="Quest">
+  <p>
+    上古卷轴OL目前一共有 <a href="/quest/list"
+      ><strong>{meta.pagination.total}</strong>
+    </a>
+    个任务。
+  </p>
+  <Fragment set:html={md2html(article.attributes.content)} />
+</ListLayout>

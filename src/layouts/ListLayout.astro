@@ -38,7 +38,6 @@ const { name, nameEn, description, pagination } = Astro.props;
             </h1>
           )
         }
-        {pagination && <Pagination {...pagination} />}
         <slot />
         {pagination && <Pagination {...pagination} />}
       </article>

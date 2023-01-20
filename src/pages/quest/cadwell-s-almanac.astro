@@ -1,0 +1,30 @@
+---
+import { ESO_API_URL } from "@/consts";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+import { formatDateTime, formatDate, md2html, md2text } from "@/utils";
+
+const { data } = await fetch(`${ESO_API_URL}/api/articles/14`).then((x) =>
+  x.json()
+);
+
+function createTime(datatime: any) {
+  const formated = formatDateTime(datatime);
+  return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${formated}">${formatDate(
+    datatime
+  )}</time>`;
+}
+
+const meta = [
+  { name: "发布时间", content: createTime(data.attributes.publishedAt) },
+  { name: "最后更新", content: createTime(data.attributes.updatedAt) },
+];
+---
+
+<ArticleLayout
+  name={data.attributes.title}
+  description={md2text(data.attributes.description)}
+  type="页面"
+  meta={meta}
+>
+  <Fragment set:html={md2html(data.attributes.content)} />
+</ArticleLayout>

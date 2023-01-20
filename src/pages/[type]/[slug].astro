@@ -31,9 +31,9 @@ if (data == null) {
 
 function createTime(datatime: any) {
   const formated = formatDateTime(datatime);
-  return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${formatDateTime(
+  return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${formated}">${formatDate(
     datatime
-  )}">${formatDate(datatime)}</time>`;
+  )}</time>`;
 }
 
 const meta = [

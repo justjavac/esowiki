@@ -81,13 +81,17 @@ const meta = [
 
   <Fragment set:html={md2html(data.attributes.content)} />
 
-  <h2 id="steps">任务步骤</h2>
-  <ol>
-    {
-      data.attributes.steps.data.map(
-        (x: any) =>
-          x.attributes.text && <li set:html={md2html(x.attributes.text)} />
-      )
-    }
-  </ol>
+  {
+    data.attributes.steps && (
+      <>
+        <h2 id="steps">任务步骤</h2>
+        <ol>
+          {data.attributes.steps.data.map(
+            (x: any) =>
+              x.attributes.text && <li set:html={md2html(x.attributes.text)} />
+          )}
+        </ol>
+      </>
+    )
+  }
 </ArticleLayout>
