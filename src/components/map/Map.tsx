@@ -169,6 +169,7 @@ function Ping(props: PingProps) {
         .fill(0)
         .map((_, i) => (
           <circle
+            class="pointer-events-none"
             cx={props.x * MAP_SIZE}
             cy={props.y * MAP_SIZE}
             r="0"
