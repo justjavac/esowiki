@@ -16,9 +16,23 @@ async function getZone(slug: string) {
 
   const response = await fetch(`${ESO_API_URL}/api/zones?${query}`);
   const result = await response.json();
-  const data = result?.data[0];
+  return result?.data[0];
+}
 
-  return data;
+/** 任务 */
+async function getQuests(zoneName: string, subZoneName: string) {
+  const query = new URLSearchParams();
+  query.set("pagination[pageSize]", "500");
+  query.set("pagination[page]", "1");
+  query.set("filters[zoneName][$eq]", zoneName);
+  query.set("sort[0]", "id:desc");
+
+  if (subZoneName) {
+    query.set("filters[locationZone][$eq]", subZoneName);
+  }
+
+  const response = await fetch(`${ESO_API_URL}/api/quests?${query}`);
+  return await response.json();
 }
 
 /** 地图 */
@@ -45,6 +59,10 @@ const name = data.attributes.subZoneName || data.attributes.zoneName;
 const nameEn = data.attributes.subZoneNameEn || data.attributes.zoneNameEn;
 
 const { pois = [], paths = [], file } = await getMap(data.attributes.mapId);
+const { data: quests } = await getQuests(
+  data.attributes.zoneName,
+  data.attributes.subZoneName
+);
 
 const POIs = [
   ["洞穴", "Delves", pois.filter((x: PoiData) => x.type === 4)],
@@ -77,6 +95,13 @@ for (let poi of POIs) {
   meta.push({
     name: poi[0],
     content: `<a href="#${slugId(poi[1])}">${poi[2].length}</a>`,
+  });
+}
+
+if (quests.length > 0) {
+  meta.push({
+    name: "任务",
+    content: `<a href="#quests">${quests.length}</a>`,
   });
 }
 
@@ -171,6 +196,23 @@ if (file != null) {
             </ul>
           </>
         )
+    )
+  }
+
+  {
+    quests.length > 0 && (
+      <>
+        <h2 id="quests">
+          任务 <small class="text-gray-500">Quests</small>
+        </h2>
+        <ul>
+          {quests.map((x: any) => (
+            <li>
+              <a href={`/quest/${x.attributes.slug}`}>{x.attributes.name}</a>
+            </li>
+          ))}
+        </ul>
+      </>
     )
   }
 </ArticleLayout>
