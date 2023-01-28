@@ -17,7 +17,251 @@ const TYPES = [
   ["珠宝", "Jewelry"],
   ["通用", "Common"],
 ];
+
+const research = `
+为了制造具有特定特质的物品，必须首先对其进行研究。这可以在任何制作站完成：
+
+- 轻甲和中甲在制衣台
+- 弓，法杖和盾牌在木工站
+- 重甲和金属武器在锻造台
+- 项链和戒指在珠宝制作站
+
+研究一个特质只会解锁该特质的物品 - 例如，研究肩甲的[加固](/trait/armor-reinforced)特质只会让你制造加固的重甲肩膀，而不能建造任何其他重甲物品，如胸铠或足铠，或任何其他类型的肩膀部位物品，如肩饰或护肩。唯一的例外是长袍和短衣，它们只是两种不同风格的轻甲胸部物品。
+
+研究是按角色进行的，即研究一个角色的特质不会解锁该玩家的任何其他角色的特质。
+
+制造[物品套装](/set)需要您研究一定数量的特质。
+
+要开始研究，您需要在库存或银行中拥有具有所需特质的物品。找到的物品和其他玩家制作的物品都可以使用。**研究一个特质会摧毁该物品**。
+
+默认情况下，每个制作技能一次只能研究一个特质，每个制作技能系列都有能力提高此限制并提高研究速度：
+
+- 衣服 - <a href="/skill/stitching"><img class="inline" src="https://eso-cdn.denohub.com/esoui/art/icons/crafting_light_armor_component_004.png" width="32" height="32" alt="" /> 缝合</a>
+- 木工 - <a href="/skill/carpentry"><img class="inline" src="https://eso-cdn.denohub.com/esoui/art/icons/crafting_forester_plug_component_002.png" width="32" height="32" alt="" /> 木工</a>
+- 锻造 - <a href="/skill/metallurgy"><img class="inline" src="https://eso-cdn.denohub.com/esoui/art/icons/crafting_runecrafter_armor_vendor_component_002.png" width="32" height="32" alt="" /> 冶金</a>
+- 珠宝制作 - <a href="/skill/lapidary-research"><img class="inline" src="https://eso-cdn.denohub.com/esoui/art/icons/passive_lapidaryresearch.png" width="32" height="32" alt="" /> 宝石研究</a>
+
+这些能力可以将研究速度提高多达 25%，并将并发研究任务的限制提高到 3 个（珠宝研究除外，它不会增加额外的研究槽）。请注意，即使增加了研究限制，您仍然无法同时研究单个项目类型的多个特质。最高能力等级将研究时间限制为 30 天，这只与物品的第 9 个特质相关，因为其他属性已经低于此限制。成为 [ESO Plus](/game/eso-plus) 订阅者进一步将研究时间减少 10%，可以与上述能力叠加。
+
+The base research time for a trait is 6 hours real time. Each further trait you research for an item type doubles this time - 12 hours for the second trait, 24 hours for the third trait, and so forth. Research time continues to count down while you are not playing the character that is researching (e.g. playing another character or offline). The following table lists the research times for traits：
+
+特质的基本研究时间为 6 小时。每研究一个特质则进一步研究会翻倍 - 第二个特质为 12 小时，第三个特质为 24 小时，依此类推。当您下线时，研究时间会继续倒计时。下表列出了特质的研究时间：
+
+<table class="cost-time">
+<tbody><tr>
+<th rowspan="2" width="100">特质</th>
+<th colspan="5">耗时 (未订阅 ESO Plus)</th>
+</tr>
+<tr>
+<th width="150">基础</th>
+<th width="150">级别1</th>
+<th width="150">级别2</th>
+<th width="150">级别3</th>
+<th width="150">级别4</th>
+</tr>
+<tr>
+<th>1<sup>st</sup></th>
+<td>6h 00m</td>
+<td>5h 42m</td>
+<td>5h 24m</td>
+<td>4h 48m</td>
+<td>4h 30m</td>
+</tr>
+<tr>
+<th>2<sup>nd</sup></th>
+<td>12h 00m</td>
+<td>11h 24m</td>
+<td>10h 48m</td>
+<td>9h 36m</td>
+<td>9h 00m</td>
+</tr>
+<tr>
+<th>3<sup>rd</sup></th>
+<td>1d 00h 00m</td>
+<td>22h 48m</td>
+<td>21h 36m</td>
+<td>19h 12m</td>
+<td>18h 00m</td>
+</tr>
+<tr>
+<th>4<sup>th</sup></th>
+<td>2d 00h 00m</td>
+<td>1d 21h 36m</td>
+<td>1d 19h 12m</td>
+<td>1d 14h 24m</td>
+<td>1d 12h 00m</td>
+</tr>
+<tr>
+<th>5<sup>th</sup></th>
+<td>4d 00h 00m</td>
+<td>3d 19h 12m</td>
+<td>3d 14h 24m</td>
+<td>3d 04h 48m</td>
+<td>3d 00h 00m</td>
+</tr>
+<tr>
+<th>6<sup>th</sup></th>
+<td>8d 00h 00m</td>
+<td>7d 14h 24m</td>
+<td>7d 04h 48m</td>
+<td>6d 09h 36m</td>
+<td>6d 00h 00m</td>
+</tr>
+<tr>
+<th>7<sup>th</sup></th>
+<td>16d 00h 00m</td>
+<td>15d 04h 48m</td>
+<td>14d 09h 36m</td>
+<td>12d 19h 12m</td>
+<td>12d 00h 00m</td>
+</tr>
+<tr>
+<th>8<sup>th</sup></th>
+<td>32d 00h 00m</td>
+<td>30d 09h 36m</td>
+<td>28d 19h 12m</td>
+<td>25d 14h 24m</td>
+<td>24d 00h 00m</td>
+</tr>
+<tr>
+<th>9<sup>th</sup></th>
+<td>64d 00h 00m</td>
+<td>60d 19h 12m</td>
+<td>57d 14h 24m</td>
+<td>51d 04h 48m</td>
+<td>30d 00h 00m</td>
+</tr>
+<tr>
+<th>槽位</th>
+<th>1</th>
+<th>2</th>
+<th>2</th>
+<th>3</th>
+<th>3</th>
+</tr>
+<tr>
+<th>总耗时</th>
+<td><b>127d 18h 00m</b></td>
+<td><b>121d 8h 42m</b></td>
+<td><b>114d 23h 24m</b></td>
+<td><b>102d 4h 48m</b></td>
+<td><b>77d 19h 30m</b></td>
+</tr>
+</tbody></table>
+
+<table class="cost-time">
+<tbody><tr>
+  <th rowspan="2" width="100">特质</th>
+<th colspan="5">耗时 (订阅 ESO Plus)</th>
+</tr>
+<tr>
+<th width="150">基础</th>
+<th width="150">级别1</th>
+<th width="150">级别2</th>
+<th width="150">级别3</th>
+<th width="150">级别4</th>
+</tr>
+<tr>
+<th>1<sup>st</sup></th>
+<td>5h 24m</td>
+<td>5h 07m 48s</td>
+<td>4h 51m 36s</td>
+<td>4h 19m 12s</td>
+<td>4h 03m</td>
+</tr>
+<tr>
+<th>2<sup>nd</sup></th>
+<td>10h 48m</td>
+<td>10h 15m 36s</td>
+<td>9h 43m 12s</td>
+<td>8h 38m 24s</td>
+<td>8h 06m</td>
+</tr>
+<tr>
+<th>3<sup>rd</sup></th>
+<td>21h 36m</td>
+<td>20h 31m 12s</td>
+<td>19h 26m 24s</td>
+<td>17h 16m 48s</td>
+<td>16h 12m</td>
+</tr>
+<tr>
+<th>4<sup>th</sup></th>
+<td>1d 19h 12m</td>
+<td>1d 17h 02m 24s</td>
+<td>1d 14h 52m 48s</td>
+<td>1d 10h 33m 36s</td>
+<td>1d 08h 24m</td>
+</tr>
+<tr>
+<th>5<sup>th</sup></th>
+<td>3d 14h 24m</td>
+<td>3d 10h 04m 48s</td>
+<td>3d 05h 45m 36s</td>
+<td>2d 21h 07m 12s</td>
+<td>2d 16h 48m</td>
+</tr>
+<tr>
+<th>6<sup>th</sup></th>
+<td>7d 04h 48m</td>
+<td>6d 20h 09m 36s</td>
+<td>6d 11h 31m 12s</td>
+<td>5d 18h 14m 24s</td>
+<td>5d 09h 36m</td>
+</tr>
+<tr>
+<th>7<sup>th</sup></th>
+<td>14d 09h 36m</td>
+<td>13d 16h 19m 12s</td>
+<td>12d 23h 02m 24s</td>
+<td>11d 12h 28m 48s</td>
+<td>10d 19h 12m</td>
+</tr>
+<tr>
+<th>8<sup>th</sup></th>
+<td>28d 19h 12m</td>
+<td>27d 08h 38m 24s</td>
+<td>25d 22h 04m 48s</td>
+<td>23d 00h 57m 36s</td>
+<td>21d 14h 24m</td>
+</tr>
+<tr>
+<th>9<sup>th</sup></th>
+<td>57d 14h 24m</td>
+<td>54d 17h 16m 48s</td>
+<td>51d 20h 09m 36s</td>
+<td>46d 01h 55m 12s</td>
+<td>27d 00h 00m</td>
+</tr>
+<tr>
+<th>槽位</th>
+<th>1</th>
+<th>2</th>
+<th>2</th>
+<th>3</th>
+<th>3</th>
+</tr>
+<tr>
+<th>总耗时</th>
+<td><b>114d 23h 24m</b></td>
+<td><b>109d 5h 25m 48s</b></td>
+<td><b>103d 11h 27m 36s</b></td>
+<td><b>91d 23h 31m 12s</b></td>
+<td><b>70d 00h 45m</b></td>
+</tr>
+</tbody></table>
+
+使用[快速锻造研究](/item/125450)卷轴会将一个或多个当前正在研究的所有物品的计时器减少一定时间，取决于卷轴的数量（例如，[锻造研究卷轴：1 天](/item/125473)会将所有当前锻造研究物品的计时器减少 1 天）。从[王冠商店](/game/crown-store)获得的卷轴在使用之间没有冷却时间，从[罗利斯·哈拉鲁](/npc/rolis-hlaalu)购买的卷轴的冷却时间为 20 小时。
+
+在没有卷轴的情况下研究单个项目的所有特质将需要 70 天 45 分钟到 127 天 18 小时，具体取决于适当技能的点数以及您是否拥有 ESO Plus。可以研究 6 种不同的木工物品类型，可以研究 14 种不同的服装和锻造物品类型。这意味着研究所有木工特质至少需要 140 天 1 小时 30 分钟（大约四个半月），并且在不使用卷轴的情况下研究所有服装和锻造特质至少需要 350 天 3 小时 45 分钟（由于最后 2 个特征必须在 1 个空位上自己研究，不到 1 年）。
+`;
 ---
+
+<style is:inline>
+  .cost-time td {
+    text-align: right;
+  }
+</style>
 
 <ListLayout name="特质" nameEn="Trait" description={SITE_DESCRIPTION}>
   <p>
@@ -76,11 +320,11 @@ const TYPES = [
                     }
                   />
                   <td>{x.attributes.effect}</td>
-                  <td class="text-normal">{x.attributes.a1}</td>
-                  <td class="text-fine">{x.attributes.a2}</td>
-                  <td class="text-superior">{x.attributes.a3}</td>
-                  <td class="text-epic">{x.attributes.a4}</td>
-                  <td class="text-legendary">{x.attributes.a5}</td>
+                  <td class="text-normal text-right">{x.attributes.a1}</td>
+                  <td class="text-fine text-right">{x.attributes.a2}</td>
+                  <td class="text-superior text-right">{x.attributes.a3}</td>
+                  <td class="text-epic text-right">{x.attributes.a4}</td>
+                  <td class="text-legendary text-right">{x.attributes.a5}</td>
                 </tr>
               ))}
           </tbody>
@@ -88,4 +332,7 @@ const TYPES = [
       </>
     ))
   }
+
+  <h2 id="research">研究</h2>
+  <Fragment set:html={md2html(research)} />
 </ListLayout>
