@@ -161,6 +161,18 @@ const meta = [
     )
   }
 
+  {
+    attributes.type === "怪物" && (
+      <>
+        <h3>掉落机制</h3>
+        <ul>
+          <li>对应老兵地牢的最终Boss始终掉落头部。</li>
+          <li>肩部从闯世者箱子里面掉落。</li>
+        </ul>
+      </>
+    )
+  }
+
   <h3>套装部件</h3>
   <p>
     {attributes.name}套装共包含 <code>{items.length}</code> 个部件：
