@@ -90,11 +90,72 @@ const meta = [
   </ul>
 
   {
-    attributes.type === "地图1" && (
+    attributes.type === "地图" && (
       <>
         <h3>掉落机制</h3>
         <ul>
-          <li>xxx</li>
+          <li>洞穴Boss掉落腰带或足部。</li>
+          <li>世界Boss掉落头部、胸部、腿部或武器。</li>
+          <li>公开地牢Boss掉落肩部、手部或武器。</li>
+          <li>
+            <a href="/worldevent">世界事件</a>和宝箱掉落珠宝（戒指或项链）。
+          </li>
+          <li>区域宝箱掉落任一部位。</li>
+          <li>藏宝图挖掘出的宝箱掉落任一部位。</li>
+          <li>普通怪物掉落任一部位（概率极低）。</li>
+          <li>完成区域故事任务奖励。</li>
+        </ul>
+        <p>
+          掉落的物品范围从 <span class="text-fine">优质</span> 到
+          <span class="text-epic">史诗</span> 品质，而
+          <span class="text-legendary">传奇</span>
+          品质的物品必须通过制造台升级或从黄金商人
+          <a href="/npc/adhazabi-aba-daro">阿哈扎比·阿巴·达萝</a> 购买获得。
+        </p>
+      </>
+    )
+  }
+
+  {
+    attributes.type === "地牢" && (
+      <>
+        <h3>掉落机制</h3>
+        <ul>
+          <li>小Boss掉落手部、腰带或者鞋子。</li>
+          <li>Boss掉落胸部、肩部、头部或腿部。</li>
+          <li>最终Boss掉落武器或珠宝（戒指或项链）。</li>
+          <li>
+            普通模式掉落<span class="text-superior">上等</span>品质物品。
+          </li>
+          <li>
+            老兵模式掉落<span class="text-epic">史诗</span>品质物品。
+          </li>
+        </ul>
+      </>
+    )
+  }
+
+  {
+    attributes.type === "试炼" && (
+      <>
+        <h3>掉落机制</h3>
+        <ul>
+          <li>
+            普通模式小怪和Boss掉落<span class="text-superior">上等</span>
+            品质物品。
+          </li>
+          <li>
+            老兵模式小怪和Boss掉落<span class="text-epic">史诗</span>品质物品。
+          </li>
+          <li>最终Boss掉落武器或盾牌之一。</li>
+          <li>
+            老兵困难模式掉落完美武器和<span class="text-legendary">传奇</span>
+            品质珠宝。
+          </li>
+          <li>
+            与试炼相关的任务奖励容器将掉落一件珠宝、一把武器或盾牌，但这些在捡起时会绑定。
+          </li>
+          <li>宝箱有轻微的几率掉落护甲。</li>
         </ul>
       </>
     )
