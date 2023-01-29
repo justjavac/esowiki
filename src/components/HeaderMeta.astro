@@ -11,12 +11,18 @@ const { title, description } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1"
+/>
+<meta name="renderer" content="webkit" />
+<meta name="force-rendering" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <link rel="shortcut icon" type="image/x-icon" href={`${CDN_URL}/ico/eso.ico`} />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 <meta name="description" content={description} />
-
+<link rel="dns-prefetch" href="//eso-cdn.denohub.com" />
 <script is:inline>
   var _hmt = _hmt || [];
   (function () {
