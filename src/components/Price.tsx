@@ -1,5 +1,14 @@
-import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { formatDateTime } from "@/utils";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import { formatDate } from "@/utils";
 
 type PriceProps = {
   data: any[];
@@ -7,7 +16,7 @@ type PriceProps = {
 
 export function Price(props: PriceProps) {
   const data = props.data.map((x) => ({
-    createdAt: formatDateTime(x.attributes.createdAt),
+    createdAt: formatDate(x.attributes.createdAt),
     平均价格: x.attributes.avg,
     最高价格: x.attributes.max,
     最低价格: x.attributes.min,

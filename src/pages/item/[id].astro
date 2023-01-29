@@ -113,6 +113,8 @@ const BIND_TYPES: Record<string, string> = {
   3: "账户绑定",
 };
 
+console.log(data.attributes.prices);
+
 const meta = [
   { name: "名称", content: data.attributes.name },
   { name: "英文", content: data.attributes.nameEn },
@@ -149,7 +151,7 @@ const meta = [
   <blockquote set:html={md2html(data.attributes.description)} />
   <Fragment set:html={md2html(content.join(""))} />
 
-  <!-- {
+  {
     data.attributes.prices.data && (
       <>
         <h3 id="price">价格</h3>
@@ -158,5 +160,5 @@ const meta = [
         </div>
       </>
     )
-  } -->
+  }
 </ArticleLayout>
