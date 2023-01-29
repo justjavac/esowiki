@@ -35,7 +35,11 @@ const rewards = data.attributes.rewards as {
 
       <div class="my-8 rounded border border-gray-300/50">
         <header class="p-2 border-b border-gray-300/50">
-          <h3 class="font-medium text-lg text-center">January 2023</h3>
+          <h3 class="font-medium text-lg text-center">
+            {new Date(updatedAt).getFullYear()}年{
+              new Date(updatedAt).getMonth() + 1
+            }月
+          </h3>
         </header>
 
         <div class="grid grid-cols-7 gap-1">
