@@ -100,7 +100,6 @@ style.innerHTML = `.eso-tooltip {
   .eso-tooltip-zone-name {
     position: absolute;
     color: #000;
-    font-size: 16px;
     font-weight: bold;
     top: 4px;
     left: 4px;
