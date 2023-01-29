@@ -97,6 +97,14 @@ style.innerHTML = `.eso-tooltip {
   .eso-tooltip-hidden {
     display: none;
   }
+  .eso-tooltip-zone-name {
+    position: absolute;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    top: 4px;
+    left: 4px;
+  }
 `;
 document.body.appendChild(style);
 
@@ -195,6 +203,7 @@ allLinks.forEach((link) => {
       }
       case "map": {
         tooltip.innerHTML = `
+        <div class="eso-tooltip-zone-name">${data.name}</div>
         <svg viewBox="0 0 ${data.size} ${data.size}">
           <defs>
             <filter id="blur"><feGaussianBlur stdDeviation="0.5" /></filter>
