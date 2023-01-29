@@ -211,7 +211,7 @@ allLinks.forEach((link) => {
           <text
             font-size="64"
             x="32"
-            y="64"
+            y="96"
           >
             ${data.name}
           </text>
