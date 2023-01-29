@@ -61,7 +61,9 @@ const rewards = data.attributes.rewards as {
                 <div class="absolute right-4 bottom-6 font-semibold select-none drop-shadow">
                   {x.amount}
                 </div>
-                <div class="text-sm text-center">{x.name}</div>
+                <div class="flex text-sm text-center h-8 items-end">
+                  {x.name}
+                </div>
                 <div
                   class="absolute left-1 top-1 text-sm text-slate-400 select-none"
                   title={`第${i + 1}天`}
