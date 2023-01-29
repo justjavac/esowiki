@@ -12,9 +12,10 @@ export interface Props {
   nameEn?: string;
   description?: string;
   meta: MetaProps[];
+  search?: string;
 }
 
-const { name, nameEn, type, description, meta } = Astro.props;
+const { name, nameEn, type, description, meta, search } = Astro.props;
 ---
 
 <html lang="zh-CN">
@@ -39,7 +40,7 @@ const { name, nameEn, type, description, meta } = Astro.props;
         <slot />
       </article>
       <aside class="px-4 md:col-span-1 md:px-0">
-        <Meta title={type} meta={meta} />
+        <Meta title={type} meta={meta} search={search} />
       </aside>
     </main>
     <Footer />

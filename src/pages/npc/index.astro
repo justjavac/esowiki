@@ -21,6 +21,7 @@ const { data: npc } = await fetch(`${ESO_API_URL}/api/articles/10`).then((x) =>
   name="NPC"
   nameEn="Non-Player Character"
   description={npc.attributes.description}
+  search="/npc/list"
 >
   <p>
     上古卷轴OL目前一共有 <a href="/npc/list"

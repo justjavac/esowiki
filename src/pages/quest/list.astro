@@ -26,18 +26,8 @@ const { data, meta } = await response.json();
   nameEn="Quests"
   description={`上古卷轴OL目前一共有 ${meta.pagination.total} 个任务。`}
   pagination={meta.pagination}
+  search="/quest/list"
 >
-  <form id="form-build" action="/quest/list" class="float-right">
-    <input
-      type="search"
-      name="q"
-      id="q"
-      autocomplete="off"
-      placeholder="搜索..."
-      value={q}
-      class="filter block w-64 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-    />
-  </form>
   <p>
     上古卷轴OL目前一共有 {meta.pagination.total} 个<a href="/quest">任务</a>。
   </p>

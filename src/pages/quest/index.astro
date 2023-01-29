@@ -23,7 +23,7 @@ const { data: article } = await fetch(`${ESO_API_URL}/api/articles/12`).then(
 );
 ---
 
-<ListLayout name="任务" nameEn="Quest">
+<ListLayout name="任务" nameEn="Quest" search="/quest/list">
   <p>
     上古卷轴OL目前一共有 <a href="/quest/list"
       ><strong>{meta.pagination.total}</strong>

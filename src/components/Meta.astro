@@ -7,11 +7,26 @@ export interface Meta {
 export interface Props {
   title: string;
   meta: Meta[];
-  icon?: string;
+  search?: string;
 }
 
-const { title, meta, icon } = Astro.props;
+const { title, meta, search } = Astro.props;
 ---
+
+{
+  search && (
+    <form id="form-search" action={search} class="pb-2">
+      <input
+        type="search"
+        name="q"
+        id="q"
+        autocomplete="off"
+        placeholder="搜索..."
+        class="filter block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+      />
+    </form>
+  )
+}
 
 <div
   class="rounded border border-gray-300/50 shadow-lg shadow-transparent hover:shadow-gray-100 hover:border-gray-300/80 transition-shadow duration-450 ease-in-out"
@@ -43,13 +58,6 @@ const { title, meta, icon } = Astro.props;
           <span set:html={item.content || "无"} />
         </li>
       ))
-    }
-    {
-      icon && (
-        <li class="flex gap-1 py-1 px-5">
-          <img src={icon} alt="" />
-        </li>
-      )
     }
   </ul>
 </div>
