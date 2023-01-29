@@ -97,13 +97,6 @@ style.innerHTML = `.eso-tooltip {
   .eso-tooltip-hidden {
     display: none;
   }
-  .eso-tooltip-zone-name {
-    position: absolute;
-    color: #000;
-    font-weight: bold;
-    top: 4px;
-    left: 4px;
-  }
 `;
 document.body.appendChild(style);
 
@@ -202,7 +195,6 @@ allLinks.forEach((link) => {
       }
       case "map": {
         tooltip.innerHTML = `
-        <div class="eso-tooltip-zone-name">${data.name}</div>
         <svg viewBox="0 0 ${data.size} ${data.size}">
           <defs>
             <filter id="blur"><feGaussianBlur stdDeviation="0.5" /></filter>
@@ -216,6 +208,13 @@ allLinks.forEach((link) => {
             x="${data.x * data.size - 128 / 2}"
             y="${data.y * data.size - 128 / 2}"
           />
+          <text
+            font-size="64"
+            x="32"
+            y="64"
+          >
+            ${data.name}
+          </text>
           ${
           Array(3).fill(0).map((_, i) => `
             <circle
