@@ -149,14 +149,14 @@ const meta = [
   <blockquote set:html={md2html(data.attributes.description)} />
   <Fragment set:html={md2html(content.join(""))} />
 
-  <!-- {
+  {
     data.attributes.prices.data.length > 0 && (
       <>
         <h3 id="price">价格</h3>
         <div class="block w-full h-80">
-          <Price data={data.attributes.prices.data} client:load />
+          <Price data={data.attributes.prices.data} client:only="preact" />
         </div>
       </>
     )
-  } -->
+  }
 </ArticleLayout>
