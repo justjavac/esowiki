@@ -48,16 +48,16 @@ const { title, meta, search } = Astro.props;
     <h3 class="text-base font-medium text-gray-800">{title}信息</h3>
   </header>
 
-  <ul class="markdown-body my-2 text-sm text-gray-600">
+  <div class="markdown-body my-2 text-sm text-gray-800">
     {
       meta.map((item) => (
-        <li class="flex gap-1 py-1 px-5">
-          <span class="font-bold whitespace-nowrap">
+        <div class="flex gap-1 py-1 px-5">
+          <dt class="font-medium text-gray-500 whitespace-nowrap">
             {`${item.name ? item.name + ":" : ""}`}
-          </span>
-          <span set:html={item.content || "无"} />
-        </li>
+          </dt>
+          <dd set:html={item.content || "无"} />
+        </div>
       ))
     }
-  </ul>
+  </div>
 </div>
