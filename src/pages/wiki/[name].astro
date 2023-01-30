@@ -14,7 +14,7 @@ async function getPost() {
   return await response.json();
 }
 
-function createTime(datatime: any) {
+function createTime(datatime?: string) {
   const formated = formatDateTime(datatime);
   return `<time class="text-gray-900 text-sm mr-4" datetime="${datatime}" title="${formated}">${formatDate(
     datatime
