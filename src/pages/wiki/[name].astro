@@ -89,7 +89,7 @@ meta.push({
   name={data.attributes.name}
   nameEn={data.attributes.nameEn}
   description={md2text(data.attributes.description)}
-  type="页面"
+  type={data.attributes.categories.data[0]?.attributes.name ?? "页面"}
   meta={meta}
 >
   <Fragment set:html={md2html(data.attributes.content)} />
