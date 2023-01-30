@@ -6,3 +6,6 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+declare module "micromark-extension-wiki-link";
+declare module "mdast-util-wiki-link";

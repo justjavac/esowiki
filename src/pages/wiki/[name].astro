@@ -3,22 +3,15 @@ import { ESO_API_URL } from "@/consts";
 import { md2html, md2text, formatDateTime, formatDate } from "@/utils";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
-const { slug } = Astro.params;
+const { name } = Astro.params;
 
-async function getPost(slug: string) {
+async function getPost() {
   const query = new URLSearchParams();
-  query.set("pagination[pageSize]", "1");
-  query.set("pagination[page]", "1");
-  query.set("filters[$or][0][name][$eq]", slug!);
-  query.set("filters[$or][1][nameEn][$eq]", slug!);
   query.set("populate[0]", "categories");
   query.set("populate[1]", "meta");
 
-  const response = await fetch(`${ESO_API_URL}/api/posts?${query}`);
-  const result = await response.json();
-  const data = result?.data[0];
-
-  return data;
+  const response = await fetch(`${ESO_API_URL}/api/posts/${name}?${query}`);
+  return await response.json();
 }
 
 function createTime(datatime: any) {
@@ -28,7 +21,7 @@ function createTime(datatime: any) {
   )}</time>`;
 }
 
-const data = await getPost(slug!);
+const { data } = await getPost();
 
 if (data == null) {
   return new Response(null, {

@@ -1,8 +1,10 @@
 import { micromark } from "micromark";
 import type { Extension, HtmlExtension } from "micromark-util-types";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
+import { html as wikiHtml, syntax as wiki } from "micromark-extension-wiki-link";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
+import { fromMarkdown as fromWiki } from "mdast-util-wiki-link";
 
 export function md2html(md?: string, isBook = false): string {
   if (md == null) return "";
@@ -13,8 +15,17 @@ export function md2html(md?: string, isBook = false): string {
 
   return micromark(md, {
     allowDangerousHtml: true,
-    extensions: [gfm(), externalLinks()],
+    extensions: [
+      wiki(),
+      gfm(),
+      externalLinks(),
+    ],
     htmlExtensions: [
+      wikiHtml({
+        wikiLinkClassName: "internal",
+        newClassName: "new",
+        hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
+      }),
       gfmHtml({
         clobberPrefix: "eso-",
         label: "脚注",
@@ -27,7 +38,10 @@ export function md2html(md?: string, isBook = false): string {
 
 export function md2text(md?: string): string {
   if (md == null) return "";
-  const tree = fromMarkdown(md);
+  const tree = fromMarkdown(md, {
+    extensions: [wiki()],
+    mdastExtensions: [fromWiki()],
+  });
   return toString(tree);
 }
 
