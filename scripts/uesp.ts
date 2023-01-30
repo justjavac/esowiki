@@ -10,6 +10,7 @@ import { Element, ElementContent, Node, Text } from "hast";
 import { stringify } from "yaml";
 import { isElement } from "hast-util-is-element";
 import { select } from "hast-util-select";
+import { initLang } from "./toZH.ts";
 
 /** 从网络或者缓存里获取任务详情 */
 async function getQuestFromCache(name: string) {
@@ -123,6 +124,7 @@ if (import.meta.main) {
     Deno.exit(1);
   }
 
+  initLang(); // 初始化全部语言包
   const vfile = await getQuest(name);
   await Deno.writeTextFile(
     vfile.path,

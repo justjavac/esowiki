@@ -47,5 +47,34 @@
     }
   },
   "lock": false,
-  "importMap": "import_map.json"
+  "imports": {
+    "fastest-levenshtein": "https://deno.land/x/fastest_levenshtein@1.0.10/mod.ts",
+    "hast": "https://esm.sh/v99/@types/hast@2.3.4/index.d.ts",
+    "hastscript": "https://esm.sh/v99/hastscript@7.1.0",
+    "hast-util-is-element": "https://esm.sh/v99/hast-util-is-element@2.1.2",
+    "hast-util-select": "https://esm.sh/v99/hast-util-select@5.0.2",
+    "hast-util-to-html": "https://esm.sh/v99/hast-util-to-html@8.0.3",
+    "hast-util-to-mdast": "https://esm.sh/v99/hast-util-to-mdast@8.4.1",
+    "hast-util-to-string": "https://esm.sh/v99/hast-util-to-string@2.0.0",
+    "mdast": "https://esm.sh/v99/@types/mdast@3.0.10/index.d.ts",
+    "mdast-util-to-markdown": "https://esm.sh/v99/mdast-util-to-markdown@1.3.0",
+    "nlcst-to-string": "https://esm.sh/v99/nlcst-to-string@3.1.0",
+    "rehype-parse": "https://esm.sh/v99/rehype-parse@8.0.4",
+    "rehype-remark": "https://esm.sh/v99/rehype-remark@9.1.2",
+    "rehype-remove-comments": "https://esm.sh/rehype-remove-comments@5.0.0",
+    "remark-frontmatter": "https://esm.sh/remark-frontmatter@4.0.1",
+    "remark-gfm": "https://esm.sh/remark-gfm@3.0.1",
+    "remark-remove-comments": "https://esm.sh/remark-remove-comments@0.2.0",
+    "remark-stringify": "https://esm.sh/v99/remark-stringify@10.0.2",
+    "satori": "https://esm.sh/satori@0.0.44",
+    "unified": "https://esm.sh/v99/unified@10.1.2",
+    "unist": "https://esm.sh/v99/@types/unist@2.0.6/index.d.ts",
+    "unist-util-visit": "https://esm.sh/v99/unist-util-visit@4.1.1",
+    "vfile": "https://esm.sh/v99/vfile@5.3.6",
+    "yaml": "https://deno.land/std@0.166.0/encoding/yaml.ts",
+    "yup": "https://esm.sh/v99/yup@0.32.11",
+    "asserts": "https://deno.land/std@0.166.0/testing/asserts.ts",
+    "@/": "./src/"
+  },
+  "scopes": {}
 }
