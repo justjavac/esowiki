@@ -31,14 +31,8 @@ if (data == null) {
 }
 
 const meta = [
-  {
-    name: "名称",
-    content: `<span style="color:${data.attributes.color}">${data.attributes.name}</span>`,
-  },
-  {
-    name: "英文",
-    content: `<span style="color:${data.attributes.color}">${data.attributes.nameEn}</span>`,
-  },
+  { name: "名称", content: data.attributes.name },
+  { name: "英文", content: data.attributes.nameEn },
 ];
 
 if (data.attributes.categories.data.length > 0) {
