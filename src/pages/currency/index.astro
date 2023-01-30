@@ -43,7 +43,7 @@ const { data: currencies } = await getCurrencies();
         .map((x: any) => (
           <li
             set:html={md2html(
-              `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.slug}) - ${x.attributes.description}`
+              `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.name}) - ${x.attributes.description}`
             )}
           />
         ))
@@ -63,7 +63,7 @@ const { data: currencies } = await getCurrencies();
         .map((x: any) => (
           <li
             set:html={md2html(
-              `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.slug}) - ${x.attributes.description}`
+              `<img class="inline" src="${x.attributes.icon}" width="16" height="16" alt="" /> [${x.attributes.name}](/currency/${x.attributes.name}) - ${x.attributes.description}`
             )}
           />
         ))

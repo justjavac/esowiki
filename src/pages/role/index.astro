@@ -26,7 +26,7 @@ const data = result?.data;
       data.map((x: any) => (
         <li>
           <div class="flex items-center">
-            <a href={`/role/${x.attributes.slug}`}>{x.attributes.name}</a>
+            <a href={`/role/${x.attributes.name}`}>{x.attributes.name}</a>
             <img
               class="inline-flex"
               src={x.attributes.thumb}

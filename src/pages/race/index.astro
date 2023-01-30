@@ -37,9 +37,7 @@ const factions = ["先祖神州", "匕落同盟", "黑檀心公约联合"];
             })
             .map((x: any) => (
               <li>
-                <p>
-                  <a href={`/race/${x.attributes.slug}`}>{x.attributes.name}</a>
-                </p>
+                <a href={`/race/${x.attributes.name}`}>{x.attributes.name}</a>
               </li>
             ))}
         </ul>
@@ -55,9 +53,7 @@ const factions = ["先祖神州", "匕落同盟", "黑檀心公约联合"];
         .filter((x: any) => x.attributes.faction.data === null)
         .map((x: any) => (
           <li>
-            <p>
-              <a href={`/race/${x.attributes.slug}`}>{x.attributes.name}</a>
-            </p>
+            <a href={`/race/${x.attributes.name}`}>{x.attributes.name}</a>
           </li>
         ))
     }

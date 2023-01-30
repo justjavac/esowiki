@@ -49,13 +49,11 @@ const {
   </blockquote>
 
   <p>
-    <a href="/chapter/high-isle">高岛</a>被认为是一个<a href="/chapter">章节</a
+    <a href="/chapter/高岛">高岛</a>被认为是一个<a href="/chapter">章节</a
     >而不是一个 DLC。章节无法通过 ESO Plus 或王冠商城获得，因此未在此处列出。<a
-      href="/chapter/morrowind">晨风</a
-    >、<a href="/chapter/summerset">夏暮</a>、<a href="/chapter/elsweyr"
-      >艾斯维尔</a
-    >、<a href="/chapter/greymoor">灰沼</a>和<a href="/chapter/blackwood"
-      >黑木</a
+      href="/chapter/晨风">晨风</a
+    >、<a href="/chapter/夏暮">夏暮</a>、<a href="/chapter/艾斯维尔">艾斯维尔</a
+    >、<a href="/chapter/灰沼">灰沼</a>和<a href="/chapter/黑木">黑木</a
     >以前只作为章节提供，但随着下一章节的发布，它们在王冠商城中作为 DLC 提供。
   </p>
 
@@ -68,7 +66,7 @@ const {
       data.map((x: any) => (
         <>
           <dt>
-            <a href={`/dlc/${x.attributes.slug}`}>{x.attributes.name}</a>
+            <a href={`/dlc/${x.attributes.name}`}>{x.attributes.name}</a>
             <small class="text-gray-500">{x.attributes.releaseDate}</small>
           </dt>
           <dd set:html={md2html(x.attributes.description)} />
