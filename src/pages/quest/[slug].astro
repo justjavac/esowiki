@@ -79,6 +79,13 @@ const meta = [
 ].filter((item) => item.content != null && item.content !== "");
 ---
 
+<style is:inline>
+  .markdown-body em {
+    color: gray;
+    font-style: normal;
+  }
+</style>
+
 <ArticleLayout
   name={name}
   nameEn={data.attributes.nameEn}
