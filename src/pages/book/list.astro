@@ -26,6 +26,13 @@ const { data, meta } = await response.json();
   pagination={meta.pagination}
   search="/book/list"
 >
+  <p>
+    {
+      q
+        ? `搜索到 ${meta.pagination.total} 本与 “${q}” 相关的书。`
+        : `上古卷轴OL目前一共有 ${meta.pagination.total} 本书。`
+    }
+  </p>
   <ul>
     {
       data.map((x: any) => (

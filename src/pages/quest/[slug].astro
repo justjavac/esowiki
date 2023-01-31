@@ -10,7 +10,8 @@ async function getQuest(slug: string) {
   const query = new URLSearchParams();
   query.set("pagination[pageSize]", "1");
   query.set("pagination[page]", "1");
-  query.set("filters[slug][$eq]", slug!);
+  query.set("filters[$or][0][name][$eq]", slug!);
+  query.set("filters[$or][1][slug][$eq]", slug!);
   // query.set("populate[0]", "rewards");
   // query.set("populate[1]", "steps");
   query.set("populate[rewards][populate][0]", "item");

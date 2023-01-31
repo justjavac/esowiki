@@ -29,13 +29,19 @@ const { data, meta } = await response.json();
   search="/quest/list"
 >
   <p>
-    上古卷轴OL目前一共有 {meta.pagination.total} 个<a href="/quest">任务</a>。
+    {
+      q
+        ? `搜索到 ${meta.pagination.total} 个与 “${q}” 相关的任务。`
+        : `上古卷轴OL目前一共有 ${meta.pagination.total} 个任务。`
+    }
   </p>
   <ul>
     {
       data.map((x: any) => (
         <li>
-          <a href={`/quest/${x.attributes.slug}`}>{x.attributes.name}</a>
+          <a href={`/quest/${x.attributes.name}`}>
+            {x.attributes.name.replace(`(${x.attributes.nameEn})`, "")}
+          </a>
           <small class="text-gray-500">({x.attributes.nameEn})</small>
         </li>
       ))

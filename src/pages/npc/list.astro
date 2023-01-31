@@ -29,7 +29,11 @@ const { data, meta } = await response.json();
   search="/npc/list"
 >
   <p>
-    上古卷轴OL目前一共有 {meta.pagination.total} 个 <a href="/npc">NPC</a>。
+    {
+      q
+        ? `搜索到 ${meta.pagination.total} 个与 “${q}” 相关的 NPC。`
+        : `上古卷轴OL目前一共有 ${meta.pagination.total} 个 NPC。`
+    }
   </p>
   <ul>
     {
