@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import { toString } from "nlcst-to-string";

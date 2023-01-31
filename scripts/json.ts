@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 async function saveToStrapi(data: Record<string, unknown>) {
   const token = Deno.env.get("STRAPI_TOKEN");
 

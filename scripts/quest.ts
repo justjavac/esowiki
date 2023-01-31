@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import { toString } from "nlcst-to-string";
@@ -21,20 +22,6 @@ const questRewardSchema = object({
   icon: string().required().transform((x: string) => `https://eso-cdn.denohub.com${x.replace(".dds", ".png")}`),
 });
 
-const questStepSchema = object({
-  id: number().required().integer().positive(),
-  x: number().required().positive(),
-  y: number().required().positive(),
-  questId: number().required().integer().positive(),
-  uniqueId: number().required().integer().positive(),
-  stageIndex: number().required().integer().positive(),
-  stepIndex: number().required().integer().positive(),
-  text: string().required().transform(toZh),
-  overrideText: string().required().transform(toZh),
-  numConditions: number().required().integer().positive(),
-  count: number().required().integer().positive(),
-});
-
 /** 从网络或者缓存里获取任务详情 */
 async function getRemoteFromCache(id: string) {
   const input = `https://esoitem.uesp.net/viewlog.php?record=questReward&filter=questId&filterid=${id}`;
@@ -46,7 +33,7 @@ async function getRemoteFromCache(id: string) {
 /** 解析内容 */
 async function parseContent(
   id: string,
-): any {
+): Promise<any> {
   const file = await getRemoteFromCache(id);
 
   const node = unified().use(rehypeParse).parse(file);

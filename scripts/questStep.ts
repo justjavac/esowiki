@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { unified } from "unified";
 import rehypeParse from "rehype-parse";
 import { toString } from "nlcst-to-string";
@@ -31,7 +32,7 @@ async function getRemoteFromCache(id: string) {
 /** 解析内容 */
 async function parseContent(
   id: string,
-): any {
+): Promise<any> {
   const file = await getRemoteFromCache(id);
 
   const node = unified().use(rehypeParse).parse(file);

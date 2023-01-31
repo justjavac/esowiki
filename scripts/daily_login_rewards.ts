@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-env --allow-net
 
-import { DOMParser, Element } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { DOMParser, Element } from "https://deno.land/x/deno_dom@v0.1.33-alpha/deno-dom-wasm.ts";
 import toZh, { en2zh, initLang } from "./toZH.ts";
 
 const DEFAULT_USER_AGENT =
