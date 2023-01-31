@@ -35,6 +35,8 @@ if (data == null) {
   });
 }
 
+const name = data.attributes.name.replace(/\(.*\)/, "");
+
 const rewards = data.attributes.rewards.data
   .map((reward: any) => {
     if (reward.attributes.type === "金币") {
@@ -66,7 +68,7 @@ const rewards = data.attributes.rewards.data
   .join("<br/>");
 
 const meta = [
-  { name: "任务", content: data.attributes.name },
+  { name: "任务", content: name },
   { name: "英文", content: data.attributes.nameEn },
   { name: "类型", content: data.attributes.type },
   { name: "目标", content: md2text(data.attributes.goalText) },
@@ -77,7 +79,7 @@ const meta = [
 ---
 
 <ArticleLayout
-  name={data.attributes.name}
+  name={name}
   nameEn={data.attributes.nameEn}
   description={md2text(data.attributes.description)}
   type="任务"
