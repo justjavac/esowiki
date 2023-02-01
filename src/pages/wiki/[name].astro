@@ -35,7 +35,7 @@ const title = data.attributes.name.replace(/\(.*\)/, "");
 const meta = [
   { name: "名称", content: title },
   { name: "英文", content: data.attributes.nameEn },
-];
+].filter((item) => item.content != null);
 
 if (data.attributes.categories.data.length > 0) {
   meta.push({

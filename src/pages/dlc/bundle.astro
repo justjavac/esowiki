@@ -46,7 +46,7 @@ const {
         <ul>
           {x.attributes.dlcs.data.map((y: any) => (
             <li>
-              <a href={`/dlc/${y.attributes.name}`}>{y.attributes.name}</a>
+              <a href={`/dlc/${y.attributes.slug}`}>{y.attributes.name}</a>
             </li>
           ))}
         </ul>

@@ -30,7 +30,7 @@ const data = result?.data;
         <li>
           <Fragment
             set:html={md2html(
-              `[${x.attributes.name}](/worldevent/${x.attributes.name}) - ${x.attributes.description}`
+              `[${x.attributes.name}](/worldevent/${x.attributes.slug}) - ${x.attributes.description}`
             )}
           />
         </li>

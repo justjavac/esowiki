@@ -39,7 +39,7 @@ const { data, meta } = await response.json();
     {
       data.map((x: any) => (
         <li>
-          <a href={`/quest/${x.attributes.name}`}>
+          <a href={`/quest/${x.attributes.slug}`}>
             {x.attributes.name.replace(`(${x.attributes.nameEn})`, "")}
           </a>
           <small class="text-gray-500">({x.attributes.nameEn})</small>

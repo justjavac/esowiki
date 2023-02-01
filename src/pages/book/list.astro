@@ -37,7 +37,7 @@ const { data, meta } = await response.json();
     {
       data.map((x: any) => (
         <li>
-          <a href={`/book/${x.attributes.title}`}>
+          <a href={`/book/${x.attributes.slug}`}>
             {x.attributes.title.replace(`(${x.attributes.titleEn})`, "")}
           </a>
           <small class="text-gray-500">({x.attributes.titleEn})</small>
