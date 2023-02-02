@@ -38,6 +38,21 @@ if (data == null) {
 
 const name = data.attributes.name.replace(/\(.*\)/, "");
 
+// TODO: 修复任务步骤
+// 添加任务目标
+let steps: any[] = [];
+for (const step of data.attributes.steps.data) {
+  if (!step.attributes.text) {
+    continue;
+  }
+
+  if (steps.find((x: any) => x.attributes.text === step.attributes.text)) {
+    continue;
+  }
+
+  steps.push(step);
+}
+
 const rewards = data.attributes.rewards.data
   .map((reward: any) => {
     if (reward.attributes.type === "金币") {
@@ -107,14 +122,13 @@ const meta = [
   <Fragment set:html={md2html(data.attributes.content)} />
 
   {
-    data.attributes.steps.data.length > 0 && (
+    steps.length > 0 && (
       <>
         <h2 id="steps">任务步骤</h2>
         <ol>
-          {data.attributes.steps.data.map(
-            (x: any) =>
-              x.attributes.text && <li set:html={md2html(x.attributes.text)} />
-          )}
+          {steps.map((x: any) => (
+            <li set:html={md2html(x.attributes.text)} />
+          ))}
         </ol>
       </>
     )
