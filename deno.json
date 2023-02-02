@@ -7,6 +7,7 @@
     "esoitem": "deno run --v8-flags='--max_old_space_size=8192' --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
     "esohub": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esohub.ts",
     "skill": "deno run --allow-net --allow-read  --allow-env ./scripts/skill.ts",
+    "permalinks": "deno run --allow-net --allow-write ./scripts/permalinks.ts",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
   "fmt": {

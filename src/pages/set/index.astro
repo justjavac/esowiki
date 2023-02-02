@@ -9,7 +9,22 @@ import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL, CDN_URL } from "@/consts";
 let page = Astro.url.searchParams.get("page") || 1;
 const type = Astro.url.searchParams.get("type") || "";
 const slot = Astro.url.searchParams.get("slot") || "";
+const buff = Astro.url.searchParams.get("buff") || "";
 const q = Astro.url.searchParams.get("q") || "";
+
+async function getBuffs() {
+  const query = new URLSearchParams();
+  query.set("sort[0]", "id:asc");
+  query.set("populate", "*");
+  query.set("pagination[pageSize]", "100");
+  query.set("filters[$or][0][type][$eq]", "Buff");
+  query.set("filters[$or][1][type][$eq]", "Debuff");
+  query.set("filters[$and][0][sets][id][$notNull]", "true");
+
+  const response = await fetch(`${ESO_API_URL}/api/buffs?${query}`);
+  const result = await response.json();
+  return result?.data;
+}
 
 if (!/^\d+$/.test(page as string)) {
   page = 1;
@@ -23,6 +38,7 @@ if (q) {
   query.set("filters[$or][1][nameEn][$containsi]", q);
 }
 if (type) query.set("filters[type][$eq]", type);
+if (buff) query.set("filters[buffs][slug][$eq]", buff);
 
 const response = await fetch(`${ESO_API_URL}/api/set-summaries?${query}`);
 const result = await response.json();
@@ -38,6 +54,8 @@ const {
   data = [],
   meta: { pagination },
 } = result;
+
+const buffs = await getBuffs();
 
 const typeList = [
   "制造",
@@ -66,8 +84,8 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
     <main class="max-w-screen-xl mx-auto">
       <h1 class="text-2xl font-bold">套装</h1>
       <form id="form-set" action="" class="py-5">
-        <div class="grid grid-cols-6 gap-6">
-          <div class="col-span-6 sm:col-span-2">
+        <div class="grid grid-cols-8 gap-4">
+          <div class="col-span-8 sm:col-span-2">
             <input
               type="search"
               name="q"
@@ -78,7 +96,7 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
               class="filter mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
             />
           </div>
-          <div class="col-span-6 sm:col-span-2">
+          <div class="col-span-8 sm:col-span-2">
             <select
               id="type"
               name="type"
@@ -88,7 +106,7 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
               {typeList.map((x) => <option selected={x === type}>{x}</option>)}
             </select>
           </div>
-          <div class="col-span-6 sm:col-span-2">
+          <div class="col-span-8 sm:col-span-2">
             <select
               id="slot"
               name="slot"
@@ -96,6 +114,25 @@ const slotList = ["轻甲", "中甲", "重甲", "武器", "首饰"];
             >
               <option value="">所有部位</option>
               {slotList.map((x) => <option selected={x === slot}>{x}</option>)}
+            </select>
+          </div>
+          <div class="col-span-8 sm:col-span-2">
+            <select
+              id="buff"
+              name="buff"
+              class="filter mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+            >
+              <option value="">所有增益</option>
+              {
+                buffs.map((x: any) => (
+                  <option
+                    selected={x.attributes.slug === buff}
+                    value={x.attributes.slug}
+                  >
+                    {x.attributes.name}
+                  </option>
+                ))
+              }
             </select>
           </div>
         </div>

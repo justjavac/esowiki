@@ -1,0 +1,60 @@
+---
+import { ESO_API_URL } from "@/consts";
+import { md2html } from "@/utils";
+import ListLayout from "@/layouts/ListLayout.astro";
+
+async function getBuffs() {
+  const query = new URLSearchParams();
+  query.set("sort[0]", "id:asc");
+  query.set("populate", "*");
+  query.set("pagination[pageSize]", "100");
+
+  const response = await fetch(`${ESO_API_URL}/api/buffs?${query}`);
+  const result = await response.json();
+  return result?.data;
+}
+
+const data = await getBuffs();
+
+const typeMap: [string, string][] = [
+  ["Buff", "增益"],
+  ["Debuff", "减益"],
+  ["Miscellaneous", "杂项"],
+  ["Quest Related", "任务相关"],
+];
+---
+
+<ListLayout
+  name="增益和减益"
+  nameEn="Buff/Debuff"
+  description="增益和减益是某些技能、套装、药水和英雄特长应用的临时效果。增益应用于你自己或你的盟友，减益应用于敌人。来自不同来源的两个同名的增益/减益不会叠加，但相同类型的大增益和小增益会堆叠。减益可以通过某些技能或具有净化效果的物品来消除。"
+>
+  <p>
+    增益和减益是某些技能、套装、药水和英雄特长应用的临时效果。增益应用于你自己或你的盟友，减益应用于敌人。来自不同来源的两个同名的增益/减益不会叠加，但相同类型的大增益和小增益会堆叠。减益可以通过某些技能或具有净化效果的物品来消除。
+  </p>
+
+  {
+    typeMap.map(([en, zh]) => (
+      <>
+        <h2 id={en.replace(/ /g, "-")}>{zh}</h2>
+        <ul>
+          {data
+            .filter((x: any) => x.attributes.type === en)
+            .map((x: any) => (
+              <li>
+                <img
+                  class="inline-flex"
+                  src={x.attributes.thumb}
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+                <a href={`/buff/${x.attributes.slug}`}>{x.attributes.name}</a>-
+                {x.attributes.description}
+              </li>
+            ))}
+        </ul>
+      </>
+    ))
+  }
+</ListLayout>

@@ -54,6 +54,12 @@ const { attributes } = data[0];
 
 const items = _.uniqBy(attributes.items.data, "attributes.name");
 
+const buffs = attributes.buffs.data
+  .map(
+    (x: any) => `<a href="/buff/${x.attributes.slug}">${x.attributes.name}</a>`
+  )
+  .join("、");
+
 const meta = [
   { name: "名称", content: attributes.name },
   { name: "英文", content: attributes.nameEn },
@@ -64,6 +70,7 @@ const meta = [
   { name: "部件数量", content: items.length },
   { name: "地点", content: attributes.location },
   { name: "套装部位", content: attributes.itemSlots },
+  { name: "增益", content: buffs },
 ];
 ---
 

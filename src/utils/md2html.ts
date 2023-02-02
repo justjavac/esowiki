@@ -22,6 +22,7 @@ export function md2html(md?: string, isBook = false): string {
     ],
     htmlExtensions: [
       wikiHtml({
+        permalinks: [],
         wikiLinkClassName: "internal",
         newClassName: "new",
         hrefTemplate: (permalink: string) => `/wiki/${permalink}`,
