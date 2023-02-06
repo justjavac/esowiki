@@ -62,5 +62,9 @@ const meta = [
     >。书中写道：
   </p>
   <hr />
-  <Fragment set:html={md2html(data.attributes.body, true)} />
+  <Fragment
+    set:html={md2html(
+      data.attributes.body.replace(/(?<!\n)\n(?!\n)/g, "<br/>")
+    )}
+  />
 </ArticleLayout>

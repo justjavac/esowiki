@@ -6,14 +6,10 @@ import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
 import { fromMarkdown as fromWiki } from "mdast-util-wiki-link";
 
-export function md2html(md?: string, isBook = false): string {
+export function md2html(md?: string, isInline = false): string {
   if (md == null) return "";
 
-  if (isBook) {
-    md = md.replace(/(?<!\n)\n(?!\n)/g, "<br/>");
-  }
-
-  return micromark(md, {
+  const html = micromark(md, {
     allowDangerousHtml: true,
     extensions: [
       wiki(),
@@ -35,6 +31,12 @@ export function md2html(md?: string, isBook = false): string {
       externalLinksHtml(),
     ],
   });
+
+  if (isInline && !md.includes("\n\n")) {
+    return html.replace(/<p>|<\/p>/g, "");
+  }
+
+  return html;
 }
 
 export function md2text(md?: string): string {
