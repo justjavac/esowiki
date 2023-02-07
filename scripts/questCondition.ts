@@ -93,7 +93,7 @@ if (import.meta.main) {
       "https://esoapi.denohub.com/api/quests?fields[0]=id&pagination[pageSize]=500&pagination[page]=1&filters[conditions][id][$null]=true",
     ).then((x) => x.json());
 
-    const questIds = [quest.data.map((x: any) => x.id)];
+    const questIds = quest.data.map((x: any) => x.id);
 
     const failed = [];
     let success = 0;
