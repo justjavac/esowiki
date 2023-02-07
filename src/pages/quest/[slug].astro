@@ -130,13 +130,13 @@ const meta = [
           {steps.map((x: any) => (
             <li>
               <p>
-                {x.attributes.conditions.data.length > 1 && (
-                  <div class="text-gray-400">
-                    <strong>目标:</strong>
-                    {x.attributes.conditions.data[0]?.attributes?.text}
-                  </div>
-                )}
                 <Fragment set:html={md2html(x.attributes.text, true)} />
+                {x.attributes.conditions.data.length > 1 && (
+                  <em>
+                    <br />
+                    目标: {x.attributes.conditions.data[0]?.attributes?.text}
+                  </em>
+                )}
               </p>
             </li>
           ))}
