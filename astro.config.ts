@@ -7,9 +7,9 @@ import rehypeExternalLinks from "rehype-external-links";
 // import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
 
 export default defineConfig({
-  site: "https://eso.denohub.com",
+  site: "https://eso.denohub.com/",
   markdown: {
-    extendDefaultPlugins: true,
+    gfm: true,
     rehypePlugins: [
       [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] }],
       // rehypeUnreachableLink,
