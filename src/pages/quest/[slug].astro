@@ -17,6 +17,7 @@ async function getQuest(slug: string) {
   query.set("populate[rewards][populate][0]", "item");
   query.set("populate[rewards][populate][1]", "skillLine");
   query.set("populate[steps][fields]", "*");
+  query.set("populate[steps][populate][0]", "conditions");
   query.set("sort[0]", "steps.stageIndex:asc");
   query.set("sort[1]", "steps.stepIndex:asc");
 
@@ -127,7 +128,17 @@ const meta = [
         <h2 id="steps">任务步骤</h2>
         <ol>
           {steps.map((x: any) => (
-            <li set:html={md2html(x.attributes.text)} />
+            <li>
+              <p>
+                {x.attributes.conditions.data.length > 1 && (
+                  <div class=" text-gray-400">
+                    <strong>目标:</strong>
+                    {x.attributes.conditions.data[0]?.attributes?.text}
+                  </div>
+                )}
+                <Fragment set:html={md2html(x.attributes.text, true)} />
+              </p>
+            </li>
           ))}
         </ol>
       </>
