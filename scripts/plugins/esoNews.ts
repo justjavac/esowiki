@@ -22,7 +22,7 @@ const esoNews: Plugin<[], Root> = () => (tree) => {
     `pubDate: ${pubDate}`,
     `image: ${image}`,
     `tags: ${JSON.stringify(tags)}`,
-    `layout: ../../../layouts/NewsLayout.astro`,
+    ``,
     `---`,
   ];
 

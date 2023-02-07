@@ -1,0 +1,53 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import { formatDate } from "@/utils";
+import ArticleLayout from "@/layouts/ArticleLayout.astro";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const newsList = await getCollection("news");
+  return newsList.map((entry) => ({
+    params: { slug: entry.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const entry = await getEntryBySlug("news", slug!);
+
+if (entry == null) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
+
+const { Content, headings } = await entry.render();
+
+const meta = [
+  { name: "类型", content: "新闻" },
+  {
+    name: "标签",
+    content: entry.data.tags
+      .map((x) => `<span class="text-gray-700">${x}</span>`)
+      .join("、"),
+  },
+  { name: "发布日期", content: formatDate(entry.data.pubDate) },
+];
+---
+
+<ArticleLayout
+  name={entry.data.title}
+  description={entry.data.description}
+  type="新闻"
+  meta={meta}
+>
+  {
+    entry.data.image && (
+      <img class="my-4 shadow-gray-300" src={entry.data.image} alt="" />
+    )
+  }
+  <p class="text-gray-500">{entry.data.description}</p>
+  <Content />
+</ArticleLayout>
