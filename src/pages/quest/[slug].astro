@@ -39,8 +39,6 @@ if (data == null) {
 
 const name = data.attributes.name.replace(/\(.*\)/, "");
 
-// TODO: 修复任务步骤
-// 添加任务目标
 let steps: any[] = [];
 for (const step of data.attributes.steps.data) {
   if (!step.attributes.text) {
