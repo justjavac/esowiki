@@ -1,0 +1,158 @@
+---
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import Footer from "@/components/Footer.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+
+const description = `AI 翻译是一个基于人工智能的翻译引擎，可以更精准的翻译上古卷轴OL内容。`;
+---
+
+<style is:inline>
+  .markdown-body em {
+    color: gray;
+    font-style: normal;
+  }
+</style>
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta title={`AI 翻译 - ${SITE_TITLE}`} description={description} />
+    <link rel="stylesheet" href={`${CDN_URL}/assets/gfm-fba346.css`} />
+  </head>
+
+  <body>
+    <HeaderNav />
+    <div class="py-4 pb-6 sm:pb-12 lg:py-8 lg:pb-10">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="sm:text-center">
+          <h1
+            class="mt-2 text-3xl font-bold tracking-tight text-indigo-600 sm:text-4xl"
+          >
+            上古卷轴OL - AI 翻译
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg leading-8">
+            {description}
+          </p>
+          <p class="mx-auto mt-2 max-w-2xl text-sm text-gray-600">
+            从官方提取了大量的中文训练数据，训练了两个多月的人工智能模型，目前已经可以使用了。
+            <br />
+            共包含了 <strong>421602</strong> 条预料数据。
+          </p>
+        </div>
+
+        <div class="mt-10 max-w-lg sm:mx-auto md:max-w-none markdown-body">
+          <h2>翻译效果对比</h2>
+          <p>
+            这是一段测试文本，来自 <a
+              href="https://en.uesp.net/wiki/Online:Tears_of_the_Two_Moons"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              >https://en.uesp.net/wiki/Online:Tears_of_the_Two_Moons</a
+            >，用于测试 AI 翻译的效果。
+          </p>
+          <blockquote>
+            <p>
+              Arriving on Khenarthi's Roost and speaking to Razum-dar will give
+              you two objectives before heading to Mistral, one of which is to
+              investigate the Temple of the Mourning Springs. While in Eagle's
+              Strand, you may also run across Ealcil, a scholar studying a
+              mysterious weeping stone taken from the temple. However, by merely
+              passing within a certain distance of the temple, which is located
+              on the east side of Khenarthi's Roost, Gathwen will approach you
+              and ask for your help, starting the quest.
+            </p>
+          </blockquote>
+          <h3>百度翻译</h3>
+          <blockquote>
+            <p>
+              在前往米斯特拉尔之前，抵达Khenarthi的Roost并与Razum
+              dar交谈会给你两个目标，其中一个目标是调查莫宁泉神庙。<br />
+              <em
+                >在前往米斯特拉尔之前，到达柯娜西之栖并与拉祖姆达交谈会给你两个目标，其中一个是调查哀悼之泉神殿。</em
+              >
+            </p>
+
+            <p>
+              在Eagle's
+              Strand，你可能还会遇到Ealcil，他是一位学者，正在研究从神庙中取出的一块神秘的哭泣石。<br
+              />
+              <em
+                >在鹰栖崖堡时，你还可能会遇到研究从神殿中取出的神秘哭泣之石的学者伊尔希尔。</em
+              >
+            </p>
+
+            <p>
+              然而，只要经过位于Khenarthi房间东侧的寺庙一定距离内，Gathwen就会接近你并请求你的帮助，开始寻找。<br
+              />
+              <em
+                >然而，只要从位于柯娜西之栖东侧的神庙经过一定距离，加斯文就会接近你并寻求你的帮助，开始任务。</em
+              >
+            </p>
+          </blockquote>
+          <h3>
+            谷歌翻译
+            <small class="text-gray-500">Chrome 浏览器自带的翻译</small>
+          </h3>
+          <blockquote>
+            <p>
+              到达Khenarthi's Roost并与Razum-dar交谈后，您将在前往 Mistral
+              之前完成两个目标，其中之一是调查哀泉神殿。<br />
+              <em
+                >在前往米斯特拉尔之前，到达柯娜西之栖并与拉祖姆达交谈会给你两个目标，其中一个是调查哀悼之泉神殿。</em
+              >
+            </p>
+
+            <p>
+              在鹰滩，您可能还会遇到Ealcil，他是一位研究从神庙中取出的神秘垂泪石的学者。<br
+              />
+              <em
+                >在鹰栖崖堡时，你还可能会遇到研究从神殿中取出的神秘哭泣之石的学者伊尔希尔。</em
+              >
+            </p>
+
+            <p>
+              然而，只需经过位于 Khenarthi's Roost
+              东侧的神庙一定距离内，Gathwen就会接近你并寻求你的帮助，开始任务。<br
+              />
+              <em
+                >然而，只要从位于柯娜西之栖东侧的神庙经过一定距离，加斯文就会接近你并寻求你的帮助，开始任务。</em
+              >
+            </p>
+          </blockquote>
+          <h3>
+            微软翻译
+            <small class="text-gray-500">Edge 浏览器自带的翻译</small>
+          </h3>
+          <blockquote>
+            <p>
+              到达Khenarthi的栖息地并与Razum-dar交谈会给你两个目标，然后前往米斯特拉尔，其中一个是调查哀泉神庙。<br
+              />
+              <em
+                >在前往米斯特拉尔之前，到达柯娜西之栖并与拉祖姆达交谈会给你两个目标，其中一个是调查哀悼之泉神殿。</em
+              >
+            </p>
+
+            <p>
+              在鹰岸，您还可能遇到Ealcil，一位研究从寺庙中取出的神秘垂枝石的学者。<br
+              />
+              <em
+                >在鹰栖崖堡时，你还可能会遇到研究从神殿中取出的神秘哭泣之石的学者伊尔希尔。</em
+              >
+            </p>
+
+            <p>
+              然而，只要经过位于Khenarthi栖息地东侧的寺庙一定距离内，Gathwen就会接近你并寻求你的帮助，开始探索。<br
+              />
+              <em
+                >然而，只要从位于柯娜西之栖东侧的神庙经过一定距离，加斯文就会接近你并寻求你的帮助，开始任务。</em
+              >
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>
