@@ -20,7 +20,7 @@
     "@panzoom/panzoom": "^4.5.1",
     "@preact/signals": "^1.1.3",
     "@tailwindcss/forms": "^0.5.3",
-    "astro": "^2.0.6",
+    "astro": "^2.0.10",
     "lodash": "^4.17.21",
     "mdast-util-from-markdown": "^1.3.0",
     "mdast-util-to-string": "^3.1.1",
@@ -28,12 +28,12 @@
     "micromark": "^3.1.0",
     "micromark-extension-gfm": "^2.0.1",
     "micromark-extension-wiki-link": "^0.0.4",
-    "preact": "^10.12.0",
+    "preact": "^10.12.1",
     "preact-router": "^4.1.0",
     "react": "npm:@preact/compat@latest",
     "react-dom": "npm:@preact/compat@latest",
-    "recharts": "^2.3.2",
-    "tailwindcss": "^3.0.24"
+    "recharts": "^2.4.0",
+    "tailwindcss": "^3.2.6"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.191",
