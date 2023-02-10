@@ -120,6 +120,8 @@ const meta = [
 
   <Fragment set:html={md2html(data.attributes.content)} />
 
+  <p>1111</p>
+
   {
     steps.length > 0 && (
       <>
@@ -143,3 +145,33 @@ const meta = [
     )
   }
 </ArticleLayout>
+
+<script>
+  document.querySelectorAll<HTMLDivElement>(".chat").forEach((chat) => {
+    chat.querySelectorAll<HTMLParagraphElement>("p").forEach((p) => {
+      if (p.querySelector("em") != null) {
+        const avatar = document.createElement("span");
+        avatar.className = "avatar";
+        avatar.textContent = chat.dataset.name?.substring(0, 1) || "?";
+        avatar.title = chat.dataset.name || "";
+        p.insertBefore(avatar, p.firstChild);
+      } else if (p.querySelector("strong") != null) {
+        const avatar = document.createElement("img") as HTMLImageElement;
+        avatar.className = "avatar";
+        avatar.src = "https://eso-cdn.denohub.com/images/justjavac-64.jpg";
+        p.insertBefore(avatar, p.firstChild);
+        p.classList.add("me");
+      } else {
+        const avatar = document.createElement("span");
+        avatar.className = "avatar";
+        avatar.textContent = chat.dataset.name?.substring(0, 1) || "?";
+        avatar.title = chat.dataset.name || "";
+        const em = document.createElement("em");
+        em.innerHTML = p.innerHTML;
+        p.innerHTML = "";
+        p.appendChild(avatar);
+        p.appendChild(em);
+      }
+    });
+  });
+</script>
