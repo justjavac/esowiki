@@ -1115,9 +1115,9 @@ chokidar@^3.5.3:
     fsevents "~2.3.2"
 
 ci-info@^3.3.1:
-  version "3.7.1"
-  resolved "https://registry.npmmirror.com/ci-info/-/ci-info-3.7.1.tgz#708a6cdae38915d597afdf3b145f2f8e1ff55f3f"
-  integrity sha512-4jYS4MOAaCIStSRwiuxc4B8MYhIe676yO1sYGzARnjXkWpmzZMMYxY6zu8WYWDhSuth5zhrQ1rhNSibyyvv4/w==
+  version "3.8.0"
+  resolved "https://registry.npmmirror.com/ci-info/-/ci-info-3.8.0.tgz#81408265a5380c929f0bc665d62256628ce9ef91"
+  integrity sha512-eXTggHWSooYhq49F2opQhuHWgzucfF2YgODK4e1566GQs5BIfP30B0oenwBJHfWxAs2fyPB1s7Mg949zLf61Yw==
 
 classnames@^2.2.5:
   version "2.3.2"
@@ -1346,9 +1346,9 @@ detective@^5.2.1:
     minimist "^1.2.6"
 
 devalue@^4.2.0:
-  version "4.2.3"
-  resolved "https://registry.npmmirror.com/devalue/-/devalue-4.2.3.tgz#313bb7e7cf74100bfddab9182b2d1b48ba14701a"
-  integrity sha512-JG6Q248aN0pgFL57e3zqTVeFraBe+5W2ugvv1mLXsJP6YYIYJhRZhAl7QP8haJrqob6X10F9NEkuCvNILZTPeQ==
+  version "4.3.0"
+  resolved "https://registry.npmmirror.com/devalue/-/devalue-4.3.0.tgz#d86db8fee63a70317c2355be0d3d1b4d8f89a44e"
+  integrity sha512-n94yQo4LI3w7erwf84mhRUkUJfhLoCZiLyoOZ/QFsDbcWNZePrLwbQpvZBUG2TNxwV3VjCKPxkiiQA6pe3TrTA==
 
 didyoumean@^1.2.2:
   version "1.2.2"
@@ -1383,9 +1383,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.293"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.293.tgz#eaea755ad37a0f1759874a8597b33be62def2781"
-  integrity sha512-h7vBlhC83NsgC9UO3LOZx91xgstIrHk5iqMbZgnEArL5rHTM6HfsUZhnwb3oRnNetXM1741kB9SO7x9jLshz5A==
+  version "1.4.295"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.295.tgz#911d5df67542bf7554336142eb302c5ec90bba66"
+  integrity sha512-lEO94zqf1bDA3aepxwnWoHUjA8sZ+2owgcSZjYQy0+uOSEclJX0VieZC+r+wLpSxUHRd6gG32znTWmr+5iGzFw==
 
 emmet@^2.3.0:
   version "2.3.6"
@@ -3149,10 +3149,10 @@ recharts-scale@^0.4.4:
   dependencies:
     decimal.js-light "^2.4.1"
 
-recharts@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmmirror.com/recharts/-/recharts-2.4.0.tgz#1b851cf01c85e44de5520e4b559c2d90a7bf6e3b"
-  integrity sha512-Aukj4jWPfkHNXQ9qdL15XWNACd/t6mK0UdkSmgEyeajMerzdq7UGteK48DhZ44qu+YA2tT7wBp8xVravTK6m5Q==
+recharts@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.npmmirror.com/recharts/-/recharts-2.4.1.tgz#b5519fe0179cf8b0860951ff5581167347b3c564"
+  integrity sha512-mX/R6wUFquFKbvqfa2VUFfrtqydzNp6f2b74NKVmk3Zt3m/uPD6hQYST2/1j/YXv0ZbNWE4xAyVp98tMBVxOsA==
   dependencies:
     classnames "^2.2.5"
     eventemitter3 "^4.0.1"
@@ -3337,9 +3337,9 @@ reusify@^1.0.4:
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
 rollup@^3.10.0:
-  version "3.14.0"
-  resolved "https://registry.npmmirror.com/rollup/-/rollup-3.14.0.tgz#f5925255f3b6e8de1dba3916d7619c7da5708d95"
-  integrity sha512-o23sdgCLcLSe3zIplT9nQ1+r97okuaiR+vmAPZPTDYB7/f3tgWIYNyiQveMsZwshBT0is4eGax/HH83Q7CG+/Q==
+  version "3.15.0"
+  resolved "https://registry.npmmirror.com/rollup/-/rollup-3.15.0.tgz#6f4105e8c4b8145229657b74ad660b02fbfacc05"
+  integrity sha512-F9hrCAhnp5/zx/7HYmftvsNBkMfLfk/dXUh73hPSM2E3CRgap65orDNJbLetoiUFwSAk6iHPLvBrZ5iHYvzqsg==
   optionalDependencies:
     fsevents "~2.3.2"
 
@@ -3368,9 +3368,9 @@ safe-buffer@~5.2.0:
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 sass-formatter@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.npmmirror.com/sass-formatter/-/sass-formatter-0.7.5.tgz#60fc3756267368d82877c6abf2c148f0c9291d6d"
-  integrity sha512-NKFP8ddjhUYi6A/iD1cEtzkEs91U61kzqe3lY9SVNuvX7LGc88xnEN0mmsWL7Ol//YTi2GL/ol7b9XZ2+hgXuA==
+  version "0.7.6"
+  resolved "https://registry.npmmirror.com/sass-formatter/-/sass-formatter-0.7.6.tgz#aa64b4120c375b71b8b7e18ff60b5f3e17081e3e"
+  integrity sha512-hXdxU6PCkiV3XAiSnX+XLqz2ohHoEnVUlrd8LEVMAI80uB1+OTScIkH9n6qQwImZpTye1r1WG1rbGUteHNhoHg==
   dependencies:
     suf-log "^2.5.3"
 
@@ -3675,9 +3675,9 @@ typescript@*:
   integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 undici@^5.14.0:
-  version "5.18.0"
-  resolved "https://registry.npmmirror.com/undici/-/undici-5.18.0.tgz#e88a77a74d991a30701e9a6751e4193a26fabda9"
-  integrity sha512-1iVwbhonhFytNdg0P4PqyIAXbdlVZVebtPDvuM36m66mRw4OGrCm2MYynJv/UENFLdP13J1nPVQzVE2zTs1OeA==
+  version "5.19.0"
+  resolved "https://registry.npmmirror.com/undici/-/undici-5.19.0.tgz#b80b3627c95e20e9ce02925ec64c4fc39fd93320"
+  integrity sha512-7XnhXXW0/AMTx17x1T3OOYY14FGiXbkyE/itv4jY1v8CnSQBMXW3yZ/Ppt7YlOv1D63tm9N4g5Au1Abe+gwpkw==
   dependencies:
     busboy "^1.6.0"
 
