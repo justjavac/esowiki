@@ -1,0 +1,95 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import { getCollection, CollectionEntry } from "astro:content";
+import HeaderNav from "@/components/HeaderNav.astro";
+import HeaderMeta from "@/components/HeaderMeta.astro";
+import ScrollToTop from "@/components/ScrollToTop.astro";
+import Footer from "@/components/Footer.astro";
+import { formatDate } from "@/utils";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+
+export const prerender = true;
+
+interface Props {
+  page: Page<CollectionEntry<"news">>;
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const newsList = (await getCollection("news")).sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
+  return paginate(newsList, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
+---
+
+<html lang="zh-CN">
+  <head>
+    <HeaderMeta title={`新闻 - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+
+  <body>
+    <HeaderNav />
+
+    <main class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4">
+      <section class="md:col-span-3">
+        <ul role="list" class="m-4">
+          {
+            page.data.map((post) => (
+              <li class="mt-4 overflow-hidden">
+                <div class="block md:flex mt-1 text-gray-900">
+                  <div class="md:shrink-0 p-2 h-48 w-full md:h-full md:w-80">
+                    <a
+                      href={`/news/post/${post.slug}`}
+                      class="hover:text-gray-500"
+                    >
+                      <img
+                        class="object-cover"
+                        src={post.data.image}
+                        alt={post.data.title}
+                      />
+                    </a>
+                  </div>
+                  <div class="p-2">
+                    <a
+                      href={`/news/post/${post.slug}`}
+                      class="hover:text-gray-500"
+                    >
+                      <h2 class="leading-tight text-2xl font-bold">
+                        {post.data.title}
+                      </h2>
+                      <p class="mt-2 text-sm">{post.data.description}</p>
+                    </a>
+                    <div class="flex flex-wrap mt-4 text-sm">
+                      <time>{formatDate(post.data.pubDate)}</time>
+                      {post.data.tags.map((tag) => (
+                        <a
+                          href={`#${tag}`}
+                          class="mx-1 text-gray-500 hover:text-gray-700"
+                        >
+                          {tag}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="text-center mt-4 mb-8">
+          {page.url.prev && <a href={page.url.prev}>上一页</a>}
+          <span>
+            {page.currentPage} / {page.size}
+          </span>
+          {page.url.next && <a href={page.url.next}>下一页</a>}
+        </div>
+      </section>
+      <aside class="m-4">侧边栏</aside>
+    </main>
+    <Footer />
+    <ScrollToTop />
+  </body>
+</html>
