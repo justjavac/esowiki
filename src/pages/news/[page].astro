@@ -1,5 +1,6 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+import { getCollection, CollectionEntry } from "astro:content";
 import HeaderNav from "@/components/HeaderNav.astro";
 import HeaderMeta from "@/components/HeaderMeta.astro";
 import ScrollToTop from "@/components/ScrollToTop.astro";
@@ -9,8 +10,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 export const prerender = true;
 
-export async function getStaticPaths({ paginate }) {
-  const newsList = await getCollection("news");
+interface Props {
+  page: Page<CollectionEntry<"news">>;
+}
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const newsList = (await getCollection("news")).sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  );
   return paginate(newsList, { pageSize: 10 });
 }
 
@@ -55,9 +63,7 @@ const { page } = Astro.props;
                       <p class="mt-2 text-sm">{post.data.description}</p>
                     </a>
                     <div class="flex flex-wrap mt-4 text-sm">
-                      <time datetime={post.data.pubDate}>
-                        {formatDate(post.data.pubDate)}
-                      </time>
+                      <time>{formatDate(post.data.pubDate)}</time>
                       {post.data.tags.map((tag) => (
                         <a
                           href={`#${tag}`}
