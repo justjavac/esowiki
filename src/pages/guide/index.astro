@@ -2,8 +2,6 @@
 import { SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
 import ListLayout from "@/layouts/ListLayout.astro";
 
-const { type } = Astro.params;
-
 let page = Astro.url.searchParams.get("page") || "1";
 
 if (!/^\d+$/.test(page)) {
@@ -36,7 +34,7 @@ async function getArticles(type: string) {
   return await response.json();
 }
 
-const typeData = await getType(type);
+const typeData = await getType("guide");
 
 if (typeData == null) {
   return new Response(null, {
@@ -45,10 +43,7 @@ if (typeData == null) {
   });
 }
 
-const {
-  data: articles,
-  meta: { pagination },
-} = await getArticles(typeData.id);
+const { data: articles } = await getArticles(typeData.id);
 ---
 
 <ListLayout
