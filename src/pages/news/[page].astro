@@ -11,8 +11,7 @@ export const prerender = true;
 
 export async function getStaticPaths({ paginate }) {
   const newsList = await getCollection("news");
-  const newsPages = newsList.map((x) => x.data);
-  return paginate(newsPages, { pageSize: 10 });
+  return paginate(newsList, { pageSize: 10 });
 }
 
 const { page } = Astro.props;
@@ -34,26 +33,32 @@ const { page } = Astro.props;
               <li class="mt-4 overflow-hidden">
                 <div class="block md:flex mt-1 text-gray-900">
                   <div class="md:shrink-0 p-2 h-48 w-full md:h-full md:w-80">
-                    <a href={post.url} class="hover:text-gray-500">
+                    <a
+                      href={`/news/post/${post.slug}`}
+                      class="hover:text-gray-500"
+                    >
                       <img
                         class="object-cover"
-                        src={post.image}
-                        alt={post.title}
+                        src={post.data.image}
+                        alt={post.data.title}
                       />
                     </a>
                   </div>
                   <div class="p-2">
-                    <a href={post.url} class="hover:text-gray-500">
+                    <a
+                      href={`/news/post/${post.slug}`}
+                      class="hover:text-gray-500"
+                    >
                       <h2 class="leading-tight text-2xl font-bold">
-                        {post.title}
+                        {post.data.title}
                       </h2>
-                      <p class="mt-2 text-sm">{post.description}</p>
+                      <p class="mt-2 text-sm">{post.data.description}</p>
                     </a>
                     <div class="flex flex-wrap mt-4 text-sm">
-                      <time datetime={post.pubDate}>
-                        {formatDate(post.pubDate)}
+                      <time datetime={post.data.pubDate}>
+                        {formatDate(post.data.pubDate)}
                       </time>
-                      {post.tags.map((tag) => (
+                      {post.data.tags.map((tag) => (
                         <a
                           href={`#${tag}`}
                           class="mx-1 text-gray-500 hover:text-gray-700"
