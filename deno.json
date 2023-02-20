@@ -19,7 +19,8 @@
         "node_modules",
         "dist",
         "public",
-        "scripts/tmp"
+        "scripts/tmp",
+        ".astro"
       ]
     }
   },
@@ -35,7 +36,8 @@
         "dist",
         "public",
         "src",
-        "scripts/tmp"
+        "scripts/tmp",
+        ".astro"
       ]
     }
   },
