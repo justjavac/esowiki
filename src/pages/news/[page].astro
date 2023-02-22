@@ -15,9 +15,8 @@ interface Props {
 }
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const newsList = (await getCollection("news")).sort(
-    (a, b) =>
-      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
+  const newsList = (await getCollection("news")).sort((a, b) =>
+    b.id.localeCompare(a.id)
   );
   return paginate(newsList, { pageSize: 10 });
 }
