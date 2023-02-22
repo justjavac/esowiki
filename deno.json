@@ -1,7 +1,7 @@
 {
   "tasks": {
     "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
-    "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts && deno fmt src/pages/news/",
+    "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts && deno fmt src/content/news/",
     "uesp": "deno run --allow-net --allow-read --allow-write ./scripts/uesp.ts",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
     "esoitem": "deno run --v8-flags='--max_old_space_size=8192' --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
