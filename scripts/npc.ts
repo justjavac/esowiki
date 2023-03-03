@@ -74,7 +74,7 @@ if (import.meta.main) {
 
   for (let i = 0; i < 3000; i++) {
     const npc = await fetch(
-      "https://esoapi.denohub.com/api/npcs?fields[0]=id&fields[0]=nameEn&fields[0]=name&pagination[pageSize]=500&pagination[page]=0&filters[thumb][$null]=true",
+      "https://esoapi.denohub.com/api/npcs?fields[0]=id&fields[0]=nameEn&fields[0]=name&pagination[pageSize]=500&pagination[page]=0&filters[content][$null]=true",
     ).then((x) => x.json());
 
     const failed = [];
