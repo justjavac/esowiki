@@ -28,7 +28,7 @@
     "micromark": "^3.1.0",
     "micromark-extension-gfm": "^2.0.1",
     "micromark-extension-wiki-link": "^0.0.4",
-    "preact": "^10.12.1",
+    "preact": "^10.13.1",
     "preact-router": "^4.1.0",
     "react": "npm:@preact/compat@latest",
     "react-dom": "npm:@preact/compat@latest",
