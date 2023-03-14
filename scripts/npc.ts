@@ -17,9 +17,7 @@ async function getRemoteFromCache(name: string) {
 }
 
 /** 解析内容 */
-async function parseContent(
-  name: string,
-): Promise<string | null> {
+async function parseContent(name: string): Promise<string | null> {
   const content = await getRemoteFromCache(name);
   const document = new DOMParser().parseFromString(content, "text/html");
   if (document == null) return null;
