@@ -19,7 +19,6 @@ export const rehypeOfficial: Preset = {
     rehypeRemoveComments as Plugin,
     esoNews,
     imgLazySrc,
-    fixNestedList,
     removeBanner,
     replaceHref,
     removeImgLink,
