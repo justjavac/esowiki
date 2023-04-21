@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { Announce } from ".";
+import { Announce } from "./Announce";
 
 interface ServerStatus {
   slug: string;
