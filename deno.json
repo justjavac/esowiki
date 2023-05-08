@@ -11,18 +11,14 @@
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
   "fmt": {
-    "options": {
-      "lineWidth": 120
-    },
-    "files": {
-      "exclude": [
-        "node_modules",
-        "dist",
-        "public",
-        "scripts/tmp",
-        ".astro"
-      ]
-    }
+    "lineWidth": 120,
+    "exclude": [
+      "node_modules",
+      "dist",
+      "public",
+      "scripts/tmp",
+      ".astro"
+    ]
   },
   "lint": {
     "rules": {
@@ -30,24 +26,20 @@
         "no-unused-vars"
       ]
     },
-    "files": {
-      "exclude": [
-        "node_modules",
-        "dist",
-        "public",
-        "src",
-        "scripts/tmp",
-        ".astro"
-      ]
-    }
+    "exclude": [
+      "node_modules",
+      "dist",
+      "public",
+      "src",
+      "scripts/tmp",
+      ".astro"
+    ]
   },
   "test": {
-    "files": {
-      "exclude": [
-        "node_modules",
-        "src"
-      ]
-    }
+    "exclude": [
+      "node_modules",
+      "src"
+    ]
   },
   "lock": false,
   "imports": {
