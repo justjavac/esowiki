@@ -11,10 +11,14 @@ export default defineConfig({
   markdown: {
     gfm: true,
     rehypePlugins: [
-      [rehypeExternalLinks, { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] }],
+      [
+        rehypeExternalLinks,
+        { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] },
+      ],
       // rehypeUnreachableLink,
     ],
   },
+  compressHTML: true,
   integrations: [
     preact({ compat: true }),
     tailwind(),
