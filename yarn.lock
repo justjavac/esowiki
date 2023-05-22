@@ -721,9 +721,9 @@
     "@types/unist" "*"
 
 "@types/node@*":
-  version "20.2.1"
-  resolved "https://registry.npmmirror.com/@types/node/-/node-20.2.1.tgz#de559d4b33be9a808fd43372ccee822c70f39704"
-  integrity sha512-DqJociPbZP1lbZ5SQPk4oag6W7AyaGMO6gSfRwq3PWl4PXTwJpRQJhDq4W0kzrg3w6tJ1SwlvGZ5uKFHY13LIg==
+  version "20.2.3"
+  resolved "https://registry.npmmirror.com/@types/node/-/node-20.2.3.tgz#b31eb300610c3835ac008d690de6f87e28f9b878"
+  integrity sha512-pg9d0yC4rVNWQzX8U7xb4olIOFuuVL9za3bzMT2pu2SU0SNEi66i2qrvhE2qt0HvkhuCaWJu7pLNOt/Pj8BIrw==
 
 "@types/node@^17.0.5":
   version "17.0.45"
@@ -854,10 +854,10 @@ array-iterate@^2.0.0:
   resolved "https://registry.npmmirror.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.npmmirror.com/astro/-/astro-2.5.0.tgz#8216c005cb1533f720a3ec41715f1238fe89536a"
-  integrity sha512-dZZuK2vEpfinbVALthUW31NOVUFPobgyi0+2PR3FH3diy6X9HBw1PLbS5wRsWOKaEXRbzxBkXc39Rbm0yRzKaA==
+astro@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.npmmirror.com/astro/-/astro-2.5.1.tgz#c3b265b9871a43f8244ac6dd8c0a033016bdcfb5"
+  integrity sha512-tOVlDWxxE8VBGoolW0AS0kUo7ynAMjfOPKK0XyqprAtcN7pvYZ29gLG6RJTitDhzzP3HDt+Vecg9PuUOtHrITg==
   dependencies:
     "@astrojs/compiler" "^1.4.0"
     "@astrojs/language-server" "^1.0.0"
@@ -1417,9 +1417,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.400"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.400.tgz#bc39fd77c4280b8d9abfbd7bee17d7bf3d1ef35f"
-  integrity sha512-Lsvf7cvwbIxCfB8VqbnVtEsjGi3+48ejDiQZfWo5gkT+1vQ2DHQI5pl0nUvPD6z1IQk6JgFeMC5ZQJqVhalEHg==
+  version "1.4.402"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.402.tgz#9aa7bbb63081513127870af6d22f829344c5ba57"
+  integrity sha512-gWYvJSkohOiBE6ecVYXkrDgNaUjo47QEKK0kQzmWyhkH+yoYiG44bwuicTGNSIQRG3WDMsWVZJLRnJnLNkbWvA==
 
 emmet@^2.4.3:
   version "2.4.4"
@@ -2839,9 +2839,9 @@ nlcst-to-string@^3.0.0:
     "@types/nlcst" "^1.0.0"
 
 node-releases@^2.0.8:
-  version "2.0.10"
-  resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.10.tgz#c311ebae3b6a148c89b1813fd7c4d3c024ef537f"
-  integrity sha512-5GFldHPXVG/YZmFzJvKK2zDSzPKhEp0+ZR5SVaoSag9fsL5YgHbUHDfnG5494ISANDcK4KwPXAx2xqVEydmd7w==
+  version "2.0.11"
+  resolved "https://registry.npmmirror.com/node-releases/-/node-releases-2.0.11.tgz#59d7cef999d13f908e43b5a70001cf3129542f0f"
+  integrity sha512-+M0PwXeU80kRohZ3aT4J/OnR+l9/KD2nVLNNoRgFtnf+umQVFdGBAO2N8+nCnEi0xlh/Wk3zOGC+vNNx+uM79Q==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
@@ -3138,10 +3138,10 @@ preact-router@^4.1.1:
   resolved "https://registry.npmmirror.com/preact-router/-/preact-router-4.1.1.tgz#06e7fab0896e22406f98fc997b1faadbfed06369"
   integrity sha512-+LGrB3b2nR7+8vzyHw8i2/TjZazs3oMJovIEgBChPBXMDSISmwj2WDynZh8KDxZRK2GuXlqHPk15mMjaYWZH4g==
 
-preact@^10.14.1:
-  version "10.14.1"
-  resolved "https://registry.npmmirror.com/preact/-/preact-10.14.1.tgz#1e15ef6a09e241a48d12c872b90557914b03abac"
-  integrity sha512-4XDSnUisk3YFBb3p9WeKeH1mKoxdFUsaXcvxs9wlpYR1wax/TWJVqhwmIWbByX0h7jMEJH6Zc5J6jqc58FKaNQ==
+preact@^10.15.0:
+  version "10.15.0"
+  resolved "https://registry.npmmirror.com/preact/-/preact-10.15.0.tgz#14bae0afe3547ca9d45d22fda2a4266462d31cf3"
+  integrity sha512-nZSa8M2R2m1n7nJSBlzDpxRJaIsejrTO1vlFbdpFvyC8qM1iU+On2y0otfoUm6SRB5o0lF0CKDFxg6grEFU0iQ==
 
 preferred-pm@^3.0.3:
   version "3.0.3"
@@ -3464,9 +3464,9 @@ reusify@^1.0.4:
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
 rollup@^3.21.0:
-  version "3.22.0"
-  resolved "https://registry.npmmirror.com/rollup/-/rollup-3.22.0.tgz#e6671baebdd473154ac7998bbc57faabcd7bba20"
-  integrity sha512-imsigcWor5Y/dC0rz2q0bBt9PabcL3TORry2hAa6O6BuMvY71bqHyfReAz5qyAqiQATD1m70qdntqBfBQjVWpQ==
+  version "3.22.1"
+  resolved "https://registry.npmmirror.com/rollup/-/rollup-3.22.1.tgz#cf876bd933000aeda2f8807371448b788e094481"
+  integrity sha512-ZI+GSAqOkCyTtJPlwyPOaYKa0RqvztN4miRVusVJseMj6BIBT2f6pFeK90IdJsQ86FLMYkxju2whuck3yKPE4Q==
   optionalDependencies:
     fsevents "~2.3.2"
 
