@@ -41,7 +41,6 @@
       "src"
     ]
   },
-  "lock": false,
   "imports": {
     "fastest-levenshtein": "https://deno.land/x/fastest_levenshtein@1.0.10/mod.ts",
     "hast": "https://esm.sh/v99/@types/hast@2.3.4/index.d.ts",
