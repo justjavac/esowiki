@@ -859,10 +859,10 @@ array-iterate@^2.0.0:
   resolved "https://registry.npmmirror.com/array-iterate/-/array-iterate-2.0.1.tgz#6efd43f8295b3fee06251d3d62ead4bd9805dd24"
   integrity sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==
 
-astro@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.npmmirror.com/astro/-/astro-2.6.1.tgz#ae225e441062765c8a6a03844d08fbd5345754d9"
-  integrity sha512-hQSMhUHMCVhUNa0xZfWnlVfz6MaRnfKtXHEBIA+rq1p3s9Z+rjKQmZq/Dk6G2vH1LMhudTojsBv7uMKumd+OnQ==
+astro@^2.6.3:
+  version "2.6.3"
+  resolved "https://registry.npmmirror.com/astro/-/astro-2.6.3.tgz#6bb5737ab946a2c7c8f02fc7ce812b8abd01222a"
+  integrity sha512-gJoBX+t11qAeYDjterGEaQZx7qqlGOigWhE0zkcEBv4zy7l4IpKx6nGGUNzD/l8x6WomZxkdZROsOsiEaWSJmQ==
   dependencies:
     "@astrojs/compiler" "^1.4.0"
     "@astrojs/internal-helpers" "^0.1.0"
@@ -886,7 +886,7 @@ astro@^2.6.1:
     cookie "^0.5.0"
     debug "^4.3.4"
     deepmerge-ts "^4.2.2"
-    devalue "^4.2.0"
+    devalue "^4.3.2"
     diff "^5.1.0"
     es-module-lexer "^1.1.0"
     esbuild "^0.17.18"
@@ -1386,7 +1386,7 @@ dequal@^2.0.0:
   resolved "https://registry.npmmirror.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
-devalue@^4.2.0:
+devalue@^4.3.2:
   version "4.3.2"
   resolved "https://registry.npmmirror.com/devalue/-/devalue-4.3.2.tgz#cc44e4cf3872ac5a78229fbce3b77e57032727b5"
   integrity sha512-KqFl6pOgOW+Y6wJgu80rHpo2/3H07vr8ntR9rkkFIRETewbf5GaYYcakYfiKz89K+sLsuPkQIZaXDMjUObZwWg==
