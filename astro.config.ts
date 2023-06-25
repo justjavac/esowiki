@@ -5,22 +5,25 @@ import deno from "@astrojs/deno";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
 // import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
+import node from "@astrojs/node";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://eso.denohub.com/",
   markdown: {
     gfm: true,
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        { target: "_blank", rel: ["noopener", "noreferrer", "nofollow"] },
-      ],
-      // rehypeUnreachableLink,
+    rehypePlugins: [[rehypeExternalLinks, {
+      target: "_blank",
+      rel: ["noopener", "noreferrer", "nofollow"],
+    }] // rehypeUnreachableLink,
     ],
   },
+
   compressHTML: true,
   integrations: [
-    preact({ compat: true }),
+    preact({
+      compat: true,
+    }),
     tailwind(),
     sitemap({
       customPages: [
@@ -38,5 +41,7 @@ export default defineConfig({
     }),
   ],
   output: "server",
-  adapter: deno(),
+  adapter: node({
+    mode: "standalone",
+  }),
 });
