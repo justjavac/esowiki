@@ -1,6 +1,5 @@
 {
   "tasks": {
-    "start": "deno run --allow-net --allow-read --allow-env --watch=./server/entry.mjs ./server/entry.mjs",
     "news": "deno run --allow-net --allow-read --allow-write ./scripts/news.ts && deno fmt src/content/news/",
     "uesp": "deno run --allow-net --allow-read --allow-write ./scripts/uesp.ts",
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
