@@ -1,7 +1,10 @@
 import { micromark } from "micromark";
 import type { Extension, HtmlExtension } from "micromark-util-types";
 import { gfm, gfmHtml } from "micromark-extension-gfm";
-import { html as wikiHtml, syntax as wiki } from "micromark-extension-wiki-link";
+import {
+  html as wikiHtml,
+  syntax as wiki,
+} from "micromark-extension-wiki-link";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
 import { fromMarkdown as fromWiki } from "mdast-util-wiki-link";
@@ -11,11 +14,7 @@ export function md2html(md?: string, isInline = false): string {
 
   const html = micromark(md, {
     allowDangerousHtml: true,
-    extensions: [
-      wiki(),
-      gfm(),
-      externalLinks(),
-    ],
+    extensions: [wiki(), gfm(), externalLinks()],
     htmlExtensions: [
       wikiHtml({
         permalinks: [],
