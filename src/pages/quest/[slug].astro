@@ -14,6 +14,7 @@ async function getQuest(slug: string) {
   query.set("filters[$or][1][slug][$eq]", slug!);
   // query.set("populate[0]", "rewards");
   // query.set("populate[1]", "steps");
+  query.set("populate[location][fields]", "*");
   query.set("populate[rewards][populate][0]", "item");
   query.set("populate[rewards][populate][1]", "skillLine");
   query.set("populate[steps][fields]", "*");
@@ -82,13 +83,19 @@ const rewards = data.attributes.rewards.data
   })
   .join("<br/>");
 
+console.log(data.attributes.location);
+
+const location = data.attributes.location
+  ? `<a href="/location/${data.attributes.location.data.attributes.slug}">${data.attributes.location.data.attributes.subZoneName}</a>`
+  : data.attributes.locationZone;
+
 const meta = [
   { name: "任务", content: name },
   { name: "英文", content: data.attributes.nameEn },
   { name: "类型", content: data.attributes.type },
   { name: "目标", content: md2text(data.attributes.goalText) },
-  { name: "区域", content: md2text(data.attributes.zone) },
-  { name: "地点", content: md2text(data.attributes.locationZone) },
+  { name: "区域", content: data.attributes.zoneName },
+  { name: "地点", content: location },
   { name: "奖励", content: rewards },
 ].filter((item) => item.content != null && item.content !== "");
 ---
