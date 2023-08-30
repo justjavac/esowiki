@@ -32,7 +32,7 @@ export function Announce(props: AnnounceProps) {
               <a
                 href={props.link}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer friend"
                 title={props.message}
               >
                 {props.message}
