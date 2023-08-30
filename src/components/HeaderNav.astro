@@ -1,6 +1,7 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE, CDN_URL } from "@/consts";
+import { Announce } from "./Announce";
 
 const menus = [
   {
@@ -204,30 +205,35 @@ const isActive = moreMenus.some((menu) => pathname.startsWith(menu.href));
   </nav>
 
   <script is:inline>
-    const menuIcon = document.querySelector("#toggle-menu");
-    menuIcon.addEventListener("click", () => {
-      menuIcon.classList.toggle("expanded");
-      document.body.classList.toggle("overflow-hidden");
-      document.getElementById("page-top")?.classList.toggle("h-screen");
-      document.querySelector("#page-top nav")?.classList.toggle("hidden");
-      document.querySelector("#area-list")?.classList.toggle("hidden");
-      document.querySelector("astro-island")?.classList.toggle("hidden");
-      const matches = document.querySelectorAll("astro-island");
-      if (matches && matches.length) {
-        matches.forEach((elem) => {
-          elem?.classList.toggle("hidden");
-        });
-      }
-    });
+  const menuIcon = document.querySelector("#toggle-menu");
+  menuIcon.addEventListener("click", () => {
+    menuIcon.classList.toggle("expanded");
+    document.body.classList.toggle("overflow-hidden");
+    document.getElementById("page-top")?.classList.toggle("h-screen");
+    document.querySelector("#page-top nav")?.classList.toggle("hidden");
+    document.querySelector("#area-list")?.classList.toggle("hidden");
+    document.querySelector("astro-island")?.classList.toggle("hidden");
+    const matches = document.querySelectorAll("astro-island");
+    if (matches && matches.length) {
+      matches.forEach((elem) => {
+        elem?.classList.toggle("hidden");
+      });
+    }
+  });
 
-    const moreMenu = document.querySelector("#more-menu");
-    moreMenu.addEventListener("click", (e) => {
-      e.stopPropagation();
-      document.querySelector("#more-menu + div")?.classList.toggle("hidden");
-    });
+  const moreMenu = document.querySelector("#more-menu");
+  moreMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.querySelector("#more-menu + div")?.classList.toggle("hidden");
+  });
 
-    window.addEventListener("click", (e) => {
-      document.querySelector("#more-menu + div")?.classList.add("hidden");
-    });
+  window.addEventListener("click", (e) => {
+    document.querySelector("#more-menu + div")?.classList.add("hidden");
+  });
   </script>
 </header>
+
+<Announce
+  link="https://starfield.denohub.com"
+  message="星空百科已经上线。《星空》是由《上古卷轴:天际》和《辐射4》团队睽违 25 年所打造的第一个全新宇宙。"
+/>
