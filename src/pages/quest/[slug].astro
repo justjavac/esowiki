@@ -83,9 +83,7 @@ const rewards = data.attributes.rewards.data
   })
   .join("<br/>");
 
-console.log(data.attributes.location);
-
-const location = data.attributes.location
+const location = data.attributes.location.data
   ? `<a href="/location/${data.attributes.location.data.attributes.slug}">${data.attributes.location.data.attributes.subZoneName}</a>`
   : data.attributes.locationZone;
 
