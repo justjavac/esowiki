@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs",
     "astro": "astro",
-    "deploy": "scp -r dist/* ubuntu@denohub.com:/var/www/eso.denohub.com/",
+    "deploy": "rsync -e ssh -rcpvz dist/ ubuntu@denohub.com:/var/www/eso.denohub.com/",
     "preinstall": "npx -q please-use-yarn"
   },
   "dependencies": {
