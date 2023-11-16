@@ -5,25 +5,18 @@
     "category": "deno run --allow-net --allow-read --allow-write ./scripts/category.ts",
     "esoitem": "deno run --v8-flags='--max_old_space_size=8192' --allow-net --allow-read --allow-write  --allow-env ./scripts/esoitem.ts",
     "esohub": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/esohub.ts",
+    "epub": "deno run --allow-net --allow-read --allow-write  --allow-env ./scripts/epub.ts",
     "skill": "deno run --allow-net --allow-read  --allow-env ./scripts/skill.ts",
     "permalinks": "deno run --allow-net --allow-write ./scripts/permalinks.ts",
     "contributors": "deno run --allow-net --allow-read --allow-write ./scripts/contributors.ts"
   },
   "fmt": {
     "lineWidth": 120,
-    "exclude": [
-      "node_modules",
-      "dist",
-      "public",
-      "scripts/tmp",
-      ".astro"
-    ]
+    "exclude": ["node_modules", "dist", "public", "scripts/tmp", ".astro"]
   },
   "lint": {
     "rules": {
-      "exclude": [
-        "no-unused-vars"
-      ]
+      "exclude": ["no-unused-vars"]
     },
     "exclude": [
       "node_modules",
@@ -35,10 +28,7 @@
     ]
   },
   "test": {
-    "exclude": [
-      "node_modules",
-      "src"
-    ]
+    "exclude": ["node_modules", "src"]
   },
   "imports": {
     "fastest-levenshtein": "https://deno.land/x/fastest_levenshtein@1.0.10/mod.ts",
