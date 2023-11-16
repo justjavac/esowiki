@@ -2,6 +2,7 @@
 dist/
 .output/
 .astro/
+epub/
 
 # dependencies
 node_modules/
