@@ -24,24 +24,28 @@ interface ListItem extends Frontmatter {
 
 /** 获取新闻列表 */
 async function getNewsList(): Promise<ListItem[]> {
-  const html = await fetch("https://www.elderscrollsonline.com/cn/news?page=1", {
-    headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-      "cookie": "age_gate=568022400&1671009942;APE-Age-Gate=1",
-    },
-  }).then((res) => res.text());
+  const html = await fetch(
+    "https://www.elderscrollsonline.com/cn/news?page=1",
+    {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+        cookie: "age_gate=568022400&1671009942;APE-Age-Gate=1",
+      },
+    }
+  ).then((res) => res.text());
 
-  const root = unified()
-    .use(rehypeParse)
-    .parse(html);
+  const root = unified().use(rehypeParse).parse(html);
 
   const newsList = selectAll("article.tier-2-list-item", root) as Element[];
 
   return newsList.map((news) => ({
     title: toString(select("h3", news)),
     url: select("a", news)?.properties?.href as string,
-    pubDate: toString(select("p.date", news)).trim().substring(0, 10),
+    pubDate: toString(select("p.date", news))
+      .trim()
+      .substring(0, 10)
+      .replaceAll("/", "-"),
     description: toString(select("p", news)),
     image: select("img", news)?.properties?.dataLazySrc as string,
     tags: selectAll("p.date a", news).map((tag) => toString(tag)),
@@ -54,7 +58,7 @@ async function getNewsDetail(url: string) {
     headers: {
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-      "cookie": "age_gate=568022400&1671009942;APE-Age-Gate=1",
+      cookie: "age_gate=568022400&1671009942;APE-Age-Gate=1",
     },
   }).then((res) => res.text());
   return html2md(newsDetail);
@@ -62,7 +66,8 @@ async function getNewsDetail(url: string) {
 
 async function html2md(html: string) {
   const video: Handle = (h, node) => h(node, "html", toHtml(node));
-  const frontmatter: Handle = (h, node) => h(node, "frontmatter", node.children.map(toString).join("\n"));
+  const frontmatter: Handle = (h, node) =>
+    h(node, "frontmatter", node.children.map(toString).join("\n"));
   const p: Handle = (h, node) => {
     if (node.properties?.align === "center") {
       node.properties = { className: ["text-gray-500 text-sm text-center"] };
