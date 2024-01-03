@@ -32,7 +32,7 @@ async function getNewsList(): Promise<ListItem[]> {
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
         cookie: "age_gate=568022400&1671009942;APE-Age-Gate=1",
       },
-    }
+    },
   ).then((res) => res.text());
 
   const root = unified().use(rehypeParse).parse(html);
@@ -66,8 +66,7 @@ async function getNewsDetail(url: string) {
 
 async function html2md(html: string) {
   const video: Handle = (h, node) => h(node, "html", toHtml(node));
-  const frontmatter: Handle = (h, node) =>
-    h(node, "frontmatter", node.children.map(toString).join("\n"));
+  const frontmatter: Handle = (h, node) => h(node, "frontmatter", node.children.map(toString).join("\n"));
   const p: Handle = (h, node) => {
     if (node.properties?.align === "center") {
       node.properties = { className: ["text-gray-500 text-sm text-center"] };

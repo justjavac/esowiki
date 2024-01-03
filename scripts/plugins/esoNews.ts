@@ -12,9 +12,7 @@ const esoNews: Plugin<[], Root> = () => (tree) => {
     select("#blog-body .lead-img", tree)?.properties?.src as string
   )?.replace("esosslfiles-a.akamaihd.net", "eso-cdn.denohub.com");
   const description = toString(select("#blog-body p", tree));
-  const tags = selectAll("#blog-body .tags a", tree).map((tag) =>
-    toString(tag)
-  );
+  const tags = selectAll("#blog-body .tags a", tree).map((tag) => toString(tag));
 
   const frontmatter = [
     `---`,
@@ -31,8 +29,8 @@ const esoNews: Plugin<[], Root> = () => (tree) => {
   root.children.unshift(
     h(
       "frontmatter",
-      frontmatter.map((x) => h("text", x))
-    )
+      frontmatter.map((x) => h("text", x)),
+    ),
   );
   select("p", root)!.children = []; // remove description
   return root;
