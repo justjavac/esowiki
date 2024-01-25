@@ -10,8 +10,7 @@ for (let i = 1; i <= 44; i++) {
       "cache-control": "no-cache",
       "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
       pragma: "no-cache",
-      "sec-ch-ua":
-        '"Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"',
+      "sec-ch-ua": '"Not_A Brand";v="8", "Chromium";v="120", "Microsoft Edge";v="120"',
       "sec-ch-ua-mobile": "?0",
       "sec-ch-ua-platform": '"macOS"',
       "sec-fetch-dest": "empty",

@@ -12,11 +12,19 @@
   },
   "fmt": {
     "lineWidth": 120,
-    "exclude": ["node_modules", "dist", "public", "scripts/tmp", ".astro"]
+    "exclude": [
+      "node_modules",
+      "dist",
+      "public",
+      "scripts/tmp",
+      ".astro"
+    ]
   },
   "lint": {
     "rules": {
-      "exclude": ["no-unused-vars"]
+      "exclude": [
+        "no-unused-vars"
+      ]
     },
     "exclude": [
       "node_modules",
@@ -28,7 +36,10 @@
     ]
   },
   "test": {
-    "exclude": ["node_modules", "src"]
+    "exclude": [
+      "node_modules",
+      "src"
+    ]
   },
   "imports": {
     "fastest-levenshtein": "https://deno.land/x/fastest_levenshtein@1.0.10/mod.ts",
