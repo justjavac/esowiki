@@ -24,12 +24,11 @@ function renderTitlePage(doc: typeof PDFDocument) {
   const author = "迷渡(@justjavac)";
   const version = `v1.0.0`;
 
-  doc.font("gamedata/fonts/myingheiprc-w5.otf").fontSize(30);
+  doc.fontSize(30);
   doc.y = doc.page.height / 3 - doc.currentLineHeight();
   doc.text(title, { align: "center" });
   doc.h1Outline = doc.outline.addItem(title);
 
-  doc.font("gamedata/fonts/myingheiprc-w5.otf");
   doc.moveDown();
   doc.fontSize(20);
   doc.fillColor("#404040");
@@ -46,13 +45,12 @@ function renderTitlePage(doc: typeof PDFDocument) {
 function renderBook(doc: PDFKit.PDFDocument, book: BookItem) {
   if (currentCategory !== book.category) {
     currentCategory = book.category;
-    doc.font("gamedata/fonts/myingheiprc-w5.otf").fontSize(30);
+    doc.fontSize(30);
     doc.text(currentCategory, { align: "center" });
     doc.y += 15;
     doc.h1Outline = doc.outline.addItem(currentCategory);
   }
 
-  doc.font("gamedata/fonts/myingheiprc-w5.otf");
   doc.fontSize(24);
   doc.text(book.title);
   doc.y += 10;
@@ -80,11 +78,13 @@ const doc = new PDFDocument({
   displayTitle: true,
   info,
 });
+doc.font("gamedata/fonts/myingheiprc-w5.otf");
 doc.pipe(fs.createWriteStream("./epub/eso.pdf"));
 
 renderTitlePage(doc);
 for (const book of books) {
-  if (book.category === "制作书") break;
+  if (book.category === "制作书") continue;
+  if (book.category.endsWith("样式")) continue;
   renderBook(doc, book);
 }
 doc.end();
