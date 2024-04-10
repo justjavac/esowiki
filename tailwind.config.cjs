@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
+  safelist: ["h-64", "lg:h-96", "lg:w-3/4"],
   plugins: [
     require("@tailwindcss/forms"),
     function ({ addVariant, addComponents, addUtilities, theme, apply }) {
@@ -8,7 +9,8 @@ module.exports = {
       addVariant("scrollbar-thumb", "&::-webkit-scrollbar-thumb");
       addComponents({
         ".chat": {
-          "@apply grid grid-cols-12 gap-y-2 my-4 py-4 border border-gray-200 rounded shadow": {},
+          "@apply grid grid-cols-12 gap-y-2 my-4 py-4 border border-gray-200 rounded shadow":
+            {},
         },
         ".chat .avatar": {
           "@apply flex items-center justify-center self-start h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0 text-white":
@@ -19,7 +21,8 @@ module.exports = {
             {},
         },
         ".chat em, .chat strong": {
-          "@apply ml-3 text-left font-normal align-middle py-2 px-4 shadow rounded-lg bg-gray-100 text-black": {},
+          "@apply ml-3 text-left font-normal align-middle py-2 px-4 shadow rounded-lg bg-gray-100 text-black":
+            {},
         },
         ".chat strong": {
           "@apply bg-indigo-100": {},
