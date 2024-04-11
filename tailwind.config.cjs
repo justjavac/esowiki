@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}"],
-  safelist: ["h-64", "lg:h-96", "lg:w-3/4"],
   plugins: [
     require("@tailwindcss/forms"),
     function ({ addVariant, addComponents, addUtilities, theme, apply }) {
