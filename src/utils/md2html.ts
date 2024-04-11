@@ -1,10 +1,7 @@
 import { micromark } from "micromark";
 import type { Extension, HtmlExtension } from "micromark-util-types";
 import { gfm, gfmHtml } from "./gfm";
-import {
-  html as wikiHtml,
-  syntax as wiki,
-} from "micromark-extension-wiki-link";
+import { html as wikiHtml, syntax as wiki } from "micromark-extension-wiki-link";
 import { fromMarkdown } from "mdast-util-from-markdown";
 import { toString } from "mdast-util-to-string";
 import { fromMarkdown as fromWiki } from "mdast-util-wiki-link";
