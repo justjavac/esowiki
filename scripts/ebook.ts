@@ -8,11 +8,10 @@ type BookItem = {
   title: string;
   category: string;
   medium: number;
-  length: number;
   body: string;
 };
-const columns = ["bookId", "title", "category", "medium", "length", "body"];
-const books = parse(Deno.readTextFileSync("./gamedata/uespLog/librarian.csv"), {
+const columns = ["bookId", "title", "category", "medium", "body"];
+const books = parse(Deno.readTextFileSync("./gamedata/librarian.csv"), {
   skipFirstRow: true,
   columns,
 }) as BookItem[];
@@ -58,7 +57,7 @@ function renderBook(doc: PDFKit.PDFDocument, book: BookItem) {
 
   doc.fontSize(14);
   doc.fillColor("#404040");
-  doc.text(book.body.replaceAll("\\n", "\n"));
+  doc.text(book.body.replaceAll("\\n", "\n").replace(/[\n\r]+/g, "\n\n"));
 
   doc.addPage();
 }
