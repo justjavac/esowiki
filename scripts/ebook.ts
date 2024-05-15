@@ -1,5 +1,7 @@
 // @deno-types = "npm:@types/pdfkit"
 import PDFDocument from "npm:pdfkit";
+import epub from "npm:epub-gen";
+import { micromark } from "npm:micromark";
 import fs from "node:fs";
 import { parse } from "https://deno.land/std@0.162.0/encoding/csv.ts";
 
@@ -11,10 +13,15 @@ type BookItem = {
   body: string;
 };
 const columns = ["bookId", "title", "category", "medium", "body"];
-const books = parse(Deno.readTextFileSync("./gamedata/librarian.csv"), {
-  skipFirstRow: true,
-  columns,
-}) as BookItem[];
+const books = (
+  parse(Deno.readTextFileSync("./gamedata/librarian.csv"), {
+    skipFirstRow: true,
+    columns,
+  }) as BookItem[]
+)
+  .filter((book) => book.category !== "制作书")
+  .filter((book) => !book.category.endsWith("样式"))
+  .filter((book) => !book.title.startsWith("制作样式书"));
 
 let currentCategory = "";
 
@@ -82,8 +89,26 @@ doc.pipe(fs.createWriteStream("./epub/eso.pdf"));
 
 renderTitlePage(doc);
 for (const book of books) {
-  if (book.category === "制作书") continue;
-  if (book.category.endsWith("样式")) continue;
   renderBook(doc, book);
 }
 doc.end();
+
+// e-pub
+const content = books.map((book) => ({
+  title: book.title,
+  data: micromark(
+    book.body.replaceAll("\\n", "\n").replace(/[\n\r]+/g, "\n\n")
+  ),
+}));
+
+const options = {
+  title: "上古卷轴OL",
+  author: "eso",
+  publisher: "eso",
+  output: "./epub/eso.epub",
+  lang: "zh",
+  tocTitle: "目录",
+  content,
+};
+
+await new epub(options).promise;
