@@ -97,7 +97,7 @@ doc.end();
 const content = books.map((book) => ({
   title: book.title,
   data: micromark(
-    book.body.replaceAll("\\n", "\n").replace(/[\n\r]+/g, "\n\n")
+    book.body.replaceAll("\\n", "\n").replace(/[\n\r]+/g, "\n\n"),
   ),
 }));
 

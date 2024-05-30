@@ -74,7 +74,7 @@
     },
     {
       "id": 4,
-      "name": "险境",
+      "name": "洞穴",
       "icon": "/storage/interactive-map/poi-types/poi_delve_complete.png",
       "active": true,
       "show_names": true,
@@ -719,7 +719,7 @@
     },
     {
       "id": 66,
-      "name": "Apocrypha's Gate",
+      "name": "异典之门",
       "file": "/storage/maps/stonefalls/apocryphasgate_base.jpg",
       "parent_map_id": 7,
       "nameEn": "Apocrypha's Gate"
@@ -782,7 +782,7 @@
     },
     {
       "id": 76,
-      "name": "失落之城纳·托坦布",
+      "name": "失落之城纳托坦布",
       "file": "/storage/maps/alikr/lostcity_base.jpg",
       "parent_map_id": 30,
       "nameEn": "Lost City of the Na-Totambu"
@@ -1167,14 +1167,14 @@
     },
     {
       "id": 134,
-      "name": "Hei-Halai",
+      "name": "黑哈莱",
       "file": "/storage/maps/shadowfen/shadowscaleenclave_base.jpg",
       "parent_map_id": 26,
       "nameEn": "Hei-Halai"
     },
     {
       "id": 135,
-      "name": "坦-玛尔-沃克遗迹",
+      "name": "坦·玛尔·沃克遗迹",
       "file": "/storage/maps/shadowfen/skinstealerlair_base.jpg",
       "parent_map_id": 26,
       "nameEn": "Ruins of Ten-Maur-Wolk"
@@ -1510,7 +1510,7 @@
     },
     {
       "id": 188,
-      "name": "蒙面遗者要塞",
+      "name": "面纱遗族要塞",
       "file": "/storage/maps/auridon/veiledkeepbase.jpg",
       "parent_map_id": 143,
       "nameEn": "The Veiled Keep"
@@ -1587,7 +1587,7 @@
     },
     {
       "id": 201,
-      "name": "斯特罗斯·迈凯",
+      "name": "斯特罗斯迈凯",
       "file": "/storage/maps/glenumbra/strosmkai_base.jpg",
       "parent_map_id": 27,
       "nameEn": "Stros M'Kai"
@@ -1874,7 +1874,7 @@
     },
     {
       "id": 243,
-      "name": "弗克赫尔卫城",
+      "name": "弗克赫尔守卫",
       "file": "/storage/maps/auridon/vulkhelguard_base.jpg",
       "parent_map_id": 143,
       "nameEn": "Vulkhel Guard"
@@ -1951,7 +1951,7 @@
     },
     {
       "id": 256,
-      "name": "收割者边界",
+      "name": "收割者之境",
       "file": "/storage/maps/reapersmarch/reapersmarch_base.jpg",
       "parent_map_id": 27,
       "nameEn": "Reaper's March"
@@ -2119,7 +2119,7 @@
     },
     {
       "id": 283,
-      "name": "根之割裂遗迹",
+      "name": "洛萨恩德遗迹",
       "file": "/storage/maps/grahtwood/rootsunder_base.jpg",
       "parent_map_id": 9,
       "nameEn": "Root Sunder Ruins"
@@ -2238,7 +2238,7 @@
     },
     {
       "id": 300,
-      "name": "菉荫",
+      "name": "绿荫",
       "file": "/storage/maps/greenshade/greenshade_base.jpg",
       "parent_map_id": 27,
       "nameEn": "Greenshade"
@@ -2252,7 +2252,7 @@
     },
     {
       "id": 302,
-      "name": "铎库林神庙",
+      "name": "铎库林神殿",
       "file": "/storage/maps/reapersmarch/dokrintemple_base.jpg",
       "parent_map_id": 256,
       "nameEn": "Do'Krin Temple"
@@ -2301,17 +2301,17 @@
     },
     {
       "id": 309,
-      "name": "乔德半异界",
+      "name": "The Demiplane of Jode",
       "file": "/storage/maps/reapersmarch/planeofjodecave_base.jpg",
       "parent_map_id": 256,
-      "nameEn": "The Demi-Plane of Jode"
+      "nameEn": "The Demiplane of Jode"
     },
     {
       "id": 310,
-      "name": "乔德半异界",
+      "name": "The Demiplane of Jode",
       "file": "/storage/maps/reapersmarch/planeofjodehubhillbos_base.jpg",
       "parent_map_id": 256,
-      "nameEn": "The Demi-Plane of Jode"
+      "nameEn": "The Demiplane of Jode"
     },
     {
       "id": 311,
@@ -2546,7 +2546,7 @@
     },
     {
       "id": 352,
-      "name": "哈曼炉火宝库",
+      "name": "锻火哈曼宝库",
       "file": "/storage/maps/coldharbor/vaultofhamanforgefire_base.jpg",
       "parent_map_id": 255,
       "nameEn": "The Vault of Haman Forgefire"
@@ -2707,21 +2707,21 @@
     },
     {
       "id": 375,
-      "name": "Imperial Underground",
+      "name": "帝都地下通道",
       "file": "/storage/maps/greenshade/imperialundergroundpart2_base.jpg",
       "parent_map_id": 300,
       "nameEn": "Imperial Underground"
     },
     {
       "id": 376,
-      "name": "Imperial Underground",
+      "name": "帝都地下通道",
       "file": "/storage/maps/greenshade/imperialundergroundpart1_base.jpg",
       "parent_map_id": 300,
       "nameEn": "Imperial Underground"
     },
     {
       "id": 377,
-      "name": "Imperial Underground",
+      "name": "帝都地下通道",
       "file": "/storage/maps/greenshade/imperialunderground_base.jpg",
       "parent_map_id": 300,
       "nameEn": "Imperial Underground"
@@ -3918,7 +3918,7 @@
     },
     {
       "id": 574,
-      "name": "南方晨风之门",
+      "name": "南晨风大门",
       "file": "/storage/maps/cyrodiil/southmorrowgate_base.jpg",
       "parent_map_id": 16,
       "nameEn": "Southern Morrowind Gate"
@@ -3932,7 +3932,7 @@
     },
     {
       "id": 576,
-      "name": "西方艾斯维尔之门",
+      "name": "西艾斯维尔大门",
       "file": "/storage/maps/cyrodiil/westelsweyrgate_base.jpg",
       "parent_map_id": 16,
       "nameEn": "Western Elsweyr Gate"
@@ -4051,7 +4051,7 @@
     },
     {
       "id": 595,
-      "name": "Abandoned Mine",
+      "name": "废弃矿场",
       "file": "/storage/maps/auridon/abandonedmine_base.jpg",
       "parent_map_id": 143,
       "nameEn": "Abandoned Mine"
@@ -4128,21 +4128,21 @@
     },
     {
       "id": 614,
-      "name": "赫尔·拉要塞",
+      "name": "赫尔拉要塞",
       "file": "/storage/maps/craglorn/helracitadel_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "Hel Ra Citadel"
     },
     {
       "id": 615,
-      "name": "赫尔·拉要塞",
+      "name": "赫尔拉要塞",
       "file": "/storage/maps/craglorn/helracitadelentry_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "Hel Ra Citadel"
     },
     {
       "id": 616,
-      "name": "赫尔·拉战士之厅",
+      "name": "赫尔拉战士之厅",
       "file": "/storage/maps/craglorn/helracitadelhallofwarrior_base.jpg",
       "parent_map_id": 614,
       "nameEn": "Hel Ra Hall of the Warrior"
@@ -4233,7 +4233,7 @@
     },
     {
       "id": 648,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulchersoverland_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -4339,7 +4339,7 @@
     {
       "id": 665,
       "name": "安格夫的圣所",
-      "file": "/storage/maps/glenumbra/angofssanctum_base.jpg",
+      "file": "/storage/maps/glenumbra/cathbedraud_base.jpg",
       "parent_map_id": 1,
       "nameEn": "Angof's Sanctum"
     },
@@ -4380,7 +4380,7 @@
     },
     {
       "id": 671,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulcherscave_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -4513,7 +4513,7 @@
     },
     {
       "id": 693,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulchersscrying_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -4716,7 +4716,7 @@
     },
     {
       "id": 727,
-      "name": "再生之星工艺坊",
+      "name": "再生之星工坊",
       "file": "/storage/maps/craglorn/ateliertwicebornstar_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "Atelier of the Twice-Born Star"
@@ -6004,7 +6004,7 @@
     },
     {
       "id": 924,
-      "name": "信仰之路",
+      "name": "信徒之路",
       "file": "/storage/maps/wrothgar/fharunstronghold02_base.jpg",
       "parent_map_id": 667,
       "nameEn": "Path of the Faithful"
@@ -6480,7 +6480,7 @@
     },
     {
       "id": 993,
-      "name": "阿巴莅临地",
+      "name": "阿巴登陆点",
       "file": "/storage/maps/thievesguild/abahslanding_base.jpg",
       "parent_map_id": 994,
       "nameEn": "Abah's Landing"
@@ -6732,35 +6732,35 @@
     },
     {
       "id": 1032,
-      "name": "Sulima Mansion",
+      "name": "苏利玛庄园",
       "file": "/storage/maps/thievesguild/sulimamansion_floor1.jpg",
       "parent_map_id": 1038,
       "nameEn": "Sulima Mansion"
     },
     {
       "id": 1033,
-      "name": "Sulima Mansion",
+      "name": "苏利玛庄园",
       "file": "/storage/maps/thievesguild/sulimamansion_floor1_hidden.jpg",
       "parent_map_id": 1038,
       "nameEn": "Sulima Mansion"
     },
     {
       "id": 1034,
-      "name": "Sulima Mansion",
+      "name": "苏利玛庄园",
       "file": "/storage/maps/thievesguild/sulimamansion_floor2.jpg",
       "parent_map_id": 1038,
       "nameEn": "Sulima Mansion"
     },
     {
       "id": 1035,
-      "name": "Sulima Mansion",
+      "name": "苏利玛庄园",
       "file": "/storage/maps/thievesguild/sulimamansion_floor2_hidden.jpg",
       "parent_map_id": 1038,
       "nameEn": "Sulima Mansion"
     },
     {
       "id": 1036,
-      "name": "Sulima Mansion",
+      "name": "苏利玛庄园",
       "file": "/storage/maps/thievesguild/sulimamansion_exterior.jpg",
       "parent_map_id": 994,
       "nameEn": "Sulima Mansion"
@@ -6963,7 +6963,7 @@
     },
     {
       "id": 1069,
-      "name": "行政官的愚行",
+      "name": "行政官之愚",
       "file": "/storage/maps/darkbrotherhood/tribunesfolly_base.jpg",
       "parent_map_id": 1006,
       "nameEn": "Tribune's Folly"
@@ -7026,21 +7026,21 @@
     },
     {
       "id": 1078,
-      "name": "纳-托坦布的墓地",
+      "name": "纳托坦布的墓地",
       "file": "/storage/maps/craglorn/cryptoftarishzi2_base.jpg",
       "parent_map_id": 1080,
       "nameEn": "Tombs of the Na-Totambu"
     },
     {
       "id": 1079,
-      "name": "纳-托坦布的墓地",
+      "name": "纳托坦布的墓地",
       "file": "/storage/maps/craglorn/cryptoftarishzi_base.jpg",
       "parent_map_id": 1080,
       "nameEn": "Tombs of the Na-Totambu"
     },
     {
       "id": 1080,
-      "name": "纳-托坦布的墓地",
+      "name": "纳托坦布的墓地",
       "file": "/storage/maps/craglorn/cryptoftarishzizone_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "Tombs of the Na-Totambu"
@@ -7222,7 +7222,7 @@
     },
     {
       "id": 1106,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulchersoverland_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -7271,7 +7271,7 @@
     },
     {
       "id": 1113,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulcherscave_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -7299,7 +7299,7 @@
     },
     {
       "id": 1118,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulchersscrying_base.jpg",
       "parent_map_id": 1106,
       "nameEn": "The Howling Sepulchers"
@@ -7313,7 +7313,7 @@
     },
     {
       "id": 1124,
-      "name": "再生之星工艺坊",
+      "name": "再生之星工坊",
       "file": "/storage/maps/craglorn/ateliertwicebornstar_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "Atelier of the Twice-Born Star"
@@ -7656,28 +7656,28 @@
     },
     {
       "id": 1230,
-      "name": "圣奥尔姆斯圆形广场",
+      "name": "圣徒奥尔姆斯圆形广场",
       "file": "/storage/maps/vvardenfell/vivecstolms01_base.jpg",
       "parent_map_id": 1287,
       "nameEn": "Saint Olms Plaza"
     },
     {
       "id": 1231,
-      "name": "圣奥尔姆斯腰带区",
+      "name": "圣徒奥尔姆斯腰带区",
       "file": "/storage/maps/vvardenfell/vivecstolms02a_base.jpg",
       "parent_map_id": 1287,
       "nameEn": "Saint Olms Waistworks"
     },
     {
       "id": 1232,
-      "name": "圣奥尔姆斯方形广场",
+      "name": "圣徒奥尔姆斯方形广场",
       "file": "/storage/maps/vvardenfell/vivecstolms02b_base.jpg",
       "parent_map_id": 1287,
       "nameEn": "Saint Olms Square"
     },
     {
       "id": 1233,
-      "name": "圣奥尔姆斯公会大厅",
+      "name": "圣徒奥尔姆斯公会大厅",
       "file": "/storage/maps/vvardenfell/vivecstolms03_base.jpg",
       "parent_map_id": 1287,
       "nameEn": "Saint Olms Guild Halls"
@@ -7712,7 +7712,7 @@
     },
     {
       "id": 1238,
-      "name": "圣德林旅馆",
+      "name": "圣德林旅店",
       "file": "/storage/maps/vvardenfell/vivecsdelyn03b_base.jpg",
       "parent_map_id": 1287,
       "nameEn": "Saint Delyn's Inn"
@@ -7768,14 +7768,14 @@
     },
     {
       "id": 1246,
-      "name": "瓦希尔·迪达纳特矿场",
+      "name": "瓦希尔-迪达纳特矿场",
       "file": "/storage/maps/vvardenfell/vassirdidanat01_base.jpg",
       "parent_map_id": 1060,
       "nameEn": "Vassir-Didanat Mine"
     },
     {
       "id": 1247,
-      "name": "瓦希尔·迪达纳特矿场",
+      "name": "瓦希尔-迪达纳特矿场",
       "file": "/storage/maps/vvardenfell/vassirdidanat02_base.jpg",
       "parent_map_id": 1060,
       "nameEn": "Vassir-Didanat Mine"
@@ -7796,14 +7796,14 @@
     },
     {
       "id": 1250,
-      "name": "Ashimanu Cave",
+      "name": "阿什玛努坑洞",
       "file": "/storage/maps/vvardenfell/ashimanu_base.jpg",
       "parent_map_id": 1060,
       "nameEn": "Ashimanu Cave"
     },
     {
       "id": 1251,
-      "name": "Ashimanu Cave",
+      "name": "阿什玛努坑洞",
       "file": "/storage/maps/vvardenfell/ashimanu01_base.jpg",
       "parent_map_id": 1060,
       "nameEn": "Ashimanu Cave"
@@ -8097,7 +8097,7 @@
     },
     {
       "id": 1293,
-      "name": "Ashimanu Cave",
+      "name": "阿什玛努坑洞",
       "file": "/storage/maps/vvardenfell/ashimanu02_base.jpg",
       "parent_map_id": 1060,
       "nameEn": "Ashimanu Cave"
@@ -8902,14 +8902,14 @@
     },
     {
       "id": 1423,
-      "name": "塞伊·塔恩要塞",
+      "name": "赛伊塔恩要塞",
       "file": "/storage/maps/summerset/ceytarn_dungeon01_base.jpg",
       "parent_map_id": 1349,
       "nameEn": "Cey-Tarn Keep"
     },
     {
       "id": 1424,
-      "name": "乔治·塞伊·塔恩要塞",
+      "name": "乔治·赛伊塔恩要塞",
       "file": "/storage/maps/summerset/ceytarn_dungeon02_base.jpg",
       "parent_map_id": 1349,
       "nameEn": "The Gorge - Cey-Tarn Keep"
@@ -9042,14 +9042,14 @@
     },
     {
       "id": 1445,
-      "name": "阿里诺尔王宫",
+      "name": "阿里诺尔王室宫殿",
       "file": "/storage/maps/summerset/alinorroyalpalace1_base.jpg",
       "parent_map_id": 1349,
       "nameEn": "Alinor Royal Palace"
     },
     {
       "id": 1446,
-      "name": "阿里诺尔王宫",
+      "name": "阿里诺尔王室宫殿",
       "file": "/storage/maps/summerset/alinorroyalpalace2_base.jpg",
       "parent_map_id": 1349,
       "nameEn": "Alinor Royal Palace"
@@ -9882,7 +9882,7 @@
     },
     {
       "id": 1577,
-      "name": "特纳尔‧扎尔维特藏骨堂",
+      "name": "特纳尔·扎尔维特藏骨堂",
       "file": "/storage/maps/elsweyr/weepingscarmain_base.jpg",
       "parent_map_id": 1555,
       "nameEn": "Tenarr Zalviit Ossuary"
@@ -10449,10 +10449,10 @@
     },
     {
       "id": 1661,
-      "name": "奶酪商人洞穴",
+      "name": "奶酪商人的洞穴",
       "file": "/storage/maps/elsweyr/cheesemongerava_base.jpg",
       "parent_map_id": null,
-      "nameEn": "Cheesemonger Hollow"
+      "nameEn": "Cheesemonger's Hollow"
     },
     {
       "id": 1662,
@@ -10652,14 +10652,14 @@
     },
     {
       "id": 1694,
-      "name": "Forsaken Citadel",
+      "name": "遗忘城堡",
       "file": "/storage/maps/southernelsweyr/houseofembersinside_base.jpg",
       "parent_map_id": 1654,
       "nameEn": "Forsaken Citadel"
     },
     {
       "id": 1695,
-      "name": "Forsaken Citadel",
+      "name": "遗忘城堡",
       "file": "/storage/maps/southernelsweyr/houseofembersoutside_base.jpg",
       "parent_map_id": 1654,
       "nameEn": "Forsaken Citadel"
@@ -11212,7 +11212,7 @@
     },
     {
       "id": 1782,
-      "name": "Blackreach",
+      "name": "黑降",
       "file": "/storage/maps/skyrim/blackreachworld_base.jpg",
       "parent_map_id": 439,
       "nameEn": "Blackreach"
@@ -11569,14 +11569,14 @@
     },
     {
       "id": 1834,
-      "name": "Snowmelt Suite",
+      "name": "雪融套房",
       "file": "/storage/maps/skyrim/solitudecity_base.jpg",
       "parent_map_id": 1719,
       "nameEn": "Snowmelt Suite"
     },
     {
       "id": 1835,
-      "name": "Proudspire Manor",
+      "name": "傲矛别墅",
       "file": "/storage/maps/skyrim/solitudecity_base.jpg",
       "parent_map_id": 1719,
       "nameEn": "Proudspire Manor"
@@ -11716,7 +11716,7 @@
     },
     {
       "id": 1856,
-      "name": "楚安德泽尔废墟",
+      "name": "楚安德·泽尔",
       "file": "/storage/maps/reach/nchuandzel_base.jpg",
       "parent_map_id": 1814,
       "nameEn": "Nchuand-Zel"
@@ -12143,21 +12143,21 @@
     },
     {
       "id": 1917,
-      "name": "楚安德泽尔废墟地图",
+      "name": "楚安德·泽尔地图",
       "file": "/storage/maps/reach/nchuandzev1_base.jpg",
       "parent_map_id": 1814,
       "nameEn": "Nchuand-Zel Map"
     },
     {
       "id": 1918,
-      "name": "楚安德泽尔废墟地图",
+      "name": "楚安德·泽尔地图",
       "file": "/storage/maps/reach/nchuandzelv2_base.jpg",
       "parent_map_id": 1814,
       "nameEn": "Nchuand-Zel Map"
     },
     {
       "id": 1919,
-      "name": "楚安德泽尔废墟地图",
+      "name": "楚安德·泽尔地图",
       "file": "/storage/maps/reach/nchuandzelc_base.jpg",
       "parent_map_id": 1814,
       "nameEn": "Nchuand-Zel Map"
@@ -12234,7 +12234,7 @@
     },
     {
       "id": 1932,
-      "name": "Blackreach",
+      "name": "黑降",
       "file": "/storage/maps/skyrim/blackreachworld_base.jpg",
       "parent_map_id": 439,
       "nameEn": "Blackreach"
@@ -12423,7 +12423,7 @@
     },
     {
       "id": 1960,
-      "name": "Abandoned Mine",
+      "name": "废弃矿场",
       "file": "/storage/maps/deshaan/cauldronmapstart.jpg",
       "parent_map_id": 13,
       "nameEn": "Abandoned Mine"
@@ -12437,42 +12437,42 @@
     },
     {
       "id": 1962,
-      "name": "Excavation Camp",
+      "name": "挖掘营地",
       "file": "/storage/maps/deshaan/cauldronmapslav2.jpg",
       "parent_map_id": 13,
       "nameEn": "Excavation Camp"
     },
     {
       "id": 1963,
-      "name": "Howling Cavern",
+      "name": "咆哮洞穴",
       "file": "/storage/maps/deshaan/cauldronmapboss2.jpg",
       "parent_map_id": 13,
       "nameEn": "Howling Cavern"
     },
     {
       "id": 1964,
-      "name": "Boiling Path",
+      "name": "沸腾之路",
       "file": "/storage/maps/deshaan/cauldronmaplava.jpg",
       "parent_map_id": 13,
       "nameEn": "Boiling Path"
     },
     {
       "id": 1965,
-      "name": "Unsealed Cauldron",
+      "name": "未封闭的大釜",
       "file": "/storage/maps/deshaan/cauldronmapboss3.jpg",
       "parent_map_id": 13,
       "nameEn": "Unsealed Cauldron"
     },
     {
       "id": 1966,
-      "name": "Cauldron Sacrarium",
+      "name": "大釜神龛",
       "file": "/storage/maps/deshaan/cauldronmaptempl.jpg",
       "parent_map_id": 13,
       "nameEn": "Cauldron Sacrarium"
     },
     {
       "id": 1967,
-      "name": "Extraction Chamber",
+      "name": "提炼室",
       "file": "/storage/maps/deshaan/cauldronmapboss4.jpg",
       "parent_map_id": 13,
       "nameEn": "Extraction Chamber"
@@ -12556,7 +12556,7 @@
     },
     {
       "id": 1981,
-      "name": "夏尔·伊拉索特尔",
+      "name": "夏尔伊拉索特尔",
       "file": "/storage/maps/blackwood/u30_xalirasotl_base.jpg",
       "parent_map_id": 1887,
       "nameEn": "Xal Irasotl"
@@ -12780,14 +12780,14 @@
     },
     {
       "id": 2019,
-      "name": "reuse",
+      "name": "重复使用",
       "file": "/storage/maps/temporarymaps/zzz_base.jpg",
       "parent_map_id": 27,
       "nameEn": "reuse"
     },
     {
       "id": 2020,
-      "name": "reuse",
+      "name": "重复使用",
       "file": "/storage/maps/temporarymaps/reuse_base.jpg",
       "parent_map_id": 27,
       "nameEn": "reuse"
@@ -13095,7 +13095,7 @@
     },
     {
       "id": 2066,
-      "name": "Fort Grief",
+      "name": "悲伤要塞",
       "file": "/storage/maps/deadlands/u32_griefext_base.jpg",
       "parent_map_id": 27,
       "nameEn": "Fort Grief"
@@ -13228,7 +13228,7 @@
     },
     {
       "id": 2085,
-      "name": "Fort Grief",
+      "name": "悲伤要塞",
       "file": "/storage/maps/temporarymaps/u32_griefext_base.jpg",
       "parent_map_id": 1887,
       "nameEn": "Fort Grief"
@@ -13466,7 +13466,7 @@
     },
     {
       "id": 2119,
-      "name": "Fargrave",
+      "name": "法格雷夫",
       "file": "/storage/maps/deadlands/u32_fargravezone_base.jpg",
       "parent_map_id": 439,
       "nameEn": "Fargrave"
@@ -13592,7 +13592,7 @@
     },
     {
       "id": 2137,
-      "name": "Fargrave",
+      "name": "法格雷夫",
       "file": "/storage/maps/deadlands/u32_fargrave_base.jpg",
       "parent_map_id": 439,
       "nameEn": "Fargrave"
@@ -13760,7 +13760,7 @@
     },
     {
       "id": 2162,
-      "name": "玷污者格洛托地城",
+      "name": "玷污者岩洞",
       "file": "/storage/maps/systres/u34_zq3cave_base.jpg",
       "parent_map_id": 2114,
       "nameEn": "Tarnished Grotto"
@@ -14089,7 +14089,7 @@
     },
     {
       "id": 2210,
-      "name": "The Howling Sepulchers",
+      "name": "嚎叫墓地",
       "file": "/storage/maps/craglorn/howlingsepulchersoverland_base.jpg",
       "parent_map_id": 1126,
       "nameEn": "The Howling Sepulchers"
@@ -14110,7 +14110,7 @@
     },
     {
       "id": 2213,
-      "name": "石刻之森 ",
+      "name": "石刻之识树林 ",
       "file": "/storage/maps/systres/u34_stoneloregrove_base.jpg",
       "parent_map_id": 2114,
       "nameEn": "Stonelore Grove"
@@ -14187,7 +14187,7 @@
     },
     {
       "id": 2228,
-      "name": "Suncleft Grotto",
+      "name": "阳裂洞穴",
       "file": "/storage/maps/galen/u36_suncleftgrotto_base.jpg",
       "parent_map_id": 2212,
       "nameEn": "Suncleft Grotto"
@@ -14306,14 +14306,14 @@
     },
     {
       "id": 2245,
-      "name": "Temple of Y'ffelon",
+      "name": "耶弗隆神殿",
       "file": "/storage/maps/galen/u36_gn6_stronghold_base.jpg",
       "parent_map_id": 2212,
       "nameEn": "Temple of Y'ffelon"
     },
     {
       "id": 2246,
-      "name": "Temple of Y'ffelon",
+      "name": "耶弗隆神殿",
       "file": "/storage/maps/galen/u36_gn5_dreamsequence_base.jpg",
       "parent_map_id": 2212,
       "nameEn": "Temple of Y'ffelon"
@@ -14355,7 +14355,7 @@
     },
     {
       "id": 2252,
-      "name": "Druid King's Garden",
+      "name": "德鲁伊王的花园",
       "file": "/storage/maps/temporarymaps/u36_gn5_garden_base.jpg",
       "parent_map_id": 2212,
       "nameEn": "Druid King's Garden"
@@ -14726,14 +14726,14 @@
     },
     {
       "id": 2309,
-      "name": "海玛莫拉神龛",
+      "name": "海麦·莫拉神龛",
       "file": "/storage/maps/apocrypha/ui_maps_u38_tp4_catalog_02_bas.jpg",
       "parent_map_id": 2275,
       "nameEn": "Shrine of Hyrma Mora"
     },
     {
       "id": 2310,
-      "name": "荷马·莫拉神龛",
+      "name": "赫麦·莫拉神龛",
       "file": "/storage/maps/apocrypha/ui_maps_u38_tp4_catalog_03_bas.jpg",
       "parent_map_id": 2275,
       "nameEn": "Shrine of Herma-Mora"
@@ -14922,14 +14922,14 @@
     },
     {
       "id": 2340,
-      "name": "The Crux",
+      "name": "魔核法阵",
       "file": "/storage/maps/telvanni/u38_cenotaph_pact.jpg",
       "parent_map_id": 2275,
       "nameEn": "The Crux"
     },
     {
       "id": 2341,
-      "name": "The Crux",
+      "name": "魔核法阵",
       "file": "/storage/maps/temporarymaps/u38_cenotaph_pact.jpg",
       "parent_map_id": null,
       "nameEn": "The Crux"
@@ -15243,6 +15243,13 @@
       "nameEn": "Ald Isra"
     },
     {
+      "id": 2387,
+      "name": "观雾裂隙",
+      "file": "/storage/maps/eastmarch/mistwatchtower_upper_base.jpg",
+      "parent_map_id": 61,
+      "nameEn": "Mistwatch Crevasse"
+    },
+    {
       "id": 2388,
       "name": "Feral Gallery Forbidden Wing",
       "file": "/storage/maps/telvanni/u38_feral_gallery_base.jpg",
@@ -15370,10 +15377,1158 @@
     },
     {
       "id": 2406,
-      "name": "瓦尔迷纳神龛",
+      "name": "瓦尔迷纳圣祠",
       "file": "/storage/maps/apocrypha/u38_infinitepanopticon9_base.jpg",
       "parent_map_id": 2274,
       "nameEn": "Shrine of Vaermina"
+    },
+    {
+      "id": 2407,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_starterarea.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2408,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle1.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2410,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle2.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2411,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle2b.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2412,
+      "name": "特使飞地",
+      "file": "/storage/maps/housing/u38_emissarysenclave_ext.jpg",
+      "parent_map_id": 2343,
+      "nameEn": "Emissary's Enclave"
+    },
+    {
+      "id": 2414,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle3.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2415,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle4.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2416,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle5.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2417,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle6.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2418,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_boss1.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2419,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_boss2.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2420,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_secret1.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2421,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_secret2.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2422,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_secret3.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2423,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_secret4.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2424,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_secret5.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2425,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_theater1.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2426,
+      "name": "无尽档案塔",
+      "file": "/storage/maps/apocrypha/u40_tomehold_bundle6b.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Infinite Archive"
+    },
+    {
+      "id": 2427,
+      "name": "西Weald",
+      "file": "/storage/maps/westweald/westwealdoverland_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "West Weald"
+    },
+    {
+      "id": 2428,
+      "name": "暗影女王的环树迷宫",
+      "file": "/storage/maps/housing/u39_labyrinthhouse_ext.jpg",
+      "parent_map_id": 1348,
+      "nameEn": "Shadow Queen's Labyrinth"
+    },
+    {
+      "id": 2429,
+      "name": "暗影女王的环树迷宫",
+      "file": "/storage/maps/housing/u39_labyrinthhouse_int_01.jpg",
+      "parent_map_id": 2428,
+      "nameEn": "Shadow Queen's Labyrinth"
+    },
+    {
+      "id": 2430,
+      "name": "暗影女王的环树迷宫",
+      "file": "/storage/maps/housing/u39_labyrinthhouse_int_02.jpg",
+      "parent_map_id": 2428,
+      "nameEn": "Shadow Queen's Labyrinth"
+    },
+    {
+      "id": 2431,
+      "name": "暗影女王的环树迷宫",
+      "file": "/storage/maps/housing/u39_labyrinthhouse_int_03.jpg",
+      "parent_map_id": 2428,
+      "nameEn": "Shadow Queen's Labyrinth"
+    },
+    {
+      "id": 2432,
+      "name": "Fyrelight洞穴",
+      "file": "/storage/maps/temporarymaps/u42_base_clawcave.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fyrelight Cave"
+    },
+    {
+      "id": 2433,
+      "name": "Legion's休息",
+      "file": "/storage/maps/westweald/u42_windcave_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Legion's Rest"
+    },
+    {
+      "id": 2434,
+      "name": "凯勒桑-鲁恩",
+      "file": "/storage/maps/housing/u39_eventhouse_ext.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Kelesan'ruhn"
+    },
+    {
+      "id": 2435,
+      "name": "凯勒桑-鲁恩",
+      "file": "/storage/maps/housing/u39_eventhouse_int_01.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Kelesan'ruhn"
+    },
+    {
+      "id": 2436,
+      "name": "凯勒桑-鲁恩",
+      "file": "/storage/maps/housing/u39_eventhouse_int_02.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Kelesan'ruhn"
+    },
+    {
+      "id": 2437,
+      "name": "凯勒桑-鲁恩",
+      "file": "/storage/maps/housing/u39_eventhouse_int_03.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Kelesan'ruhn"
+    },
+    {
+      "id": 2438,
+      "name": "凯勒桑-鲁恩",
+      "file": "/storage/maps/housing/u39_eventhouse_int_04.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Kelesan'ruhn"
+    },
+    {
+      "id": 2439,
+      "name": "Nonungalo",
+      "file": "/storage/maps/westweald/u42_base_nonungalo.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Nonungalo"
+    },
+    {
+      "id": 2440,
+      "name": "Rustwall地下墓穴",
+      "file": "/storage/maps/westweald/u42_rustwall_crypt_01_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Rustwall Catacombs"
+    },
+    {
+      "id": 2441,
+      "name": "Silorn",
+      "file": "/storage/maps/temporarymaps/u42_silorn_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Silorn"
+    },
+    {
+      "id": 2442,
+      "name": "Varen'sWatch",
+      "file": "/storage/maps/westweald/ui_maps_u42_varenswall_ext.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Varen's Watch"
+    },
+    {
+      "id": 2443,
+      "name": "低语圣堂",
+      "file": "/storage/maps/stonefalls/u41_shrineofmephala_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "Sanctuary of Whispers"
+    },
+    {
+      "id": 2444,
+      "name": "Elenglynn",
+      "file": "/storage/maps/westweald/ui_maps_u42_pe1_elenglynn.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Elenglynn"
+    },
+    {
+      "id": 2445,
+      "name": "Wendir",
+      "file": "/storage/maps/westweald/u42_base_wendir.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Wendir"
+    },
+    {
+      "id": 2446,
+      "name": "伯依希拉神龛",
+      "file": "/storage/maps/temporarymaps/u41_shrineofboethra_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "Shrine of Boethra"
+    },
+    {
+      "id": 2447,
+      "name": "月影神龛",
+      "file": "/storage/maps/grahtwood/u41_shrineofazura_base.jpg",
+      "parent_map_id": 9,
+      "nameEn": "Moonshadow Shrine"
+    },
+    {
+      "id": 2448,
+      "name": "霍拉玛亚修道院",
+      "file": "/storage/maps/vvardenfell/u41_holamayan_base.jpg",
+      "parent_map_id": 1060,
+      "nameEn": "Holamayan Monastery"
+    },
+    {
+      "id": 2449,
+      "name": "内海",
+      "file": "/storage/maps/prologue/u41_underseapath_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "The Inner Sea"
+    },
+    {
+      "id": 2450,
+      "name": "必然之秘神龛",
+      "file": "/storage/maps/prologue/u41_shrineofmora_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "Shrine of Inevitable Secrets"
+    },
+    {
+      "id": 2451,
+      "name": "迈瑟斯",
+      "file": "/storage/maps/prologue/u41_mythos_base.jpg",
+      "parent_map_id": 27,
+      "nameEn": "The Mythos"
+    },
+    {
+      "id": 2452,
+      "name": "黄铜堡垒",
+      "file": "/storage/maps/clockwork/brassfortress_base.jpg",
+      "parent_map_id": 1313,
+      "nameEn": "Brass Fortress"
+    },
+    {
+      "id": 2453,
+      "name": "HaldainLumber营地",
+      "file": "/storage/maps/temporarymaps/u42_base_haldain.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Haldain Lumber Camp"
+    },
+    {
+      "id": 2454,
+      "name": "Essondul",
+      "file": "/storage/maps/westweald/ui_maps_ostumir_int_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Essondul"
+    },
+    {
+      "id": 2456,
+      "name": "Leftwheal交易柱子",
+      "file": "/storage/maps/westweald/u42_leftwheal_ext2_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Leftwheal Trading Post"
+    },
+    {
+      "id": 2458,
+      "name": "ValenteWinery",
+      "file": "/storage/maps/westweald/u42_vdvcellar_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Valente Winery"
+    },
+    {
+      "id": 2459,
+      "name": "堡垒Colovia",
+      "file": "/storage/maps/westweald/u42_base_towerbelli.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fort Colovia"
+    },
+    {
+      "id": 2460,
+      "name": "Valente Winery Shipping Cavern",
+      "file": "/storage/maps/westweald/u42_vdvsecretlab_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Valente Winery Shipping Cavern"
+    },
+    {
+      "id": 2461,
+      "name": "Weatherleah庄园",
+      "file": "/storage/maps/temporarymaps/u42_weatherleahestate_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Weatherleah Manor"
+    },
+    {
+      "id": 2462,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_starterarea.jpg",
+      "parent_map_id": 1814,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2463,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_secret1.jpg",
+      "parent_map_id": 2462,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2464,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_section2.jpg",
+      "parent_map_id": 1814,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2465,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_secret2.jpg",
+      "parent_map_id": 2464,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2466,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_section3.jpg",
+      "parent_map_id": 1814,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2467,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_secret3.jpg",
+      "parent_map_id": 2466,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2468,
+      "name": "Niryastare",
+      "file": "/storage/maps/westweald/ui_maps_u42_pe3_niryastare_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Niryastare"
+    },
+    {
+      "id": 2469,
+      "name": "黑降：扎克洞穴",
+      "file": "/storage/maps/skyrim/blackreach_mzarkhall_base.jpg",
+      "parent_map_id": 1782,
+      "nameEn": "Blackreach: Mzark Cavern"
+    },
+    {
+      "id": 2470,
+      "name": "傲希之息矿场",
+      "file": "/storage/maps/bangkorai/onsisbreathmine_base.jpg",
+      "parent_map_id": 20,
+      "nameEn": "Onsi's Breath Mine"
+    },
+    {
+      "id": 2471,
+      "name": "Weatherleah洞穴",
+      "file": "/storage/maps/westweald/u42_weatherleahtunnels_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Weatherleah Cavern"
+    },
+    {
+      "id": 2472,
+      "name": "Feldagard要塞",
+      "file": "/storage/maps/westweald/u42_ui_maps_feldagardkeep_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Feldagard Keep"
+    },
+    {
+      "id": 2473,
+      "name": "Feldagard要塞兵营",
+      "file": "/storage/maps/westweald/u42_ui_maps_feldagardkeep_02.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Feldagard Keep Barracks"
+    },
+    {
+      "id": 2474,
+      "name": "Feldagard要塞兵营",
+      "file": "/storage/maps/westweald/u42_ui_maps_feldagardkeep_03.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Feldagard Keep Barracks"
+    },
+    {
+      "id": 2475,
+      "name": "Mirrormoor",
+      "file": "/storage/maps/westweald/u42_feldagard_mirrormoor_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Mirrormoor"
+    },
+    {
+      "id": 2476,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_ext.jpg",
+      "parent_map_id": 2212,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2477,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_int_01.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2478,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u39_eventhouse_int_02.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2479,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_eventhouse_int_03.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2480,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_int_04.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2481,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_int_05.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2482,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_int_06.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2483,
+      "name": "格雷德松植物园",
+      "file": "/storage/maps/housing/u40_druidhouse_int_07.jpg",
+      "parent_map_id": 2476,
+      "nameEn": "Gladesong Arboretum"
+    },
+    {
+      "id": 2484,
+      "name": "不可言传的真理之塔",
+      "file": "/storage/maps/housing/u40_apochome_ext.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Tower of Unutterable Truths"
+    },
+    {
+      "id": 2485,
+      "name": "不可言传的真理之塔",
+      "file": "/storage/maps/housing/u40_apochome_int_1.jpg",
+      "parent_map_id": 2484,
+      "nameEn": "Tower of Unutterable Truths"
+    },
+    {
+      "id": 2486,
+      "name": "Sutch开采",
+      "file": "/storage/maps/westweald/u42_base_sutchmine.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Sutch Mine"
+    },
+    {
+      "id": 2487,
+      "name": "不可言传的真理之塔",
+      "file": "/storage/maps/housing/u40_apochome_int_02.jpg",
+      "parent_map_id": 2484,
+      "nameEn": "Tower of Unutterable Truths"
+    },
+    {
+      "id": 2488,
+      "name": "不可言传的真理之塔",
+      "file": "/storage/maps/housing/u40_apochome_int_03.jpg",
+      "parent_map_id": 2484,
+      "nameEn": "Tower of Unutterable Truths"
+    },
+    {
+      "id": 2489,
+      "name": "不可言传的真理之塔",
+      "file": "/storage/maps/housing/u40_apochome_int_04.jpg",
+      "parent_map_id": 2484,
+      "nameEn": "Tower of Unutterable Truths"
+    },
+    {
+      "id": 2490,
+      "name": "Outcast旅店地窖",
+      "file": "/storage/maps/westweald/u42_ui_maps_innbetween_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Outcast Inn Cellar"
+    },
+    {
+      "id": 2491,
+      "name": "Ithelia's神龛",
+      "file": "/storage/maps/westweald/u42_ui_maps_innbetween_02.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Ithelia's Shrine"
+    },
+    {
+      "id": 2492,
+      "name": "Ithelia's神龛",
+      "file": "/storage/maps/westweald/u42_ui_maps_innbetween_03.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Ithelia's Shrine"
+    },
+    {
+      "id": 2493,
+      "name": "Ithelia's神龛",
+      "file": "/storage/maps/westweald/u42_ui_maps_innbetween_04.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Ithelia's Shrine"
+    },
+    {
+      "id": 2494,
+      "name": "癫狂之幕",
+      "file": "/storage/maps/wrothgar/u41_bv_sc1_map.jpg",
+      "parent_map_id": 667,
+      "nameEn": "Bedlam Veil"
+    },
+    {
+      "id": 2495,
+      "name": "癫狂之幕",
+      "file": "/storage/maps/wrothgar/u41_bv_sc3_map.jpg",
+      "parent_map_id": 667,
+      "nameEn": "Bedlam Veil"
+    },
+    {
+      "id": 2496,
+      "name": "癫狂之幕",
+      "file": "/storage/maps/wrothgar/u41_bv_sc2_map.jpg",
+      "parent_map_id": 667,
+      "nameEn": "Bedlam Veil"
+    },
+    {
+      "id": 2497,
+      "name": "TheWhispered道路",
+      "file": "/storage/maps/westweald/u42_ui_maps_pec2_hmsanctum_01.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "The Whispered Path"
+    },
+    {
+      "id": 2498,
+      "name": "迈瑟斯",
+      "file": "/storage/maps/westweald/u42_ui_maps_pec2_hmsanctum_02.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "The Mythos"
+    },
+    {
+      "id": 2499,
+      "name": "HermaeusMora'sSanctum",
+      "file": "/storage/maps/westweald/u42_ui_maps_pec2_hmsanctum_03.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Hermaeus Mora's Sanctum"
+    },
+    {
+      "id": 2500,
+      "name": "Miscarcand",
+      "file": "/storage/maps/temporarymaps/u42_miscarcand1_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Miscarcand"
+    },
+    {
+      "id": 2501,
+      "name": "SkingradOutlaws庇护所",
+      "file": "/storage/maps/temporarymaps/u42_skingrad_or_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Skingrad Outlaws Refuge"
+    },
+    {
+      "id": 2502,
+      "name": "Miscarcand",
+      "file": "/storage/maps/temporarymaps/u42_miscarcand2_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Miscarcand"
+    },
+    {
+      "id": 2503,
+      "name": "Terthil's井洞穴",
+      "file": "/storage/maps/temporarymaps/u42_farm_well_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Terthil's Well Cave"
+    },
+    {
+      "id": 2504,
+      "name": "堡垒Dirich地下城",
+      "file": "/storage/maps/temporarymaps/u42_colovian_ruins_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fort Dirich Dungeons"
+    },
+    {
+      "id": 2505,
+      "name": "哈斯特雷空心人神龛",
+      "file": "/storage/maps/temporarymaps/u42_wood_elf_camp_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hastrel Hollow Shrine"
+    },
+    {
+      "id": 2506,
+      "name": "Wilderhall",
+      "file": "/storage/maps/temporarymaps/u42_wilderhall_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Wilderhall"
+    },
+    {
+      "id": 2507,
+      "name": "Cualorn",
+      "file": "/storage/maps/temporarymaps/u42_vashabar_ayleidruins_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Cualorn"
+    },
+    {
+      "id": 2508,
+      "name": "Hoperoot",
+      "file": "/storage/maps/westweald/u42_hoperoot1_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hoperoot"
+    },
+    {
+      "id": 2509,
+      "name": "法格雷夫Outer遗迹",
+      "file": "/storage/maps/westweald/u42_pe5_fargraveruins_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fargrave Outer Ruins"
+    },
+    {
+      "id": 2510,
+      "name": "法格雷夫InnerQuarter",
+      "file": "/storage/maps/westweald/u42_pe5_fargraveiq01_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fargrave Inner Quarter"
+    },
+    {
+      "id": 2511,
+      "name": "Ceyond",
+      "file": "/storage/maps/westweald/u42_c1_ceyond_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Ceyond"
+    },
+    {
+      "id": 2512,
+      "name": "法格雷夫LoomQuarter",
+      "file": "/storage/maps/westweald/u42_pe5_loomroad_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fargrave Loom Quarter"
+    },
+    {
+      "id": 2513,
+      "name": "Loom of the Untraveled Road",
+      "file": "/storage/maps/westweald/u42_pe5_loomheart_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Loom of the Untraveled Road"
+    },
+    {
+      "id": 2514,
+      "name": "Skingrad",
+      "file": "/storage/maps/westweald/u42_skingrad_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Skingrad"
+    },
+    {
+      "id": 2515,
+      "name": "TheScholarium",
+      "file": "/storage/maps/westweald/u42_base_sc_library.jpg",
+      "parent_map_id": 108,
+      "nameEn": "The Scholarium"
+    },
+    {
+      "id": 2516,
+      "name": "Zeggar's致盲",
+      "file": "/storage/maps/temporarymaps/u42_ui_maps_forndortis_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Zeggar's Blind"
+    },
+    {
+      "id": 2517,
+      "name": "誓约者深渊",
+      "file": "/storage/maps/reach/u41_osp_map_secret1bottom.jpg",
+      "parent_map_id": 2463,
+      "nameEn": "Oathsworn Pit"
+    },
+    {
+      "id": 2519,
+      "name": "Sunnamere",
+      "file": "/storage/maps/westweald/u42_base_sc_tutorial.jpg",
+      "parent_map_id": 108,
+      "nameEn": "Sunnamere"
+    },
+    {
+      "id": 2520,
+      "name": "Wing of the Indrik",
+      "file": "/storage/maps/temporarymaps/u42_base_sc_library_wing1.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "Wing of the Indrik"
+    },
+    {
+      "id": 2521,
+      "name": "Wing of the Netch",
+      "file": "/storage/maps/temporarymaps/u42_base_sc_library_wing2.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "Wing of the Netch"
+    },
+    {
+      "id": 2522,
+      "name": "Wing of the Gryphon",
+      "file": "/storage/maps/temporarymaps/u42_base_sc_library_wing3.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "Wing of the Gryphon"
+    },
+    {
+      "id": 2523,
+      "name": "Wing of the Dragon",
+      "file": "/storage/maps/westweald/u42_base_sc_library_wing4.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "Wing of the Dragon"
+    },
+    {
+      "id": 2524,
+      "name": "TheScholarium",
+      "file": "/storage/maps/temporarymaps/u42_base_sc_library_lq.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "The Scholarium"
+    },
+    {
+      "id": 2525,
+      "name": "TheScholarium遗迹",
+      "file": "/storage/maps/westweald/u42_base_sc_tutorial2.jpg",
+      "parent_map_id": 108,
+      "nameEn": "The Scholarium Ruins"
+    },
+    {
+      "id": 2526,
+      "name": "剑咏者哨站",
+      "file": "/storage/maps/housing/u41_redguardoasis_ext.jpg",
+      "parent_map_id": 20,
+      "nameEn": "Sword-Singer's Redoubt"
+    },
+    {
+      "id": 2527,
+      "name": "剑咏者哨站",
+      "file": "/storage/maps/housing/u41_redguardoasis_int_01.jpg",
+      "parent_map_id": 2526,
+      "nameEn": "Sword-Singer's Redoubt"
+    },
+    {
+      "id": 2528,
+      "name": "剑咏者哨站",
+      "file": "/storage/maps/housing/u41_redguardoasis_int_02.jpg",
+      "parent_map_id": 2526,
+      "nameEn": "Sword-Singer's Redoubt"
+    },
+    {
+      "id": 2529,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_ext.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2530,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_01.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2531,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_04.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2532,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_03.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2533,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_02.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2534,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_05.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2535,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_06.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2536,
+      "name": "柳塘港",
+      "file": "/storage/maps/housing/u41_blackwoodlagoon_int_07.jpg",
+      "parent_map_id": 1887,
+      "nameEn": "Willowpond Haven"
+    },
+    {
+      "id": 2537,
+      "name": "Boethiah's熔炉",
+      "file": "/storage/maps/westweald/u42_eggmineforge_base.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Boethiah's Forge"
+    },
+    {
+      "id": 2538,
+      "name": "伊瑟利娅的监牢",
+      "file": "/storage/maps/temporarymaps/u41_pro_ithpri_base.jpg",
+      "parent_map_id": 2539,
+      "nameEn": "Ithelia's Prison"
+    },
+    {
+      "id": 2539,
+      "name": "迈瑟斯",
+      "file": "/storage/maps/temporarymaps/u41_pro_mythos_base.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "The Mythos"
+    },
+    {
+      "id": 2540,
+      "name": "伯依希拉神龛",
+      "file": "/storage/maps/reapersmarch/u41boethrashrine_base.jpg",
+      "parent_map_id": 256,
+      "nameEn": "Boethra Shrine"
+    },
+    {
+      "id": 2541,
+      "name": "Wing of the Crow",
+      "file": "/storage/maps/westweald/u42_scf_int1_base.jpg",
+      "parent_map_id": 2515,
+      "nameEn": "Wing of the Crow"
+    },
+    {
+      "id": 2542,
+      "name": "Arena of the Luminary Flames",
+      "file": "/storage/maps/westweald/u42_scf_int2_base.jpg",
+      "parent_map_id": 1774,
+      "nameEn": "Arena of the Luminary Flames"
+    },
+    {
+      "id": 2544,
+      "name": "TheCrow's迷宫遗迹",
+      "file": "/storage/maps/temporarymaps/u42_scf_ext_base.jpg",
+      "parent_map_id": 1774,
+      "nameEn": "The Crow's Labyrinthian"
+    },
+    {
+      "id": 2545,
+      "name": "Loom of the Untraveled Road",
+      "file": "/storage/maps/westweald/u42_c1_loomheart_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Loom of the Untraveled Road"
+    },
+    {
+      "id": 2546,
+      "name": "ZhanKhaj饰章",
+      "file": "/storage/maps/housing/u42_tropicalsandgarden_ext.jpg",
+      "parent_map_id": 1654,
+      "nameEn": "Zhan Khaj Crest"
+    },
+    {
+      "id": 2547,
+      "name": "ZhanKhaj饰章",
+      "file": "/storage/maps/housing/u42_tropicalsandgarden_int_01.jpg",
+      "parent_map_id": 2546,
+      "nameEn": "Zhan Khaj Crest"
+    },
+    {
+      "id": 2548,
+      "name": "ZhanKhaj饰章",
+      "file": "/storage/maps/housing/u42_tropicalsandgarden_int_02.jpg",
+      "parent_map_id": 2546,
+      "nameEn": "Zhan Khaj Crest"
+    },
+    {
+      "id": 2549,
+      "name": "Rustwall地下墓穴",
+      "file": "/storage/maps/westweald/u42_rustwall_crypt_02_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Rustwall Catacombs"
+    },
+    {
+      "id": 2550,
+      "name": "Rustwall地下墓穴",
+      "file": "/storage/maps/westweald/u42_rustwall_crypt_02_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Rustwall Catacombs"
+    },
+    {
+      "id": 2552,
+      "name": "卢晶Citadel",
+      "file": "/storage/maps/deadlands/u42tri_lucentcitmap001.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Lucent Citadel"
+    },
+    {
+      "id": 2554,
+      "name": "MerryvineEstate",
+      "file": "/storage/maps/housing/u42_colovianwinery_int_01.jpg",
+      "parent_map_id": 2556,
+      "nameEn": "Merryvine Estate"
+    },
+    {
+      "id": 2555,
+      "name": "MerryvineEstate",
+      "file": "/storage/maps/housing/u42_colovianwinery_int_02.jpg",
+      "parent_map_id": 2556,
+      "nameEn": "Merryvine Estate"
+    },
+    {
+      "id": 2556,
+      "name": "MerryvineEstate",
+      "file": "/storage/maps/housing/u42_colovianwinery_ext_01.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Merryvine Estate"
+    },
+    {
+      "id": 2557,
+      "name": "法格雷夫InnerQuarter",
+      "file": "/storage/maps/westweald/u42_pe5c1_fargraveiq02_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fargrave Inner Quarter"
+    },
+    {
+      "id": 2558,
+      "name": "法格雷夫InnerQuarter",
+      "file": "/storage/maps/westweald/u42_pe5_fargraveiq01_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Fargrave Inner Quarter"
+    },
+    {
+      "id": 2564,
+      "name": "中部神秘隧道",
+      "file": "/storage/maps/apocrypha/u38_tunnel2b_base.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Central Orphic Tunnels"
+    },
+    {
+      "id": 2565,
+      "name": "迈瑟斯",
+      "file": "/storage/maps/westweald/u42_ui_maps_pec2_hmsanctum_02b.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "The Mythos"
+    },
+    {
+      "id": 2568,
+      "name": "Weatherleah庄园",
+      "file": "/storage/maps/westweald/u42_weatherleahmanor_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Weatherleah Manor"
+    },
+    {
+      "id": 2573,
+      "name": "Weatherleah地下室",
+      "file": "/storage/maps/westweald/u42_weatherleahbasement_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Weatherleah Basement"
+    },
+    {
+      "id": 2582,
+      "name": "Caelum地窖",
+      "file": "/storage/maps/temporarymaps/u42_icquest_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Caelum Cellars"
+    },
+    {
+      "id": 2583,
+      "name": "凝视者岩洞",
+      "file": "/storage/maps/temporarymaps/u42_epl_apc_vlt_base.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "Watchling Grotto"
+    },
+    {
+      "id": 2584,
+      "name": "Dalam's洞穴",
+      "file": "/storage/maps/temporarymaps/u42_epl_telvault_base.jpg",
+      "parent_map_id": 2274,
+      "nameEn": "Dalam's Cavern"
+    },
+    {
+      "id": 2585,
+      "name": "Caelum Cellars Inner Vaults",
+      "file": "/storage/maps/temporarymaps/u42_icquest2_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Caelum Cellars Inner Vaults"
+    },
+    {
+      "id": 2586,
+      "name": "Faro's洞穴",
+      "file": "/storage/maps/temporarymaps/u42_epl_chlvault_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Faro's Cavern"
+    },
+    {
+      "id": 2588,
+      "name": "Hoperoot",
+      "file": "/storage/maps/westweald/u42_hoperoot2_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hoperoot"
+    },
+    {
+      "id": 2589,
+      "name": "Hoperoot",
+      "file": "/storage/maps/westweald/u42_hoperoot3_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hoperoot"
+    },
+    {
+      "id": 2590,
+      "name": "Caelum地窖下水道",
+      "file": "/storage/maps/temporarymaps/u42_icquestsewer_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Caelum Cellars Sewers"
+    },
+    {
+      "id": 2592,
+      "name": "Ontus",
+      "file": "/storage/maps/temporarymaps/u42_ontus_city_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Ontus"
+    },
+    {
+      "id": 2593,
+      "name": "Hoperoot",
+      "file": "/storage/maps/westweald/u42_hoperoot2_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hoperoot"
+    },
+    {
+      "id": 2594,
+      "name": "Hoperoot",
+      "file": "/storage/maps/westweald/u42_hoperoot3_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Hoperoot"
+    },
+    {
+      "id": 2595,
+      "name": "Varen'sWatch",
+      "file": "/storage/maps/westweald/u42_varenswatch_int_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Varen's Watch"
+    },
+    {
+      "id": 2604,
+      "name": "Vashabar",
+      "file": "/storage/maps/temporarymaps/u42_vashabar_base.jpg",
+      "parent_map_id": 2427,
+      "nameEn": "Vashabar"
+    },
+    {
+      "id": 2605,
+      "name": "伊瑟利娅的监牢",
+      "file": "/storage/maps/westweald/u42_pe5_ithpri_copy_base.jpg",
+      "parent_map_id": 2539,
+      "nameEn": "Ithelia's Prison"
+    },
+    {
+      "id": 2606,
+      "name": "伊瑟利娅的监牢",
+      "file": "/storage/maps/westweald/u42_pc2_ithpri_copy_base.jpg",
+      "parent_map_id": 2539,
+      "nameEn": "Ithelia's Prison"
+    },
+    {
+      "id": 2619,
+      "name": "迈瑟斯宝库",
+      "file": "/storage/maps/westweald/ui_maps_u42_capper3_sanctum.jpg",
+      "parent_map_id": 2275,
+      "nameEn": "The Mythos Vaults"
     }
   ]
 }
