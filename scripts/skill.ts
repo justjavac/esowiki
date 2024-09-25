@@ -5,7 +5,7 @@ import type { Element } from "hast";
 import { select, selectAll } from "hast-util-select";
 import toZh, { initLang, isEnglish } from "./toZH.ts";
 import { apply, resove } from "./template.ts";
-import skills from "../gamedata/skillTree.json" assert { type: "json" };
+import skills from "../gamedata/skillTree.json" with { type: "json" };
 
 async function getRemote(abilityId: number) {
   const response = await fetch(

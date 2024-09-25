@@ -1,13 +1,13 @@
-import achievements from "../gamedata/category/achievements.json" assert { type: "json" };
-import books from "../gamedata/category/books.json" assert { type: "json" };
-import crafting from "../gamedata/category/crafting.json" assert { type: "json" };
-import factions from "../gamedata/category/factions.json" assert { type: "json" };
-// import items from "../gamedata/category/items.json" assert { type: "json" };
-import locations from "../gamedata/category/locations.json" assert { type: "json" };
-import quests from "../gamedata/category/quests.json" assert { type: "json" };
-import skills from "../gamedata/category/skills.json" assert { type: "json" };
-import npcs from "../gamedata/category/npcs.json" assert { type: "json" };
-import races from "../gamedata/category/races.json" assert { type: "json" };
+import achievements from "../gamedata/category/achievements.json" with { type: "json" };
+import books from "../gamedata/category/books.json" with { type: "json" };
+import crafting from "../gamedata/category/crafting.json" with { type: "json" };
+import factions from "../gamedata/category/factions.json" with { type: "json" };
+// import items from "../gamedata/category/items.json" with { type: "json" };
+import locations from "../gamedata/category/locations.json" with { type: "json" };
+import quests from "../gamedata/category/quests.json" with { type: "json" };
+import skills from "../gamedata/category/skills.json" with { type: "json" };
+import npcs from "../gamedata/category/npcs.json" with { type: "json" };
+import races from "../gamedata/category/races.json" with { type: "json" };
 
 const linkType: Record<string, string> = {};
 
