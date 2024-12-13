@@ -18,7 +18,7 @@
     "@astrojs/preact": "4.0.0",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "5.1.3",
-    "@headlessui/react": "^1.7.15",
+    "@headlessui/react": "^2.2.0",
     "@panzoom/panzoom": "^4.5.1",
     "@preact/signals": "^1.1.5",
     "@tailwindcss/forms": "^0.5.3",
@@ -26,7 +26,7 @@
     "lodash": "^4.17.21",
     "mdast-util-from-markdown": "^2.0.0",
     "mdast-util-to-string": "^4.0.0",
-    "mdast-util-wiki-link": "^0.0.2",
+    "mdast-util-wiki-link": "^0.1.2",
     "micromark": "^4.0.0",
     "micromark-extension-gfm": "^3.0.0",
     "micromark-extension-wiki-link": "^0.0.4",
@@ -41,6 +41,6 @@
   "devDependencies": {
     "@types/lodash": "^4.14.195",
     "please-use-yarn": "^1.2.2",
-    "rehype-external-links": "^2.1.0"
+    "rehype-external-links": "^3.0.0"
   }
 }
