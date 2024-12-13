@@ -4,10 +4,11 @@ import { CDN_URL } from "@/consts";
 import type { IconType } from "@/types";
 
 const active = signal<IconType>(
-  (localStorage.getItem("activeTab") as IconType) ?? "filters",
+  import.meta.env.SSR ? "filters" : (localStorage.getItem("activeTab") as IconType) ?? "filters",
 );
 
 effect(() => {
+  if (import.meta.env.SSR) return;
   localStorage.setItem("activeTab", active.value);
 });
 

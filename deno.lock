@@ -1,5 +1,5 @@
 {
-  "version": "3",
+  "version": "4",
   "remote": {
     "https://deno.land/std@0.162.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.162.0/encoding/csv.ts": "0715a643b2a8111c919fe7584bad78f776c28ca9301e64eace3cfe4f1a0c6045",
@@ -179,31 +179,33 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@astrojs/deno@^4.2.0",
-        "npm:@astrojs/node@^5.3.0",
-        "npm:@astrojs/preact@^2.2.1",
-        "npm:@astrojs/sitemap@^1.3.3",
-        "npm:@astrojs/tailwind@^4.0.0",
+        "npm:@astrojs/check@~0.9.4",
+        "npm:@astrojs/deno@5.0.1",
+        "npm:@astrojs/node@9.0.0",
+        "npm:@astrojs/preact@4.0.0",
+        "npm:@astrojs/sitemap@3.2.1",
+        "npm:@astrojs/tailwind@5.1.3",
         "npm:@headlessui/react@^1.7.15",
         "npm:@panzoom/panzoom@^4.5.1",
         "npm:@preact/compat@latest",
         "npm:@preact/signals@^1.1.5",
-        "npm:@tailwindcss/forms@^0.5.3",
+        "npm:@tailwindcss/forms@~0.5.3",
         "npm:@types/lodash@^4.14.195",
-        "npm:astro@^2.8.1",
+        "npm:astro@5.0.5",
         "npm:lodash@^4.17.21",
-        "npm:mdast-util-from-markdown@^2.0.0",
-        "npm:mdast-util-to-string@^4.0.0",
+        "npm:mdast-util-from-markdown@2",
+        "npm:mdast-util-to-string@4",
         "npm:mdast-util-wiki-link@^0.0.2",
-        "npm:micromark-extension-gfm@^3.0.0",
+        "npm:micromark-extension-gfm@3",
         "npm:micromark-extension-wiki-link@^0.0.4",
-        "npm:micromark@^4.0.0",
+        "npm:micromark@4",
         "npm:please-use-yarn@^1.2.2",
         "npm:preact-router@^4.1.1",
         "npm:preact@^10.16.0",
         "npm:recharts@^2.7.2",
         "npm:rehype-external-links@^2.1.0",
-        "npm:tailwindcss@^3.3.2"
+        "npm:tailwindcss@^3.3.2",
+        "npm:typescript@^5.7.2"
       ]
     }
   }

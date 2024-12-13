@@ -1,6 +1,6 @@
 import { route, useRouter } from "preact-router";
 import { useCallback, useEffect, useRef } from "preact/hooks";
-import Panzoom, { CurrentValues } from "@panzoom/panzoom";
+import Panzoom, { type CurrentValues } from "@panzoom/panzoom";
 import { MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { mapData, panzoom, togglePoiTypeOn } from "@/store";
 import type { PoiData } from "@/types";

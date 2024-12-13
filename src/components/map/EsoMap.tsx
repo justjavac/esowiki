@@ -1,5 +1,4 @@
 import Router from "preact-router";
-import { useMemo } from "preact/hooks";
 import { CDN_URL } from "@/consts";
 import type { MapData, PoiType } from "@/types";
 import { Map } from "@/components";

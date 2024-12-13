@@ -6,9 +6,9 @@ import type { MapData, PoiType } from "@/types";
 import dataInit from "@/data/initialize.json";
 import { CDN_URL, SITE_TITLE, MAP_SIZE, MARKER_SIZE } from "@/consts";
 
-export async function getStaticPaths({}) {
-  return dataInit.maps.map(({ id }: { id: number }) => ({ params: { id } }));
-}
+// export async function getStaticPaths({}) {
+//  return dataInit.maps.map(({ id }: { id: number }) => ({ params: { id } }));
+// }
 
 const { id } = Astro.params;
 
