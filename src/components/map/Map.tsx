@@ -11,6 +11,8 @@ export function Map(props: RoutableProps) {
   if (mapData.value == null) return null;
   const poi = mapData.value.pois.find((poi) => poi.id === matches?.poi);
 
+  console.log("mapData", mapData.value);
+
   return (
     <div class="relative w-[80vh] h-[80vh] mx-auto border-slate-600 touch-none">
       <h1 class="absolute z-10 p-2 font-medium pointer-events-none">

@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import Pagination from "@/components/Pagination.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, ESO_API_URL, CDN_URL } from "@/consts";
+import "@/styles/global.css";
 
 let page = Astro.url.searchParams.get("page") || 1;
 const type = Astro.url.searchParams.get("type") || "";

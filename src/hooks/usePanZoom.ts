@@ -1,9 +1,12 @@
 import { route, useRouter } from "preact-router";
 import { useCallback, useEffect, useRef } from "preact/hooks";
-import Panzoom, { type CurrentValues } from "@panzoom/panzoom";
+import { type CurrentValues } from "@panzoom/panzoom";
 import { MAP_SIZE, MARKER_SIZE } from "@/consts";
 import { mapData, panzoom, togglePoiTypeOn } from "@/store";
 import type { PoiData } from "@/types";
+
+import * as pan from "@panzoom/panzoom";
+const Panzoom = pan.default;
 
 export function usePanZoom() {
   const mapRef = useRef<SVGSVGElement>(null);

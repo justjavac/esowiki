@@ -5,6 +5,7 @@ import ScrollToTop from "@/components/ScrollToTop.astro";
 import Footer from "@/components/Footer.astro";
 import { formatDate, toSafeInteger } from "@/utils";
 import { SITE_TITLE, SITE_DESCRIPTION, CDN_URL, ESO_API_URL } from "@/consts";
+import "@/styles/global.css";
 
 const q = Astro.url.searchParams.get("q") || "";
 const klass = Astro.url.searchParams.get("class") || "";

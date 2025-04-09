@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
-import deno from "@astrojs/deno";
 import sitemap from "@astrojs/sitemap";
 import rehypeExternalLinks from "rehype-external-links";
 // import rehypeUnreachableLink from "@/utils/rehypeUnreachableLink";
