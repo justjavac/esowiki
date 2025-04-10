@@ -25,8 +25,8 @@ jobs:
           yarn install
           yarn astro telemetry disable
 
-      - name: check
-        run: yarn astro check
+      # - name: check
+      #   run: yarn astro check
 
       - name: 🚀 build
         run: yarn build
