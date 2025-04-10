@@ -79,7 +79,7 @@ const title = `${mapData.name} - 上古卷轴OL地图 - ${SITE_TITLE}`;
   <body>
     <HeaderNav />
     <AreaList client:load data={areaList} />
-    <EsoMap client:load mapData={mapData} poiTypes={poiTypes} />
+    <EsoMap client:only="preact" mapData={mapData} poiTypes={poiTypes} />
     <Sidebar client:only="preact" />
   </body>
 </html>
